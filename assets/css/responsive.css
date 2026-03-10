@@ -1,0 +1,13 @@
+@media (max-width: 720px) {
+  .site-header {
+    padding-top: 0.7rem;
+  }
+
+  .container section {
+    border-radius: 16px;
+  }
+
+  .monster-detail-head {
+    grid-template-columns: 1fr;
+  }
+}

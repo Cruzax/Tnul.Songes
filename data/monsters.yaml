@@ -1,0 +1,3495 @@
+﻿- Id: 173
+  Name: Abraknyde Ancestral
+  Image: 173_Abraknyde Ancestral.png
+  Difficulty: 4
+  ImmediateFocus: 8
+  Evasion: 7
+  Tanking: 3
+  Information: |
+    - Applique un poison PA très fort à 12 PO en ligne, tape qu'une fois au contact
+    - Aux tours 3, 8, 13 etc: invoque une Arakne Majeure qui peut ret PA, pousser et débuff un perso intégralement
+  Advice: |
+    - La Prysmenvout peut enlèver le poison au tour 1
+    - Le poison a une PO minimale. Entourer le boss le rend presque useless
+    - Éviter la ligne avec le boss est suffisant sinon
+    - Avec de la chance, son Arakne débuff le poison PA
+  InformationShort: |
+    - Applique un poison PA très fort en ligne
+  AdviceShort: |
+    - Évitez la ligne avec le boss
+    - Le poison a une PO minimale. Entourer le boss le rend presque useless
+
+- Id: 4882
+  Name: Anerice la Shushess
+  Image: 4882_Anerice la Shushess.png
+  Difficulty: 6
+  ImmediateFocus: 0
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape en zone jusqu'à 8 PO, tape à 3 PO en transformant en Goule
+    - Goule: augmente de 50% vos dommages subi et s'enlève via un dégât d'un allié
+    - Délock: Chaque goule vivant va doubler les dégâts qu'elle subit, max. 4
+    - Dégâts qu'elle subit avec 0 / 1 / 2 / 3 / 4 goules: 10% / 20% / 40% / 80% / 160%
+    - Aux tours 2, 5, 8 etc: boost les mobs ET les alliés goulifiés de 2 PM et 50% dégâts finaux (1 tour)
+    - Peut se téléporter au contact du Goule le plus proche (relance 2)
+    - Taper Anerice attire les autres mobs vers l'attaquant de 1 case (1x par tour)
+  Advice: |
+    - La garder loin au début et finir en 4v1 facilite drastiquement le combat
+    - Taper sous érosion permet de la descendre sans devoir la tanker du tout
+    - Dans des rares cas, se laisser goulifier tour 1 est rentable pour un énorme burst tour 2
+  InformationShort: |
+    - À 3 PO: Vous transforme en goule, augmentant de 50% vos dommages subit
+    - Délock: Chaque goule vivant va doubler les dégâts qu'elle subit, max. 4
+  AdviceShort: |
+    - Gardez-la loin au début et finissez en 4v1
+
+- Id: 7219
+  Name: Barberyl Clochecuivre
+  Image: 7219_Barberyl Clochecuivre.png
+  Difficulty: 6
+  ImmediateFocus: 9
+  Evasion: 10
+  Tanking: 0
+  Information: |
+    - Tape et vole PM à 8 PO, s'attire à 5 PO en ligne. Tour 2: bondit à 3-6 PO (relance 2)
+    - Quand elle tape: se boost 1 état, max 2 par tour. Oneshot au contact à partir de 3 états
+    - Chaque tour, le premier dégât subi par un allié applique l'état Clochecuivre
+    - Au début de son tour, elle coop le perso Clochecuivre et lui met -100 PM
+    - Taper Barberyl en mêlée enlève l'état Clochecuivre
+    - Une poussée augmente ses résistances de 20% pour 2 tours
+  Advice: |
+    - Elle est inoffensive sans avoir tapé pour 2 tours. C'est une bonne occasion de la tuer tôt
+    - L'état Pesanteur est la clé pour l'esquiver très facilement (son bond et sa coop)
+  InformationShort: |
+    - Se boost des états en tapant, max 2 par tour
+    - À 3 états, peut vous oneshot au contact
+    - Quand poussée: gagne 20% résistance (2 tours)
+  AdviceShort: |
+    - Soit tuez la très rapidement avant qu'elle puisse oneshot, soit gardez la à distance en la mettant Pesanteur en permanence
+
+- Id: 800
+  Name: Batofu
+  Image: 800_Batofu.png
+  Difficulty: 4
+  ImmediateFocus: 8
+  Evasion: 0
+  Tanking: 10
+  Information: |
+    - Tape à 2 PO une fois par cible
+    - Invoque un Tofu Noir qui peut appliquer 20% érosion sur plusieurs cibles, et un Tofu Fugace négligeable qui meurt après 2 tours
+    - Peut Libération pour 5 PA (lancé rarement)
+  Advice: |
+    - Invoque en ligne avec ligne de vue. L'entourer dans un coin évite les invocations
+  InformationShort: |
+    - Invoque un Tofu qui vous érode 20%
+
+- Id: 7210
+  Name: Belladone
+  Image: 7210_Belladone.png
+  Difficulty: 10
+  ImmediateFocus: 9
+  Evasion: 0
+  Tanking: 10
+  Information: |
+    - Se téléporte au contact du perso le plus loin, applique 30% érosion et tape fort
+    - Coop à 6 PO en mettant -100 PM et un glyphe qui oneshot en fin de tour
+    - Tape à 12 PO en retirant 4 PA, tape à 7 PO en étoile de 3 en mettant Insoignable sur la case centrale
+  Advice: |
+    - Elle défonce tout le monde. Le soutien en zone est conseillé (boucliers, réduction, soin)
+    - Ses effets hors -100 PM sont débuffables. Mot de Jouvence en zone est efficace
+    - Forcer sa téléportation sur un personnage tacle peut sauver le reste de l'équipe
+  InformationShort: |
+    - Elle se téléporte sur vous et défonce tout le monde
+    - Peut retirer 4 PA à tout le monde et -100 PM un perso
+    - Son glyphe oneshot fin de tour
+  AdviceShort: |
+    - Protégez vous en zone
+    - Vous pouvez débuff ses effets hors -100 PM
+
+- Id: 2877
+  Name: Ben le Ripate
+  Image: 2877_Ben le Ripate.png
+  Difficulty: 4
+  ImmediateFocus: 2
+  Evasion: 3
+  Tanking: 7
+  Information: |
+    - Tape en ligne de 5 PO
+    - En étant délock: à la place, tape en croix de 4 PO autour en fonction de ses PV manquants et attire
+    - Invoque un Hamrack Indéplaçable et un monstre random de sa zone à 10 PO (max. 1)
+    - Délock: L'Hamrack délock pour 5 tours en ciblant le boss au contact, tape en zone bâton et se tue
+    - L'Hamrack gagne 3 PM (1 tour) par tentative de retrait PM subi
+  Advice: |
+    - Il tape 0 en étant délock et full vie. Vu le délock de 5 tours, le focus peut attendre
+    - Son invocation random ayant seulement 3 de relance, le kill est peu rentable
+  InformationShort: |
+    - Invoque 1 mob random de sa zone et un Hamrack
+    - Délock: L'Hamrack délock pour 5 tours en ciblant le boss au contact
+  AdviceShort: |
+    - Il tape 0 en étant délock et full vie. Vu le délock de 5 tours, le focus peut attendre
+
+- Id: 5110
+  Name: Bethel Akarna
+  Image: 5110_Bethel Akarna.png
+  Difficulty: 8
+  ImmediateFocus: 0
+  Evasion: 0
+  Tanking: 10
+  Information: |
+    - Tape fort à 12 PO
+    - Son Dagon s'attire à 8 PO en ligne, tape fort au contact et retire jusqu'à 6 PA
+    - Le boss reinvoque deux alliés par tour. Lancer Necronyx avant les kills fera qu'ils ne vont plus rejouer!
+    - Son Monolithe est Indéplaçable, Invu à distance et gagne un bouclier chaque tour
+    - Délock: Tuer le Monolithe invoque le Dagon dans votre camp. Sa mort tue votre team. Seulement le Dagon peut taper le boss
+    - Le boss vous pousse de 20 cases en cercle de 6 début de tour, sauf s'il est Necronyx. Bethel enlève Necronyx 3 tours après l'avoir réçu
+    - Bethel doit mourrir avec l'état Necronyx, autrement vous allez perdre le combat!
+  Mechanic: |
+    - À partir du tour 2: Finir son tour avec un perso en ayant aucun ennemi (hors invocation) à 6 PO autour de soi-même boost les ennemis de 2 PM et 1 PO (1 tour)
+  Advice: |
+    - Les résistances air sont très utiles
+    - Le Dagon devient Inébranlable quand poussé. Très conseillé pour l'esquiver
+    - Pour plus rapidement tuer le Monolithe, vous pouvez éroder ou débuff de 2 tours le bouclier
+    - L'état Pesanteur sur le Bethel accélère la dernière phase. Sinon il peut se barrer avec un bond à 3 PO (relance 2)
+    - Gardez Bethel pour tout dernier, uniquement le Bethel pourra alors taper votre Dagon
+  InformationShort: |
+    - Lancez Necronyx avant de tuer les mobs!
+    - Délock: Tuer le Monolithe invoque le Dagon dans votre camp. Sa mort tue votre team. Seulement le Dagon peut taper le boss
+    - Le boss vous pousse de 20 cases en cercle de 6 début de tour, sauf s'il est Necronyx. Bethel enlève Necronyx 3 tours après l'avoir réçu
+    - Bethel doit mourrir avec l'état Necronyx, autrement vous allez perdre le combat!
+  MechanicShort: |
+    - À partir du tour 2: Finir son tour avec un perso en ayant aucun ennemi (hors invocation) à 6 PO autour de soi-même boost les ennemis de 2 PM et 1 PO (1 tour)
+  AdviceShort: |
+    - Les résistances air sont très utiles
+    - Vous pouvez repousser son Dagon pour le rendre Inébranlable
+
+- Id: 1188
+  Name: Blop Multicolore Royal
+  Image: 1188_Blop Multicolore Royal.png
+  Difficulty: 5
+  ImmediateFocus: 8
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Tape fort à 4 PO en volant 2 PM
+    - Peut mettre toute la team Insoignable (1 tour, relance 3)
+    - Peut boost tous ses alliés de 2 PM et des dommages fixes (2 tours, relance 3)
+    - Ses dégâts et ses effets sont doublés en crit (5% CC)
+  Advice: |
+    - Ses effets (hors vol PM) sont débuffables
+    - Le retrait de 3 PO fera qu'il ne tape qu'à 1 PO
+  InformationShort: |
+    - Peut mettre toute votre team Insoignable et booster les mobs 2 PM
+  AdviceShort: |
+    - Ses effets (hors vol PM) sont débuffables
+
+- Id: 1184
+  Name: Blops Royaux
+  Image: 1184_Blop Coco Royal.png
+  Difficulty: 4
+  ImmediateFocus: 3
+  Evasion: 3
+  Tanking: 7
+  Information: |
+    - Tapent à 4 PO en volant 1 PM
+    - Invoquent un Blop aléatoire à 2 PO (1 max)
+    - Peuvent booster 100% rés de leur élément à un allié à 4 PO (3 tours, relance 3)
+  Advice: |
+    - Le retrait de 3 PO fera qu'ils ne tapent qu'à 1 PO
+  InformationShort: |
+    - Invoquent un Blop aléatoire et boost un mob 100% rés dans leur élément
+
+- Id: 2975
+  Name: Boostache
+  Image: 2975_Boostache.png
+  Difficulty: 6
+  ImmediateFocus: 10
+  Evasion: 6
+  Tanking: 4
+  Information: |
+    - Tape au contact en mettant 30% érosion (2 tours)
+    - Est Enraciné et Lourd, donc insensible au Tacle et impossible de déplacer
+    - Invoque un Ashi-Magari à 3 PO qui met -100 PM et Pesanteur au contact (relance 3)
+    - Reinvoque un allié mort chaque tour avec 100% de ses PV
+  Advice: |
+    - L'érosion et le -100 PM de son invocation sont débuffables. Vous pouvez également tuez l'invocation pour se débarasser du malus, ses PV étant faibles
+    - L'élément air est déconseillé vu ses énormes rés air. Vous voulez le focus en premier
+  InformationShort: |
+    - Tape au contact
+    - Ses invoc mettent -100 PM et Pesanteur au contact
+    - Reinvoque un allié mort chaque tour avec 100% de ses PV
+  AdviceShort: |
+    - L'érosion et le -100 PM de son invocation sont débuffables
+
+- Id: 147
+  Name: Bouftou Royal
+  Image: 147_Bouftou Royal.png
+  Difficulty: 4
+  ImmediateFocus: 7
+  Evasion: 3
+  Tanking: 7
+  Information: |
+    - Tape au contact 1 fois par cible
+    - Peut soigner ses alliés fort à 6 PO et réduire de 30% les dégâts sur un allié à 7 PO
+  Advice: |
+    - Un focus en premier évite ses sorts de soutien
+    - Sinon sa réduction se débuff et l'état Insoignable peut aider
+  InformationShort: |
+    - Tape au contact, peut soigner et protéger ses alliés
+  AdviceShort: |
+    - Un focus en premier évite ses sorts de soutien
+
+- Id: 478
+  Name: Bworker
+  Image: 478_Bworker.png
+  Difficulty: 6
+  ImmediateFocus: 8
+  Evasion: 10
+  Tanking: 0
+  Information: |
+    - Au contact: Peut taper 30% de ses PV actuels (Sort 1) OU manquants (Sort 2). C'est souvent un oneshot, les deux sorts ont 2 de relance
+    - Repousse de 2 au contact en tapant faiblement
+    - Gagne 3 PM au tour suivant s'il n'a pas fini au contact d'un ennemi
+  Advice: |
+    - Avec 100% PV, il peut oneshot qu'un tour sur deux. Ses relances sont donc rentables à surveiller: S'il a gaspillé son sort sur une invocation, il est useless au prochain tour
+    - Ses sorts sont qu'au contact. Un appât loin comme une Balise peut facilement le garder à distance
+  InformationShort: |
+    - Il oneshot au contact
+    - Gagne 3 PM au tour suivant s'il n'a pas fini au contact d'un ennemi
+  AdviceShort: |
+    - Ses sorts sont qu'au contact. Un appât loin comme une Balise peut facilement le garder à distance
+
+- Id: 792
+  Name: Bworkette
+  Image: 792_Bworkette.png
+  Difficulty: 4
+  ImmediateFocus: 3
+  Evasion: 5
+  Tanking: 5
+  Information: |
+    - Tape à 6 PO en croix de 3, tout en soignant les alliés dans la zone (2x par tour), tape au contact (relance 2)
+    - Soigne 50% PV d'un allié à 0-7 PO en ligne (relance 6)
+  Advice: |
+    - L'état Insoignable sur le focus peut aider, sinon surveillez ses lignes
+  InformationShort: |
+    - Tape jusqu'à 9 PO en zone
+    - Peut soigner 50% PV d'un allié en ligne (relance 6)
+  AdviceShort: |
+    - L'état Insoignable sur le focus peut aider, sinon surveillez ses lignes
+
+- Id: 3753
+  Name: Capitaine Ekarlatte
+  Image: 3753_Capitaine Ekarlatte.png
+  Difficulty: 4
+  ImmediateFocus: 5
+  Evasion: 0
+  Tanking: 10
+  Information: |
+    - À 6 PO sans ligne de vue: coop, retire 4 PM et met Pesanteur (2x par tour)
+    - À 5 PO en ligne sans ligne de vue: retire 6 PA et téléporte un allié sur sa case de début de combat (1x par tour)
+    - Peut bondir à 10 PO (2x par tour)
+    - Attire à 11 PO autour de lui de 1-3 cases, selon la distance
+    - Taper le boss soigne l'attaquant de 100% des dégâts et téléporte l'Ekarlatte à sa position précédente. Si ça crée un échange de place, soigne le boss de 15% PV
+    - Ce boss ne tape pas!
+  Advice: |
+    - Ses effets ne durent que 1 tour et sont débuffables, notamment son malus 6 PA
+    - L'état Pesanteur ou Stabi permettent de le focus confortablement, en empêchant son retour à sa position précédente
+    - Les stratégies basées sur le placement (pièges, bombes etc) sont à éviter
+    - Vos cases de départ du combat gagnent en importance
+  InformationShort: |
+    - Il vous retire PA, PM et vous déplace
+    - Quand tapé, il retourne à sa position précédente
+    - Ce boss ne tape pas!
+  AdviceShort: |
+    - Ses effets ne durent que 1 tour et sont débuffables, notamment son malus 6 PA
+    - L'état Pesanteur ou Stabi permettent de le focus confortablement, en empêchant son retour à sa position précédente
+
+- Id: 4460
+  Name: Capitaine Meno
+  Image: 4460_Capitaine Meno.png
+  Difficulty: 9
+  ImmediateFocus: 0
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Tape à 10 PO en posant une rune, et à 4 PO sans ligne de vue
+    - Au début du tour du Meno: les alliés sur une rune gagnent un bouclier mais infligent des gros dommages sur ses potes qui sont en ligne de 5 autour
+  Mechanic: |
+    - Tous les mobs doublent leur PV et ne subissent que 50% des dégâts. En somme, il faut taper 4 fois plus!
+    - Aux tours 2, 3, 4 etc, vous gagnez 20% dommages finaux qui se cumulent à l'infini
+  Advice: |
+    - Rassurez vous de pouvoir temporiser la salle en permanence, ou bien le combat sera très difficile
+    - Les runes peuvent être très utiles en évitant les lignes avec les alliés
+    - Le boss ou d'autres mobs peuvent être bloqués derrière des invocations tanky qui profitent des runes
+    - Les poisons et les dommages de poussée bypass la réduction de 50% de la mécanique
+  InformationShort: |
+    - Sur une rune qu'il pose, vous allez gagner un bouclier mais taper à 5 PO en ligne sur vos alliés
+  MechanicShort: |
+    - Tous les mobs doublent leur PV et ne subissent que 50% des dégâts. En somme, il faut taper 4 fois plus!
+    - Aux tours 2, 3, 4 etc, vous gagnez 20% dommages finaux qui se cumulent à l'infini
+  AdviceShort: |
+    - Rassurez vous de pouvoir temporiser la salle en permanence, ou bien le combat sera très difficile
+
+- Id: 3238
+  Name: Chafer Rōnin
+  Image: 3238_Chafer Ronin.png
+  Difficulty: 2
+  ImmediateFocus: 2
+  Evasion: 6
+  Tanking: 4
+  Information: |
+    - Tape au contact, et faiblement à 6 PO en retirant 1 PM
+    - En fin de tour, se cache parmi des illusions
+  Advice: |
+    - L'état Pesanteur empêche les illusions
+    - Les sorts avec "Cible nécessaire" ne peuvent pas désamorcer une illusion
+    - S'il est trop loin de votre team, il passe son tour en boucle à l'autre bout de la map en utilisant l'illusion avant de s'avancer
+
+- Id: 4263
+  Name: Chaloeil
+  Image: 4263_Chaloeil.png
+  Difficulty: 6
+  ImmediateFocus: 5
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Coop à 6 PO (alliés ou ennemis) en tapant fort et en mettant Pesanteur les alliés (3x par tour, 1x par cible). Tape fort et repousse à 2 PO en ligne en retirant 4 PM
+    - Aux tours 3, 6, 9 etc: Boost chaque mob aléatoirement parmi Esquive PM, PO, Indéplaçable, PM, Soin et Puissance (1 tour)
+  Advice: |
+    - Aucun effet est débuffable
+    - L'état Pesanteur ne sert que sur ses cibles de coop, pas sur lui-même
+    - Sa mobilité dépend du placement de ses alliés. L'isoler des autres mobs le rend inoffensif
+  InformationShort: |
+    - Il coop à 6 PO (alliés ou ennemis) et vous pousse à 2 PO en retirant 4 PM. Ses sorts font mal
+  AdviceShort: |
+    - Sa mobilité dépend du placement de ses alliés. L'isoler des autres mobs le rend inoffensif
+
+- Id: 257
+  Name: Chêne Mou
+  Image: 257_Chene Mou.png
+  Difficulty: 6
+  ImmediateFocus: 6
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Tape à 12 PO sans ligne de vue en retirant 1-2 PA ou 3-4 en Crit. Tape en croix de 12 autour de lui en attirant, et tape très fort en cercle de 2 tout en repoussant de 4 cases
+    - Boost tous les mobs aléatoirement parmi Puissance, 63 PO et 50% Crit (3 tours, relance 4)
+  Advice: |
+    - Cumuler du retrait PO tout en évitant la ligne le rend useless (sauf si vous avez la malchance du boost 63 PO!)
+    - Sans retrait PO, les résistances terre sont utiles
+  InformationShort: |
+    - Tape à 12 PO sans ligne de vue et fait très mal en ligne
+    - A 33% chance de se boost 63 PO
+  AdviceShort: |
+    - Cumuler du retrait PO tout en évitant la ligne le rend useless de loin (sauf si vous avez la malchance du boost 63 PO!)
+
+- Id: 4860
+  Name: Choudini
+  Image: 4860_Choudini.png
+  Difficulty: 6
+  ImmediateFocus: 8
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape à 12 PO en retirant 2 PM. Sa cible échangera de place avec l'allié le plus proche
+    - Tape à 12 PO sans ligne de vue en repoussant de 3 autour d'une case libre
+    - Applique un poison PM à 12 PO (2 tours, 2x par tour)
+  Advice: |
+    - Le retrait PO est utile, mais rarement suffisant pour l'esquiver. Il évite tout de même qu'il se barre trop loin
+    - Les poisons PM durent 2 tours, le débuff est donc peu efficace mais possible
+  InformationShort: |
+    - Il tape à 12 PO et met des poisons PM
+  AdviceShort: |
+    - Le retrait PO est utile, mais rarement suffisant pour l'esquiver. Il évite tout de même qu'il se barre trop loin
+
+- Id: 7222
+  Name: Cire Momore
+  Image: 7222_Cire Momore.png
+  Difficulty: 8
+  ImmediateFocus: 0
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Tape à 12 PO sans ligne de vue en appliquant un poison (2 tours), tape à 10 PO en attirant de 3, en débuffant de 2 et en retirant 2 PM, tape à 2 PO
+    - Métal Hurlant: Lancé à partir de son seuil à 80%, dure 3 tours (relance 4): soigne, donne 10% bouclier, donne 8% rés et 15% rés distance. Attire de 5 les alliés en ligne de vue au lancement. Seulement le bouclier se débuff
+    - Ses sorts sont améliorés sous Métal Hurlant:
+    - 1) Le sort de poison passe ses dommages directs en zone de 2 et applique également -5 PO, Pesanteur et -50% soins reçus
+    - 2) Le sort d'attirance double ses dégâts et passe le ret PM à -8
+    - 3) Le sort à 2 PO passe à 5 PO
+    - Délock: Pour le taper, il faut se retrouver à 2 PO de lui avec le perso qui joue
+    - Au début de son tour, il oneshot à 2 PO!
+    - Vous êtes Pesanteur et Indéplaçable à 2 PO de lui
+    - Le taper au contact retire son tacle et augmente votre fuite (cumul max 6)
+    - À chaque tour d'un perso, la première attaque à 3 PO ou plus de lui attire de 2 vers lui
+  Advice: |
+    - Les dégâts et la vitalité de ce boss ne scale pas en songe, mais son score est absolument démentiel. Généralement, vous l'aurez donc tout seul ou mal entouré et la salle sera gratuite!
+    - Restez hors ligne de vue pour subir uniquement son sort sans ligne de vue. Les résistances feu sont très utiles
+    - Prévoyez des sorts de mobilité insensibles à la Pesanteur (rush sur lui, bonus PM etc) pour le taper, puis revenir se planquer. Mais il est probable que vos bonus ou passifs des songes rendent cela déjà gratuit
+  InformationShort: |
+    - Tape à 12 PO sans ligne de vue et a des sorts contraignants à 10 PO et 5 PO
+    - Délock: Pour le taper, il faut se retrouver à 2 PO de lui avec le perso qui joue
+    - Au début de son tour, il oneshot à 2 PO!
+    - Vous êtes Pesanteur et Indéplaçable à 2 PO de lui
+  AdviceShort: |
+    - Les dégâts et la vitalité de ce boss ne scale pas en songe, mais son score est absolument démentiel. Généralement, vous l'aurez donc tout seul ou mal entouré et la salle sera gratuite!
+    - Restez hors ligne de vue pour subir uniquement son sort sans ligne de vue. Les résistances feu sont très utiles
+
+- Id: 252
+  Name: Coffre des Forgerons
+  Image: 252_Coffre des Forgerons.png
+  Difficulty: 4
+  ImmediateFocus: 1
+  Evasion: 10
+  Tanking: 0
+  Information: |
+    - Tape et vole 4 PA au contact, ou 8 en Crit
+    - Tape 50% de ses PV manquants en cercle inversé de 4 en boostant les dommages fixes de ses alliés
+  Advice: |
+    - L'entamer sans le tuer lui permettra de oneshot toute votre team!
+    - Solution 1: Le oneturn avant qu'il puisse rejouer
+    - Solution 2: L'entourer avec toute votre team. Ses dégâts ne touchent pas les 3 cases autour de lui
+  InformationShort: |
+    - Tape et vole 4 PA au contact
+    - Tape 50% de ses PV manquants en cercle inversé de 4
+  AdviceShort: |
+    - L'entamer sans le tuer lui permettra de oneshot toute votre team!
+    - Solution 1: Le oneturn avant qu'il puisse rejouer
+    - Solution 2: L'entourer avec toute votre team. Ses dégâts ne touchent pas les 3 cases autour de lui
+
+- Id: 3416
+  Name: Comte Harebourg
+  Image: 3416_Comte Harebourg.png
+  Difficulty: 8
+  ImmediateFocus: 1
+  Evasion: 3
+  Tanking: 7
+  Information: |
+    - Tape à 14 PO en ligne sans ligne de vue (plus fort low life). Si pas délock: Tape à 4 PO sans ligne de vue. Si délock: se cache parmi 4 illusions en tapant feu en zone
+    - Àu début de tour, il pose un glyphe en croix de 3 qui vous oneshot si vous commencez dedans
+    - Tour impair: Taper le Comte téléporte l'attaquant symétriquement par rapport au Comte
+    - Tour pair: Taper le Comte téléporte le Comte symétriquement par rapport à l'attaquant
+    - Si la destination pour ses téléportations est un obstacle ou dehors, oneshot votre team!
+    - Délock: Au tour pair, sa tp doit créer un échange avec une entité. Si l'échange était avec une invoc: oneshot à 3 cases autour de l'invoc. Les entités échangées gagnent des do fixes (cumul max 2). Le délock dure 1 tour
+  Mechanic: |
+    - Inflige des Confusions: Vos sorts seront redirigés de 90°, 180° ou 270° selon des paliers de votre % de vitalité
+    - Taper un monstre en mêlée tourne votre confusion actuelle de 90° dans le sens horaire
+  Advice: |
+    - Ce boss sera extrêment difficile sans habitude avec sa mécanique. Un entraînement en donjon est fortement conseillé!
+    - Utilisez <a href="https://comteharebourg.com" target="_blank" rel="noopener noreferrer">Ce site</a> pour tricher ou vous entraîner
+    - Les invoc sont un moyen très simple pour délock, mais il faut le faire à 4 PO ou plus
+    - L'état Pesanteur permet de le taper confortablement après avoir délock
+    - Étant délock, il peut vous tp sur votre case de début de tour. Faites attention qu'elle ne sera pas sur son glyphe!
+  InformationShort: |
+    - Son glyphe oneshot début de tour
+    - Tour impair: Taper le Comte téléporte l'attaquant symétriquement par rapport au Comte
+    - Tour pair: Taper le Comte téléporte le Comte symétriquement par rapport à l'attaquant
+    - Si la destination pour ses téléportations est un obstacle ou dehors, oneshot votre team!
+    - Délock: Au tour pair, sa tp doit créer un échange avec une entité. Si l'échange était avec une invoc: oneshot à 3 cases autour de l'invoc. Le délock dure 1 tour
+  MechanicShort: |
+    - Inflige des Confusions: Vos sorts seront redirigés de 90°, 180° ou 270° selon des paliers de votre % de vitalité
+  AdviceShort: |
+    - Ce boss sera extrêment difficile sans habitude avec sa mécanique. Un entraînement en donjon est fortement conseillé!
+    - Utilisez <a href="https://comteharebourg.com" target="_blank" rel="noopener noreferrer">Ce site</a> pour tricher ou vous entraîner
+
+- Id: 4803
+  Name: Comte Razof
+  Image: 4803_Comte Razof.png
+  Difficulty: 7
+  ImmediateFocus: 0
+  Evasion: 6
+  Tanking: 4
+  Information: |
+    - Tape à 15 PO en retirant 6 PM et en mettant Affaibli et Pesanteur (2x par tour). Tape en zone jusqu'à 8 PO
+    - Oneshot vos invocations au contact pour se boost 1 PM et Puissance (2 tours)
+    - Le perso le plus proche invoque une Minikrone au début du combat qui vous retire 2 PA et 20% rés (infini) si tué par le Razof
+    - La Minikrone vous inflige -2 PM et 50% érosion si elle termine sur sa case de début de tour, et -600 Puissance en étant au contact d'un mob à son début de tour (1 tour)
+    - Délock: À la fin de son tour, il perd 20% résistances (1 tour) pour chacune de vos invocations dans la timeline
+  Advice: |
+    - Son retrait PM est débuffable, mais pas les états
+    - Complètement couper ses lignes de vues est la gestion idéale, sa PO étant immense
+    - Un personnage tank / tacle qui coupe sa ligne de vue est très efficace, y compris pour protéger des invocations qui le délock
+    - La Minikrone a une IA support qui suit son invocateur. Ne finissez pas directement à son contact, sinon elle risque de simplement pas bouger et vous mettre ses malus
+  InformationShort: |
+    - Tape à 15 PO en retirant 6 PM, tape en zone jusqu'à 8 PO, et oneshot au contact les invoc
+    - Vous invoquez une Minikrone qui retire 2 PA et 20% rés (infini) si tué par le Razof
+    - Délock: À la fin de son tour, il perd 20% résistances (1 tour) pour chacune de vos invocations dans la timeline
+  AdviceShort: |
+    - Taclez le boss ou coupez ses lignes de vue pour pas se faire ret PM
+
+- Id: 1027
+  Name: Corailleur Magistral
+  Image: 1027_Corailleur Magistral.png
+  Difficulty: 2
+  ImmediateFocus: 1
+  Evasion: 10
+  Tanking: 0
+  Information: |
+    - Tape très faiblement à 5 PO
+    - Lance un sort qui sacrifie 3 PM pour lui booster des PA (4 tours, relance 5), permettant de oneshot au contact
+  Advice: |
+    - C'est un poutch sans mobilité, il suffira de pas se placer trop près
+    - Au besoin, entièrement débuff ses 4 tours de PA le rendra inutile jusqu'à sa prochaine relance
+  InformationShort: |
+    - Oneshot au contact
+  AdviceShort: |
+    - C'est un poutch sans mobilité, il suffira de pas se placer trop près
+
+- Id: 6026
+  Name: Corruption
+  Image: 6026_Corruption.png
+  Difficulty: 8
+  ImmediateFocus: 5
+  Evasion: 5
+  Tanking: 5
+  Information: |
+    - Sans délock: Tape à 10 PO en poussant de 2, à 14 PO (relance 2) et à 2 PO en débuffant d'un tour
+    - Avec délock: Perd la poussée et l'autre sort à 14 PO. Débloque une coop à 14 PO sans ligne de vue, un sort de zone jusqu'à 5 PO et un sort à 10 PO
+    - Met une "bombe" sur un mob qui applique un bouclier. À la fin du tour de la cible, la bombe explose à 3 PO
+    - La bombe, ainsi que le glyphe de Corruption, appliquent une maladie aléatoire
+  Mechanic: |
+    - Peau Pourrissante: Mécanique initiale. Vous immunise contre les autres maladies mais retire 90% de vos dommages finaux
+    - Corruption: Mécanique qui vous inflige des maladies en subissant du retrait PA / PM / PO ou en détaclant. Il existe 9 maladies au total
+    - Chaque maladie vous rend violet, applique un faible poison, 10% érosion et une vulnérabilité. Vous pouvez cumuler 4 max (40% érosion, 200% dommages subi)
+    - Un seul soin (ou vol de vie!) retire la Peau Pourrissante. 3 soins retirent les autres maladies
+    - Les soins fonctionnent même en étant full life, le vol de vie doit réellement régénérer des PV!
+    - Taper un monstre vous inflige un énorme poison cumulable. Avant de taper un mob, il faudra soigner un allié au contact dudit mob pour délock le poison
+  Advice: |
+    - Stratégie 1: Délock les monstres 1 par 1 (délock infini) et laisser Corruption en dernier
+    - Stratégie 2: Délock Corruption en premier ce qui va délock toute la map (et lui-même) pour 3 tours. Pratique surtout contre 8 mobs
+    - L'état Pesanteur empêche la coop lors du délock du boss. L'état est très fortement conseillé pour la stratégie 2
+    - Si Corruption est vivant 3 tours après son délock, toute la map va récupérer le poison, mêmes les invocations ennemis. Il faudra refaire le délock
+    - Les soins déclenchés (Soif de Moskito, Proie etc) sont extrêment utiles, tout comme les vols de vie multi-ligne
+    - Un Panda peut 1v1 Corruption en spammant Souffle Alcoolisé sur un Bambou. C'est le Bambou qui prendra le poison, le délock ne sera pas nécessaire
+  InformationShort: |
+    - A des sorts variés selon le délock (ou non), surtout à distance
+    - Il peut coop à 14 PO en étant délock
+  MechanicShort: |
+    - Peau Pourrissante: Mécanique initiale. Vous immunise contre les autres maladies mais retire 90% de vos dommages finaux
+    - Chaque maladie vous rend violet, applique un faible poison, 10% érosion et une vulnérabilité. Vous pouvez cumuler 4 max (40% érosion, 200% dommages subi)
+    - Un seul soin (ou vol de vie!) retire la Peau Pourrissante. 3 soins retirent les autres maladies
+    - Taper un monstre vous inflige un énorme poison cumulable. Avant de taper un mob, il faudra soigner un allié au contact dudit mob pour délock le poison
+  AdviceShort: |
+    - Stratégie 1: Délock les monstres 1 par 1 (délock infini) et laisser Corruption en dernier
+    - Stratégie 2: Délock Corruption en premier ce qui va délock toute la map (et lui-même) pour 3 tours. Pratique surtout contre 8 mobs. Après 3 tours, les mobs récupèrent le poison
+    - L'état Pesanteur empêche la coop lors du délock du boss. L'état est très fortement conseillé pour la stratégie 2.
+
+- Id: 669
+  Name: Craqueleur Légendaire
+  Image: 669_Craqueleur Legendaire.png
+  Difficulty: 7
+  ImmediateFocus: 8
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape en zone jusq'à 3 PO. Tape tous les alliés en retirant 100 PA pour 1 tour s'il a 12 PA (11 PA initialement, relance 5)
+    - Sort qui boost 50% résistances en zone de 2 (1 tour, relance 5)
+    - Sort qui réduit tous les dégâts sur un mob allié (3 tours, relance 5)
+    - Invoque un Craqueleur aléatoire aux tours 1, 4, 7 etc (max 3)
+    - Sort qui va booster 1 PA pour 5 tours aux 4 prochains tours
+  Advice: |
+    - Vous voulez absolument éviter de se prendre un -100 PA!
+    - Solution 1: Gardez le boss dans votre mêlée, il va très souvent préférer de taper en zone x2 plutôt que de lancer le sort boost PA
+    - Solution 2: Débuff de 4 tours quand il lance le boost PA (extrêment contraignant)
+    - Solution 3: Jouer un perso qui débuff juste après le Craqueleur, et porté par un Pandawa. Le perso sera immune au -100 PA, et pourra debuff la team en descendant
+  InformationShort: |
+    - Tape en zone jusq'à 3 PO. Avec 12 PA il peut retirer 100 PA à votre team
+    - A plusieurs sorts de protection
+    - Invoque un Craqueleur aléatoire aux tours 1, 4, 7 etc (max 3)
+    - Sort qui le boost PA aux prochains tours
+  AdviceShort: |
+    - Vous voulez absolument éviter de se prendre un -100 PA!
+    - Solution 1: Gardez le boss dans votre mêlée, il va très souvent préférer de taper en zone x2 plutôt que de lancer le sort boost PA
+    - Solution 2: Débuff de 4 tours quand il lance le boost PA (extrêment contraignant)
+    - Solution 3: Jouer un perso qui débuff juste après le Craqueleur, et porté par un Pandawa. Le perso sera immune au -100 PA, et pourra debuff la team en descendant
+
+- Id: 854
+  Name: Crocabulia
+  Image: 854_Crocabulia.png
+  Difficulty: 5
+  ImmediateFocus: 4
+  Evasion: 7
+  Tanking: 3
+  Information: |
+    - Tape à 3 PO en poussant, tape en cercle de 5 (relance 2), tape fort à 10 PO en ligne (relance 3)
+    - Aux tours 1, 6, 11 etc: Invoque une Coquille aléatoire qui boost tous les mobs (Soin, Bouclier, PM, dégâts). Sur la Croca, le boost est doublé
+    - La coquille vous tacle et explose à 8 PO à sa mort. L'explosion tape et vous applique un malus selon le type
+    - La durée du malus est de 4 à son tour 1, et devient de plus en plus faible au fil des tours (que 1 tour en tuant tour 4)
+  Advice: |
+    - Tuer la Coquille est rentable. Essayez par contre de la tuer loin, les malus sont violents (-4 PM par exemple)
+  InformationShort: |
+    - Tape à 10 PO avec relance, sinon à 3 PO et 5 PO
+    - Invoque une Coquille qui boost aléatoirement tous les mobs
+    - Tuer la Coquille enlève les boosts
+  AdviceShort: |
+    - Tuer la Coquille est rentable. Essayez par contre de la tuer loin, les malus sont violents (-4 PM par exemple)
+
+- Id: 2000000
+  Name: Crocus
+  Image: 2000000_Crocus.png
+  Difficulty: 10
+  ImmediateFocus: 0
+  Evasion: 10
+  Tanking: 0
+  Information: |
+    - Est Invulnérable pour tout le combat
+    - Repousse au contact de 25 cases (2x par cible)
+    - À chaque début de tour, gagne 1 PM pour chaque Chêne dans sa ligne de vue (infini)
+    - Rekt par un Chêne Mou: Passif qui le tue quand il est poussé contre un Chêne Mou
+  Mechanic: |
+    - Équilibrage: Votre team perd 100 Fuite, les mobs gagnent 25 Tacle
+    - À chaque tour pair, un Chêne Solide Indéplaçable avec 4000 Re Pou est invoqué à 5 PO de chaque perso. Ils servent à Crocus comme obstacles. Quand un Chêne Solide subit des do pou indirects, il perd des re pou à la hauteur des do pou infligés
+    - À 0 re pou, un Chêne devient Mou!
+  Advice: |
+    - Crocus a un stuff 600 do pou et vous oneshot facilement contre un mur. Esquivez le à tout prix ou équipez des lourds re pou, servez vous des états Indéplaçable, Inébranlable ou des pièges
+    - Pour rapidement délock les Chênes, servez vous des do pou de Crocus. Vous pouvez utilisez vos invocations pour pas se faire do pou vous-même
+
+- Id: 3000000
+  Name: Diddy
+  Image: 3000000_Diddy.png
+  Difficulty: 10
+  ImmediateFocus: 6
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape fort à 2 PO (2x par cible). Sur vos personnages femelles, ses dommages sont doublés et l'état Pacifiste est appliqué (2 tours)
+    - S'attire au contact à 10 PO en ligne
+    - À chaque fin de tour, pose un glyphe d'huile de bébé en cercle de 5 (infini jusqu'à sa mort). Être dedans vous retire 100 PM et met Pesanteur. Diddy quant à lui profitera de 80% de réduction de dégâts
+    - Seuil à 2025 PV: Invoque 2 avocats qui lui appliquent 10000 bouclier et 4 PM à l'apparition et vous taclent
+  Advice: |
+    - Essayez de garder Diddy au même endroit pour pas démultiplier les glyphes sur la map, surtout si vous le tuez en dernier
+    - Vous pouvez utiliser l'érosion pour contourner sa réduction de dégâts dans son glyphe
+    - Prévoyez des sorts qui vous poussent / attirent pour sortir de son glyphe sous Pesanteur
+    - Quand vous passez son seuil, vous pouvez préparer un blocage derrière ses 2 avocats pour sécuriser la fin
+
+- Id: 4000000
+  Name: Epstein
+  Image: 4000000_Epstein.png
+  Difficulty: 10
+  ImmediateFocus: 10
+  Evasion: 10
+  Tanking: 0
+  Information: |
+    - Il est Invisible pour tout le combat
+    - Livraison fraîche: Lancé à 10 PO en ligne, téléporte votre perso sur l'île d'Epstein (relance 2)
+    - Corruption: Passif lancé à chaque dégât subi. Gagne un état. À 3 états, consomme les états pour passer votre tour et se téléporter aléatoirement en cercle de 3 (toute la zone, ignore la Pesanteur)
+    - Il oneshot vos invocations au contact
+  Mechanic: |
+    - Crée un petit îlot isolé au début du combat qui est enfermé par des obstacles. Ses alliés sont téléportés sur l'îlot. Tout le monde sur l'îlot est Pesanteur, vos persos subissent également 40% érosion
+    - Quand il meurt: tout le monde sur l'île retourne sur la map principale. Ses alliés perdent 200% résistances (infini)
+  Advice: |
+    - Il n'existe aucune classe (à part l'Eliotrope) ayant la capacité de quitter l'île d'Epstein. L'Elio rend le boss plutôt autowin, sinon vous allez vous faire torturer et mourrir à terme
+    - Suivez à tout prix sa position pour éviter son sort. Vous pouvez utiliser des invoc pour le brain et donc savoir où il se retrouve, ou cacher la ligne avec des invoc
+    - Epstein ayant 10 PM, le retrait PM est extrêment utile pour simplifier le combat
+    - Les poisons sont très efficaces, tapant à long terme et sans proc ses états
+
+- Id: 6326
+  Name: Damadrya
+  Image: 6326_Damadrya.png
+  Difficulty: 5
+  ImmediateFocus: 1
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Tape à 10 PO sans ligne de vue en retirant 1 PM, et à 2 PO en retirant de la Puissance
+    - Invoque un Bourgeon qui explose sur l'allié le plus proche, infligeant des faibles dégâts
+  Mechanic: |
+    - Applique 20% érosion inesquivable au début du combat sur toute la team
+    - Le perso le plus proche subit l'érosion pour 8 tours, le deuxième 7, puis 6, puis 5
+  Advice: |
+    - Le boss en lui-même est un poutch. Sa difficulté est dépendante du reste de la salle
+    - Essayez de subir moins de dégâts si le combat s'annonce d'être long
+  InformationShort: |
+    - Tape pas grande chose
+  MechanicShort: |
+    - Applique 20% érosion inesquivable au début du combat sur toute la team
+    - Le perso le plus proche subit l'érosion pour 8 tours, le deuxième 7, puis 6, puis 5
+  AdviceShort: |
+    - Le boss en lui-même est un poutch. Sa difficulté est dépendante du reste de la salle
+
+- Id: 4444
+  Name: Dantinéa
+  Image: 4444_Dantinea.png
+  Difficulty: 6
+  ImmediateFocus: 3
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Tape à 3 PO et à 2 PO autour. Tape fort
+    - À partir du tour 2: tape en ligne infinie des Grokillages et peut les coop à 6 PO sans ligne de vue
+    - Aux tours 1, 6, 11 etc: Invoque 1 Grokillage au contact de chaque perso
+    - Tant que vivant, un Grokillage retire 50% dégâts (fixe) et 1 PM par tour à son propriétaire, et le tue dans 5 tours
+  Advice: |
+    - Rien de compliqué, tuez tous les Grokillages immédiatement et gardez le boss loin, qui aura une pauvre mobilité et PO
+    - Vous pouvez optimiser l'ordre des Grokillages tués: Idéalement, vous tuez celle du perso suivant pour qu'il tape déjà 100%
+    - N'hésitez pas à créer des zones de vos Grokillages, rien qu'avec vos placements de départ (en sachant que chaque Grokillage pop au contact)
+  InformationShort: |
+    - Tape fort à 3 et 2 PO
+    - Invoque des Grokillages qui retirent 50% de vos dégâts tandis qu'ils sont en vie. Tous les 5 tours elle les remet
+  AdviceShort: |
+    - Tuez immédiatement les Grokillages quand ils pop
+
+- Id: 5319
+  Name: Dazak Martegel
+  Image: 5319_Dazak Martegel.png
+  Difficulty: 6
+  ImmediateFocus: 0
+  Evasion: 10
+  Tanking: 0
+  Information: |
+    - Tape très fort au contact en mettant 40% érosion (1 tour) et en retirant 10% rés (infini)
+    - À partir du tour 2: Bondit à 5 PO en ligne (relance 2) en tapant air en carré 1 et en retirant 4 PM dans la zone
+    - Aux tours 3, 5, 7 etc: Donne un bouclier et 2 PM à tous ses alliés (1 tour)
+    - S'il n'a pas tapé un perso durant son tour: gagne 1 état et 1 PM (max 3)
+    - Délock: À 3 états début de tour: Garde ses 3 PM et rentre dans un état où pour 2 tours, ses résistances peuvent être réduites
+    - Pendant ces 2 tours, chaque poussée / attirance / coop retire 5% résistance au boss (max 10 par tour). Chaque do pou les augmente de 10%
+  Advice: |
+    - Le boss est très violent, a une mobilité correcte et prend du temps à être tué. Rassurez vous de pouvoir le temporiser (retrait, poussée, Pesanteur)
+    - Un appât comme une Balise peut facilement le garder loin (les invocations n'empêchent pas que ses états montent)
+  InformationShort: |
+    - Tape très fort au contact, peut bondir de 5 aux tours pairs et booster les mobs aux tours impairs
+    - S'il ne tape pas pour 3 tours, on pourra le délock aux 2 tours suivants en le déplaçant. Chaque déplacement lui retire 5% rés
+    - Les do pou lui boost 10% rés
+  AdviceShort: |
+    - Gardez le boss à distance
+
+- Id: 8103
+  Name: Déchireuse Perturbé
+  Image: 8103_Déchireuse Perturbé.png
+  Difficulty: 7
+  ImmediateFocus: 1
+  Evasion: 5
+  Tanking: 5
+  Information: |
+    - Tape au contact en poussant de 1, à 4 PO en mettant un poison PM et à 4 PO en zone en partageant les dégâts avec les mobs dans la zone
+    - À chaque 5ième dégât subi: débuff votre team de 1 tour, attire de 1 case l'allié le plus proche et se boost Puissance (3 tours)
+    - À chaque début de tour: Se boost 1 PM (infini) par mob en ligne et se téléporte au contact d'un perso dans sa ligne de vue en le tapant
+    - À chaque fin de tour: Se téléporte à nouveau sur le premier perso en ligne de vue
+    - Une tp fin de tour, puis début de tour sur le même personnage va oneshot ce dernier!
+    - Seuil à 1 PV: Soigne 100% des PV du boss et change son état ainsi que ses sorts légèrement
+    - Elle est insensible à l'érosion et à l'état Insoignable
+  Advice: |
+    - Sachant qu'elle vous débuff et qu'elle se boost en permanence, un focus immédiat est déconseillé, bien que possible
+    - Vous pouvez exploiter son débuff pour virer son poison PM
+    - Si elle a trop de PM, elle peut se tanker au pire, mais évitez la ligne de vue début de tour qui est contrôlable
+    - Elle est plutôt limitée dans ses actions avec seulement 12 PA. L'entourer par des invocations réduit bien son impact
+    - Phase 2: Les réductions de soin (notamment le sort commun Leçon de Grunob) fonctionnent pour expédier le kill
+  InformationShort: |
+    - Tape à 4 PO et à 1 PO
+    - À chaque 5ième dégât subi: débuff votre team de 1 tour et se boost Puissance
+    - Si elle a une ligne de vue, elle se tp à votre contact début et fin de tour
+    - Une tp fin de tour, puis début de tour sur le même personnage va oneshot ce dernier!
+    - Seuil à 1 PV: Soigne 100% des PV du boss et change son état ainsi que ses sorts légèrement
+    - Elle est insensible à l'érosion et à l'état Insoignable
+  AdviceShort: |
+    - Évitez la ligne de vue début de tour qui est contrôlable
+    - Elle est plutôt limitée dans ses actions avec seulement 12 PA. L'entourer par des invocations réduit bien son impact
+
+- Id: 6903
+  Name: Directeur Grunob
+  Image: 6903_Directeur Grunob.png
+  Difficulty: 1
+  ImmediateFocus: 2
+  Evasion: 0
+  Tanking: 10
+  Information: |
+    - Tape à 6 PO
+    - Peut boost 2 PM en croix de 1 (relance 2)
+    - Invoque un chat mignon qui tape un peu
+  Advice: |
+    - C'est un poutch
+
+- Id: 5823
+  Name: Draegnerys
+  Image: 5823_Draegnerys.png
+  Difficulty: 3
+  ImmediateFocus: 9
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Tape à 10 PO, tape à 5 PO en poussant de 2 cases
+    - Peut boost un mob de 2 PA, 2 PM et Puissance (2 tours, relance 3)
+    - Invoque 2 Dragoeufs aléatoires au tour 1, puis 1 Dragoeuf aux tours 3, 5, 7 etc
+  Advice: |
+    - Ses Dragoeufs sont initialement immatures et quasiment useless
+    - Ses PV et résistances sont faibles, rien n'empêche de l'exploser directement
+  InformationShort: |
+    - Tape faiblement et invoque des Dragoeufs
+  AdviceShort: |
+    - Ses Dragoeufs sont initialement immatures et quasiment useless
+    - Ses PV et résistances sont faibles, rien n'empêche de l'exploser directement
+
+- Id: 113
+  Name: Dragon Cochon
+  Image: 113_Dragon Cochon.png
+  Difficulty: 5
+  ImmediateFocus: 9
+  Evasion: 10
+  Tanking: 0
+  Information: |
+    - Au contact: Tape en retirant 2 PA, tape très fort en repoussant de 6 cases
+    - Au tours 1, 13, 25 etc: Applique un poison PA sur tout le monde qui oneshot, même pour 1 PA (2 tours)
+    - Retire 14 PM à 8 PO (relance 2)
+  Advice: |
+    - Une Prysmenvoût sur toute la team nullifie son poison et son retrait PM, les deux étant débuffables
+    - Alternativement, des Invulnérabilités vous permettent de jouer (Bastion, Barricade, Prohibition)
+  InformationShort: |
+    - Tape très fort au contact
+    - Applique un poison PA sur tout le monde qui vous oneshot même pour 1 PA (2 tours)
+    - Peut retirer 14 PM à un perso (relance 2)
+  AdviceShort: |
+    - Une Prysmenvoût sur toute la team nullifie son poison et son retrait PM, les deux étant débuffables
+    - Alternativement, des Invulnérabilités vous permettent de jouer (Bastion, Barricade, Prohibition)
+
+- Id: 4609
+  Name: El Piko
+  Image: 4609_El Piko.png
+  Difficulty: 3
+  ImmediateFocus: 2
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Tape à 12 PO en croix 1 en mettant un poison fin de tour, tape au contact
+    - À chaque début de tour, il boost les mobs aléatoirement
+  Mechanic: |
+    - À chaque fin de tour, vos personnages infligeront des légers dommages aux alliés au contact
+  Advice: |
+    - C'est un poutch
+    - Ses boosts sont oubliables à part 10% résistance si vous n'avez pas de bol
+
+- Id: 6792
+  Name: Éternel Conflit
+  Image: 6792_L'Eternel Conflit.png
+  Difficulty: 9
+  ImmediateFocus: 0
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Tape à 5-15 PO, selon ses boosts. Tape fort au contact en poussant de 4 cases
+    - Bondit à 3 PO en tapant en cercle 2. Si d'autres mobs étaient dans la zone, il met la zone Indéplaçable (1 tour)
+    - La relance du bond est de 4, mais se réduit de 1 tour pour chaque mob à son contact quand il commence son tour
+    - À 7 PO en ligne sans ligne de vue: attire en croix de 3 vers le centre en retirant 2 PA et 3 PO
+    - Invoque deux Diablotins qui ont 10 états respectivement. Les deux peuvent transférer jusqu'à 10 états au boss
+    - Transfer du Bonraphin: en le tapant à distance (2 fois max par tour), ou quand il tape air à 7 PO
+    - Transfer du Brâklotin: en le tapant en mêlée (2 fois max par tour), ou quand il tape terre à 2 PO
+    - Les états bleus boost le sort eau à distance (dégâts, portée)
+    - Les états rouges boost le sort feu au contact (dégâts, do pou) et les PM
+    - À 10/10 (état X), l'EC enlève son seuil, tue ses invoc, s'applique un bouclier et garde les boosts (2 tours)
+    - À l'état X, il invoque également un Cauchemar qui joue 1 tour mais fait mal. Dans 2 tours les Diablotins reviennent
+    - Délock: Globalement, un Bonraphin mort rend vulnérable à distance (2 tours) et un Brâklotin en mêlée (2 tours)
+  Advice: |
+    - S'il y a d'autres menaces à gérer dans le combat: évitez que les diablotins se déchargent. Un EC à 0 états est inoffensif
+    - L'état X est obligatoire 1 fois dans le combat pour retirer le seuil de l'EC
+    - Les résistances eau sont très utiles
+    - Lors du délock, vous pouvez utiliser les diabolotins dans votre camp pour cacher la ligne de vue de l'EC
+    - Le contact avec l'EC est à éviter, son sort feu tapant extrêment fort quand boosté
+    - Avoir l'EC très loin lors du délock évite que le Cauchemar puisse vous atteindre
+    - Après avoir survécu l'état X, il n'y a plus de difficulté. Il suffit de tuer les diablotins en boucle plutôt que de les laisser booster l'EC
+  InformationShort: |
+    - Tape à distance et au contact, les deux sorts peuvent être boostés
+    - Invoque deux Diablotins qui ont 10 états respectivement. Les deux peuvent transférer jusqu'à 10 états au boss
+    - Transfer du Bonraphin: en le tapant à distance (2 fois max par tour), ou quand il tape air à 7 PO
+    - Transfer du Brâklotin: en le tapant en mêlée (2 fois max par tour), ou quand il tape terre à 2 PO
+    - Les états bleus boost le sort eau à distance (dégâts, portée)
+    - Les états rouges boost le sort feu au contact (dégâts, do pou) et les PM
+    - Délock: Globalement, un Bonraphin mort rend vulnérable à distance (2 tours) et un Brâklotin en mêlée (2 tours)
+    - Il faut effectuer le transfer de tous les états 1 fois dans le combat (état X), sinon son seuil ne s'enlève pas!
+  AdviceShort: |
+    - S'il y a d'autres menaces à gérer dans le combat: évitez que les diablotins se déchargent. Un EC à 0 états est inoffensif
+    - Après avoir survécu l'état X, il n'y a plus de difficulté. Il suffit de tuer les diablotins en boucle plutôt que de les laisser booster l'EC
+
+- Id: 6249
+  Name: Founoroshi
+  Image: 6249_Founoroshi.png
+  Difficulty: 1
+  ImmediateFocus: 1
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape à 8 PO et à 3 PO en croix de 1
+    - Se met Invisible aux tours 1, 4, 7 etc
+    - Boost toute votre team de 15% do finaux chaque tour, cumulable
+  Advice: |
+    - Un poutch qui vous boost gratuitement...
+  InformationShort: |
+    - Tape faiblement
+    - Boost toute votre team de 15% do finaux chaque tour, cumulable
+
+- Id: 3852
+  Name: Fraktale
+  Image: 3852_Fraktale.png
+  Difficulty: 3
+  ImmediateFocus: 1
+  Evasion: 3
+  Tanking: 7
+  Information: |
+    - Tape à 8 PO, tape à 4 PO en ligne sans ligne de vue en fonction des PM restants
+    - Subit que 70% des dégâts et renvoie 50% à 2 cases, alliés comme ennemis
+    - Invoque une auroraire
+    - Quand un perso commence son tour et que le Fraktale est à 1-4 PO de l'auroraire: les dégâts sur toute la map vont soigner
+    - À <50% PV du Fraktale: la zone est inversée: la condition du soin sera le Fraktale à 5 PO ou plus de l'auroraire
+  Advice: |
+    - Si votre compo tape en zone, placez le Fraktale dans la zone pour gagner 50% dégâts
+    - Garder le Fraktale proche de l'auroraire peut autowin le combat: les mobs peuvent rien faire, vous pouvez do pou
+    - Pensez à la transition du placement quand le Fraktale passe sous la barre des 50% PV
+  InformationShort: |
+    - Subit que 70% des dégâts et renvoie 50% à 2 cases, alliés comme ennemis
+    - À >50% PV: il doit être à 5 PO ou plus de son auroraire
+    - À <50% PV: il doit être à 4 PO ou moins de son auroraire
+    - Le placement inverse fera que tous les dégâts sur la map soignent
+  AdviceShort: |
+    - Si votre compo tape en zone, placez le Fraktale dans la zone pour gagner 50% dégâts
+    - Pensez à la transition de placement à 50% PV
+
+- Id: 3234
+  Name: Fuji Givrefoux Nourricière
+  Image: 3234_Fuji Givrefoux Nourriciere.png
+  Difficulty: 6
+  ImmediateFocus: 6
+  Evasion: 10
+  Tanking: 0
+  Information: |
+    - Tape à 3-4 PO en diagonale uniquement, avec une zone diagonale des 3 prochaines cases + la case ciblée
+    - Oneshot au contact et remplace par un Givrefoux aléatoire
+    - En cercle de 5: soigne et boost des dommages fixes (2 tours, relance 3)
+  Mechanic: |
+    - Un mob mort boost tous les autres de 1 PM (1 tour). La Fuji gagne des énormes dommages fixes en plus du PM
+  Advice: |
+    - Avoir la Fuji loin, en ligne de votre team, la rend useless
+    - Elle peut facilement oneshot en diagonale après des morts
+    - Le ret PO est inutile vu la PO mini et la grande zone
+  InformationShort: |
+    - Tape en diagonale
+    - Oneshot au contact et remplace par un Givrefoux aléatoire
+  MechanicShort: |
+    - Un mob mort boost tous les autres de 1 PM (1 tour). La Fuji gagne des énormes dommages fixes en plus du PM
+  AdviceShort: |
+    - Avoir la Fuji loin, en ligne de votre team, la rend useless
+
+- Id: 430
+  Name: Gélées Royales
+  Image: 430_Gelee Royale Citron.png
+  Difficulty: 4
+  ImmediateFocus: 2
+  Evasion: 3
+  Tanking: 7
+  Information: |
+    - Chaque Gélée applique des bonus / malus négligeables qui varient selon la friandise (PA, PM, puissance, soin, réduction)
+    - Tapent à 7 PO avec 2 PO minimale, bondissent à 2 PO en tapant en zone (relance 3)
+    - Invoquent une Gélée au contact (1 max par boss, relance 5)
+  Advice: |
+    - Entourer + Pesanteur (ou bloquer les lignes de vue) rend complètement useless une Gélée Royale
+    - Le boss ainsi que l'invoc se tank très bien, il n'y a aucun effet trop méchant
+  InformationShort: |
+    - Tapent un peu et invoquent une Gélée (max 1)
+  AdviceShort: |
+    - Entourer + Pesanteur (ou bloquer les lignes de vue) rend complètement useless une Gélée Royale
+
+- Id: 2864
+  Name: Glourséleste
+  Image: 2864_Glourseleste.png
+  Difficulty: 8
+  ImmediateFocus: 1
+  Evasion: 0
+  Tanking: 10
+  Information: |
+    - Tape à 5 PO en ligne en échangeant de place (ignore les états type Pesanteur!), tape au contact 10% de ses PV manquants
+    - Aux tours 1, 3, 5 etc: rend tous ses alliés Lourd et vous oneshot si vous détaclez en perdant des PA/PM
+    - Déplacer le Glours ou lui retirer des PM / PO débloque un sort: Reinvoque jusqu'à 4 alliés morts au prochain tour
+    - Délock: Le taper en mêlée. Cela va aussi repousser les alliés en croix de 4 autour de lui de 4 cases. À chacun de vos débuts de tour, il récup son Invulnérabilité
+  Mechanic: |
+    - Les dommages de poussée oneshot dans le combat!
+  Advice: |
+    - Une Indéprys vous sécurise du oneshot en cas de do pou inesquivables au début du combat
+    - Le déplacement étant restreint, Stabilisation / Intacleur ou l'auto-déplacement sont précieux pour pas se faire tacler
+    - Délock: Se rendre Indéplaçable ou préparer un piège qui arrête la poussée permet de délock même en étant proche d'un mur
+    - L'érosion réduit les dégâts de son sort au contact et peut donc sécuriser la fin
+  InformationShort: |
+    - Tape et coop à 5 PO, tape au contact
+    - Déplacer le Glours ou lui retirer des PM / PO débloque un sort: Reinvoque jusqu'à 4 alliés morts au prochain tour
+    - Délock: Le taper en mêlée. Cela va aussi repousser les alliés en croix de 4 autour de lui de 4 cases. À chacun de vos débuts de tour, il récup son Invulnérabilité
+  MechanicShort: |
+    - Les dommages de poussée oneshot dans le combat!
+  AdviceShort: |
+    - Une Indéprys vous sécurise du oneshot en cas de do pou inesquivables au début du combat
+    - Le déplacement étant restreint, Stabilisation / Intacleur ou l'auto-déplacement sont précieux pour pas se faire tacler
+
+- Id: 1051
+  Name: Gourlo le Terrible
+  Image: 1051_Gourlo le Terrible.png
+  Difficulty: 3
+  ImmediateFocus: 0
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape faiblement en zone jusqu'à 10 PO, tape au contact avec des dégâts extrêment aléatoires (de base 11 à 110)
+    - Invoque 1 Tonneau par tour à 6-12 PO (4 max) qui retire 200% rés au contact (élément aléatoire, allié comme ennemi)
+    - Délock: Utiliser les tonneaux sur le Gourlo
+  Advice: |
+    - Jouer un placeur juste avant le Gourlo peut drastiquement faciliter le combat, en affaiblissant les ennemis dangéreux avec les tonneaux
+    - Les -200% rés durent 3 tours, le débuff sur allié n'est donc pas rentable. Soyez vigilant au monstre jouant juste après
+    - Pour délock, l'entourer dans un coin avec des tonneaux plie le truc
+    - Le même peut servir pour bloquer plusieurs monstres
+  InformationShort: |
+    - Tape à 10 PO et au contact
+    - Invoque des tonneaux qui mettent -200% rés au contact dans un élément
+    - Délock: Utiliser les tonneaux sur le Gourlo
+  AdviceShort: |
+    - Jouer un placeur juste avant le Gourlo peut drastiquement faciliter le combat, en affaiblissant les ennemis dangéreux avec les tonneaux
+    - Pour délock, l'entourer dans un coin avec des tonneaux plie le truc
+
+- Id: 2942
+  Name: Grolloum
+  Image: 2942_Grolloum.png
+  Difficulty: 7
+  ImmediateFocus: 0
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape en ligne jusqu'à 5 PO en zone en se soignant. En étant délock, tape à 4 PO en échangeant de place (plus fort quand low life)
+    - S'applique 8000 résistances fixes (1 tour) quand il subit un retrait PM
+    - Reinvoque le dernier monstre mort à 6-10 PO et avec 25% PV (relance 2)
+    - Gélée blanche: 6 PO, boost un Zombi en dommages fixes et applique l'état Instant, obligatoire pour le délock
+    - Délock: Tuer un Zombi sous Instant à son contact va délock pour 1 tour
+  Advice: |
+    - Il reinvoque dans votre mêlée avec grande facilité et un gros boost de dégâts en prime. Choisissez bien ce que vous tuez pour le délock!
+    - Le retrait PO peut aider pour temporiser, la reinvoc étant modifiable, mais Gélée blanche passera de 6 PO à 1-2 PO également
+    - Prévoyez un minimum de placement pour effectuer le délock, ou le combat pourrait s'éterniser
+  InformationShort: |
+    - Tape en ligne jusqu'à 5 PO, ou à 4 PO en étant délock
+    - S'applique 8000 résistances fixes (1 tour) quand il subi un retrait PM
+    - Reinvoque le dernier monstre mort à 6-10 PO et avec 25% PV (relance 2)
+    - Gélée blanche: 6 PO, boost un Zombi en dommages fixes et applique l'état Instant, obligatoire pour le délock
+    - Délock: Tuer un Zombi sous Instant à son contact va délock pour 1 tour
+  AdviceShort: |
+    - Il reinvoque dans votre mêlée avec grande facilité et un gros boost de dégâts en prime. Choisissez bien ce que vous tuez pour le délock!
+
+- Id: 6014
+  Name: Guerre
+  Image: 6014_Guerre.png
+  Illustration: Guerre.png
+  Caption: Zone de chaque arme par seuil de PV
+  Difficulty: 6
+  ImmediateFocus: 0
+  Evasion: 6
+  Tanking: 4
+  Information: |
+    - Tape en zone jusqu'à 8 PO, tape au contact. Les deux qu'une fois par tour
+    - Est Indéplaçable et Invulnerable. Délock: Simplement tuer ses alliés (Phase 2)
+    - A des seuils à 80%, 60%, 40% et 20% PV invoquant chacun une arme à 2 PO de lui
+    - Les armes tapent dans une zone individuelle: à la pose, en début de leur tour et quand elles sont coop par Guerre
+    - Les zones sont dans l'ordre: étoile de 5, cercle de 3, carré de 4 sans diagonale, cases impaires jusqu'à 5 PO (voir l'image). Elles tapent très fort!
+    - Les armes ont des PV d'un mob environ et vont fortement booster Guerre à leur mort si Guerre a fini au moins 1 tour avec l'arme en vie
+    - Phase 2: Débloque le sort Bravoure: À 3 PO et sur un perso uniquement. Met Insoignable, Pesanteur, érode et se boost 2 PM (2 tours, relance 3)
+    - Pendant les deux tours de Bravoure: Taper Guerre met Pacifiste sauf le perso qui a l'état. Guerre peut taper uniquement le perso ayant l'état
+    - Phase 2: Débloque Célérité: Coop une arme aléatoire, puis l'allié le plus proche (PO infinie, ignore les états type Pesanteur). Ne peut pas coop sous Bravoure
+  Advice: |
+    - Pas de panique, ce boss a beaucoup de pièges mais peu de difficulté
+    - Une arme morte avant que Guerre rejoue ne boost pas! Blitz chaque arme est de loin la stratégie la plus facile
+    - Pour cela, préparez ses PV tout juste avant un seuil avant que Guerre joue. Puis, débloquez le seuil et tuez l'arme avec de la marge
+    - En phase 2, esquiver Guerre à 3 PO empêche le Pacifiste et évite d'éterniser le combat
+    - Bravoure est une priorité absolue de l'IA. Exposer un perso peut éviter sa coop et donc vous sauver
+    - Il ne tape que la cible de Bravoure. Pour le tour 2 de l'état, si le perso est loin ou porté par un Pandawa, Guerre va passer son tour
+  InformationShort: |
+    - Tape à 8 PO et au contact
+    - Est Indéplaçable et Invulnerable. Délock: Simplement tuer ses alliés (Phase 2)
+    - A des seuils de PV qui invoquent chacun une arme qui tape très fort en zone
+    - Les armes vont booster Guerre à leur mort si Guerre a fini au moins 1 tour avec l'arme en vie
+    - Phase 2: Débloque le sort Bravoure: À 3 PO et sur un perso uniquement. Taper Guerre mettra Pacifiste sauf la cible de Bravoure
+    - Phase 2: Débloque Célérité: Coop une arme aléatoire, puis un perso. Ne peut pas coop sous Bravoure
+  AdviceShort: |
+    - Une arme morte avant que Guerre rejoue ne boost pas! Blitz chaque arme est de loin la stratégie la plus facile
+    - En phase 2, esquiver Guerre à 3 PO empêche le Pacifiste et évite d'éterniser le combat
+
+- Id: 6212
+  Name: Hanshi
+  Image: 6212_Hanshi.png
+  Difficulty: 3
+  ImmediateFocus: 2
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Hanshi attire à 7 PO en ligne et tape au contact. Shihan tape à distance entre 7 et 11 PO
+    - Shihan pose un piège à 12 PO qui téléporte le mob le plus proche au contact du déclencheur
+    - Les deux partagent les dommages. Hanshi réduit de 50% en mêlée, Shihan de 50% à distance les dégâts subi
+  Advice: |
+    - Shihan est rentable à tacler, étant useless au contact à part une pousse avec 3 de relance
+    - Hanshi s'entrave bien
+    - Globalement les sorts et passifs sont variés mais c'est beaucoup d'information pour pas grande chose
+  InformationShort: |
+    - Hanshi joue surtout au contact, Shihan surtout à distance
+    - Les deux partagent les dommages. Hanshi réduit de 50% en mêlée, Shihan de 50% à distance les dégâts subi
+  AdviceShort: |
+    - Shihan est rentable à tacler, Hanshi rentable à entraver
+    - Globalement les sorts et passifs sont variés mais c'est beaucoup d'information pour pas grande chose
+
+- Id: 6204
+  Name: Shihan
+  Image: 6204_Shihan.png
+  Difficulty: 3
+  ImmediateFocus: 2
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Hanshi attire à 7 PO en ligne et tape au contact. Shihan tape à distance entre 7 et 11 PO
+    - Shihan pose un piège à 12 PO qui téléporte le mob le plus proche au contact du déclencheur
+    - Les deux partagent les dommages. Hanshi réduit de 50% en mêlée, Shihan de 50% à distance les dégâts subi
+  Advice: |
+    - Shihan est rentable à tacler, étant useless au contact à part une pousse avec 3 de relance
+    - Hanshi s'entrave bien
+    - Globalement les sorts et passifs sont variés mais c'est beaucoup d'information pour pas grande chose
+  InformationShort: |
+    - Hanshi joue surtout au contact, Shihan surtout à distance
+    - Les deux partagent les dommages. Hanshi réduit de 50% en mêlée, Shihan de 50% à distance les dégâts subi
+  AdviceShort: |
+    - Shihan est rentable à tacler, Hanshi rentable à entraver
+    - Globalement les sorts et passifs sont variés mais c'est beaucoup d'information pour pas grande chose
+
+- Id: 3618
+  Name: Haute Truche
+  Image: 3618_Haute Truche.png
+  Difficulty: 6
+  ImmediateFocus: 5
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Tape en zone jusq'à 5 PO avec 20% érosion et un poison (1 tour), tape au contact en retirant 20% résistances (1 tour)
+    - Se boost 2 PM (2 tours, relance 5)
+    - Aux tours 2, 5, 8 etc: Dépense tous ses PA pour taper tout le monde et vous mettre Pesanteur ainsi que -3 PM (1 tour)
+    - Réduit fortement les dommages en mêlée
+    - La taper avec une arme la rend Invulnérable et boost de la puissance aux mobs. En revanche, ils perdent 20% rés (tout dure 2 tours)
+  Advice: |
+    - La taper avec une arme peut aider pour expédier le clean des autres monstres
+    - Érode en zone et tape fort, une gestion à distance est préférable
+    - L'entiérité de ses effets est débuffable
+    - Débuff l'Haute Truche va retarder son sort sur toute la map de 1 tour (elle se boost PA pour chaque prochain tour)
+  InformationShort: |
+    - Tape en zone jusqu'à 5 PO en érodant, et au contact
+    - Aux tours 2, 5, 8 etc: Dépense tous ses PA pour taper tout le monde et vous mettre Pesanteur ainsi que -3 PM (1 tour)
+    - La taper avec une arme la rend Invulnérable et boost de la puissance aux mobs. En revanche, ils perdent 20% rés (tout dure 2 tours)
+  AdviceShort: |
+    - La taper avec une arme peut aider pour expédier le clean des autres monstres
+
+- Id: 107
+  Name: Hell Mina
+  Image: 107_Hell Mina.png
+  Difficulty: 6
+  ImmediateFocus: 1
+  Evasion: 5
+  Tanking: 5
+  Information: |
+    - Bond à 6 PO en érodant au contact, attire à 5 PO en ligne, tape au contact en poussant de 6 cases
+    - À son début de tour, elle désigne chaque perso avec un élément aléatoire. L'élément doit être utilisé ou le perso subira des lourds dégâts
+    - Délock: Consommer 6 états élémentaires désignés par Hell Mina. Elle se boostera PM et dommages finaux pour le reste du combat
+  Advice: |
+    - Vous pouvez consommer ses éléments en ciblant le vide
+    - L'état Pesanteur permet d'esquiver ses dégâts beaucoup plus facilement, sinon il faudra encaisser
+  InformationShort: |
+    - Bondit et tape fort à moyenne PO
+    - À son début de tour, elle désigne chaque perso avec un élément aléatoire. L'élément doit être utilisé ou le perso subira des lourds dégâts
+    - Délock: Consommer 6 états élémentaires désignés par Hell Mina. Elle se boostera PM et dommages finaux pour le reste du combat
+  AdviceShort: |
+    - Vous pouvez consommer ses éléments en ciblant le vide
+    - L'état Pesanteur permet d'esquiver ses dégâts beaucoup plus facilement, sinon il faudra encaisser
+
+- Id: 4967
+  Name: Ilyzaelle
+  Image: 4967_Ilyzaelle.png
+  Difficulty: 9
+  ImmediateFocus: 10
+  Evasion: 10
+  Tanking: 0
+  Information: |
+    - Tape très fort à 4 PO en ligne en mettant Pacifiste. À partir du tour 2: bondit à 3 PO en tapant et en érodant 40% en cercle de 2
+    - Quadrouple la vitalité de tous les autres mobs!
+    - Au tour 3, puis relance de 3: attire tous les persos de 10 cases dans sa direction
+    - A des seuils à 75% et 50% PV qui ont le même effet: pose un glyphe de 3 autour d'elle, boost 2 PM aux mobs et passe ses tours
+    - Son glyphe augmente de 400% vos dommages et tape les mobs de 15000 (fixe) en rentrant (1 fois par tour par mob)
+    - Le glyphe disparaît au troisième tour d'Ilyzaelle après la pose
+    - Après le glyphe du seuil 75%, elle passe 1 tour en étant Invu et rejoue ensuite. Après le glyphe du seuil 50%, vous avez gagné le combat!
+  Advice: |
+    - Ilyzaelle devrait être le focus absolu. Vu ses 250 re crit, vous pourrez galérer avec des stuffs purement do crit
+    - Elle fait extrêment mal en ralentissant vos dégâts, gardez Ilyzaelle à distance
+    - L'état Pesanteur réduit sa mobilité
+    - Solutions pour contrer son attirance: Les invocations, les murs, les trous, les pièges ou une Stabilisation
+    - Si les autres ennemis sont dangéreux en mêlée, pensez à ramener Ily dans votre camp avant de phaser
+    - Vous n'avez que 2-3 tours pour profiter de son glyphe, priorisez donc les menaces pour drastiquement faciliter la suite
+  InformationShort: |
+    - Tape très fort et met Pacifiste à 4 PO en ligne, peut bondir à 3 PO
+    - Quadrouple la vitalité de tous les autres mobs!
+    - Au tour 3, puis relance de 3: attire tous les persos de 10 cases dans sa direction
+    - Quand vous passez ses seuils de 75% et 50%, elle pose un glyphe qui défonce les mobs. Vous allez taper x5 dans le glyphe
+    - Après le glyphe du seuil 75%, elle passe 1 tour en étant Invu et rejoue ensuite. Après le glyphe du seuil 50%, vous avez gagné le combat!
+  AdviceShort: |
+    - Ilyzaelle devrait être le focus absolu. Vu ses 250 re crit, vous pourrez galérer avec des stuffs purement do crit
+    - Elle fait extrêment mal en ralentissant vos dégâts, gardez Ilyzaelle à distance
+
+- Id: 6654
+  Name: Kabahal
+  Image: 6654_Kabahal.png
+  Difficulty: 5
+  ImmediateFocus: 4
+  Evasion: 6
+  Tanking: 4
+  Information: |
+    - Met un poison à 12 PO, tape à 6 PO en zone (cible nécessaire, 1 par cible), tape au contact en mettant Insoignable
+    - Taper Kabahal va baisser sa résistance de l'élément correspondant et monter une autre aléatoirement (re crit et re pou y compris)
+    - Peut mettre une rune au tour 2 qui invoquera un bras statique sur la rune tour 3
+    - Kabahal sera Invulnérable tant qu'un bras est en vie, sauf contre les dégâts du glyphe du bras
+  Advice: |
+    - Ne collez pas tout le monde proche de Kabahal pour éviter des lourds dégâts de zone
+    - Il suffit d'occupuer sa rune avec un perso pour bloquer l'invocation du bras
+    - Jouer sur le bras est inutile, tuez-le tout simplement
+  InformationShort: |
+    - Tape à 12 PO, à 6 PO et au contact
+    - Peut mettre une rune au tour 2 qui invoquera un bras statique sur la rune tour 3
+    - Kabahal sera Invulnérable tant qu'un bras est en vie, sauf contre les dégâts du glyphe du bras
+  AdviceShort: |
+    - Il suffit d'occupuer sa rune avec un perso pour bloquer l'invocation du bras
+    - Jouer sur le bras est inutile, tuez-le tout simplement
+
+- Id: 3556
+  Name: Kanigroula
+  Image: 3556_Kanigroula.png
+  Difficulty: 5
+  ImmediateFocus: 0
+  Evasion: 4
+  Tanking: 6
+  Information: |
+    - Tape à 8 PO en croix 1, oneshot une invocation à 8 PO à partir du tour 3 (relance 2)
+    - Tape en cercle de 3 autour d'elle 5% de ses PV restants, tout en boostant 2 PM aux mobs dans la zone et en retirant 2 PM aux alliés (2 tours, relance 3)
+  Mechanic: |
+    - Tuer un allié de Kanigroula vous retire 10% rés et de la puissance (infini, sans limite de cumul)
+    - Tuer Kanigroula boost 2 PM et 10% rés à ses alliés (infini)
+  Advice: |
+    - Ce boss est un poutch tout seul et une menace dans un groupe de 8, la difficulté est très instable
+    - Le ret PO est utile
+    - Un perso porté par un Pandawa ne subira pas les malus rés et puissance
+    - Attention au tanking contre un gros groupe quand vous avez déjà clean la moitié
+  InformationShort: |
+    - Tape à 9 PO max et autour d'elle avec relance
+  MechanicShort: |
+    - Tuer un allié de Kanigroula vous retire 10% rés et de la puissance (infini, sans limite de cumul)
+    - Tuer Kanigroula boost 2 PM et 10% rés à ses alliés (infini)
+  AdviceShort: |
+    - Ce boss est un poutch tout seul et une menace dans un groupe de 8, la difficulté est très instable
+
+- Id: 3945
+  Name: Kankreblath
+  Image: 3945_Kankreblath.png
+  Difficulty: 2
+  ImmediateFocus: 2
+  Evasion: 0
+  Tanking: 10
+  Information: |
+    - Tape à 5 PO en ligne et à 3 PO autour
+    - Aux tours 2, 5, 8 etc: Lance un sort aléatoire: soit une Invi sur lui, soit un bond, soit une invoc d'un Vilinsect aléatoire
+  Advice: |
+    - À moins d'avoir de la malchance avec l'invocation, c'est un poutch
+
+- Id: 2960
+  Name: Kanniboul Ebil
+  Image: 2960_Kanniboul Ebil.png
+  Difficulty: 5
+  ImmediateFocus: 5
+  Evasion: 7
+  Tanking: 3
+  Information: |
+    - Tape à 6 PO en ligne (1x par tour). Pour 1 tour, sa poupée va renvoyer 100% de dégâts sur cette cible
+    - Invoque une poupée qui se tape elle-même à la fin de son tour (1 max, relance illimité)
+    - La poupée coop à 10 PO sans ligne de vue et retire 5 PO pour 2 tours (relance 4)
+    - Bénédiction Moonesque: Chaque mob soigne ses alliés en cercle 2 à la hauteur des dégâts subi (2 tours, relance 4)
+  Advice: |
+    - Pesanteur en zone au tour 1 peut être utile pour empêcher la coop de la poupée, sinon anticiper les risques
+    - Son combo avec la poupée tape fort. Esquiver le sort à 6 PO est conseillé vu la facilité de la chose (même le ret PO fonctionne)
+    - C'est virtuellement impossible de taper en zone quand il a mis Bénédiction Moonesque. Tapez en zone avant qu'il joue si besoin
+  InformationShort: |
+    - Tape à 6 PO en ligne (1x par tour)
+    - Invoque une poupée qui peut vous coop à 10 PO (relance 4)
+  AdviceShort: |
+    - Pesanteur en zone au tour 1 peut être utile pour empêcher la coop de la poupée, sinon anticiper les risques
+
+- Id: 4051
+  Name: Kardorim
+  Image: 4051_Kardorim.png
+  Difficulty: 3
+  ImmediateFocus: 6
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Tape en ligne de 2, cible nécessaire au contact
+    - Invoque un Kardorib qui tape au contact également (1 max, 6 de relance)
+    - Aux tours 2, 5, 8 etc: Boost 1 PM en cercle 2 autour (1 tour)
+  Advice: |
+    - Vous avez vraiment recherché ce mob? Vous êtes bizarre
+  InformationShort: |
+    - Tape au contact, invoque un Rib
+
+- Id: 5819
+  Name: Kharnozor
+  Image: 5819_Kharnozor.png
+  Difficulty: 5
+  ImmediateFocus: 3
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Est Indéplaçable pour tout le combat
+    - S'attire en ligne à 15 PO jusqu'au contact (s'enlève l'Indéplaçable, puis le remet), tape au contact
+    - Tape en cercle de 7 autour de lui. Sur les perso: retire 3 PA. Sur vos invoc: repousse de 5 (relance 2)
+    - Quand il subit des dégâts à 1-2 PO, il activera un renvoi de dégâts qui touchera l'entiérité de vos dégâts!
+  Advice: |
+    - Ne le tapez jamais à moins que 3 PO
+    - Le retrait PM est très utile
+    - Une invocation à l'opposé comme une Balise peut le garder loin (il s'attire à 15 PO)
+  InformationShort: |
+    - Est Indéplaçable pour tout le combat
+    - S'attire en ligne à 15 PO jusqu'au contact (s'enlève l'Indéplaçable, puis le remet), tape au contact
+    - Tape en cercle de 7 autour de lui (relance 2)
+    - Quand il subit des dégâts à 1-2 PO, il activera un renvoi de dégâts qui touchera l'entiérité de vos dégâts!
+  AdviceShort: |
+    - Ne le tapez jamais à moins que 3 PO
+
+- Id: 1045
+  Name: Kimbo
+  Image: 1045_Kimbo.png
+  Difficulty: 5
+  ImmediateFocus: 0
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape au contact en poussant de 2 cases, bondit à 8 PO (1x par tour)
+    - Invoque un Disciple qui va réagir après que vous ayez tapé le Kimbo, la dernière ligne compte (sauf dégâts neutre)
+    - Dégâts air ou feu: le Disciple met un glyphe sur toutes les cases de la map de la même parité que lui
+    - Dégâts terre ou eau: le Disciple met un glyphe sur toutes les cases de la map de la parité inverse
+    - Exemple: la dernière ligne sur le Kimbo était feu: le Disciple se retrouve sur une case noire, il remplit alors les cases noires avec son glyphe
+    - Le glyphe vous oneshot mais applique -400% résistances (1 tour) aux mobs
+  Advice: |
+    - Ce boss peut totalement vous faire wipe ou vous carry le combat tout seul
+    - Lisser les éléments de vos stuffs est conseillé (pas mélanger terre / eau avec air / feu)
+    - Il pousse de 2 cases, attention aux murs qui feront une poussée que de 1 case
+    - Généralement, attention aux déplacements impairs des monstres dans le combat
+    - L'état Pesanteur rend le Kimbo très simple à pas subir
+    - Si vous n'êtes pas sûr de la parité, porter le perso juste après le Kimbo par un Pandawa est sécure, il pourra sauver les autres
+  InformationShort: |
+    - Tape au contact en poussant de 2 cases, bondit à 8 PO (1x par tour)
+    - Invoque un Disciple qui va réagir après que vous ayez tapé le Kimbo, la dernière ligne compte (sauf dégâts neutre)
+    - Dégâts air ou feu: le Disciple met un glyphe sur toutes les cases de la map de la même parité que lui
+    - Dégâts terre ou eau: le Disciple met un glyphe sur toutes les cases de la map de la parité inverse
+    - Le glyphe vous oneshot mais applique -400% résistances (1 tour) aux mobs
+  AdviceShort: |
+    - Ce boss peut totalement vous faire wipe ou vous carry le combat tout seul
+    - Attention aux déplacements impairs dans le combat
+
+- Id: 3384
+  Name: Klime
+  Image: 3384_Klime.png
+  Difficulty: 6
+  ImmediateFocus: 0
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Attire à 7 PO en ligne sans ligne de vue en mettant un poison (3 tours), tape au contact
+    - Délock: Pousser quelque chose contre le Klime délock pour 1 tour (à partir du tour 3!)
+  Mechanic: |
+    - Chaque mob au début de son tour: pose un glyphe (2 tours) et rend Pacifiste (1 tour) les alliés sans l'état Peau Lisse
+    - Finir dans un glyphe boost des do fixes aux mobs, et donne l'état Peau Lisse aux alliés (1 tour)
+    - Le Klime vous applique l'état Peau Lisse gratuitement aux 3 premiers tours
+  Advice: |
+    - Taper un maximum aux tours 1, 2 et 3 est fortement conseillé. C'est là où la mécanique du Klime est afk
+    - Les dégâts du Klime sont très faibles sans bonus do fixes, ignorez le au début
+    - À partir du tour 4, il faudra constamment finir sur un glyphe pour pouvoir taper
+    - Un mob inoffensif peut être intéressant à garder en vie pour avoir plus de glyphes
+    - Expédiez le kill du Klime après l'avoir entamé, il tape beaucoup plus fort low life et quand il est délock. L'érosion réduit ses dégâts
+    - Le débuff est utile en cas de gros cumul de poison ou pour enlèver le bonus do fixes d'un glyphe
+  InformationShort: |
+    - Attire à 7 PO et tape au contact
+    - Délock: Pousser quelque chose contre le Klime délock pour 1 tour (à partir du tour 3!)
+  MechanicShort: |
+    - Les mobs posent des glyphes et rendent Pacifiste (1 tour) les alliés sans l'état Peau Lisse
+    - Finir dans un glyphe donne l'état Peau Lisse aux alliés (1 tour)
+    - Le Klime vous applique l'état Peau Lisse gratuitement aux 3 premiers tours
+  AdviceShort: |
+    - Taper un maximum aux tours 1, 2 et 3 est fortement conseillé. C'est là où la mécanique du Klime est afk
+    - À partir du tour 4, il faudra constamment finir sur un glyphe pour pouvoir taper
+
+- Id: 2986
+  Name: Kolosso
+  Image: 2986_Kolosso.png
+  Illustration: Kolosso.png
+  Caption: Zone du Kolosso
+  Difficulty: 2
+  ImmediateFocus: 1
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape au contact (cible nécessaire!). Les dégâts sont en cône infini dans la direction de la frappe
+    - Attire ses alliés à 3 PO en ligne en les soignant
+    - Délock: Le taper avec une invocation délock pour 1 tour
+  Advice: |
+    - Si votre invoc délock au contact, la mettre à l'opposé du Kolosso par rapport à votre team évite de subir sa ligne de dégâts
+  InformationShort: |
+    - Tape au contact (cible nécessaire!). Les dégâts sont en cône infini dans la direction de la frappe
+    - Délock: Le taper avec une invocation délock pour 1 tour
+  AdviceShort: |
+    - Si votre invoc délock au contact, la mettre à l'opposé du Kolosso par rapport à votre team évite de subir sa ligne de dégâts (voir l'image)
+
+- Id: 2968
+  Name: Korriandre
+  Image: 2968_Korriandre.png
+  Difficulty: 7
+  ImmediateFocus: 9
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape et attire à 4 PO en ligne (1 ligne classique et 1 ligne à 10% de ses PV manquants)
+    - Pose un poison à 6 PO en ligne qui tape pour chaque ligne de dégâts subi
+    - Invoque une Sporakne (relance 3) à 3 PO qui pousse de 1 au contact et qui pousse de 1 les entités en croix infini quand elle est déplacé
+    - Reinvoque un mob mort à 3 PO avec 50% PV (relance 3)
+  Mechanic: |
+    - Les alliés posent un glyphe après leur début du tour (infini). Commencer ou finir dédans vous oneshot
+  Advice: |
+    - Son poison en ligne est extrêment dangéreux, mais débuffable
+    - Connaître les sorts de déplacement de tous les ennemis est un gros plus pour éviter un potentiel désastre
+    - Le boss est simple à gérer avec le retrait PO et la distance
+  InformationShort: |
+    - Tape et attire à 4 PO en ligne et vous met un poison sur dégâts à 6 PO en ligne
+    - Invoque une Sporakne qui pousse de 1
+    - Reinvoque un mob mort avec 50% PV
+  MechanicShort: |
+    - Les alliés posent un glyphe après leur début du tour (infini). Commencer ou finir dédans vous oneshot
+  AdviceShort: |
+    - Connaître les sorts de déplacement de tous les ennemis est un gros plus pour éviter un potentiel désastre
+
+- Id: 670
+  Name: Koulosse
+  Image: 670_Koulosse.png
+  Difficulty: 6
+  ImmediateFocus: 5
+  Evasion: 10
+  Tanking: 0
+  Information: |
+    - Attire à 10 PO en ligne
+    - À partir du tour 2: met -100 PA (ou oneshot une invoc) à 5 PO en ligne
+    - Aux tours 2, 5, 8 etc: Invoque un Bouftou qui peut taper au contact ou retirer 2 PA ou PM à plusieurs cibles
+  Advice: |
+    - Jamais s'exposer en ligne est la manière la plus simple d'aborder le boss
+    - Le -100 PA est débuffable, on peut donc tacler le Koulosse et débuff le tank avec le perso jouant juste après
+
+- Id: 6394
+  Name: Koumiho
+  Image: 6394_Koumiho.png
+  Difficulty: 6
+  ImmediateFocus: 1
+  Evasion: 5
+  Tanking: 5
+  Information: |
+    - Invoque 2 Kitsounebis qui mettent un faible poison (cumulable 1 fois)
+    - Tape à 8 PO, les dégâts sont rejoués à 2 PO autour des Kitsounebis
+    - Soigne 20% des PV d'un allié à 7 PO, et 10% autour des Kitsounebis (relance 2)
+    - Délock: Avoir 0 Kitsounebis en vie quand elle rejoue
+    - Exactement 1 Kitsounebi fera qu'elle reinvoque. Le perso qui a tué subit des lourds dégâts
+    - Les Kitsounebis se mettent invisible au tour 2. Rentrer dans leur glyphe fera qu'ils coop avec Koumiho
+    - Phase 2: Débloque plusieurs sorts tapant à 4 PO et une invoc aléatoire de sa zone
+    - En dessous de 50% PV: débloque un sort qui rend Invisible, Pacifiste (1 tour) et qui la soigne, bouclier et boost aux 2 prochains tours
+  Advice: |
+    - Ses sorts ont PO minimale en phase 1. Vous pouvez la bloquer dans un coin, elle servira à rien
+    - Ses sorts tapent multi-ligne, les réductions fixes sont très efficaces
+    - Vous pouvez cliquer sur les Kitsounebis dans le chat combat et les répérer (c'est bugué depuis 6 ans)
+    - En phase 2, pas la baisser en dessous de 50% PV avant le kill évite son invisibilité
+    - Le glyphe de la Lanterne des Spiritueurs répère son invisibilité
+  InformationShort: |
+    - Invoque 2 Kitsounebis
+    - Délock: Avoir 0 Kitsounebis en vie quand elle rejoue
+    - Exactement 1 Kitsounebi fera qu'elle reinvoque. Le perso qui a tué subit des lourds dégâts
+    - Les Kitsounebis se mettent invisible au tour 2. Rentrer dans leur glyphe fera qu'ils coop avec Koumiho
+  AdviceShort: |
+    - Ses sorts ont PO minimale en phase 1. Vous pouvez la bloquer dans un coin, elle servira à rien
+    - Vous pouvez cliquer sur les Kitsounebis dans le chat combat et les répérer (c'est bugué depuis 6 ans)
+
+- Id: 2995
+  Name: Kwakwa
+  Image: 2995_Kwakwa.png
+  Difficulty: 6
+  ImmediateFocus: 8
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape à 7 PO en ligne en poussant de 4. Tape également à 3 PO et à 1 PO
+    - Invoque 4 Bwaks au début de son tour 1 qui tapent très faiblement et poussent de 2 cases
+    - Tuer un Bwak retire 40% résistances au Kwakwa, dans l'élément du Bwak (infini)
+    - Les do pou font perdre 10% rés all et boost les do pou du Kwakwa (3 tours)
+  Advice: |
+    - Les do pou à foison sur le Kwakwa sont la manière la plus simple et rapide de s'en débarasser
+    - Il faut s'attendre à prendre très chèr en do pou une fois ses résistances baissés
+    - Les Bwaks ne sont pas dangéreux mais taclent et bloquent les lignes de vue
+  InformationShort: |
+    - Tape à 7 PO en ligne en poussant de 4. Tape également à 3 PO et à 1 PO
+    - Invoque 4 Bwaks négligeables
+    - Tuer un Bwak retire 40% résistances au Kwakwa, dans l'élément du Bwak (infini)
+    - Les do pou font perdre 10% rés all et boost les do pou du Kwakwa (3 tours)
+  AdviceShort: |
+    - Les do pou à foison sur le Kwakwa sont la manière la plus simple et rapide de s'en débarasser
+
+- Id: 4453
+  Name: Larve de Koutoulou
+  Image: 4453_Larve de Koutoulou.png
+  Difficulty: 9
+  ImmediateFocus: 0
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape très fort au contact en montant votre FOLIE de 1 (2x par cible), coop ses alliés à 6 PO sans ligne de vue (2x par tour)
+    - Au début de son tour, téléporte les personnages en ligne de vue à son contact
+  Mechanic: |
+    - Taper un ennemi fera que vous échangez de place avec l'entité la plus proche
+    - Sur un même tour d'un allié, échanger plus d'une fois la même entité est punitif: Augmente votre état de FOLIE de 1. À 10 états vous êtes oneshot. Si c'est un ennemi, le rend Invulnérable (1 tour)
+    - À partir de FOLIE 2: taper le Koutoulou ou un mob de sa zone renvoie vos dégâts à 2 PO autour de vous
+    - À chaque début de tour, votre FOLIE descend de 1
+  Advice: |
+    - Esquivez les dégâts du Koutoulou ou prévoyez beaucoup de résistance terre
+    - Les invoc sont utilisables pour bloquer sa ligne de vue
+    - L'état Pesanteur empêche sa coop avec ses alliés
+    - Les sorts et armes multi-ligne sont désavantagés, incrémentant votre FOLIE vite
+    - Taper au contact est injouable vu que vous allez proc l'Invulnérabilité en 2 attaques
+    - Les poisons contournent complètement la mécanique
+    - Chaque mob n'active la mécanique que 10 fois jusqu'à son prochain tour. Après, vous tapez normalement
+  InformationShort: |
+    - Tape très fort au contact en montant votre FOLIE de 1 (2x par cible), coop ses alliés à 6 PO sans ligne de vue (2x par tour)
+    - Au début de son tour, téléporte les personnages en ligne de vue à son contact
+  MechanicShort: |
+    - Taper un ennemi fera que vous échangez de place avec l'entité la plus proche
+    - Sur un même tour d'un allié, échanger plus d'une fois la même entité est punitif: Augmente votre état de FOLIE de 1. À 10 états vous êtes oneshot. Si c'est un ennemi, le rend Invulnérable (1 tour)
+    - À partir de FOLIE 2: taper le Koutoulou ou un mob de sa zone renvoie vos dégâts à 2 PO autour de vous
+  AdviceShort: |
+    - Esquivez les dégâts du Koutoulou ou prévoyez beaucoup de résistance terre
+    - Les invoc sont utilisables pour bloquer sa ligne de vue
+    - L'état Pesanteur empêche sa coop avec ses alliés
+    - Les sorts et armes multi-ligne sont désavantagés, incrémentant votre FOLIE vite
+    - Taper au contact est injouable vu que vous allez proc l'Invulnérabilité en 2 attaques
+
+- Id: 230
+  Name: Le Chouque
+  Image: 230_Le Chouque.png
+  Difficulty: 5
+  ImmediateFocus: 7
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Tape au contact, retire de la Puissance et applique l'état Maudit
+    - Coop 1 mob chaque tour en le boostant Puissance (PO infinie sans ligne de vue)
+    - Au début de son tour, tape le perso le plus proche et les alliés Maudits et minimise leurs effets
+    - Sa Poisse oneshot les perso qui ont 30% de leurs PV ou moins et les remplace par un pirate aléatoire
+    - Son coup au contact invoque un pirate à côté si la cible a 50% de ses PV ou moins
+  Advice: |
+    - Si vous avez un perso non-crit ou un tank / soutien, placez-le comme le plus proche pour absorber la Poisse
+    - L'état Pesanteur sur lui ou ses cibles empêche la coop
+  InformationShort: |
+    - Tape au contact et applique l'état Maudit
+    - Coop 1 mob chaque tour (PO infinie sans ligne de vue)
+    - Au début de son tour, tape le perso le plus proche et les alliés Maudits et minimise leurs effets
+  AdviceShort: |
+    - Si vous avez un perso non-crit ou un tank / soutien, placez-le comme le plus proche pour absorber la Poisse
+
+- Id: 289
+  Name: Maître Corbac
+  Image: 289_Maitre Corbac.png
+  Difficulty: 7
+  ImmediateFocus: 3
+  Evasion: 5
+  Tanking: 5
+  Information: |
+    - Tape fort au contact
+    - Invoque un Corbac qui tape et qui peut débuff 1 perso par tour (1 max, sans relance)
+    - Aux tours 3, 7, 11 etc: S'applique une carapace qui met -12 PA et -5 PM (2 tours)
+    - À chaque début de tour sous Carapace, il tape toute la map. La Carapace donne également un renvoi de dégâts
+    - En Crit, tous ses effets sont doublés: dégâts, renvoi
+  Advice: |
+    - Il reinvoque le Corbac chaque tour, c'est donc très peu utile de le tuer
+    - Le Corbac est invoqué au contact. Bloqué dans un coin, il ne pourra jamais invoquer
+    - La Carapace d'Ailes est débuffable
+    - C'est un bon premier focus si votre team tape terre ou neutre
+  InformationShort: |
+    - Tape fort au contact et invoque un Corbac qui peut débuff
+    - Aux tours 3, 7, 11 etc: S'applique une carapace qui met -12 PA et -5 PM (2 tours)
+    - À chaque début de tour sous Carapace, il tape toute la map. La Carapace donne également un renvoi de dégâts
+  AdviceShort: |
+    - Le Corbac est invoqué au contact. Bloqué dans un coin, il ne pourra jamais invoquer
+    - La Carapace d'Ailes est débuffable
+
+- Id: 3652
+  Name: Mallefisk
+  Image: 3652_Mallefisk.png
+  Difficulty: 1
+  ImmediateFocus: 0
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape à 4 PO en volant 2 PM, tape à 3 PO en diago en échangeant de place (marche sur les mobs aussi)
+    - Taper le Malléfisk boost de la Puissance à lui-même et son attaquant (infini)
+    - Quand ses PV sont en dessous de 50%: Taper le Malléfisk lui applique un bouclier (1 tour)
+    - Son sort de dégâts en diago enlève la Puissance que vous avez récupéré
+    - Aux tours 6, 11, 16 etc: il remet le bonus Puissance de tout le monde à 0
+  Advice: |
+    - Ce boss est proche d'un Kimbo, mais avec peu de risque
+    - Profitez de ses bonus Puissance pour annihiler les autres ennemis
+    - Mallefisk est facile à esquiver, au pire l'état Pesanteur sécurise
+  InformationShort: |
+    - Tape à 4 PO, tape à 3 PO en diago en échangeant de place (marche sur les mobs aussi)
+    - Taper le Malléfisk boost de la Puissance à lui-même et son attaquant (infini)
+    - Quand ses PV sont en dessous de 50%: Taper le Malléfisk lui applique un bouclier (1 tour)
+    - Son sort de dégâts en diago enlève la Puissance que vous avez récupéré
+  AdviceShort: |
+    - Ce boss est proche d'un Kimbo, mais avec peu de risque
+    - Profitez de ses bonus Puissance pour annihiler les autres ennemis
+
+- Id: 2848
+  Name: Mansot Royal
+  Image: 2848_Mansot Royal.png
+  Difficulty: 2
+  ImmediateFocus: 2
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape au contact en échangeant de place
+    - Délock: Soigner un perso à son contact délock 6 tours (vol de vie ne compte pas)
+    - Débloque un autre sort au contact lors du délock qui tape 10% de ses PV manquants
+    - Quand un mob meurt, il se boost 1 PM, vita et quelques dommages fixes
+  Mechanic: |
+    - Quand un perso est soigné, il tape à son contact ses autres alliés
+  Advice: |
+    - Boss inoffensif, délock ou sans délock
+    - Si vous n'avez pas de soin pour délock, la Cawotte est utilisable
+  InformationShort: |
+    - Tape au contact en échangeant de place
+    - Délock: Soigner un perso à son contact délock 6 tours (vol de vie ne compte pas)
+  MechanicShort: |
+    - Quand un perso est soigné, il tape à son contact ses autres alliés
+  AdviceShort: |
+    - Boss inoffensif, délock ou sans délock
+    - Si vous n'avez pas de soin pour délock, la Cawotte est utilisable
+
+- Id: 4621
+  Name: Mantiscore
+  Image: 4621_Mantiscore.png
+  Difficulty: 3
+  ImmediateFocus: 7
+  Evasion: 6
+  Tanking: 4
+  Information: |
+    - Tape à 5 PO en mettant Enraciné, et tape au contact avec 2 sorts
+    - Attire tous les alliés de 3 cases vers lui (relance 5)
+    - Se téléporte à 1 PO pour chaque attaque à distance subi
+    - Si aucune case n'est dispo pour la tp: perd 50% rés et désactive la tp (2 tours)
+  Advice: |
+    - Profiter du malus 50% rés est très conseillé. Bambouseraie ou Pavois peuvent aider pour entourer
+    - L'état Pesanteur déclenche le -50% également, sans devoir entourer
+  InformationShort: |
+    - Tape à 5 PO et au contact
+    - Attire tous les alliés de 3 cases vers lui
+    - Se téléporte à 1 PO pour chaque attaque à distance subi
+    - Si aucune case n'est dispo pour la tp: perd 50% rés et désactive la tp (2 tours)
+  AdviceShort: |
+    - Profiter du malus 50% rés est très conseillé. Bambouseraie ou Pavois peuvent aider pour entourer
+    - L'état Pesanteur déclenche le -50% également, sans devoir entourer
+
+- Id: 3534
+  Name: Merkator
+  Image: 3534_Merkator.png
+  Difficulty: 7
+  ImmediateFocus: 3
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape en ligne jusqu'à 7 PO en zone, tape au contact en retirant 50% PV et en mettant Pesanteur (1 tour)
+    - Aux tours 2, 4, 6 etc: Lance un sort qui boost son sort de zone pour chaque dégât subi (cumul max 5, environ +130% dégâts en full boost)
+    - Aux tours 3, 5, 7 etc: Au début de son tour, attire les alliés à 12 PO en ligne jusqu'au contact en leur retirant 4 PM
+    - Ne subit que 50% des dégâts à distance
+  Mechanic: |
+    - Tous les ennemis sont Indéplaçables
+    - Chaque tentative de retrait PM à un ennemi vous inflige des dommages feu
+  Advice: |
+    - Pour esquiver les ennemis, prévoyez des sorts de mobilité pour tourner sur la map, le déplacement et le retrait étant restreints
+    - Un tank peut être particulièrement utile, mais idéalement vous jouez un débuff juste après Merkator pour retirer son malus 50% vita
+  InformationShort: |
+    - Tape en ligne jusqu'à 7 PO en zone, tape au contact en retirant 50% PV
+    - Ne subit que 50% des dégâts à distance
+  MechanicShort: |
+    - Tous les ennemis sont Indéplaçables
+    - Chaque tentative de retrait PM à un ennemi vous inflige des dommages feu
+  AdviceShort: |
+    - Pour esquiver les ennemis, prévoyez des sorts de mobilité pour tourner sur la map, le déplacement et le retrait étant restreints
+
+- Id: 232
+  Name: Meulou
+  Image: 232_Meulou.png
+  Difficulty: 8
+  ImmediateFocus: 2
+  Evasion: 6
+  Tanking: 4
+  Information: |
+    - Tape au contact. Si la cible est tuée, remplace par un Mulou
+    - Invoque un Milimeulou qui tape faiblement au contact (relance 8). À sa mort, boost les mobs 2 PM et Puissance (2 tours)
+    - Délock: La première attaque délock jusqu'au prochain perso qui joue
+    - A un sort qui le soigne et qui boost 2 PM (2 tours), pas lancé full life
+  Mechanic: |
+    - Taper un mob augmente sa Puissance (4 tours, proc 10 fois par tour par mob)
+  Advice: |
+    - Dans la grande majorité des cas, il n'est pas rentable de tuer le Milimeulou
+    - Attention à vos invocations: quand le Meulou les tue, il les transforme en Mulou
+    - La mécanique rend le mob qui est votre focus extrêment dangéreux. Un oneshot est idéal, sinon une bonne anticipation des actions de la cible
+    - Quand vous l'avez entamé, l'Insoignable accélère le kill
+  InformationShort: |
+    - Tape au contact. Si la cible est tuée, remplace par un Mulou
+    - Quand son Milimeulou meurt, il boost les mobs 2 PM et Puissance
+    - Délock: La première attaque délock jusqu'au prochain perso qui joue
+  MechanicShort: |
+    - Taper un mob augmente sa Puissance (4 tours, proc 10 fois par tour par mob)
+  AdviceShort: |
+    - La mécanique rend le mob qui est votre focus extrêment dangéreux. Un oneshot est idéal, sinon une bonne anticipation des actions de la cible
+
+- Id: 121
+  Name: Minotoror
+  Image: 121_Minotoror.png
+  Difficulty: 4
+  ImmediateFocus: 2
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape très fort au contact en poussant de 6 cases. Dégâts doublés en Crit
+    - Invoque un Tofu avec des dégâts anecdotiques (1x par tour, 4 max)
+  Advice: |
+    - Évitez son contact si possible
+    - Les Tofus peuvent parfois servir pour bloquer des boss
+
+- Id: 827
+  Name: Minotot
+  Image: 827_Minotot.png
+  Difficulty: 6
+  ImmediateFocus: 5
+  Evasion: 6
+  Tanking: 4
+  Information: |
+    - Tape à 4 PO en ligne en volant 2 PA (2x par tour)
+    - Aux tours 1, 4, 7 etc: Boost 3 PM (6 en crit) pour 4 tours en croix 1. Repousse également en croix de 5 et met -100 PA et un poison aux alliés au contact (3 tours)
+    - Se boost 1 PA par tour. Quand il a 15 PA: lance un sort qui applique un gros soin début de tour sur tous les mobs
+  Advice: |
+    - Pas très dangéreux, mais évitez qu'il puisse aller à votre contact aux tours 1, 4, 7 etc
+    - Ses bonus PM et son malus 100 PA peuvent être débuff
+    - Son seul sort de dégâts est sensible au retrait PO
+  InformationShort: |
+    - Tape à 4 PO en ligne en volant 2 PA (2x par tour)
+    - Aux tours 1, 4, 7 etc: Se boost PM (4 tours) et met -100 PA au contact (3 tours)
+  AdviceShort: |
+    - Pas très dangéreux, mais évitez qu'il puisse aller à votre contact aux tours 1, 4, 7 etc
+
+- Id: 5990
+  Name: Misère
+  Image: 5990_Misere.png
+  Difficulty: 5
+  ImmediateFocus: 0
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape à 6 PO, à 6 PO en ligne en volant de la Puissance (infini, cumul max 5) et à 2 PO en mettant -100 PA/PM et en téléportant sur la case de début de tour (relance 2). Le -100 PA/PM s'enlève par les dégâts d'un allié
+    - Au début de tour: attire toute la map vers elle, tue les Charognes, applique un marqueur sur les entités, vole 5% résistance à tous les mobs et leur donne 1 PM
+    - L'attirance est entre 1 et 4 cases selon le % de ses PV: >75%, >50%, >25%, >0%. Chaque dégât sur elle déclenche également l'attirance
+    - Quand une entité avec son marqueur meurt, elle laisse une Charogne statique qui ne sert à rien (4 max)
+    - Phase 2 à 50% PV: Devient Invulnérable (1 tour). Elle débloque notamment un sort qui coop à 4-8 PO (relance 2)
+  Advice: |
+    - Elle retire votre Puissance à l'infini, vous ne voulez absolument pas la subir sauf avec un tank pur
+    - La gestion la plus simple est de la bloquer dans un coin avec deux invocations: Elle joue et tue les invoc en se bloquant elle-même avec ses Charognes. Vous tuez les Charognes, remettez deux invocations et ainsi de suite
+    - En phase 2, vu qu'elle coop à 4-8 PO, il suffit d'être à 2-3 PO d'elle avec toute la team
+    - L'attirance s'active que sur les 10 premiers dégâts après qu'elle a joué
+  InformationShort: |
+    - Tape à 6 PO, à 6 PO en ligne en volant de la Puissance (infini, cumul max 5) et à 2 PO en mettant -100 PA/PM et en téléportant sur la case de début de tour (relance 2). Le -100 PA/PM s'enlève par les dégâts d'un allié
+    - Au début de tour: attire toute la map vers elle, tue les Charognes et applique un marqueur sur les entités. Chaque dégât sur elle déclenche également l'attirance
+    - Quand une entité avec son marqueur meurt, elle laisse une Charogne statique qui ne sert à rien (4 max)
+    - Phase 2 à 50% PV: Devient Invulnérable (1 tour). Elle débloque notamment un sort qui coop à 4-8 PO (relance 2)
+  AdviceShort: |
+    - Elle retire votre Puissance à l'infini, vous ne voulez absolument pas la subir sauf avec un tank pur
+    - La gestion la plus simple est de la bloquer dans un coin avec deux invocations: Elle joue et tue les invoc en se bloquant elle-même avec ses Charognes. Vous tuez les Charognes, remettez deux invocations et ainsi de suite
+    - En phase 2, vu qu'elle coop à 4-8 PO, il suffit d'être à 2-3 PO d'elle avec toute la team
+
+- Id: 3391
+  Name: Missiz Frizz
+  Image: 3391_Missiz Frizz.png
+  Difficulty: 7
+  ImmediateFocus: 6
+  Evasion: 3
+  Tanking: 7
+  Information: |
+    - Tape à 8 PO en érodant, tape à 4 PO. Quand elle subit un dégât, elle attire les alliés vers elle en étoile de 7 et boost son sort à 4 PO sur les alliés dans la zone
+    - Aux tours 2, 5, 8 etc: rend les mobs Intacleur et les boost 3 PM par retrait PM subi
+  Mechanic: |
+    - Toutes les entités du début du combat déclenchent plusieurs effets en étant poussé:
+    - Soin à hauteur de 15% PV max
+    - Poussée spéciale qui se joue en ligne de 6 et en diagonale de 3 de la destination: repousse de 1 case et délock les mobs dans la zone (1 tour)
+    - La pousse spéciale ne rejoue pas la mécanique recursivement!
+    - Subir des do pou vous inflige des gros dégâts et de l'érosion (1 tour)
+    - À chaque début de tour, les perso posent un piège au centre vide qui pousse de une case vers l'extérieur
+    - Les mobs ne peuvent pas être portés par un Pandawa
+  Advice: |
+    - Avant chaque piège déclenché, surveillez à 6 PO en ligne et à 3 PO en diago autour de la destination: Est-ce qu'il y'aura des do pou? Est-ce qu'il y'aura un délock?
+    - Si le piège est gênant, vous pouvez le virer en posant une invocation dessus
+    - Les sorts d'auto-poussée permettent de délock très facilement (Flèche de Replis, Nausée etc)
+    - Évitez de coller vos perso, sinon les poussées via piège vont se démultiplier
+    - L'état Insoignable permet de pousser un mob à fond sans le soigner par la mécanique
+  InformationShort: |
+    - Tape à 8 PO en érodant, tape à 4 PO. Quand elle subit un dégât, elle attire les alliés vers elle en étoile de 7 et boost son sort à 4 PO sur les alliés dans la zone
+  MechanicShort: |
+    - Toutes les entités du début du combat déclenchent plusieurs effets en étant poussé:
+    - Soin à hauteur de 15% PV max
+    - Poussée spéciale qui se joue en ligne de 6 et en diagonale de 3 de la destination: repousse de 1 case et délock les mobs dans la zone (1 tour)
+    - La pousse spéciale ne rejoue pas la mécanique recursivement!
+    - Subir des do pou vous inflige des gros dégâts et de l'érosion (1 tour)
+    - À chaque début de tour, les perso posent un piège au centre vide qui pousse de une case vers l'extérieur
+    - Les mobs ne peuvent pas être portés par un Pandawa
+  AdviceShort: |
+    - Avant chaque piège déclenché, surveillez à 6 PO en ligne et à 3 PO en diago autour de la destination: Est-ce qu'il y'aura des do pou? Est-ce qu'il y'aura un délock?
+    - Si le piège est gênant, vous pouvez le virer en posant une invocation dessus
+    - Les sorts d'auto-poussée permettent de délock très facilement (Flèche de Replis, Nausée etc)
+    - Évitez de coller vos perso, sinon les poussées via piège vont se démultiplier
+    - L'état Insoignable permet de pousser un mob à fond sans le soigner par la mécanique
+
+- Id: 928
+  Name: Mob l'Éponge
+  Image: 928_Mob l'Eponge.png
+  Difficulty: 1
+  ImmediateFocus: 2
+  Evasion: 0
+  Tanking: 10
+  Information: |
+    - Tape en ligne de 9 PO en zone en retirant 2 PO
+    - En cercle de 2: peut soigner les mobs (relance 2) et débuff les alliés (relance 4)
+  Advice: |
+    - Un poutch
+
+- Id: 226
+  Name: Moon
+  Image: 226_Moon.png
+  Difficulty: 6
+  ImmediateFocus: 0
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape à 8 PO en retirant 3 PA, 3 PM et 1 PO (2x par tour), tape en zone jusqu'à 4 PO
+    - Invoque un Darkli Moon qui invoque un totem élémentaire par tour et qui pose un glyphe sous lui en fin de tour, de la même couleur que le totem
+    - Les totems ne peuvent pas être déplacés sauf en les tapant en ligne dans leur élément: ils seront alors attirés jusqu'à votre contact
+    - Délock: un totem sur son glyphe correspondant retire 200% résistance au Moon dans son élément
+    - Aux tours 6, 11, 16 etc: tous les glyphes et totems sont virés, il faut recommencer
+    - Vous échangez de place en tapant le Darkli Moon
+    - Le Darkli peut coop un allié par tour à 3 PO
+  Advice: |
+    - Les effets de retrait du Moon peuvent se débuff
+    - Pour le délock, essayez d'avoir le Moon très loin et le Darkli dans votre camp
+    - Pour éviter que le Darkli se barre dans un coin, il suffit de le tacler
+  InformationShort: |
+    - Tape à 8 PO en retirant 3 PA, 3 PM et 1 PO (2x par tour), tape en zone jusqu'à 4 PO
+    - Invoque un Darkli Moon qui invoque un totem élémentaire par tour et qui pose un glyphe sous lui en fin de tour, de la même couleur que le totem
+    - Les totems ne peuvent pas être déplacés sauf en les tapant en ligne dans leur élément: ils seront alors attirés jusqu'à votre contact
+    - Délock: un totem sur son glyphe correspondant retire 200% résistance au Moon dans son élément
+    - Aux tours 6, 11, 16 etc: tous les glyphes et totems sont virés, il faut recommencer
+    - Vous échangez de place en tapant le Darkli Moon
+  AdviceShort: |
+    - Pour le délock, essayez d'avoir le Moon très loin et le Darkli dans votre camp
+
+- Id: 3100
+  Name: Nelween
+  Image: 3100_Nelween.png
+  Difficulty: 5
+  ImmediateFocus: 5
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Tape à 2 PO, et à 1 PO en retirant 2 PM
+    - Lancé à 1 PO, en cercle de 3: les alliés perdent 30% résistance et sacrifient les ennemis dans la zone (2 tours, relance 5)
+  Mechanic: |
+    - Se soigner (hors vol de vie) retire 1 PA ou 1 PM à toute la team pour 1 tour (aléatoire, fixé au début du combat)
+    - Si on est débuff, on minimise nos effets (1 tour)
+  Advice: |
+    - Évitez le soin complètement si possible, privilégiez le vol de vie et les boucliers
+    - Son gros sort est à 4 PO, mais le sacrifice à 3 PO autour de vous. Si vous voulez qu'il gaspille sa relance, laissez le s'approcher à exactement 4 PO
+    - Il ne lance pas le sort de sacrifice si la zone ne contient que des invoc
+  InformationShort: |
+    - Tape à 2 PO, et à 1 PO en retirant 2 PM
+    - Lancé à 1 PO, en cercle de 3: les alliés perdent 30% résistance et sacrifient les ennemis dans la zone (2 tours, relance 5)
+  MechanicShort: |
+    - Se soigner (hors vol de vie) retire 1 PA ou 1 PM à toute la team pour 1 tour (aléatoire, fixé au début du combat)
+    - Si on est débuff, on minimise nos effets (1 tour)
+  AdviceShort: |
+    - Évitez le soin complètement si possible, privilégiez le vol de vie et les boucliers
+    - Son gros sort est à 4 PO, mais le sacrifice à 3 PO autour de vous. Si vous voulez qu'il gaspille sa relance, laissez le s'approcher à exactement 4 PO
+
+- Id: 3397
+  Name: Nileza
+  Image: 3397_Nileza.png
+  Illustration: Nileza.png
+  Caption: Exemple de placement opti
+  Difficulty: 4
+  ImmediateFocus: 9
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape à 12 PO en ligne en poussant de 3 (plus fort quand low life), tape à 2 PO en zone en échangeant de place
+    - Aux tours non-multiples de 3: se soigne 5% et se boost des do fixes pour chaque dégât au contact subi
+    - Quand tapé à distance, échange de place avec l'attaquant (forcé!) et renvoie 200% des dégâts subi en cercle 2 autour de la destination du Nileza
+  Mechanic: |
+    - Aux tours 3, 5, 7 etc: Met tous les alliés Pacifiste (2 tours) qui sont trop loin
+    - La distance se réduit avec les tours. Tour 3: 12+ PO, Tour 5: 10+ PO, Tour 7: 8+ PO, Tour 9 et plus: 6+ PO
+    - Effets supplémentaires alternants aux tours 3 / 5 / 7 / 9+: -200 fuite / -200 tacle / Pesanteur / Insoignable
+    - À la fin de votre tour, vous tuez les persos à votre contact
+  Advice: |
+    - Se placer à 2 PO de vos focus, puis taper le Nileza, va beaucoup simplifier votre combat (voir l'image)
+    - Le renvoi dépend des dégâts subi. Vulner le Nileza augmente le renvoi
+    - L'état Pesanteur interdit son sort à 2 PO, Nileza passe alors à 1 sort offensif par cible
+    - L'échange de place permet de facilement replacer le boss et éviter le Pacifiste au tour 3
+  InformationShort: |
+    - Tape à 12 PO en ligne et à 2 PO
+    - Quand tapé à distance, échange de place avec l'attaquant (forcé!) et renvoie 200% des dégâts subi en cercle 2 autour de la destination du Nileza
+  MechanicShort: |
+    - Aux tours 3, 5, 7 etc: Met tous les alliés Pacifiste (2 tours) qui sont trop loin
+    - La distance se réduit avec les tours. Tour 3: 12+ PO, Tour 5: 10+ PO, Tour 7: 8+ PO, Tour 9 et plus: 6+ PO
+    - À la fin de votre tour, vous tuez les persos à votre contact
+  AdviceShort: |
+    - Se placer à 2 PO de vos focus, puis taper le Nileza, va beaucoup simplifier votre combat
+
+- Id: 2924
+  Name: Obsidiantre
+  Image: 2924_Obsidiantre.png
+  Difficulty: 3
+  ImmediateFocus: 2
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape à 10 PO en ligne, ou tape à 3 PO en échangeant de place quand délock (10% des PV manquants)
+    - Invoque une Pougnette qui explose dans 4 tours, tapant extrêment fort à 8+ PO
+    - Délock: Pousser un perso contre l'Obsi au contact délock pour 3 tours
+    - Quand délock: débloque un sort qui reinvoque un mob mort avec 10% de ses PV
+  Advice: |
+    - Délock l'Obsi (même sans le focus) le rend useless tant qu'il est full life
+    - Il a une seule invocation, donc avec la Pougnette placée il ne peut pas résu
+    - À son tour 5, soyez à 7 PO ou moins de la Pougnette pour pas se faire oneshot
+  InformationShort: |
+    - Tape à 10 PO en ligne, ou tape à 3 PO en échangeant de place quand délock (10% des PV manquants)
+    - Invoque une Pougnette qui explose dans 4 tours, tapant extrêment fort à 8+ PO
+    - Délock: Pousser un perso contre l'Obsi au contact délock pour 3 tours
+  AdviceShort: |
+    - Délock l'Obsi (même sans le focus) le rend useless tant qu'il est full life
+
+- Id: 3564
+  Name: Ombre
+  Image: 3564_Ombre.png
+  Difficulty: 6
+  ImmediateFocus: 1
+  Evasion: 3
+  Tanking: 7
+  Information: |
+    - Tape à 7 PO en ligne en s'attirant, tape en cercle de 3 autour de lui
+    - Aux tours 3, 6, 9 etc: Ombre gagne 2 PM
+    - Invoque un Globilum. Ce dernier invoque une Silhouette au contact de Ombre
+    - La Silhouette retire 10 PM à 5 PO. Le Globilum tape tous les alliés à 6 PO et plus
+    - Un déplacement débuff le malus 10 PM
+    - Délock: Ombre est en dehors du glyphe blanc tandis que sa Silhouette est dedans
+    - Ombre et la Silhouette peuvent être déplacés 1 seule fois par tour chacun. Le Globilum est Indéplaçable
+    - Les échanges de place sont annulés et un Pandawa ne peut pas les porter
+  Advice: |
+    - Ombre tape une seule fois au contact. Un tank / tacle est très efficace
+    - Le glyphe du Globilum boost 20% dommages finaux et peut être exploité
+    - Les déplacements type Xélor sont illimités sur Ombre et sa Silhouette
+    - Une fois la Silhouette dans le glyphe, elle est facilement taclée ou entravé pour garder un délock infini
+  InformationShort: |
+    - Tape à 7 PO en ligne en s'attirant, tape en cercle de 3 autour de lui
+    - Invoque un Globilum et une Silhouette
+    - La Silhouette retire 10 PM à 5 PO. Le Globilum tape tous les alliés à 6 PO et plus
+    - Un déplacement débuff le malus 10 PM
+    - Délock: Ombre est en dehors du glyphe blanc tandis que sa Silhouette est dedans
+    - Ombre et la Silhouette peuvent être déplacés 1 seule fois par tour chacun. Le Globilum est Indéplaçable
+    - Les échanges de place sont annulés et un Pandawa ne peut pas les porter
+  AdviceShort: |
+    - Ombre tape une seule fois au contact. Un tank / tacle est très efficace
+
+- Id: 1159
+  Name: Ougah
+  Image: 1159_Ougah.png
+  Difficulty: 5
+  ImmediateFocus: 9
+  Evasion: 7
+  Tanking: 3
+  Information: |
+    - Tape fort en zone jusqu'à 9 PO en mettant un poison. Dégâts doublés en Crit
+    - À partir du tour 2: Invoque un Fungus aléatoire chaque tour (max 2)
+    - Aux tours 2, 5, 8 etc: S'applique un buff de 50% crit par dégât subi, et se recons aléatoirement sur soit retrait PA, soit retrait PM, soit dégâts subi
+    - À partir du tour 3: Applique un poison PA puissant à 4 PO (relance 3)
+  Advice: |
+    - Ce boss est très dangéreux, mais n'a presque aucune défense et peu de PV. Tuez le en 1-2 tours et c'est plié
+    - Tous ses sorts, même l'invocation, sont sensibles au retrait PO
+    - Si son buff du tour 2 le recons, la prévisu vous le dira. Dans ce cas, vous pouvez le débuff
+  InformationShort: |
+    - Tape fort jusqu'à 9 PO
+    - À partir du tour 2: Invoque un Fungus aléatoire chaque tour (max 2)
+    - Au tour 2, peut aléatoirement se recons sur dégâts
+  AdviceShort: |
+    - Ce boss est très dangéreux, mais n'a presque aucune défense et peu de PV. Tuez le en 1-2 tours et c'est plié
+    - Si son buff du tour 2 le recons, la prévisu vous le dira. Dans ce cas, vous pouvez le débuff
+
+- Id: 4726
+  Name: Père Ver
+  Image: 4726_Pere Ver.png
+  Difficulty: 7
+  ImmediateFocus: 2
+  Evasion: 0
+  Tanking: 10
+  Information: |
+    - Aux tours 1, 3, 5 etc: tape sur un perso et les alliés dans la ligne de vue de l'allié ciblé. Applique un poison PM sur les alliés touchés
+    - Boost jusqu'à 3 mobs en Puissance et 2 PM chaque tour, et partage les dégâts avec 1 mob. Le partage soigne 10% la cible quand elle joue
+    - Il est Invulnérable à distance, immobile et Indéplaçable
+    - À chaque fin de tour, attire les alliés dans sa ligne de vue vers lui de 4 cases
+    - Un mob qui meurt retire 10% résistance au Père Ver et inflige des légers dégâts feu dans sa ligne de vue
+  Mechanic: |
+    - Chaque déplacement dans le combat inflige des légers dégâts eau
+    - Àprès la mort du Père Ver, les dégâts eau deviennent un poison de fin de tour
+    - Vous avez +10% érosion tandis que le Père Ver en vie
+  Advice: |
+    - Le débuff est très versatile: Débuff les boosts, le soin du partage et le poison PM
+    - Son partage de dégâts est contrôlable. Il faut soit qu'un mob ait perdu des PV, soit qu'il y a un allié en carré 1 autour du mob (le partage tape autour!). Sinon l'IA ne voit aucune raison de lancer le partage
+    - Si vous allez oneturn les focus, le partage sera donc jamais un sujet. Au pire des cas, tapez un peu tout le monde pour réduire la probabilité sur votre focus. Ou mettez une invoc au contact d'un mob pour le diriger sur lui
+  InformationShort: |
+    - Peut vous taper et mettre un poison PM aux tours impairs
+    - Boost des mobs PM, Puissance et peut partager les dégâts avec 1 mob
+    - Il est Invulnérable à distance, immobile et Indéplaçable
+    - Un mob qui meurt retire 10% résistance au Père Ver
+  MechanicShort: |
+    - Chaque déplacement dans le combat inflige des légers dégâts eau
+    - Vous avez +10% érosion tandis que le Père Ver en vie
+  AdviceShort: |
+    - Le débuff est très versatile: Débuff les boosts, le soin du partage et le poison PM
+    - Son partage de dégâts est contrôlable. Il faut soit qu'un mob ait perdu des PV, soit qu'il y a un allié en carré 1 autour du mob (le partage tape autour!). Sinon l'IA ne voit aucune raison de lancer le partage
+    - Si vous allez oneturn les focus, le partage sera donc jamais un sujet. Au pire des cas, tapez un peu tout le monde pour réduire la probabilité sur votre focus. Ou mettez une invoc au contact d'un mob pour le diriger sur lui
+
+- Id: 3651
+  Name: Phossile
+  Image: 3651_Phossile.png
+  Difficulty: 4
+  ImmediateFocus: 3
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape et attire à 7 PO en ligne, tape et pousse à 5 PO en ligne sans ligne de vue, tape à 3 PO, tape à 2 PO en zone en débuffant de 2 tours
+    - Aux tours 5, 9, 13 etc: Oneshot à 3 PO autour de lui au début du tour global
+  Mechanic: |
+    - Quand un allié est poussée / attiré: il pose un glyphe (3 tours). Le glyphe augmente de 30% les dommages subi (sauf sur le Phossile)
+    - Finir son tour soigne vos alliés à 4 PO, et soigne vos ennemis à 9+ PO en leur retirant 1 PM
+  Advice: |
+    - Si vous avez l'opportunité, placez votre focus dans un glyphe pour gagner fortement en dégâts
+    - Le Phossile a peu de mobilité, surtout avec sa mécanique qui retire 1 PM. Gardez le loin simplement. Il fait mal
+  InformationShort: |
+    - Tape avec plein de sorts, 7 PO en ligne max
+    - Aux tours 5, 9, 13 etc: Oneshot à 3 PO autour de lui au début du tour global
+  MechanicShort: |
+    - Quand un allié est poussée / attiré: il pose un glyphe (3 tours). Le glyphe augmente de 30% les dommages subi (sauf sur le Phossile)
+    - Finir son tour soigne vos alliés à 4 PO, et soigne vos ennemis à 9+ PO en leur retirant 1 PM
+  AdviceShort: |
+    - Si vous avez l'opportunité, placez votre focus dans un glyphe pour gagner fortement en dégâts
+
+- Id: 4278
+  Name: Pounicheur
+  Image: 4278_Pounicheur.png
+  Difficulty: 2
+  ImmediateFocus: 0
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape au contact en poussant de 4 cases autour (1x par tour)
+    - Renvoie 200% dégâts subi sur toute votre team sans delock
+    - Invoque 3 puces qui ne font rien, mais qui ont des états entre 1 et 3 qui varient
+    - Taper une puce au contact incrémente son état et baisse celui des autres. Vous êtes également repoussés de 3 cases
+    - Délock: Rendre les 3 puces au même état via un coup au contact désactive le renvoi jusqu'au prochain tour du Pounicheur
+  Advice: |
+    - Le boss tape une seule fois, il peut presque totalement être ignoré
+    - Sur un combat difficile, les puces peuvent servir pour bloquer d'autres boss
+    - Les poisons contournent sa mécanique. Sinon une Trêve (état Pacifiste) l'empêche de renvoyer
+  InformationShort: |
+    - Tape au contact en poussant de 4 cases autour (1x par tour)
+    - Renvoie 200% dégâts subi sur toute votre team sans delock
+    - Invoque 3 puces qui ne font rien, mais qui ont des états entre 1 et 3 qui varient
+    - Taper une puce au contact incrémente son état et baisse celui des autres. Vous êtes également repoussés de 3 cases
+    - Délock: Rendre les 3 puces au même état via un coup au contact désactive le renvoi jusqu'au prochain tour du Pounicheur
+  AdviceShort: |
+    - Le boss tape une seule fois, il peut presque totalement être ignoré
+
+- Id: 2992
+  Name: Professeur Xa
+  Image: 2992_Professeur Xa.png
+  Difficulty: 5
+  ImmediateFocus: 1
+  Evasion: 5
+  Tanking: 5
+  Information: |
+    - Tape en zone de 3 en ligne en retirant 4 PA (1x par tour)
+    - Aux tours 1, 3, 5 etc: Lance un buff sur tous les mobs. Quand ils subissent un dégât, ils sont boostés en do fixes et soignent les alliés à 5 PO autour d'eux
+    - Reinvoque un mob mort avec 25% de ses PV (relance 3)
+    - Quand le Xa meurt: tous les mobs sont soignés full et gagnent un énorme bonus de dommages fixes (infini)
+  Mechanic: |
+    - Vos soins classiques (pas en % ou vol de vie) soignent de 0
+  Advice: |
+    - Sa reinvocation est largement préférable à un Xa mort trop tôt qui overboost les mobs
+    - Un mob sous son buff peut monter à des milliers de do fixes quand focus. Tuez-le vite ou anticipez ses actions
+    - Le bonus do fixes via dégâts subi peut être débuff, tout comme son retrait PA
+  InformationShort: |
+    - Tape en zone de 3 en ligne en retirant 4 PA (1x par tour)
+    - Aux tours 1, 3, 5 etc: Lance un buff sur tous les mobs. Quand ils subissent un dégât, ils sont boostés en do fixes et soignent les alliés à 5 PO autour d'eux
+    - Reinvoque un mob mort avec 25% de ses PV (relance 3)
+    - Quand le Xa meurt: tous les mobs sont soignés full et gagnent un énorme bonus de dommages fixes (infini)
+  MechanicShort: |
+    - Vos soins classiques (pas en % ou vol de vie) soignent de 0
+  AdviceShort: |
+    - Sa reinvocation est largement préférable à un Xa mort trop tôt qui overboost les mobs
+    - Un mob sous son buff peut monter à des milliers de do fixes quand focus. Tuez-le vite ou anticipez ses actions
+
+- Id: 7197
+  Name: Rakoopeur
+  Image: 7197_Rakoopeur.png
+  Difficulty: 2
+  ImmediateFocus: 5
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape à 6 PO et à 4 PO en ligne. Ses sorts retirent 10% rés à lui et sa cible (2 tours)
+    - Se téléporte à 9 PO en ligne sur un mob et donne un bouclier (relance 3)
+  Advice: |
+    - Un poutch, ses auto-malus rés peuvent expédier son kill
+    - Tous ses sorts sont sensibles au retrait PO
+    - Il tape en 5 lignes, donc 0 sur les réductions de dégâts fixes
+  InformationShort: |
+    - Tape à 6 PO et à 4 PO en ligne. Ses sorts retirent 10% rés à lui et sa cible (2 tours)
+  AdviceShort: |
+    - Un poutch
+
+- Id: 940
+  Name: Rat Blanc
+  Image: 940_Rat Blanc.png
+  Difficulty: 3
+  ImmediateFocus: 1
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Tape à 2 PO sans limite de lancer par tour/cible
+    - S'applique un buff qui lui boost 50% résistance dans l'élément de chaque attaque subi (2 tours, relance 5)
+  Advice: |
+    - Il fait mal et a peu de mobilité, prennez votre distance
+    - Son buff le rend presque Invulnérable. Vous pouvez tout de même tout débuff
+    - Si vous voulez juste finir rapidement le combat, exposez vous directement à lui. Il ira souvent taper avec tous ses PA plutôt que de lancer sa protection
+  InformationShort: |
+    - Tape à 2 PO sans limite de lancer par tour/cible
+    - S'applique un buff qui lui boost 50% résistance dans l'élément de chaque attaque subi (2 tours, relance 5)
+  AdviceShort: |
+    - Il fait mal et a peu de mobilité, prennez votre distance
+    - Son buff le rend presque Invulnérable. Vous pouvez tout de même tout débuff
+    - Si vous voulez juste finir rapidement le combat, exposez vous directement à lui. Il ira souvent taper avec tous ses PA plutôt que de lancer sa protection
+
+- Id: 939
+  Name: Rat Noir
+  Image: 939_Rat Noir.png
+  Difficulty: 4
+  ImmediateFocus: 6
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Au contact: tape dans 5 éléments et lance un sort qui va vous oneshot en subissant des dégâts terre ou neutre (1 tour, relance 6)
+    - À 6 PO: lance un malus (3 tours) qui vous tape à la hauteur de 50% de ses PV actuels quand vous êtes soignés hors vol de vie (souvent un oneshot, relance 3)
+    - Met un buff sur un mob qui va le recons quand il subit un dégât terre ou neutre (relance 2)
+  Advice: |
+    - Surveillez s'il lance son sort de oneshot Kackitu avec 6 de relance sur une invoc. Vous pourrez l'ignorer après
+  InformationShort: |
+    - Au contact: tape et lance un sort qui va vous oneshot en subissant des dégâts terre ou neutre (1 tour, relance 6)
+    - Vous met un malus qui peut oneshot si vous êtes soigné
+  AdviceShort: |
+    - Surveillez s'il lance son sort de oneshot Kackitu avec 6 de relance sur une invoc. Vous pourrez l'ignorer après
+
+- Id: 6478
+  Name: Reine Amirukam
+  Image: 6478_Reine Amirukam.png
+  Difficulty: 1
+  ImmediateFocus: 9
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Met un poison à 12 PO en ligne ou diagonale sans ligne de vue (5 tours cumulable), tape à 8 PO en ligne / diago en se reculant de 5 cases, tape dans un gros cône de 5 en repoussant de 4 cases (relance 2)
+    - Lance un sort mettant une rune sur toutes les entités. Au prochain tour, les runes tapent les cases occupées (ou soignent les mobs) ou boost Puissance la Reine (2 tours) par case vide
+    - Quand un seuil de PV est atteint, elle va se recons et passer ses 4 prochains tours. Votre perso le plus proche invoque un Roi Imagami dans votre camp
+    - Dans 5 tours, le Roi meurt et la Reine rejoue. Ou bien elle rejoue prématurément si le Roi meurt avant
+    - Le Roi a un sort de suicide
+  Advice: |
+    - Ce boss est comme un Kimbo mais sans aucun risque. Phasez la Reine et annihilez la salle avec le Roi
+    - La Reine a tendance de s'enfuir très loin pour taper en diagonale. Idéalement, ramenez la dans votre camp
+    - Elle a PO minimale sauf sur sa poussée. Taclé contre un mur, elle sera useless
+    - Pour accélérer le kill de la Reine: Le perso qui phase devrait être le plus proche de la Reine. Ainsi, il invoque le Roi qui se suicide directement
+    - Alternativement, l'état Insoignable peut bloquer un tour de recons de la Reine
+  InformationShort: |
+    - Quand un seuil de PV est atteint, elle va se recons et passer ses 4 prochains tours. Votre perso le plus proche invoque un Roi Imagami dans votre camp
+    - Dans 5 tours, le Roi meurt et la Reine rejoue. Ou bien elle rejoue prématurément si le Roi meurt avant
+  AdviceShort: |
+    - Ce boss est comme un Kimbo mais sans aucun risque. Phasez la Reine et annihilez la salle avec le Roi
+
+- Id: 6472
+  Name: Roi Imagami
+  Image: 6472_Roi Imagami.png
+  Difficulty: 1
+  ImmediateFocus: 9
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape en zone jusqu'à 8 PO en retirant 3 PM et en téléportant les cibles de 1 case aléatoirement (relance 2), tape au contact, bondit à 2 PO max en tapant au contact
+    - Lance un sort mettant une rune en croix sur toutes les entités. Au prochain tour, il tape tout le monde sauf si vous êtes au centre d'une rune, et se boost (2 tours)
+    - Quand un seuil de PV est atteint, il va se recons et passer ses 4 prochains tours. Votre perso le plus proche invoque une Reine Amirukam dans votre camp
+    - Dans 5 tours, la Reine meurt et le Roi rejoue. Ou bien il rejoue prématurément quand la Reine meurt avant
+    - La Reine a un sort de suicide
+  Advice: |
+    - Ce boss est comme un Kimbo mais sans aucun risque. Phasez le Roi et annihilez la salle avec la Reine
+    - Le Roi tape fort qu'au contact, gardez le loin.
+    - Pour accélerer le kill du Roi: Le perso qui phase devrait être le plus proche du Roi. Ainsi, il invoque la Reine qui se suicide directement
+    - Alternativement, l'état Insoignable peut bloquer un tour de recons du Roi
+  InformationShort: |
+    - Quand un seuil de PV est atteint, il va se recons et passer ses 4 prochains tours. Votre perso le plus proche invoque une Reine Amirukam dans votre camp
+    - Dans 5 tours, la Reine meurt et le Roi rejoue. Ou bien il rejoue prématurément quand la Reine meurt avant
+  AdviceShort: |
+    - Ce boss est comme un Kimbo mais sans aucun risque. Phasez le Roi et annihilez la salle avec la Reine
+
+- Id: 3726
+  Name: Reine des Voleurs
+  Image: 3726_Reine des Voleurs.png
+  Difficulty: 9
+  ImmediateFocus: 2
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape au contact et applique un poison PM puissant. En non-crit, tape en fonction de ses PM. En Crit (50%), tape stablement en débuffant de 4 tours en plus
+    - S'attire à 5 PO en ligne en échangeant de place au contact. Marche sur les mobs également. Applique un état vous tuant dans 6 tours (débuff à sa mort)
+    - À la fin de ses tours 4, 7, 10 etc: pose une Brume de 3 (2 tours) qui téléporte les mobs dedans symmétriquement. La Reine quant à elle se téléporte aléatoirement de 1, 2 ou 3 cases (priorité classique). Il n'y a que 3 cases à tester
+    - Quand elle meurt, vos perso subissent 50% de dégâts de plus (infini)
+    - Pour chaque bombe vivante, la Reine réduit ses dégâts subi de 10%
+  Mechanic: |
+    - Au début de son tour, chaque perso invoque une Bonbombe Invulnérable à 2 PO qui ne peut ni échanger de place ni être portée, mais peut être attirée / pousée
+    - Chaque Bonbombe explose dans 1 tour: À 10 PO en ligne: tape les mobs, oneshot les alliés et tue les autres Bonbombes en chaîne. À 10 PO en diagonale: rend les autres Bonbombes Désamorcée (bleue!)
+    - Une bombe Désamorcée recons les alliés plutôt que de les oneshot. De plus, elle désactive l'effet de la Reine qui vous tue dans X tours
+  Advice: |
+    - Les erreurs de placement sont très punitifs. Une concentration minimale est conseillée pour éviter le oneshot
+    - Séparer votre team vers plusieurs endroits facilite drastiquement la gestion de la mécanique
+    - Si vous n'avez rien à faire, créez des diagonales ou placez les bombes dans une ligne pour s'en débarasser
+    - Son poison PM est debuffable, mais en général une gestion à distance est à préférer
+    - Elle s'attire et tape au contact. Une invocation loin peut donc servir comme appât pour l'éloigner
+  InformationShort: |
+    - Tape au contact et applique un poison PM puissant. Peut rush à 5 PO, y compris sur un mob
+    - À la fin de ses tours 4, 7, 10 etc: pose une Brume (2 tours)
+    - Quand elle meurt, vos perso subissent 50% de dégâts de plus (infini)
+    - Pour chaque bombe vivante, la Reine réduit ses dégâts subi de 10%
+  MechanicShort: |
+    - Au début de son tour, chaque perso invoque une Bonbombe Invulnérable à 2 PO qui ne peut ni échanger de place ni être portée, mais peut être attirée / pousée
+    - Chaque Bonbombe explose dans 1 tour: À 10 PO en ligne: tape les mobs, oneshot les alliés et tue les autres Bonbombes en chaîne. À 10 PO en diagonale: rend les autres Bonbombes Désamorcée (bleue!)
+    - Une bombe Désamorcée recons les alliés plutôt que de les oneshot
+  AdviceShort: |
+    - Les erreurs de placement sont très punitifs. Une concentration minimale est conseillée pour éviter le oneshot
+    - Séparer votre team vers plusieurs endroits facilite drastiquement la gestion de la mécanique
+
+- Id: 3996
+  Name: Reine Nyée
+  Image: 3996_Reine Nyee.png
+  Difficulty: 5
+  ImmediateFocus: 5
+  Evasion: 5
+  Tanking: 5
+  Information: |
+    - Tape en zone jusqu'à 10 PO sans ligne de vue en retirant 15% rés (2 tours, cumulable). Tape en zône bâton à 1 PO en poussant de 1 case (2x par tour)
+    - Aux tours 1, 3, 5 etc: invoque un Oeuf Indéplaçable qui va éclore dans 2 tours, invoquant un Trégénaire
+    - Taper l'Oeuf vous soigne de 50% de vos dégâts!
+    - Un Trégénaire soigne la Reine. Si vous tapez la Reine, il passe en état agressif et explose à votre contact plutôt que de soigner
+  Advice: |
+    - Ses invocations sont négligeables, même l'explosion au contact
+    - Ses malus résistance ne sont pas débuffables
+    - Sa mobilité est faible, l'évitez donc au contact si possible
+  InformationShort: |
+    - Tape en zone jusqu'à 10 PO sans ligne de vue en retirant 15% rés (2 tours, cumulable). Tape en zône bâton à 1 PO en poussant de 1 case (2x par tour)
+  AdviceShort: |
+    - Sa mobilité est faible, l'évitez donc au contact si possible
+
+- Id: 3648
+  Name: Roi Nidas
+  Image: 3648_Roi Nidas.png
+  Difficulty: 5
+  ImmediateFocus: 3
+  Evasion: 6
+  Tanking: 4
+  Information: |
+    - Tape en zone jusqu'à 7 PO. À partir du tour 2, tape et attire à 6 PO en ligne en échangeant de place au contact
+    - À son prochain tour, les cibles de son sort air Zizanie rejouent les dégâts à 2 PO autour d'elles en débuffant de 2 tours
+    - Invoque une Boubourse dans votre camp. Elle change de camp à chaque mort
+    - La Boubourse donne 500 bouclier à votre team. Chez les ennemis, elle ne fait rien
+    - Elle oneshot vos invocations au contact au début de son tour
+  Advice: |
+    - Si vous avez subi le sort air Zizanie, espacez ces perso à 3 PO des autres
+  InformationShort: |
+    - Tape en zone jusqu'à 7 PO. À partir du tour 2, tape et attire à 6 PO en ligne
+
+- Id: 2854
+  Name: Royalmouth
+  Image: 2854_Royalmouth.png
+  Difficulty: 4
+  ImmediateFocus: 6
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Tape au contact, attire à 2 PO en ligne
+    - Invoque un Boufmouth aléatoire (max 1, relance 3)
+    - Délock: Pousser délock pour 1 tour en lui boostant 4 PM
+    - Quand il subit des do pou, il oneshot tous les alliés dans sa ligne
+  Advice: |
+    - Il tape qu'une seule fois par tour, vous pouvez souvent l'ignorer
+    - Un Boufmouth de Guerre invoqué est dangéreux, vous retirant 50% rés (débuffable)
+  InformationShort: |
+    - Tape au contact, attire à 2 PO en ligne
+    - Invoque un Boufmouth aléatoire (max 1, relance 3)
+    - Délock: Pousser délock pour 1 tour en lui boostant 4 PM
+    - Quand il subit des do pou, il oneshot tous les alliés dans sa ligne
+  AdviceShort: |
+    - Il tape qu'une seule fois par tour, vous pouvez souvent l'ignorer
+
+- Id: 797
+  Name: Scarabosse Dorée
+  Image: 797_Scarabosse Dore.png
+  Difficulty: 2
+  ImmediateFocus: 2
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape à 3 PO en ligne, soigne à 2 PO autour de lui (relance 2), peut repousser au contact de 3 cases
+    - Aux tours 1, 6, 11 etc: Invoque un Scarafeuille Immature qui est négligeable
+    - Aux tours 1, 5, 9 etc: Applique un malus 2 PM et 6 PO à tous les alliés (1 tour)
+  Advice: |
+    - Un poutch que vous pouvez ignorer, mais très chiant à tuer vu ses énormes PV
+    - Son malus PM et PO est débuffable
+    - À 3 PO le Scarafeuille Immature soigne en % des PV, donc beaucoup sur le boss. Isolez ou taclez le ou mettez Insoignable
+  InformationShort: |
+    - Tape à 3 PO en ligne, soigne à 2 PO autour de lui (relance 2), peut repousser au contact de 3 cases
+    - Aux tours 1, 6, 11 etc: Invoque un Scarafeuille Immature qui est négligeable
+    - Aux tours 1, 5, 9 etc: Applique un malus 2 PM et 6 PO à tous les alliés (1 tour)
+  AdviceShort: |
+    - Un poutch que vous pouvez ignorer, mais très chiant à tuer vu ses énormes PV
+
+- Id: 5955
+  Name: Servitude
+  Image: 5955_Servitude.png
+  Difficulty: 9
+  ImmediateFocus: 1
+  Evasion: 5
+  Tanking: 5
+  Information: |
+    - Tape à 5 PO en mettant un bouclier sur le mob le plus proche de la cible, tape à 2 PO autour de lui, attire à 10 PO en ligne
+    - Aux tours 1, 3, 5 etc: invoque une Armécréante à 2 PO (4 max)
+    - L'Armécréante tape à 10 PO sans ligne de vue et fera que la cible retourne sur sa case de début de tour à la fin de son tour. Elle tape également à 2 PO en ligne en repoussant. Si elle n'a subit aucun dégât pendant 1 tour, invoque un Iopprimé qui fait mal à 6 PO max
+    - Servitude renvoie 200% des dommages. En finissant sur un glyphe blanc, vous récupérez l'état Traître 1 (5 max). Taper un allié l'incrémente de 1. Taper Servitude le décrémente de 1 mais y'aura pas de renvoi
+    - Servitude peut attirer les alliés Traître de 1 case vers lui. Le perso attiré va tapér l'allié le plus proche
+    - Phase 2: Servitude boost le bouclier à lui-même également. Il peut coop les mobs à 2 PO avec l'allié le plus proche du mob. Son attirance tape désormais et vole 1 PM
+    - Phase 3: Tout le monde est téléporté sur sa case de début de combat. Servitude se soigne de 25% des PV max
+  Advice: |
+    - Tuez les Armécréantes. Prendre des zones avec d'autres mobs est très utile
+    - Vous pouvez utiliser l'effet de l'Armécréante pour se placer n'importe où, puis revenir en sécurité en fin de tour. Sinon, l'état Pesanteur empêche l'effet
+    - En Phase 2, attendez vous à devoir facetank car sa coop vous ramène
+    - Avant la phase 3, vous pouvez mettre l'état Insoignable pour plier le combat, ou réduire ses soins
+    - Utilisez Flamèche pour incrémenter vos états Traître sur vos persos alliés avec des faibles dégâts
+    - Un Feca peut drastiquement accélérer le boss en contournant le renvoi (Bastion, Barricade)
+    - Les poisons bypass le renvoi également
+    - Vous pouvez équiper une Prymune et un Nébuleux sur tout le monde pour baisser violemment ses PV tour 1
+  InformationShort: |
+    - Est plutôt limité dans ses actions mais invoque une Armécréante 1 tour sur 2
+    - L'Armécréante tape à 10 PO sans ligne de vue et fera que la cible retourne sur sa case de début de tour à la fin de son tour. Si elle n'a subit aucun dégât pendant 1 tour, invoque un Iopprimé
+    - Servitude renvoie 200% des dommages. En finissant sur un glyphe blanc, vous récupérez l'état Traître 1 (5 max). Taper un allié l'incrémente de 1. Taper Servitude le décrémente de 1 mais y'aura pas de renvoi
+    - Phase 2: Peut vous coop à son contact avec un mob
+    - Phase 3: Tout le monde est téléporté sur sa case de début de combat. Servitude se soigne de 25% des PV max
+  AdviceShort: |
+    - Tuez les Armécréantes. Prendre des zones avec d'autres mobs est très utile
+    - Un Feca peut drastiquement accélérer le boss en contournant le renvoi (Bastion, Barricade)
+    - Vous pouvez équiper une Prymune et un Nébuleux sur tout le monde pour baisser violemment ses PV tour 1
+    - Avant la phase 3, vous pouvez mettre l'état Insoignable pour plier le combat, ou réduire ses soins
+
+- Id: 457
+  Name: Shin Larve
+  Image: 457_Shin Larve.png
+  Difficulty: 4
+  ImmediateFocus: 6
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Tape au contact en retirant 4 PA et en repoussant de 4 (1x par tour)
+    - Aux tours 2, 4, 6 etc: Invoque une Larve aléatoire
+    - Aux tours 2, 5, 8 etc: Boost 4 PA à tout le monde (même votre team!) et retire 6 PM à votre team (1 tour)
+  Advice: |
+    - Au tour 1, placez vous convenablement pour taper tour 2 sans bouger
+    - Elle tape qu'une seule fois, on peut l'ignorer comme repousser
+    - Ses malus PA et PM sont débuffables
+
+- Id: 6388
+  Name: Shogun Tofugawa
+  Image: 6388_Shogun Tofugawa.png
+  Difficulty: 5
+  ImmediateFocus: 0
+  Evasion: 5
+  Tanking: 5
+  Information: |
+    - Tape à 9 PO, tape en zone jusqu'à 8 PO en repoussant de 2 cases du centre, tape à 7 PO en ligne en attirant et en débuffant de 1 tour
+    - Ne peut pas être taclé sauf dans le glyphe d'une Lanterne
+    - Délock: Le mettre dans le glyphe de la Lanterne des Spiritueurs délock pour 2 tours et repousse le Shogun par rapport à la Lanterne. Le délock a 4 tours de relance!
+    - Quand délock, il rend tous les mobs invisibles (sauf dans le glyphe de la lanterne) et invoque 2 Assaishins qui tapent faiblement au contact
+    - Ses dégâts sont divisés par deux sur les alliés dans le glyphe d'une lanterne
+  Advice: |
+    - Le sort Lanterne des Spiritueurs est obligatoire, récupérez-le à Grobe
+    - Au délock, mettez-le dans un coin et retirez ses PM ou bloquez-le. Vous ne voulez pas qu'il s'échappe en étant invisible
+  InformationShort: |
+    - Tape entre 9 et 7 PO
+    - Délock: Le glyphe de la Lanterne des Spiritueurs délock pour 2 tours
+    - Quand délock, il rend tous les mobs invisibles (sauf dans le glyphe de la lanterne) et invoque 2 Assaishins
+    - Ses dégâts sont divisés par deux sur les alliés dans le glyphe d'une lanterne
+  AdviceShort: |
+    - Le sort Lanterne des Spiritueurs est obligatoire, récupérez-le à Grobe
+
+- Id: 1071
+  Name: Silf le Rasboul Majeur
+  Image: 1071_Silf le Rasboul Majeur.png
+  Difficulty: 2
+  ImmediateFocus: 0
+  Evasion: 0
+  Tanking: 10
+  Information: |
+    - Tape faiblement à 6 PO en échangeant de place
+    - Invoque des Rasbouls Mineurs à exactement 8 PO qui recons les mobs au contact (5 max, 2 par tour)
+    - Lance un sort en permanence qui augmente ses PA si vous tentez de retirer des PA
+    - Délock: À 14 PA, applique un effet en cercle de 6 qui dure 2 tours: Quand une entité dans la zone subit un dégât, elle gagne 50% résistance partout mais perd 50% dans l'élément de la frappe (2 tours)
+    - Au délock, il boost tous les mobs avec énormément de Puissance (3 tours)
+  Advice: |
+    - Mettez votre focus Insoignable pour éviter la recons des invocations, ou ramenez / bloquez la cible
+    - Il joue dernier dans l'initiative et doit lancer le passif PA, puis le délock. Pour utiliser sa mécanique sur les mobs il faut donc attendre le tour 3!
+    - Si vous utilisez le délock contre les mobs, préparez une team mono-élément et essayez de faire Intouchable post délock
+    - La gestion safe et classique reste de délock le Rasboul à la fin quand il est tout seul
+    - Sans sort de retrait PA dans votre compo, l'Arakne Majeure suffit pour pas être softlock
+  InformationShort: |
+    - Invoque des Rasbouls Mineurs qui recons au contact
+    - Augmente ses PA quand vous lui retirez des PA
+    - Délock: À 14 PA, applique un effet en cercle de 6 qui dure 2 tours: Quand une entité dans la zone subit un dégât, elle gagne 50% résistance partout mais perd 50% dans l'élément de la frappe (2 tours)
+    - Au délock, il boost tous les mobs avec énormément de Puissance (3 tours)
+  AdviceShort: |
+    - Mettez votre focus Insoignable pour éviter la recons des invocations, ou ramenez / bloquez la cible
+
+- Id: 5100
+  Name: Solar
+  Image: 5100_Solar.png
+  Difficulty: 8
+  ImmediateFocus: 0
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Le boss a des sorts très variés selon la phase. Il a 4 phases dont chacune dure 3 tours, le cycle recommence donc à priori tour 13
+    - Sur ses phases matin / midi / soir / nuit, vos PA sont modifiés: +1 / +2 / -1 / -2
+    - Phase 1: Tape en ligne à 6 PO max. Les mobs se soignent en début de tour
+    - Phase 2: Tape violemmemnt toute la map, bondit à 6 PO et tape fort au contact. Les mobs gagnent en Puissance
+    - Phase 3: N'est pas très dangéreux, peut -4 PM et Pesanteur un perso. Les mobs renvoient des dégâts
+    - Phase 4: Tape très peu mais applique des poisons PA / PM en zone. Les mobs gagnent 2 PM
+    - Il est délock uniquement en Phase 4. Il doit mourrir sous Necronyx ou vous allez perdre le combat!
+    - Necronyx fera que Solar avance sa phase au prochain tour, prématurément
+    - Quand il finit son tour, il pousse les alliés qui sont à 7 PO ou plus jusqu'à l'autre bout de la map (sans do pou)
+    - Il renvoie 50% des dégâts en carré de 1 autour de lui sauf sous Necronyx
+    - Il reinvoque tous les mobs morts. Un mob reinvoqué qui était Necronyx ne rejoue pas
+  Advice: |
+    - Un tank est excellent contre le boss sauf en phase 2 où il est Intaclable et Indéplaçable
+    - Sauter la phase 2 après 1 tour (via Necronyx) est intéressant si vous tankez mal
+    - Ses poisons en phase 4 sont violents. Vous pouvez le tacler et couper sa ligne de vue sur votre team ou le bloquez entre des invoc
+  InformationShort: |
+    - Le boss a 4 phases cycliques avec chacune des sorts différents (3 tours). La phase 2 est la plus dangéreuse
+    - Il est délock uniquement en Phase 4. Il doit mourrir sous Necronyx ou vous allez perdre le combat!
+    - Necronyx fera que Solar avance sa phase au prochain tour, prématurément
+    - Il reinvoque tous les mobs morts. Un mob reinvoqué qui était Necronyx ne rejoue pas
+  AdviceShort: |
+    - Un tank est excellent contre le boss sauf en phase 2 où il est Intaclable et Indéplaçable
+    - Sauter la phase 2 après 1 tour (via Necronyx) est intéressant si vous tankez mal
+
+- Id: 943
+  Name: Sphincter Cell
+  Image: 943_Sphincter Cell.png
+  Difficulty: 4
+  ImmediateFocus: 0
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Tape à 2 PO en ligne sans ligne de vue
+    - Peut bondir à 5 PO sans ligne de vue et sans limite de lancer par tour
+    - Aux tours 1, 3, 5 etc: Invoque une tortue élémentaire aléatoire (4 max) qui réduit 200% résistance à son contact (3 tours)
+    - La tortue lance son malus avant de bouger sauf s'il y a des alliés en zone à proximité
+    - Délock: Le faire subir les malus de ses tortues
+  Advice: |
+    - Il inflige 5 lignes de dégâts. Les réductions fixes comme Rempart sont très fortes
+    - Pour facilement éviter ses dégâts, mettez le Pesanteur en permanence
+    - Un placeur jouant juste avant le Sphincter peut simplifier le combat en mettant des tortues au contact de votre focus
+    - Bloqué dans un coin derrière 2 tortues, l'IA ne peut pas bondir (pas besoin de Pesanteur). C'est la manière facile de plier le boss
+  InformationShort: |
+    - Bondit à votre contact et tape à 2 PO
+    - Invoque des tortues élémentaires qui mettent -200% rés au contact
+  AdviceShort: |
+    - Pour facilement éviter ses dégâts, mettez le Pesanteur en permanence
+    - Un placeur jouant juste avant le Sphincter peut simplifier le combat en mettant des tortues au contact de votre focus
+    - Bloqué dans un coin derrière 2 tortues, l'IA ne peut pas bondir (pas besoin de Pesanteur). C'est la manière facile de plier le boss
+
+- Id: 8093
+  Name: Supervizoeuf perturbé
+  Image: 8093_Supervizoeuf Perturbé.png
+  Difficulty: 3
+  ImmediateFocus: 4
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Tape à 5 PO en ligne / diagonale. Bondit à 5 PO en tapant en cercle 2 (relance 2). Ses deux sorts appliquent un poison
+    - Phase 2: Se téléporte au contact d'un allié et tue les autres alliés collés à ce dernier. Invoque aussi un double qui tacle
+    - À sa mort, explose à 3 PO en infligeant des lourds dégâts (sur allié comme ennemi)
+  Advice: |
+    - C'est un poutch, pensez juste à pas se coller quand il peut jouer en étant phase 2
+
+- Id: 3409
+  Name: Sylargh
+  Image: 3409_Sylargh.png
+  Difficulty: 7
+  ImmediateFocus: 0
+  Evasion: 7
+  Tanking: 3
+  Information: |
+    - Tape à 10 PO en vous mettant un poison sur dommages mêlée, tape à 3 PO en ligne en débuffant intégralement
+    - Boost fortement les dommages fixes et le tacle d'un mob au contact (1 tour, relance 2)
+  Mechanic: |
+    - Chaque mob reinvoque un mob mort en tant qu'invocation à 6 PO et 10% de ses PV. Les reinvocations reinvoquent à leur tour, donc une chaîne va se créer
+    - Les reinvocations passent leur premier tour, sont Indéplaçables et gagnent des dommages fixes pour 2 tours
+    - Quand un zombie meurt / explose: à 5 PO: tape fort et tue les autres zombies. à 6-10 PO: délock le Sylargh (1 tour). à PO infinie: met Pacifiste tous les alliés qui ont >89% PV
+  Advice: |
+    - Le Sylargh est sensible au retrait PO
+    - Il est préférable de retarder le kill des mobs à cause de la contrainte d'être sous 90% PV. Idéalement, vous tuez plusieurs mobs en même temps et gagnez du temps pour se mettre sous le seuil
+    - Il suffit de tuer le premier zombie pour tuer toute la chaîne
+    - L'état Indéplaçable des zombies ne dure que 1 tour et peut être débuff. Cela permet notamment de tuer la chaîne en tuant un autre mob que le premier, en mettant la cible alternative à 5 PO du premier
+    - Gardez en tête la priorité classique, donc la direction de reinvocation. Si les reinvocations arrivent dans votre camp vous serez emmerdés par les explosions
+  InformationShort: |
+    - Tape à 10 PO en vous mettant un poison sur dommages mêlée, tape à 3 PO en ligne en débuffant intégralement
+  MechanicShort: |
+    - Chaque mob reinvoque un mob mort en tant qu'invocation à 6 PO et 10% de ses PV. Les reinvocations reinvoquent à leur tour, donc une chaîne va se créer
+    - Les reinvocations passent leur premier tour, sont Indéplaçables et gagnent des dommages fixes pour 2 tours
+    - Quand un zombie meurt / explose: à 5 PO: tape fort et tue les autres zombies. à 6-10 PO: délock le Sylargh (1 tour). à PO infinie: met Pacifiste tous les alliés qui ont >89% PV
+  AdviceShort: |
+    - Il est préférable de retarder le kill des mobs à cause de la contrainte d'être sous 90% PV. Idéalement, vous tuez plusieurs mobs en même temps et gagnez du temps pour se mettre sous le seuil
+    - Il suffit de tuer le premier zombie pour tuer toute la chaîne
+
+- Id: 4744
+  Name: Tal Kasha
+  Image: 4744_Tal Kasha.png
+  Difficulty: 8
+  ImmediateFocus: 0
+  Evasion: 10
+  Tanking: 0
+  Information: |
+    - Tape et attire à 5 PO en ligne, tape extrêment fort au contact. Peut utiliser ses sorts à travers les mobs, donc attirer à 5 PO d'un mob et défoncer la cible à son contact
+    - Quand Tal Kasha se fait ret PM, elle échange de position (même sous Pesanteur)
+    - En étant délock, elle peut bond à 4 PO en ligne (relance 2)
+  Mechanic: |
+    - Tous les mobs morts se font reinvoquer sur la même case avec 50% PV, en perdant un PM (cumul max 1), en mettant un glyphe et en passant leur prochain tour. La reinvocation se passe quand un perso termine son tour
+    - Délock: Quand Tal Kasha commence son tour sur un glyphe, elle gagne un état. En consommant un glyphe de 3 mobs différents, elle est délock (infini)
+  Advice: |
+    - Évitez absolument Tal Kasha au contact ainsi que ses sorts indirects
+    - Un placeur jouant juste avant Tal Kasha peut corriger des placements qui vous exposent à ses sorts indirects, donc il n'est pas obligatoire de garder tous les mobs loin
+    - Tuer un mob avec un poison passe ses 2 prochains tours: le tour où le poison tue, et son tour suivant
+    - Éroder les mobs en boucle jusqu'à 1 PV max peut simplifier, mais éternise votre combat
+    - Servez vous de la coop sur retrait PM si vous avez peu de placement
+    - N'oubliez pas que le glyphe d'un mob se déplace quand vous le retuez
+    - Vous pouvez Pesanteur post délock pour empêcher le bond
+    - Sur un combat très difficile, les zombies peuvent permettre des blocages: Vous bloquez des boss derrière les zombies qui passe-tour en boucle car vous les retuez
+  InformationShort: |
+    - Tape et attire à 5 PO en ligne, tape extrêment fort au contact. Peut utiliser ses sorts à travers les mobs, donc attirer à 5 PO d'un mob et défoncer la cible à son contact
+    - Quand Tal Kasha se fait ret PM, elle échange de position (même sous Pesanteur)
+    - En étant délock, elle peut bond à 4 PO en ligne (relance 2)
+  MechanicShort: |
+    - Tous les mobs morts se font reinvoquer sur la même case avec 50% PV, en perdant un PM (cumul max 1), en mettant un glyphe et en passant leur prochain tour
+    - Délock: Quand Tal Kasha commence son tour sur un glyphe, elle gagne un état. En consommant un glyphe de 3 mobs différents, elle est délock (infini)
+  AdviceShort: |
+    - Évitez absolument Tal Kasha au contact ainsi que ses sorts indirects
+    - Un placeur jouant juste avant Tal Kasha peut corriger des placements qui vous exposent à ses sorts indirects, donc il n'est pas obligatoire de garder tous les mobs loin
+    - Servez vous de la coop sur retrait PM si vous avez peu de placement
+
+- Id: 6218
+  Name: Tanukoui San
+  Image: 6218_Tanukoui San.png
+  Difficulty: 5
+  ImmediateFocus: 6
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Tape en zone de 3 jusqu'à 13 PO en ligne, tape à 4 PO, tape à 2 PO en poussant de 2
+    - Débloque un sort de bond et un sort de poussée sur ses prochaines phases
+    - Au lancement du combat et à la fin de chaque tour: pose un glyphe autour qui rend Invulnérable les mobs dedans
+    - Quand il est dans son glyphe: taper à distance l'attire de 2 et taper en mêlée le repousse de 2
+  Advice: |
+    - Si le Tanukoui San n'est pas votre premier focus, isolez le des autres mobs pour pouvoir ignorer son glyphe
+    - Il ne tape pas très fort, vous pouvez l'ignorez facilement
+  InformationShort: |
+    - Au lancement du combat et à la fin de chaque tour: pose un glyphe autour qui rend Invulnérable les mobs dedans
+  AdviceShort: |
+    - Si le Tanukoui San n'est pas votre premier focus, isolez le des autres mobs pour pouvoir ignorer son glyphe
+
+- Id: 2967
+  Name: Tengu Givrefoux
+  Image: 2967_Tengu Givrefoux.png
+  Difficulty: 5
+  ImmediateFocus: 1
+  Evasion: 7
+  Tanking: 3
+  Information: |
+    - Attire à 8 PO sans ligne de vue de 3 cases (relance 3), tape au contact et érode 10%
+    - Aux tours 2, 5, 8 etc: invoque aléatoirement un Yokai ou Yomi Givrefoux (max 2)
+    - Le Yomi applique un état sur le Tengu (2 tours) en subissant des dégâts d'arme en étant aligné avec le Tengu
+    - Le Yokai applique un état sur le Tengu (2 tours) en étant déplacé pour arriver en diagonale du Tengu
+    - Délock: il faut les 2 états en même temps pour délock 4 tours. Un état tout seul va lui débloquer un autre sort à la place. Yomi: oneshot au contact. Yokai: 30% érosion sur tout le monde
+  Advice: |
+    - Vous avez 2 tours pour effectuer le délock entier. Si vous faites Yomi en premier, évitez juste le oneshot au contact
+    - Le Yokai peut s'ignorer, le Yomi retire 10 PM au contact donc prennez votre distance
+  InformationShort: |
+    - Le Yomi applique un état sur le Tengu (2 tours) en subissant des dégâts d'arme en étant alignés avec le Tengu
+    - Le Yokai applique un état sur le Tengu (2 tours) en étant déplacé pour arriver en diagonale du Tengu
+    - Invoque des Yomi et Yokai Givrefoux, vous ne serez pas softlock
+    - Délock: il faut les 2 états en même temps. Un état tout seul va lui débloquer un autre sort à la place. Yomi: oneshot au contact. Yokai: 30% érosion sur tout le monde
+  AdviceShort: |
+    - Vous avez 2 tours pour effectuer le délock entier. Si vous faites Yomi en premier, évitez juste le oneshot au contact
+    - Le Yokai peut s'ignorer, le Yomi retire 10 PM au contact donc prennez votre distance
+
+- Id: 382
+  Name: Tofu Royal
+  Image: 382_Tofu Royal.png
+  Difficulty: 5
+  ImmediateFocus: 7
+  Evasion: 0
+  Tanking: 10
+  Information: |
+    - Tape en zone jusqu'à 3 PO, tape à 2 PO et à 1 PO (relance 2)
+    - Aux tours 1, 6, 11 etc: invoque un Tofuzmo négligeable au contact
+    - Le boss a plus que 30 PM et peut donc facilement rester à l'autre bout
+  Advice: |
+    - Ses PV étants faibles et ses tours de jeu longs, un focus tôt est rentable
+    - Vous pouvez le bloquer dans un coin pour éviter sa fuite. En parallèle cela empêchera son invocation au contact
+  InformationShort: |
+    - Le boss a plus que 30 PM et peut donc facilement rester à l'autre bout
+  AdviceShort: |
+    - Vous pouvez le bloquer dans un coin pour éviter sa fuite. En parallèle cela empêchera son invocation au contact
+
+- Id: 5806
+  Name: Torkélonia
+  Image: 5806_Torkelonia.png
+  Difficulty: 7
+  ImmediateFocus: 5
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Tape à 8 PO en ligne ou diagonale, tape en ligne ou diagonale infinie selon le tour, tape à 10 PO avec les dégâts qui rebondissent à 5 PO (3 rebonds max)
+    - Lancé quand des PV étaient perdus: réduction de dégâts sur soit de 25% (2 tours, relance 3)
+  Mechanic: |
+    - Les mobs profitent d'un boost cyclique chaque tour et appliquent ce même boost (infini) sur les autres mobs en mourrant
+    - Les 8 boosts du Cycle sont dans l'ordre: 1) renvoie de dégâts à 2 PO autour de vous, 2) 20% réduction, 3) 10% rés, 4) 2 PM, 5) renvoi de dégâts classique, 6) 2 PA, 7) bouclier, 8) 20% dommages finaux
+    - Tuer aux tours de renvoi va également recons tous les autres mobs et les rendre Invulnérable (1 tour)
+    - Tuer Torkélonia tue l'attaquant sauf aux 2 tours de renvoi
+  Advice: |
+    - Les résistances eau sont très utiles
+    - Si vous voulez absolument achever un ennemi vite, essayez de tuer au tour 1 pour éviter les bonus de tank
+    - Sinon il est préférable de baisser les PV de toute le monde et tout tuer au tour 4 (bonus PM), surtout contre un groupe de 8
+    - Ne tuez jamais au tour 5 si possible, ou vous allez taper sur un gros renvoi pour le reste du combat
+  InformationShort: |
+    - Tape à 8 PO en ligne ou diagonale en zone, a un sort qui rebondit à 10 PO
+  MechanicShort: |
+    - Les mobs profitent d'un boost cyclique chaque tour et appliquent ce même boost (infini) sur les autres mobs en mourrant
+    - Les 8 boosts du Cycle sont dans l'ordre: 1) renvoie de dégâts à 2 PO autour de vous, 2) 20% réduction, 3) 10% rés, 4) 2 PM, 5) renvoi de dégâts classique, 6) 2 PA, 7) bouclier, 8) 20% dommages finaux
+    - Tuer aux tours de renvoi va également recons tous les autres mobs et les rendre Invulnérable (1 tour)
+    - Tuer Torkélonia tue l'attaquant sauf aux 2 tours de renvoi
+  AdviceShort: |
+    - Si vous voulez absolument achever un ennemi vite, essayez de tuer au tour 1 pour éviter les bonus de tank
+    - Ne tuez jamais au tour 5 si possible, ou vous allez taper sur un gros renvoi pour le reste du combat
+
+- Id: 799
+  Name: Tournesol Affamé
+  Image: 799_Tournesol Affame.png
+  Difficulty: 3
+  ImmediateFocus: 2
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Tape au contact, soigne en cercle de 2 autour (relance 4)
+    - Aux tours 2, 5, 8 etc: Invoque un monstre des champs aléatoire
+  Advice: |
+    - Vous pouvez l'entourer dans un coin, il ne pourra pas invoquer car c'est en ligne avec ligne de vue
+    - C'est un poutch en lui-même
+  InformationShort: |
+    - Tape au contact et invoque des mobs de sa zone
+  AdviceShort: |
+    - Vous pouvez l'entourer dans un coin, il ne pourra pas invoquer car c'est en ligne avec ligne de vue
+
+- Id: 3752
+  Name: Toxoliath
+  Image: 3752_Toxoliath.png
+  Difficulty: 6
+  ImmediateFocus: 3
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape à 7 PO en ligne en mettant un poison (5 tours cumulable), tape à 2 PO en mettant un poison PA très fort tout en érodant (1 tour)
+    - Chaque tour, rend un perso random violet. Ce dernier subira 50% de dégâts en plus. Taper cette cible débuff l'attaquant de 1 tour et soigne 150% des dégâts infligés
+    - Taper le Toxoliath vous inflige un poison PM extrêment violent (2 tours). Vous serez oneshot au delà de 2-3 PM
+    - Aux tours 6, 10, 14 etc: applique un poison sur tout le monde (2 tours) et pose un glyphe en cercle inversé qui augmente de 50% les dégâts de poison
+  Advice: |
+    - Le boss ayant une très faible mobilité, il est facile de l'esquiver et garder pour la fin. Au tour 6, il devient plus dangéreux
+    - Le poison PM prend en compte vos précédents PM du tour retroactivement
+    - Le poison PM est bypass par des invulnérabilités (Bastion, Barricade, Prohibition). Il ne s'active pas non plus sur vos poisons
+    - Le poison PM durant 2 tours, vous pouvez vous débuff au prochain tour pour bouger. Sinon il disparaît à la mort du Toxoliath
+    - Son poison PA est rentable à débuff, mais pas trop le poison de 5 tours à 7 PO
+  InformationShort: |
+    - Tape à 7 PO en ligne en mettant un poison (5 tours cumulable), tape à 2 PO en mettant un poison PA très fort tout en érodant (1 tour)
+    - Le perso violet subit 50% de dégâts supplémentaires
+    - Taper le Toxoliath vous inflige un poison PM extrêment violent (2 tours). Vous serez oneshot au delà de 2-3 PM
+  AdviceShort: |
+    - Le boss ayant une très faible mobilité, il est facile de l'esquiver et garder pour la fin
+    - Le poison PM prend en compte vos précédents PM du tour retroactivement
+    - Le poison PM est bypass par des invulnérabilités (Bastion, Barricade, Prohibition). Il ne s'active pas non plus sur vos poisons
+
+- Id: 1072
+  Name: Tynrils
+  Image: 1072_Tynril Consterne.png
+  Difficulty: 8
+  ImmediateFocus: 2
+  Evasion: 10
+  Tanking: 0
+  Information: |
+    - Tapent au contact (oneshot avec leur malus rés) et recons un mob au contact
+    - À PO infinie sans ligne de vue: Échangent de place avec un mob (1x par tour) et vous mettent -2000% rés dans un élément (2x par tour)
+  Advice: |
+    - Les PM et l'esquive PM des Tynrils étant faible, un perso ret PM est extrêment rentable
+    - Jouer un perso qui débuff juste après les Tynrils est impératif si vous êtes obligés de subir d'autres sources de dégâts
+    - Vous pouvez utiliser l'état Pesanteur pour empêcher la coop d'un mob et l'état Insoignable pour empêcher la recons
+
+- Id: 4264
+  Name: Ush Galesh
+  Image: 4264_Ush Galesh.png
+  Difficulty: 5
+  ImmediateFocus: 2
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Le premier tape à 6-12 PO en ligne sans ligne de vue en retirant 15% rés, et au contact en repoussant de 3. Le sort au contact oneshot les invoc
+    - Le deuxième tape à 3 PO en ligne en attirant, et tape au contact en retirant 3 PM
+    - Les deux partagent les dommages
+    - Pour taper un Ush, il faut alterner entre des dommages à distance et au contact. Si vous infligez plusieurs attaques du même type d'affilé, que la première va taper. Les autres seront réduites à 0
+    - Les poisons et do pou seront toujours réduits à 0
+    - À chaque tour, un des deux Ushs est Indéplaçable
+  Advice: |
+    - Taper en mono-ligne et faire des aller-retours (1 PO - 2 PO) est le moyen le plus rapide de baisser leurs PV. Pour cela, soit vous avez beaucoup de fuite, soit utilisez des sorts pour être Intaclable (Stabilisation, Brume par exemple)
+    - Le Ush noir a beaucoup moins de tacle que le Ush rouge
+    - Ils sont plutôt limités dans leurs actions et peuvent sans problème être laissés en dernier
+  InformationShort: |
+    - Les deux partagent les dommages
+    - Pour taper un Ush, il faut alterner entre des dommages à distance et au contact. Si vous infligez plusieurs attaques du même type d'affilé, que la première va taper. Les autres seront réduites à 0
+  AdviceShort: |
+    - Taper en mono-ligne et faire des aller-retours (1 PO - 2 PO) est le moyen le plus rapide de baisser leurs PV. Pour cela, soit vous avez beaucoup de fuite, soit utilisez des sorts pour être Intaclable (Stabilisation, Brume par exemple)
+    - Le Ush noir a beaucoup moins de tacle que le Ush rouge
+
+- Id: 8099
+  Name: Vénérable Endormi Perturbé
+  Image: 8099_Vénérable Endormi Perturbé.png
+  Difficulty: 6
+  ImmediateFocus: 1
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Tape tous les alliés en attirant toute la map de 4 cases vers lui (relance 3), bondit à 6 PO en tapant en zone, tape à 8 PO en zone en retirant 1 PA et 2 PM (cible nécessaire), tape à 6 PO en ligne en s'attirant et en repoussant la cible de 3, tape à 2 PO en poussant de 1 case
+    - Délock: Aux tours 2, 4, 6 etc: Le Vénérable se soigne, s'endort, passe donc son tour et devient Vulnérable et Indéplaçable
+  Advice: |
+    - Le Vénérable est extrêment violent quand il joue dans votre camp. Profitez du tour Invu pour le dégager loin, sinon il sera Indéplaçable au tour pair
+    - Si vous êtes assez loin, il s'avance juste avec ses PM et passe tour, sans utiliser le bond. 1 tour sur 4, il lancera son sort terre sur toute la map
+    - Tous ses sorts sont sensibles au retrait PO
+    - Pour accélérer le kill, vous pouvez le mettre Insoignable aux tours impairs, donc avant le sommeil
+  InformationShort: |
+    - Peut attirer tout le monde 4 cases vers lui, a plein de sorts pour vous défoncer à moyenne PO
+    - Délock: Aux tours 2, 4, 6 etc: Le Vénérable se soigne, s'endort, passe donc son tour et devient Vulnérable et Indéplaçable
+  AdviceShort: |
+    - Le Vénérable est extrêment violent quand il joue dans votre camp. Profitez du tour Invu pour le dégager loin, sinon il sera Indéplaçable au tour pair
+    - Si vous êtes assez loin, il s'avance juste avec ses PM et passe tour, sans utiliser le bond. 1 tour sur 4, il lancera son sort terre sur toute la map
+    - Tous ses sorts sont sensibles au retrait PO
+
+- Id: 3835
+  Name: Vortex
+  Image: 3835_Vortex.png
+  Illustration: Vortex.png
+  Difficulty: 5
+  ImmediateFocus: 0
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Le Vortex est plus ou moins en passe-tour permanent Phase 1
+    - Tape en ligne infinie de l'auroraire en érodant, met Insoignable à 2 PO autour d'un Zombie en ligne de vue
+    - Phase 2: tape à 8 PO en ligne sans ligne de vue en débuffant 2 tours et en mettant Pacifiste, tape à 4 PO en vous téléportant sur la position précédente et en tapant à 2 PO autour
+    - Aux tours 4, 7, 10 etc: Lance Heurage dont l'effet change totalement entre la Phase 1 et 2. En Phase 1: Boost tous les mobs selon l'heure actuelle (infini, disparaît à leur mort). En Phase 2: se téléporte au contact de l'auroraire
+  Mechanic: |
+    - Il existe 12 heures, chacune étant associé à un boost (voir l'image). L'heure avance à chaque tour d'un perso ou quand vous marchez dans un glyphe bleu avec un perso. Le glyphe échange également de place avec le mob qui l'a posé
+    - Un mob qui meurt gagne l'état de l'heure actuelle ainsi que le boost à l'infini (max 1)
+    - Le Vortex reinvoque tous les mobs morts à 3 PO avec 20% PV et -1 PM
+    - Pour qu'un mob reinvoqué ne rejoue plus, il faut le tuer deux fois à la même heure (vous verrez une étoile). Exemple: Votre perso 4 dans l'initiative tue au tour 1, donc heure 4. Il faudra alors attendre 12 tours de vos persos pour retuer, soit tour 4 avec le même perso. Utiliser des glyphes changera les heures
+    - Délock et Phase 2: Avoir tué tous les mobs à la même heure. Le Vortex gagne également les boosts de toutes les heures auxquelles vous avez tué (1 max par heure)
+  Advice: |
+    - Ce boss est un poutch sans être bien entouré, et sera purement pénible. Il impose une difficulté uniquement quand le groupe est déjà difficile
+    - Il reinvoque en zone autour de lui. Un perso qui tape fort en zone juste après le Vortex peut tout clean en boucle, empêchant les reinvocations de rejouer
+    - Évitez les kills heure 11, mais aussi heure 5 s'il est exigeant de retuer. Vous pouvez jouer vos persos qui tapent le moins fort aux heures impaires pour cela
+    - La fin est un 4v1. Le retrait PM rend le Vortex totalement inoffensif, sinon le Pacifiste se débuff
+  InformationShort: |
+    - Il passe ses tours Phase 1. Phase 2, il peut bouger et vous mettre Pacifiste à 8 PO en ligne sans ligne de vue
+  MechanicShort: |
+    - Il existe 12 heures, chacune étant associé à un boost (voir l'image). L'heure avance à chaque tour d'un perso
+    - Un mob qui meurt gagne l'état de l'heure actuelle ainsi que le boost à l'infini (max 1)
+    - Le Vortex reinvoque tous les mobs morts à 3 PO avec 20% PV et -1 PM
+    - Pour qu'un mob reinvoqué ne rejoue plus, il faut le tuer deux fois à la même heure
+    - Délock et Phase 2: Avoir tué tous les mobs à la même heure. Le Vortex gagne également les boosts de toutes les heures auxquelles vous avez tué (1 max par heure)
+  AdviceShort: |
+    - Ce boss est un poutch sans être bien entouré, et sera purement pénible. Il impose une difficulté uniquement quand le groupe est déjà difficile
+    - Il reinvoque en zone autour de lui. Un perso qui tape fort en zone juste après le Vortex peut tout clean en boucle, empêchant les reinvocations de rejouer
+
+- Id: 180
+  Name: Wa Wabbit
+  Image: 180_Wa Wabbit.png
+  Difficulty: 2
+  ImmediateFocus: 1
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape faiblement à 11 PO, une seule fois par tour. Dommages triplés en crit (10%)
+    - Aux tours 1, 7, 13 etc: Réduit les statistiques élémentaires de vos persos (3 tours)
+    - Aux tours 1, 6, 11 etc: Réduit les dommages d'arme sur lui à 0 (4 tours)
+  Advice: |
+    - Le Wa Wabbit pose proche de 0 danger sauf en crit
+    - Si vous jouez fortement sur les dommages fixes, les dommages critiques ou les dommages de poussée, son malus vous impactera à peine
+    - Il joue très tard dans l'initiative. Au tour 1, taper à fond avant le malus est rentable
+  InformationShort: |
+    - Aux tours 1, 7, 13 etc: Réduit les statistiques élémentaires de vos persos (3 tours)
+  AdviceShort: |
+    - Il joue très tard dans l'initiative. Au tour 1, taper à fond avant le malus est rentable
+
+- Id: 3460
+  Name: Wa Wobot
+  Image: 3460_Wa Wobot.png
+  Illustration: Wa Wobot.png
+  Caption: Placement pour oneshot
+  Difficulty: 3
+  ImmediateFocus: 5
+  Evasion: 4
+  Tanking: 6
+  Information: |
+    - Tape à 4-12 PO en ligne en attirant au contact. Invoque un Tamponneur sur la case ciblée après l'attirance. Tape à 2 PO en ligne sans ligne de vue en poussant de 3
+    - Aux tours 3, 8, 13 etc: Augmente ses résistances de 30% (2 tours)
+    - Peut échanger de place avec un Tamponneur à 3 PO (forcé!)
+    - Les Tamponneurs sont Invulnérables, ne peuvent pas échanger de place et ne peuvent pas être portés
+    - Quand une entité est poussée contre un Tamponneur en ligne, celui ayant effectué la poussée est téléporté symmétriquement par rapport au Tamponneur. Ensuite, l'entité est repoussée de 6 cases à l'opposé. Si c'est le Wa Wobot, il perd également 500 re pou
+    - Un Tamponneur a un nombre d'activations limité mais élévé
+  Advice: |
+    - Si vous réussissez d'aligner 2 Tamponneurs et un mob entre les deux, vous pouvez le oneshot avec un ping-pong de do pou (voir l'image)
+    - Des sorts d'attirance et poussées efficaces et variés sont conseillés pour se servir de cette méthode
+  InformationShort: |
+    - Peut vous taper et invoquer des Tamponneurs avec ses sorts
+    - Les Tamponneurs sont Invulnérables, ne peuvent pas échanger de place et ne peuvent pas être portés
+    - Quand une entité est poussée contre un Tamponneur en ligne, celui ayant effectué la poussée est téléporté symmétriquement par rapport au Tamponneur. Ensuite, l'entité est repoussée de 6 cases à l'opposé. Si c'est le Wa Wobot, il perd également 500 re pou
+  AdviceShort: |
+    - Si vous réussissez d'aligner 2 Tamponneurs et un mob entre les deux, vous pouvez le oneshot avec un ping-pong de do pou (voir l'image)
+
+- Id: 3849
+  Name: XLII
+  Image: 3849_XLII.png
+  Difficulty: 4
+  ImmediateFocus: 5
+  Evasion: 7
+  Tanking: 3
+  Information: |
+    - Tape en zone jusqu'à 3 PO en débuffant 1 tour. Tape à 3 PO en mettant l'état Pacifiste
+    - S'il était déplacé: débloque un sort pour 1 tour qui permet de coop des mobs à PO infinie sans ligne de vue (2x par tour)
+    - Ne peut pas être porté
+  Mechanic: |
+    - Invoque une auroraire qui fait un cycle de 12 heures et qui avance de 1 heure par perso qui joue
+    - L'heure influe les dégâts de tout le monde. Au début les dégâts sont réduits (x40%), à la fin augmentés (x150%). Elle repasse ensuite de 150% à 40%
+  Advice: |
+    - Son état Pacifiste est débuffable. Le con peut parfois le débuff lui-même en utilisant ses sorts dans le mauvais ordre
+    - Avec peu de PM et 3 PO, il est très simple à éviter. En cas de déplacement, l'état Pesanteur peut bloquer sa coop
+    - Le sommet de dégâts (auroraire) sera au tour 3 avec votre troisième perso dans l'initiative
+  InformationShort: |
+    - Tape en zone jusqu'à 3 PO en débuffant 1 tour. Tape à 3 PO en mettant l'état Pacifiste
+    - S'il était déplacé: débloque un sort pour 1 tour qui permet de coop des mobs à PO infinie sans ligne de vue (2x par tour)
+  MechanicShort: |
+    - Invoque une auroraire qui fait un cycle de 12 heures et qui avance de 1 heure par perso qui joue
+    - L'heure influe les dégâts de tout le monde. Au début les dégâts sont réduits (x40%), à la fin augmentés (x150%). Elle repasse ensuite de 150% à 40%
+  AdviceShort: |
+    - Avec peu de PM et 3 PO, il est très simple à éviter. En cas de déplacement, l'état Pesanteur peut bloquer sa coop
+    - Le sommet de dégâts (auroraire) sera au tour 3 avec votre troisième perso dans l'initiative
+
+- Id: 686
+  Name: Aermyne 'Braco' Scalptaras
+  Image: 686_Aermyne 'Braco' Scalptaras.png
+  Difficulty: 4
+  ImmediateFocus: 7
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape au contact en poussant de 3, tape fort une invocation à 8 PO (relance 4)
+    - À 6 PO: Soigne 3 mobs par tour en boostant 2-3 PM et Puissance (3 tours)
+  Advice: |
+    - C'est un poutch seul
+    - Les bonus PM peuvent se cumuler et exploser rapidement. S'ils vous gênent, tuez-la en premier
+  InformationShort: |
+    - Tape au contact en poussant de 3
+    - Boost 3 mobs par tour de 2-3 PM (3 tours)
+  AdviceShort: |
+    - C'est un poutch seul
+    - Les bonus PM peuvent se cumuler et exploser rapidement. S'ils vous gênent, tuez-la en premier
+
+- Id: 2419
+  Name: Aigripoil
+  Image: 2419_Aigripoil.png
+  Difficulty: 3
+  ImmediateFocus: 5
+  Evasion: 10
+  Tanking: 0
+  Information: |
+    - Tape à 7 PO en ligne en attirant de 3 et en retirant 3 PM. Oneshot au contact (relance 3)
+    - Se boost 1 PM par tour (cumul infini)
+  Advice: |
+    - S'il oneshot une invoc, c'est un poutch absolu pour les deux prochains tours
+
+- Id: 2181
+  Name: Ali Grothor
+  Image: 2181_Ali Grothor.png
+  Difficulty: 5
+  ImmediateFocus: 3
+  Evasion: 7
+  Tanking: 3
+  Information: |
+    - Tape à 8 PO en demi-cercle, tape fort au contact, bondit à 5 PO en ligne (1x par tour)
+    - Aux tours 2, 5, 8 etc: Se rend Invulnérable en mettant un état sur votre team (2 tours): À chaque début de tour, vous infligez 20% de vos PV actuels en dégâts à 2 PO et à vous-même. Ces dégâts retirent son Invulnérabilité. Vous récupérez aussi l'état Foudroyé
+    - Ses sorts tapent plus fort ou ont des effets en plus sur l'état Foudroyé. En vous soignant, l'état est retiré
+  Advice: |
+    - Évitez-le au contact, l'état Pesanteur bloque son bond
+    - Il n'y a aucune obligation d'utiliser sa mécanique. 1 tour sur 3 il reste vulnérable!
+  InformationShort: |
+    - Tape à 8 PO, tape fort au contact et bondit à 5 PO en ligne (1x par tour)
+    - Aux tours 2, 5, 8 etc: Se rend Invulnérable. Si vous commencez à 2 PO de lui, il se fait délock
+  AdviceShort: |
+    - Évitez-le au contact, l'état Pesanteur bloque son bond
+    - Il n'y a aucune obligation d'utiliser sa mécanique. 1 tour sur 3 il reste vulnérable!
+
+- Id: 1309
+  Name: Bouflouth
+  Image: 1309_Bouflouth.png
+  Difficulty: 5
+  ImmediateFocus: 7
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Tape au contact en poussant de 5. Au tour 6, oneshot au contact et remplace par un Boufmouth (relance 5)
+    - Invoque un Boufmouth de Guerre (relance 6) qui peut mettre -50% rés à un perso
+    - Boost des dommages fixes en cercle de 2 (2 tours, relance 3)
+    - Gagne 1 PM (1 tour) quand repoussée
+  Advice: |
+    - Un débuff jouant après peut sécuriser en retirant le -50% rés
+    - Vu la relance de son invoc, le kill peut être pertinent
+    - Son oneshot est presque oubliable vu qu'il arrive au tour 6
+  InformationShort: |
+    - Tape au contact et peux oneshot au contact tour 6
+    - Invoque un Boufmouth de Guerre (relance 6) qui peut mettre -50% rés à un perso
+  AdviceShort: |
+    - Un débuff jouant après peut sécuriser en retirant le -50% rés
+
+- Id: 3356
+  Name: Buldalazred
+  Image: 3356_Buldalazred.png
+  Difficulty: 2
+  ImmediateFocus: 5
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape à 8 PO en retirant 3 PM, met un piège à 8 PO
+    - Il a un glyphe qui oneshot début et fin de tour, et qui est en cercle de 2. Chaque glyphe est retiré après le prochain début de tour d'une entité
+    - Son glyphe est posé sur lui en début de tour, ou sur un perso qui déclenche son piège. Un glyphe posé attire de 3 cases vers le centre les alliés en ligne de vue du centre. Le déclencheur d'un piège sera attiré vers Buldalazred
+  Advice: |
+    - Pour jamais être attiré vers lui, vous pouvez rester hors ligne de vue
+    - L'IA pose les pièges uniquement sur les cases de vos alliés directement. S'il est hors ligne de vue ou à 9 PO ou plus il ne fera rien
+    - Ses glyphes disparaissent tellement vite que le oneshot est improbable. Le glyphe peut uniquement oneshot vous-même si vous marchez dedans sans PM restants, ou le prochain allié dans l'ini si aucun mob joue après pour faire dégager le glyphe
+    - Sans oneshot, c'est un poutch absolu
+  InformationShort: |
+    - Tape à 8 PO en retirant 3 PM, met un piège à 8 PO
+    - Il a un glyphe de oneshot posé par le piège ou lors de son début de tour
+  AdviceShort: |
+    - Si vous gardez le boss hors ligne de vue il sert à rien
+    - Sa mécanique est fragile, même en jouant avec ses pieds le oneshot est improbable
+
+- Id: 2057
+  Name: Chevalier de Glace
+  Image: 2057_Chevalier de Glace.png
+  Difficulty: 6
+  ImmediateFocus: 5
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Tape à 15 PO en volant des do fixes (3 tours), tape fort à 2 PO en mettant Pesanteur
+    - Aux tours 1, 5, 9 etc: Tape à 14 PO en cercle 2 en minimisant vos effets (2 tours)
+    - Quand il subit un ret PA, ret PM ou une poussée, il devient Invulnérable (2 tours)
+  Mechanic: |
+    - Les dommages de poussée oneshot dans le combat!
+  Advice: |
+    - Une Indéprys vous sécurise du oneshot en cas de do pou inesquivables au début du combat
+    - Sa mécanique oneshot do pou dépend uniquement de ses alliés, il ne do pou pas!
+    - Restez hors ligne de vue si vous voulez éviter les malus dommages fixes
+    - Si vous jouez do crit, espacez vos personnages à 5 PO au tour 1 pour pas subir sa Poisse sur plusieurs perso en zone
+  InformationShort: |
+    - Tape à 15 PO et à 2 PO. Tape à 14 PO en zone en minimisant vos effets (relance 4)
+    - Quand il subit un ret PA, ret PM ou une poussée, il devient Invulnérable (2 tours)
+  MechanicShort: |
+    - Les dommages de poussée oneshot dans le combat!
+  AdviceShort: |
+    - Une Indéprys vous sécurise du oneshot en cas de do pou inesquivables au début du combat
+    - Sa mécanique oneshot do pou dépend uniquement de ses alliés, il ne do pou pas!
+
+- Id: 2058
+  Name: Culbutoeuf
+  Image: 2058_Culbutoeuf.png
+  Difficulty: 8
+  ImmediateFocus: 8
+  Evasion: 3
+  Tanking: 7
+  Information: |
+    - Tape à 4 PO en mettant un poison dans 2 ou 3 tours (aléatoirement), tape fort au contact en retirant Puissance, 10 PM et en infligeant 40% érosion
+    - À 14 PO en ligne sans ligne de vue: Applique un poison PA et l'état Pesanteur en ligne de 3 (relance 2)
+    - Boost 3 PM à 4 PO en zone de 2 (2 tours, relance 4)
+    - Il réduit les dommages subi au contact à 0
+  Mechanic: |
+    - Tout le monde est Inébranlable, donc insensible aux poussées / attirances (alliés comme ennemis)
+    - Votre team perd 2 PM (infini)
+    - Échanger de place vous retire 50% résistance (2 tours)
+  Advice: |
+    - Une gestion du combat facetank peut être intéressante vu ses grandes limitations dans la gestion du terrain
+    - Les outils d'entrave qui vous restent sont le retrait PM, le porter / jeter (limité avec le malus PM) et les déplacements type Xélor
+    - Ses lourds malus au contact sont débuffables
+  InformationShort: |
+    - Tape à 4 PO, très fort au contact et applique un poison PA à 14 PO en ligne sans ligne de vue
+    - Peut boost 3 PM en zone pour 2 tours
+    - Il réduit les dommages subi au contact à 0
+  MechanicShort: |
+    - Tout le monde est Inébranlable, donc insensible aux poussées / attirances (alliés comme ennemis)
+    - Votre team perd 2 PM (infini)
+    - Échanger de place vous retire 50% résistance (2 tours)
+  AdviceShort: |
+    - Le ret PM, le porter / jeter et les déplacements type Xélor restent possibles
+
+- Id: 2053
+  Name: Docteur Eggob
+  Image: 2053_Docteur Eggob.png
+  Difficulty: 5
+  ImmediateFocus: 5
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Tape à PO infinie en ligne en croix de 3 en mettant Insoignable (2 tours)
+    - Aux tours 1, 7, 13 etc: Invoque un Oeuf dans votre camp qui ne peut pas être porté. À son tour suivant, l'Oeuf attire à PO infinie en ligne et explose en oneshottant à 4 PO autour. Si l'Oeuf a un bonus PM externe, il bouge avant d'attirer!
+    - Aux tours 1, 3, 5 etc: Invoque un Gobus qui peut être tué et qui met des malus aléatoires à 2 PO
+    - Peut mettre un allié Invulnérable chaque tour à 10 PO en boostant ses dommages
+    - Ne peut pas être déplacé sauf par Portail
+  Advice: |
+    - Son Invulnérabilité sur allié est débuffable, mais pas son état Insoignable
+    - Si vous en foutez de l'état Insoignable, c'est un poutch à ignorer
+    - Vous pouvez placer votre team en diagonale de l'Eggob pour éviter son sort
+    - Attention aux lignes et à la proximité de l'Oeuf avant son tour
+  InformationShort: |
+    - Tape à PO infinie en ligne en croix de 3 en mettant Insoignable (2 tours)
+    - Invoque un Oeuf dans votre camp qui explose dans 1 tour à 4 PO et oneshot. Il vous attire en ligne infinie avant
+  AdviceShort: |
+    - Si vous en foutez de l'état Insoignable, c'est un poutch à ignorer
+    - Attention aux lignes et à la proximité de l'Oeuf avant son tour
+
+- Id: 2908
+  Name: Dremoan
+  Image: 2908_Dremoan.png
+  Difficulty: 5
+  ImmediateFocus: 0
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Tape en ligne de 3 jusqu'à 4 PO en retirant 2-3 PM, tape lourdement feu un autre mob chaque tour en se soignant
+    - Aux tours 3, 8, 13 etc: met -100 PM et Pesanteur à votre team et tape tout le monde neutre au tour suivant. Les invocations gagnent également l'état Zombi
+    - À chaque début de tour, il se débuff intégralement
+    - Aux tours 6, 11, 16 etc, Dremoan se soigne en gagnant des dommages (infini)
+    - Peut reinvoquer un mob dans l'état Zombi (relance 2) et le remplacer par un Germe aléatoire Indéplaçable et Invulnérable
+    - Invoquer au moins un Germe le délock (infini)
+    - Il existe 2 Germes différents: Un qui boost 4 PA à 18 PO. Dremoan gagne aussi 4 PM. L'autre est offensif, vous tape à 18 PO en retirant 3 PO et en mettant un poison. En ligne, ce dernier peut taper en zone de 2 en retirant 4 PM. En contact, met un malus de dommages
+    - Quand Dremoan meurt, oneshot à 3 PO autour. Pour les Germes, le oneshot est à 2 PO autour
+  Mechanic: |
+    - Vous subissez un faible poison terre tant que Dremoan est vivant
+  Advice: |
+    - C'est un poutch qui vous tape une seule fois
+    - Sa reinvocation est remplacée donc ne joue jamais
+    - Il reinvoque sur une case totalement aléatoire, rarement dans votre camp
+    - Restez hors ligne et ligne de vue des Germes qui n'ont que 1 PM
+    - Ses malus PM et l'état Pesanteur sont débuffables
+  InformationShort: |
+    - Tape qu'une seule fois à 4 PO en retirant 2-3 PM
+    - Aux tours 3, 8, 13 etc: met -100 PM et Pesanteur à votre team et tape tout le monde neutre au tour suivant
+    - Reinvoque un mob et le transforme en Germe (cela va le délock)
+    - Quand Dremoan meurt, oneshot à 3 PO autour. Pour les Germes, le oneshot est à 2 PO autour
+  MechanicShort: |
+    - Vous subissez un faible poison terre tant que Dremoan est vivant
+  AdviceShort: |
+    - Restez hors ligne de vue des Germes, ils seront useless
+
+- Id: 4028
+  Name: Grand Kongoku
+  Image: 4028_Grand Kongoku.png
+  Difficulty: 7
+  ImmediateFocus: 9
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape au contact en repoussant de 20 cases (forcé!), tape en ligne de 10 cases
+    - Peut bondir à PO infinie sans ligne de vue
+    - Invoque une Cocolune Indéplaçable qui met toute votre team Pesanteur. À chaque début de tour, elle attire votre team de 10 cases vers elle. Ensuite, les perso en ligne de vue seront Pacifiste (1 tour) et le Kongoku en ligne de vue sera boosté en Puissance et Vitalité (infini, cumulable)
+  Advice: |
+    - Son invocation de la Cocolune se fera à 3 PO sur une case imprévisible, puis y'aura ses poussées. Y'aura forcément un côté aléatoire, mais essayez d'être planqué au début du combat pour éviter l'état Pacifiste
+    - Ses résistances sont faibles et il arrive dans votre camp. Explosez le Kongoku rapidement
+    - Le Kongoku n'a pas de bonus do pou. Un fond de re pou peut réduire ses do pou à 0 (qui seraient du 1000+ autrement!)
+    - L'état Pesanteur empêche le bond et le rend donc facilement esquivable
+  InformationShort: |
+    - Se téléporte sur vous, tape au contact en poussant de 20 cases (forcé!)
+    - Sa Cocolune rend votre team Pesanteur, vous attire de 10 cases et rend Pacifiste les perso en ligne de vue après
+  AdviceShort: |
+    - Essayez de vous planquer au début du combat pour tenter d'éviter le Pacifiste
+    - Tuez le Kongoku rapidement
+
+- Id: 3848
+  Name: Hin
+  Image: 3848_Hin.png
+  Difficulty: 7
+  ImmediateFocus: 9
+  Evasion: 0
+  Tanking: 10
+  Information: |
+    - Tape en cercle de 3 autour de lui en repoussant de 3 et en retirant 3 PM. Tape et repousse de 3 en cône de 3 (2x par tour)
+    - Aux tours 1, 5, 9 etc: S'applique un buff pour 2 tours: À chaque dégât subit, se boost 1 PM (1 tour) et repousse l'attaquant de 3 cases
+  Mechanic: |
+    - Vous avez un poison PM en permanence tant qu'il est vivant
+    - À partir du tour 2: quand il commence son tour, les alliés à 10 PO ou plus de lui sont oneshot
+  Advice: |
+    - Son sort en cône a 2 PO minimale. En le taclant contre un mur, vous limitez drastiquement ses actions et sa fuite
+    - Son initiative étant faible, le tuer avant qu'il joue reste la stratégie la plus facile
+    - Son sort sur dégâts est très contraignant mais vous voulez le focus rapidement. Une Indéprys permet de taper sans être repoussé
+    - Vous pouvez débuff de 2 tours pour retirer la poussée déclenchée
+    - S'il reste en vie longtemps, essayez de jouer un placeur avant lui pour corriger la distance et éviter le oneshot
+  InformationShort: |
+    - Pousse beaucoup autour de lui
+    - Se met un buff qui le boost 1 PM et vous repousse quand vous le tapez
+  MechanicShort: |
+    - Vous avez un poison PM en permanence tant qu'il est vivant
+    - À partir du tour 2: quand il commence son tour, les alliés à 10 PO ou plus de lui sont oneshot
+  AdviceShort: |
+    - Vous pouvez le tacler contre un mur pour empêcher sa fuite
+    - Jouez Indéprys ou lancez 2 débuff pour le taper sans être repoussé
+
+- Id: 4532
+  Name: Homard Medali
+  Image: 4532_Homard Medali.png
+  Difficulty: 4
+  ImmediateFocus: 4
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Tape en zone jusqu'à 7 PO en retirant 2 PM et en poussant de 1, tape et coop à 5 PO en se mettant Invulnérable (infini), tape au contact en repoussant de 3
+    - Taper l'Homard au contact enlève son Invulnérabilité
+    - À chaque début de tour, il se boost Puissance (infini) pour chaque allié à 4 PO ou plus. Le bonus est extrêment faible
+  Advice: |
+    - L'évitez à 5 PO pour pas se faire coop et pour éviter l'Invulnérabilité
+    - Ses sorts ont PO minimale sauf la poussée au contact. Si vous le taclez entièrement contre un mur, il lance 1 sort et passe son tour
+  InformationShort: |
+    - Tape à 7 PO max, peut vous coop à 5 PO en se mettant Invulnérable (retiré par un dégâts au contact)
+  AdviceShort: |
+    - L'évitez à 5 PO pour pas se faire coop et pour éviter l'Invulnérabilité
+
+- Id: 2903
+  Name: Katigrou
+  Image: 2903_Katigrou.png
+  Difficulty: 4
+  ImmediateFocus: 3
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Tape au contact et rajoute une ligne qui tape à la hauteur de 20% de ses PV manquants
+    - Bondit à 12 PO en tapant au contact (1x par tour)
+    - Peut maximiser les effets áléatoires sur un perso (2 tours, relance 4)
+  Advice: |
+    - Il tape extrêment fort low life et peut vous oneshot si vous avez peu de résistance terre
+    - L'état Pesanteur empêche son bond et le rend facile à esquiver
+  InformationShort: |
+    - Tape au contact (plus fort low life)
+    - Bond à 12 PO
+  AdviceShort: |
+    - Évitez qu'il vous tape low life ou mettez le Pesanteur
+
+- Id: 4734
+  Name: Khepricorne
+  Image: 4734_Khepricorne.png
+  Difficulty: 1
+  ImmediateFocus: 2
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Sans délock: tape à 10 PO, et au contact en volant 1 PA
+    - Quand il subit un dégât: Se délock (3 tours) à son prochain début de tour
+    - Avec délock: Invoque un morceau de caca Invulnérable au contact et tape uniquement avec l'aide de son caca
+    - Peut le coop en tapant à 3 PO autour en retirant 3 PM et en se soignant 10% PV
+    - Peut le repousser de 28 cases au contact en tapant en ligne infini et en mettant Pesanteur
+    - Aux tours 2 et 3 du caca, les persos à 6+ PO perdent 3 PA et 6 PO
+    - Gagne 3 PM, Intacleur et une réduction de dégâts aux sorts quand délock
+  Advice: |
+    - Il est moins dangéreux délock que sans délock
+    - Le caca est invoqué à son contact. Ne soyez pas dans sa ligne et il va passer 3 tours à simplement pousser son caca contre un mur
+  InformationShort: |
+    - Tape à 10 PO ou 1 PO sans délock
+    - Il suffit de le taper 1 fois pour le délock (3 tours)
+    - Au délock il invoque un morceau de caca Invulnérable au contact
+  AdviceShort: |
+    - Restez hors ligne du caca, il servira absolument à rien pendant le délock
+
+- Id: 3670
+  Name: Maxi-Malle
+  Image: 3670_Maxi-Malle.png
+  Difficulty: 3
+  ImmediateFocus: 4
+  Evasion: 3
+  Tanking: 7
+  Information: |
+    - Tape en zone jusq'à 10 PO en retirant 2 PM et en mettant Pesanteur. Tape en zone jusqu'à 3 PO en repoussant de 2
+    - À chaque dégât subit, son sort à 3 PO est boosté (infini, cumulable). Une augmentation correspond à 20% des dégâts
+    - Gagne 1 PM (infini) quand repoussée
+  Advice: |
+    - Ses malus PM et Pesanteur sont débuffables
+    - Même avec beaucoup de lignes de dégâts, son sort à 3 PO sera tankable
+  InformationShort: |
+    - Tape à 10 PO et à 3 PO en zone. Le sort à 10 PO max retire 2 PM et met Pesanteur
+    - Chaque dégât subi boostera le sort à 3 PO, chaque poussée boost 1 PM
+  AdviceShort: |
+    - Même avec beaucoup de lignes de dégâts, son sort à 3 PO sera tankable
+
+- Id: 3401
+  Name: Mekamouth
+  Image: 3401_Mekamouth.png
+  Difficulty: 8
+  ImmediateFocus: 0
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Il met des glyphes divers pour 2 tours qui sont tous à 10-12 PO en ligne sans ligne de vue et avec des bonus / malus selon ennemi / allié
+    - Les glyphes de cette liste: dégâts / soin (proc début de tour), -20% rés / +20% rés et Pesanteur (proc fin de tour, relance 2), 25% érosion / 25% vita (proc début de tour, relance 4), -3 PA / +3 PA (proc fin de tour, relance 3)
+    - Le glyphe ret PA est infini et délock le Mekamouth quand il fini dedans (1 tour)
+    - A un glyphe de fin de tour en carré inversé de 4 qui retire / boost des dommages (2 tours, le glyphe dure 1 tour, relance 3)
+    - Pour 15 PA, peut infliger des dégâts directs en ligne infinie (relance 6)
+  Mechanic: |
+    - Vous perdez 2 PA pour tout le combat
+    - Tant que le Mekamouth reste en vie, vous avez un poison PM
+  Advice: |
+    - Si possible, restez en diagonale de lui avec votre team pour pas se faire défoncer
+    - Il a presque aucun dégât direct. Bloquez le derrière 2 invocations statiques (hors timeline) et restez hors de sa ligne pour ne subir aucun glyphe. S'il sort, il n'aura aucune autre action de son tour et vous pourrez replacer
+    - Son glyphe blanc retirant des do fixes peut être pénalisant selon votre mode. Restez proche pour pas subir le malus
+    - Le débuff résistances et l'état Insoignable accélèrent le kill qui est long
+    - Si vous jouez la Cawotte Chawnue pour bloquer plutôt que la Savouweuse, il ne se soignera pas via vos Cawottes
+  InformationShort: |
+    - Il met plein de glyphes à 12 PO en ligne sans ligne de vue
+    - Parmi ces glyphes, y'en a un qui le délock en fin de tour
+  MechanicShort: |
+    - Vous perdez 2 PA pour tout le combat
+    - Tant que le Mekamouth reste en vie, vous avez un poison PM
+  AdviceShort: |
+    - Si possible, restez en diagonale de lui avec votre team pour pas se faire défoncer
+    - Il a presque aucun dégât direct. Bloquez le derrière 2 invocations statiques (hors timeline) et restez hors de sa ligne pour ne subir aucun glyphe. S'il sort, il n'aura aucune autre action de son tour et vous pourrez replacer
+
+- Id: 2902
+  Name: Monsieur Pingouin
+  Image: 2902_Monsieur Pingouin.png
+  Difficulty: 6
+  ImmediateFocus: 9
+  Evasion: 9
+  Tanking: 1
+  Information: |
+    - Au début du combat votre team est Pesanteur et perd 100 PM (1 tour)
+    - Tape jusqu'à 2 PO en zone en appliquant un effet aléatoire parmi ret PA, ret PM, poussée, passe-tour et une deuxième ligne de dégâts (2x par tour)
+    - À 12 PO en cercle de 4: soigne, rend les mobs invisibles et réduit beaucoup leurs dégâts subi (relance 4)
+  Advice: |
+    - Ne le subissez pas à 2 PO, il n'a aucune mobilité
+    - Son passe-tour peut se débuff
+    - Il lance son gros sort de soutien uniquement si un mob dans la zone a subi suffisamment de dégâts, jamais quand les mobs sont full life
+    - Soit tuez-le en premier, soit essayez de oneturn vos cibles. La zone de son sort est tellement immense qu'il peut souvent invi + réduction sur la moitié des mobs
+  InformationShort: |
+    - Au début du combat votre team est Pesanteur et perd 100 PM (1 tour)
+    - Tape et lance un effet random à 2 PO (peut passe-tour)
+    - Peut soigner + rendre invisible + réduire les dégâts dans une énorme zone (relance 3)
+  AdviceShort: |
+    - Il lance son gros de soutien uniquement si un mob dans la zone a subi suffisamment de dégâts, jamais quand les mobs sont full life
+    - Soit tuez-le en premier, soit essayez de oneturn vos cibles. La zone de son sort est tellement immense qu'il peut souvent invi + réduction sur la moitié des mobs
+
+- Id: 3845
+  Name: Morblok
+  Image: 3845_Morblok.png
+  Difficulty: 2
+  ImmediateFocus: 1
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape à 10 PO en boostant de la Puissance à tous les mobs (relance 2), tape au contact, bondit à 5 PO en tapant et attirant vers lui en cercle 3 et en se boostant 200 tacle
+    - Il ne subit que 70% des dégâts et renvoie 50% à 2 PO autour de lui
+    - Quand il subit un dégât, il applique un malus en zone de 2 sur l'attaquant selon l'élément du dégât: terre / neutre: renvoie de 50%, feu: débuff 4 tours, eau: -1 PA, air: malus Puissance
+  Advice: |
+    - C'est un poutch mais extrêment chiant à taper et à tuer, laissez le en dernier
+    - Quand vous le tapez, n'ayez aucun autre perso à 2 PO pour éviter ses malus en zone
+  InformationShort: |
+    - Tape à 10 PO en boostant de la Puissance à tous les mobs (relance 2), tape au contact, bondit à 5 PO en tapant et attirant vers lui en cercle 3 et en se boostant 200 tacle
+    - Il ne subit que 70% des dégâts et renvoie 50% à 2 PO autour de lui
+    - Quand il subit un dégât, il applique un malus en zone de 2 sur l'attaquant selon l'élément du dégât: terre / neutre: renvoie de 50%, feu: débuff 4 tours, eau: -1 PA, air: malus Puissance
+  AdviceShort: |
+    - C'est un poutch mais extrêment chiant à taper et à tuer, laissez le en dernier
+    - Quand vous le tapez, n'ayez aucun autre perso à 2 PO pour éviter ses malus en zone
+
+- Id: 3413
+  Name: Psikopompe
+  Image: 3413_Psikopompe.png
+  Difficulty: 7
+  ImmediateFocus: 6
+  Evasion: 2
+  Tanking: 8
+  Information: |
+    - Tape à 12 PO en volant 4 PO, tape à 14 PO en croix de 1 (dégâts doublés sur les invoc), tape à 1 PO en ligne à la hauteur de 10% de ses PV restants
+    - Son sort en croix de 1 applique un état (2 tours): Recevoir un soin (hors vol de vie) vous oneshot!
+    - À partir du tour 2: Peut lancer un renvoi de sort à 6 PO en croix de 1 qui dure 1 tour (relance 3)
+    - Délock: Un retrait PM délock pour 1 tour. Il gagnera également 63 PO pour 2 tours
+  Mechanic: |
+    - Tous les mobs avec lui gagnent 3 PO
+    - Quand vous commencez votre tour, vous allez taper vos autres alliés à votre contact
+  Advice: |
+    - Laissez tomber tous vos soins (Prygen, Proie etc). Son état de oneshot sur soin est à peine esquivable et n'est pas débuffable!
+    - Son sort à 1 PO est modifiable, peut donc taper en ligne infinie quand délock ou à 5-13 PO avec ses vols de PO. Quand le Psikopompe est full life, ce sort tape extrêment fort. Évitez donc sa ligne
+  InformationShort: |
+    - Tape à très grande distance et a un sort qui vous oneshot quand vous vous soignez!
+    - Délock: Un retrait PM délock pour 1 tour. Il gagnera également 63 PO pour 2 tours
+  MechanicShort: |
+    - Tous les mobs avec lui gagnent 3 PO
+    - Quand vous commencez votre tour, vous allez taper vos autres alliés à votre contact
+  AdviceShort: |
+    - Laissez tomber tous vos soins (Prygen, Proie etc). Son état de oneshot sur soin est à peine esquivable et n'est pas débuffable!
+    - A un sort en ligne tapant 10% de ses PV restants (extrêment fort full life). Évitez donc sa ligne
+
+- Id: 4270
+  Name: Roub’ Ignolles
+  Image: 4270_Roub’ Ignolles.png
+  Difficulty: 0
+  ImmediateFocus: 0
+  Evasion: 10
+  Tanking: 10
+  Information: |
+    - Invoque 4 bombes sur ses 4 cases en diagonale. Reinvoque à chaque fin de tour jusqu'à ce qu'il y de nouveau 4 bombes au total
+    - Une bombe qui meurt tape en zone autour (3 PO max). Elle meurt dans 4 tours par elle-même. Chaque tour elle se boost
+    - En finissant son tour, Roub’ Ignolles tape à 1 PO en diagonale
+  Advice: |
+    - Ce boss est complètement bugué et ne peut lancer aucun sort. Restez loin des bombes et ignorez le
+  InformationShort: |
+    - Invoque 4 bombes qui tapent autour à leur mort
+  AdviceShort: |
+    - Ce boss est complètement bugué et ne peut lancer aucun sort. Restez loin des bombes et ignorez le
+
+- Id: 3851
+  Name: Sicogne
+  Image: 3851_Sicogne.png
+  Difficulty: 5
+  ImmediateFocus: 7
+  Evasion: 6
+  Tanking: 4
+  Information: |
+    - Tape à 10 PO en oneshottant toutes vos invocations, bondit à 6 PO en tapant en zone de 3 (relance 3), tape à 3 PO en vous retirant Puissance et 3 PM (4 tours, cumulable). Le sort augmente ses dommages de base pour le prochain tour
+    - Aux tours 1, 4, 7 etc: Boost de la Puissance, 4 PA et 10% Crit aux mobs et maximise les effets sur votre team (1 tour)
+    - Quand vous déplacez Sicogne, il passe votre tour
+    - Quand vous détaclez du contact de Sicogne en perdant des PA ou PM, vous êtes oneshot!
+    - Rentrer dans le glyphe de Sicogne coop avec lui et boost 400 Puissance à vous et Sicogne (1 tour, cumul max 2 sur vous et cumul max infini sur Sicogne)
+  Advice: |
+    - Vos invocations vont mourrir en boucle jusqu'à ce que vous tuez Sicogne
+    - Il tape qu'une fois par tour avec son gros sort à 3 PO, et ses autres sorts sont négligeables. À moins que vous le tankez pour plusieurs tours, il servira pas à grande chose
+  InformationShort: |
+    - Peut oneshot toutes vos invocations chaque tour. Son sort dangéreux est à 3 PO, il vous retire de la Puissance et 3 PM (4 tours, cumulable)
+    - Quand vous déplacez Sicogne, il passe votre tour
+    - Quand vous détaclez du contact de Sicogne en perdant des PA ou PM, vous êtes oneshot!
+  AdviceShort: |
+    - Vos invocations vont mourrir en boucle jusqu'à ce que vous tuez Sicogne
+
+- Id: 4507
+  Name: Takomako
+  Image: 4507_Takomako.png
+  Difficulty: 7
+  ImmediateFocus: 9
+  Evasion: 8
+  Tanking: 2
+  Information: |
+    - Tape extrêment fort à 10 PO sans ligne de vue en fonction des PM utilisés. Il tape moins fort en ayant utilisé des PM
+    - Met Pacifiste et Insoignable à 10 PO en ligne (2 persos max par tour)
+    - À chaque début de tour, il gagne 1 PM (infini, cumulable)
+    - À chaque début de tour, il devient Invulnérable (1 tour) si aucun perso se retrouve à 5 PO autour de lui
+  Advice: |
+    - Vous pouvez le défoncer rapidement en vous exposant 1-2 fois, empêchant son Invulnérabilité
+    - Si vous traînez sur son kill et qu'il est blindé de PM, priviligiez un perso qui va le tacler, idéalement avec des résistances neutre ou une Invulnérabilité, tout en ayant votre team à 11+ PO du Takomako
+  InformationShort: |
+    - Tape extrêment fort à 10 PO sans ligne de vue en fonction des PM utilisés. Il tape moins fort en ayant utilisé des PM
+    - Met Pacifiste et Insoignable à 10 PO en ligne (2 persos max par tour)
+    - À chaque début de tour, il gagne 1 PM (infini, cumulable)
+    - À chaque début de tour, il devient Invulnérable (1 tour) si aucun perso se retrouve à 5 PO autour de lui
+  AdviceShort: |
+    - Vous pouvez le défoncer rapidement en vous exposant 1-2 fois, empêchant son Invulnérabilité
+    - Si vous traînez sur son kill et qu'il est blindé de PM, priviligiez un perso qui va le tacler, idéalement avec des résistances neutre ou une Invulnérabilité, tout en ayant votre team à 11+ PO du Takomako
+
+- Id: 2905
+  Name: Vengeuse Masquée
+  Image: 2905_Vengeuse Masquee.png
+  Difficulty: 7
+  ImmediateFocus: 9
+  Evasion: 1
+  Tanking: 9
+  Information: |
+    - Tape à 15 PO en retirant 2-3 PM et à 1 PO (modifiable). Dommages doublés en Crit
+    - Aux tours 1, 5, 9 etc: boosts tous les mobs dommages fixes, 2 PM, 10% CC et 4 PO (4 tours)
+    - Quand elle subit un retrait PO, elle gagne 50% résistances (2 tours)
+    - A des valeurs de tacle et fuite virtuellement infinies
+  Advice: |
+    - Son bonus sur tout le monde n'a aucun tour à vide. Il peut être très problématique sur un combat déjà difficile de base. Si vous prévoyez de la clean rapidement, n'oubliez pas qu'elle a 200% rés eau
+  InformationShort: |
+    - Tape de très loin
+    - Boost violemment les mobs tant qu'elle est en vie, notamment PM et dégâts
+    - Quand elle subit un retrait PO, elle gagne 50% résistances (2 tours)
+  AdviceShort: |
+    - Son bonus sur tout le monde n'a aucun tour à vide. Il peut être très problématique sur un combat déjà difficile de base. Si vous prévoyez de la clean rapidement, n'oubliez pas qu'elle a 200% rés eau
+
+- Id: 3668
+  Name: Voldelor
+  Image: 3668_Voldelor.png
+  Difficulty: 6
+  ImmediateFocus: 8
+  Evasion: 5
+  Tanking: 5
+  Information: |
+    - Tape à PO infinie sans ligne de vue, inflige un poison à 12 PO et 20% érosion, tape fort en zone jusqu'à 4 PO
+    - Quand vous tapez Voldelor, il vous applique un état (1 tour) qui améliore ses sorts sur les persos qui ont l'état: Le sort à PO infinie coop et le sort en zone jusqu'à 4 PO oneshot!
+    - Reinvoque un mob mort à 6 PO avec 70% de ses PV (relance 3)
+  Advice: |
+    - Pour entamer Voldelor, mettez le Pesanteur en permanence, il servira à rien tant qu'il vous ne choppe pas à 4 PO. Sans Pesanteur, il faudra soit le oneturn, soit séparer toute votre team tel qu'il puisse pas coop into oneshot
+    - Si vous le gardez en dernier, ne le tapez pas sans faire exprès. Il passera sa vie à vous taper un peu à distance
+  InformationShort: |
+    - Tant que vous ne tapez pas Voldelor, il ne sert pas à grande chose. Il peut coop les persos qui l'ont tapé (PO infinie) et les oneshot à 4 PO max
+    - Reinvoque un mob mort avec 70% de ses PV (relance 3)
+  AdviceShort: |
+    - Pour entamer Voldelor, mettez le Pesanteur en permanence, il servira à rien tant qu'il vous ne choppe pas à 4 PO. Sans Pesanteur, il faudra soit le oneturn, soit séparer toute votre team tel qu'il puisse pas coop into oneshot
+
+
+

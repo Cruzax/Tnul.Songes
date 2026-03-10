@@ -1,0 +1,11 @@
+:root {
+  --bg-deep: #0b0f1b;
+  --bg-soft: #141b2c;
+  --text: #f4f7ff;
+  --text-muted: #d0d9ee;
+  --glass: rgba(12, 18, 34, 0.7);
+  --glass-strong: rgba(18, 26, 45, 0.8);
+  --border: rgba(202, 218, 255, 0.35);
+  --accent: #8bc5ff;
+  --shadow: rgba(1, 6, 22, 0.6);
+}

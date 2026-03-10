@@ -1,0 +1,114 @@
+.moving-menu {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(9, 14, 28, 0.82);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.moving-menu-track {
+  display: flex;
+  width: max-content;
+  gap: 0.82rem;
+  align-items: center;
+  padding: 0.82rem 0.95rem;
+  white-space: nowrap;
+  animation: menu-scroll 190s linear infinite;
+}
+
+.moving-menu:hover .moving-menu-track {
+  animation-play-state: paused;
+}
+
+.menu-monster-item {
+  width: 156px;
+  min-height: 148px;
+  padding: 0.38rem 0.42rem 0.34rem;
+  display: grid;
+  grid-template-rows: 100px auto;
+  gap: 0.4rem;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  overflow: hidden;
+  flex: 0 0 auto;
+  cursor: pointer;
+  background: transparent;
+}
+
+.menu-monster-media {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.menu-monster-name {
+  display: block;
+  width: 100%;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: #edf3ff;
+  text-align: center;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+body.menu-compact .moving-menu-track {
+  gap: 0.42rem;
+  padding: 0.4rem 0.5rem;
+}
+
+body.menu-compact .menu-monster-item {
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  display: block;
+  border-radius: 12px;
+}
+
+body.menu-compact .menu-monster-name {
+  display: none;
+}
+
+.menu-monster-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(139, 197, 255, 0.65);
+}
+
+.menu-monster-item:focus-visible {
+  outline: 2px solid rgba(139, 197, 255, 0.9);
+  outline-offset: 1px;
+}
+
+.menu-monster-thumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.menu-monster-fallback {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  font-size: 0.95rem;
+  color: #f1f5ff;
+  background: linear-gradient(145deg, rgba(139, 197, 255, 0.35), rgba(112, 138, 188, 0.35));
+}
+
+@keyframes menu-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

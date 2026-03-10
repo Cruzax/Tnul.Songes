@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tnul.Songes</title>
+  <link rel="icon" type="image/png" href="Images/avoir.png" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1><a href="./" class="home-link">Tnul.Songes</a></h1>
+  </header>
+
+  <main class="container">
+    <section>
+      <div class="search-block">
+        <div class="search-anchor">
+          <label for="monster-search" class="sr-only">Rechercher un monstre</label>
+          <input
+            id="monster-search"
+            class="search-input"
+            type="search"
+            placeholder="Rechercher un monstre..."
+            autocomplete="off"
+          />
+          <div id="search-results" class="search-results" hidden></div>
+        </div>
+
+        <nav class="moving-menu" aria-label="Monstres en defilement">
+          <div class="moving-menu-track"></div>
+        </nav>
+      </div>
+
+      <article id="monster-detail" class="monster-detail" hidden></article>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
