@@ -1,25 +1,16 @@
-# Structure proposee (site simple)
+# Tnul.Songes
 
-## Arborescence
+Un petit site simple pour **survivre aux Songes Infinis**.
 
-- `index.html` : page principale
-- `assets/css/styles.css` : style du site
-- `assets/js/main.js` : logique front simple
-- `assets/images/monsters/` : images des monstres
-- `data/monsters.yaml` : base de donnees source
+Parce que personne n'a envie de lire **15 pages de mécaniques cheloues** avant de taper un boss.
 
-## Lancer en local
+## Ce que fait le site
 
-Ouvre le dossier dans VS Code, puis lance un serveur local (exemple):
+- liste les monstres des songes
+- résume leurs mécaniques
+- montre ce qu'ils font vraiment
+- donne quelques conseils pour **éviter de mourir bêtement**
 
-```powershell
-python -m http.server 5500
-```
+En gros :
 
-Ensuite ouvre `http://localhost:5500`.
-
-## Suite possible
-
-1. Ajouter un parseur YAML en front (ex: `js-yaml`) pour convertir `monsters.yaml` en objets JS.
-2. Construire des cartes de monstres avec filtres (difficulte, focus, evasion).
-3. Ajouter une page detail par monstre.
+> tu vois le boss → tu comprends le boss → tu ne wipes pas (normalement).
