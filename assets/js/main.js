@@ -29,6 +29,52 @@ function cleanDisplayText(value) {
     .trim();
 }
 
+function cleanSectionText(value) {
+  return String(value || "")
+    .replace(/\*\*(.*?)\*\*/g, "$1")
+    .replace(/\*(.*?)\*/g, "$1")
+    .replace(/`(.*?)`/g, "$1")
+    .replace(/[ \t]+\n/g, "\n")
+    .trim();
+}
+
+function appendLineContentWithLinks(container, line) {
+  const rawLine = String(line || "").replace(/^[-*]\s+/, "");
+  const linkPattern = /<a\b[^>]*href=["']([^"']+)["'][^>]*>(.*?)<\/a>/gi;
+
+  let lastIndex = 0;
+  let match;
+  let hasLink = false;
+
+  while ((match = linkPattern.exec(rawLine)) !== null) {
+    hasLink = true;
+
+    const before = rawLine.slice(lastIndex, match.index);
+    if (before) {
+      container.appendChild(document.createTextNode(cleanDisplayText(before)));
+    }
+
+    const anchor = document.createElement("a");
+    anchor.href = match[1];
+    anchor.target = "_blank";
+    anchor.rel = "noopener noreferrer";
+    anchor.textContent = cleanDisplayText(match[2]);
+    container.appendChild(anchor);
+
+    lastIndex = linkPattern.lastIndex;
+  }
+
+  if (hasLink) {
+    const after = rawLine.slice(lastIndex);
+    if (after) {
+      container.appendChild(document.createTextNode(cleanDisplayText(after)));
+    }
+    return;
+  }
+
+  container.textContent = cleanDisplayText(rawLine);
+}
+
 function buildImagePath(basePath, fileName) {
   return `${basePath}/${encodeURIComponent(String(fileName || ""))}`;
 }
@@ -137,7 +183,7 @@ function closeSearchResults() {
 }
 
 function appendTextSection(container, title, content) {
-  const clean = cleanDisplayText(content);
+  const clean = cleanSectionText(content);
   if (!clean) {
     return;
   }
@@ -162,7 +208,7 @@ function appendTextSection(container, title, content) {
 
     lines.forEach((line) => {
       const item = document.createElement("li");
-      item.textContent = line.replace(/^[-*]\s+/, "");
+      appendLineContentWithLinks(item, line);
       list.appendChild(item);
     });
 
@@ -173,7 +219,7 @@ function appendTextSection(container, title, content) {
 
     lines.forEach((line) => {
       const text = document.createElement("p");
-      text.textContent = line.replace(/^[-*]\s+/, "");
+      appendLineContentWithLinks(text, line);
       textWrap.appendChild(text);
     });
 
@@ -185,9 +231,9 @@ function appendTextSection(container, title, content) {
 
 function getShortInfoSections(monster) {
   const sections = [];
-  const info = cleanDisplayText(monster?.InformationShort || "");
-  const advice = cleanDisplayText(monster?.AdviceShort || "");
-  const mechanic = cleanDisplayText(monster?.MechanicShort || "");
+  const info = cleanSectionText(monster?.InformationShort || "");
+  const advice = cleanSectionText(monster?.AdviceShort || "");
+  const mechanic = cleanSectionText(monster?.MechanicShort || "");
 
   if (info) {
     sections.push({ title: "Information", content: info });
@@ -204,9 +250,9 @@ function getShortInfoSections(monster) {
 
 function getLongInfoSections(monster) {
   const sections = [];
-  const info = cleanDisplayText(monster?.Information || "");
-  const advice = cleanDisplayText(monster?.Advice || "");
-  const mechanic = cleanDisplayText(monster?.Mechanic || "");
+  const info = cleanSectionText(monster?.Information || "");
+  const advice = cleanSectionText(monster?.Advice || "");
+  const mechanic = cleanSectionText(monster?.Mechanic || "");
 
   if (info) {
     sections.push({ title: "Information", content: info });
