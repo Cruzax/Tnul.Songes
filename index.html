@@ -5,36 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tnul.Songes</title>
   <link rel="icon" type="image/png" href="Images/avoir.png" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script>
+    window.tailwind = {
+      config: {
+        theme: {
+          extend: {
+            keyframes: {
+              "detail-grid-in": {
+                from: { opacity: "0.35" },
+                to: { opacity: "1" }
+              }
+            },
+            animation: {
+              "detail-grid-in": "detail-grid-in 320ms cubic-bezier(0.22, 1, 0.36, 1)"
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header class="site-header">
-    <h1><a href="./" class="home-link">Tnul.Songes</a></h1>
+<body
+  class="min-h-screen flex flex-col text-slate-100"
+  style="background: linear-gradient(165deg, rgba(7, 11, 22, 0.78) 0%, rgba(12, 19, 36, 0.72) 100%), radial-gradient(circle at 12% 18%, rgba(89, 145, 255, 0.24), transparent 38%), radial-gradient(circle at 88% 10%, rgba(105, 229, 216, 0.14), transparent 36%), url('Images/songes.webp') center / cover no-repeat fixed;"
+>
+  <header class="px-4 pb-2 pt-4 text-center">
+    <h1 class="m-0 text-[1.2rem] font-bold tracking-[0.04em] text-white [text-shadow:0_3px_22px_rgba(0,0,0,0.55)]">
+      <a href="./" class="rounded-md text-inherit no-underline outline-none transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-300">Tnul.Songes</a>
+    </h1>
   </header>
 
-  <main class="container">
-    <section>
-      <div class="search-block">
-        <div class="search-anchor">
+  <main id="page-container" class="mx-auto w-full max-w-[980px] flex-1 px-4 pb-8 pt-4 transition-[padding] duration-300">
+    <section class="rounded-[20px] border border-slate-200/35 bg-slate-950/55 p-4 shadow-[0_20px_60px_-25px_rgba(1,6,22,0.6)] backdrop-blur-[16px] backdrop-saturate-[120%]">
+      <div class="my-3 mb-4">
+        <div class="relative">
           <label for="monster-search" class="sr-only">Rechercher un monstre</label>
           <input
             id="monster-search"
-            class="search-input"
+            class="w-full rounded-[14px] border border-slate-200/35 bg-slate-950/80 px-4 py-3 text-base text-slate-100 backdrop-blur-[10px] backdrop-saturate-[125%] placeholder:text-slate-300 focus:outline focus:outline-2 focus:outline-sky-300"
             type="search"
             placeholder="Rechercher un monstre..."
             autocomplete="off"
           />
-          <div id="search-results" class="search-results" hidden></div>
+          <div id="search-results" class="absolute left-0 right-0 top-[calc(100%+0.12rem)] z-[80] max-h-[280px] overflow-auto rounded-[14px] border border-slate-200/35 bg-slate-950/95 p-1.5 shadow-[0_20px_45px_-25px_rgba(1,6,22,0.6)] backdrop-blur-[18px] backdrop-saturate-[125%]" hidden></div>
         </div>
 
-        <nav class="moving-menu" aria-label="Monstres en defilement">
+        <nav class="group relative mt-2 overflow-hidden rounded-xl border border-slate-200/35 bg-slate-950/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]" aria-label="Monstres en defilement">
           <div class="moving-menu-track"></div>
         </nav>
       </div>
 
-      <article id="monster-detail" class="monster-detail" hidden></article>
+      <article id="monster-detail" class="mt-4 rounded-2xl border border-slate-200/35 bg-slate-900/70 p-4 shadow-[0_14px_35px_-24px_rgba(1,6,22,0.6)] backdrop-blur-[14px] backdrop-saturate-[120%]" hidden></article>
     </section>
   </main>
+
+  <footer id="site-footer" class="mt-auto hidden w-full border-t border-slate-200/20 bg-slate-950/85 shadow-[0_-10px_30px_-24px_rgba(1,6,22,0.6)] backdrop-blur-[12px] backdrop-saturate-[112%]">
+    <div class="mx-auto flex w-full max-w-[980px] items-center justify-between gap-3 px-4 py-3 max-[640px]:flex-col max-[640px]:items-start">
+      <p class="m-0 text-[0.84rem] font-semibold tracking-[0.02em] text-slate-300">Tnul.Songes</p>
+      <p class="m-0 text-[0.84rem] text-slate-300">
+        Merci au Zinc -
+        <a class="text-sky-100 underline underline-offset-2 transition-colors hover:text-white" href="https://volcasaurus.github.io/Songes_Pour_Les_Noobs/" target="_blank" rel="noopener noreferrer">Songes Pour Les Noobs</a>
+        - GL HF
+      </p>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>

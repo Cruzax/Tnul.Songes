@@ -1,16 +1,31 @@
 # Tnul.Songes
 
-Un petit site simple pour **survivre aux Songes Infinis**.
-
-Parce que personne n'a envie de lire **15 pages de mécaniques cheloues** avant de taper un boss.
+Un site simple pour survivre aux Songes Infinis sans relire tout le wiki.
 
 ## Ce que fait le site
 
 - liste les monstres des songes
-- résume leurs mécaniques
+- resume leurs mecaniques
 - montre ce qu'ils font vraiment
-- donne quelques conseils pour **éviter de mourir bêtement**
+- donne des conseils pour eviter de mourir betement
 
-En gros :
+## Arborescence
 
-> tu vois le boss → tu comprends le boss → tu ne wipes pas (normalement).
+- `index.html` : page principale
+- `assets/js/main.js` : logique front
+- `assets/images/monsters/` : images des monstres
+- `data/monsters.yaml` : base de donnees source
+
+## Stack actuelle
+
+- UI: Tailwind CSS (CDN)
+- Parsing YAML: `js-yaml` (CDN)
+- Rendu dynamique: JavaScript vanilla (`assets/js/main.js`)
+
+## Lancer en local
+
+```powershell
+python -m http.server 5500
+```
+
+Ensuite ouvre `http://localhost:5500`.
