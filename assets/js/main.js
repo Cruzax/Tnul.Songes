@@ -36,6 +36,34 @@ function updateScrollingMenuAppearance() {
   });
 }
 
+// Vitesse de défilement en pixels par seconde, identique en grand et en petit carrousel
+// (≈ 168 px par monstre en 3 s)
+const SCROLL_SPEED_PX_PER_SEC = 55;
+// Largeur d'un monstre + espace entre deux (Tailwind: w-[156px] + gap-3, et w-11 + gap-2).
+// On ne mesure pas le DOM: Tailwind CDN applique ses classes après coup.
+const MENU_ITEM_PITCH_PX = { full: 168, compact: 52 };
+
+function updateScrollSpeed() {
+  const animation = movingMenuTrack?._scrollAnimation;
+  if (!animation) {
+    return;
+  }
+
+  const monsterCount = movingMenuTrack.querySelectorAll("button").length / 2;
+  const pitch = isCompactMenu ? MENU_ITEM_PITCH_PX.compact : MENU_ITEM_PITCH_PX.full;
+  const distance = monsterCount * pitch;
+  if (!distance) {
+    return;
+  }
+
+  const newDuration = (distance / SCROLL_SPEED_PX_PER_SEC) * 1000;
+  const oldDuration = animation.effect.getTiming().duration;
+  const progress = oldDuration ? ((animation.currentTime || 0) % oldDuration) / oldDuration : 0;
+
+  animation.effect.updateTiming({ duration: newDuration });
+  animation.currentTime = progress * newDuration;
+}
+
 function setCompactMode(isCompact) {
   isCompactMenu = isCompact;
   document.body.classList.toggle("menu-compact", isCompact);
@@ -50,6 +78,7 @@ function setCompactMode(isCompact) {
   }
 
   updateScrollingMenuAppearance();
+  updateScrollSpeed();
 }
 
 function playDetailTransition(targetNode) {
@@ -166,6 +195,15 @@ function createStatChip(label, value) {
   return row;
 }
 
+function shuffleList(list) {
+  const copy = [...list];
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
 function renderScrollingMonsterMenu(monsters) {
   if (!movingMenuTrack) {
     return;
@@ -173,7 +211,7 @@ function renderScrollingMonsterMenu(monsters) {
 
   updateScrollingMenuAppearance();
 
-  const previewMonsters = monsters.slice(0, 50);
+  const previewMonsters = shuffleList(monsters);
 
   if (!previewMonsters.length) {
     movingMenuTrack.innerHTML = "<span>Aucun monstre charge</span>";
@@ -250,6 +288,7 @@ function renderScrollingMonsterMenu(monsters) {
       { transform: "translateX(-50%)" }
     ],
     {
+      // Durée provisoire: updateScrollSpeed() la recalcule juste après
       duration: 190000,
       iterations: Infinity,
       easing: "linear"
@@ -257,6 +296,7 @@ function renderScrollingMonsterMenu(monsters) {
   );
 
   movingMenuTrack._scrollAnimation = scrollAnimation;
+  updateScrollSpeed();
 
   const menuNode = movingMenuTrack.parentElement;
   if (menuNode && !menuNode.dataset.scrollBound) {
@@ -517,10 +557,44 @@ function selectMonster(monster) {
 }
 
 function buildSearchResultItem(monster) {
+  const name = cleanDisplayText(monster.Name || "Monstre");
+
   const button = document.createElement("button");
   button.type = "button";
-  button.className = "w-full rounded-[10px] border-0 bg-transparent px-2.5 py-2 text-left text-slate-100 transition-colors hover:bg-sky-300/25";
-  button.textContent = cleanDisplayText(monster.Name || "Monstre");
+  button.className = "flex w-full items-center gap-3 rounded-[10px] border-0 bg-transparent px-2.5 py-1.5 text-left text-slate-100 transition-colors hover:bg-sky-300/25";
+
+  const media = document.createElement("span");
+  media.className = "grid h-10 w-10 flex-none place-items-center overflow-hidden rounded-lg";
+
+  const fallback = document.createElement("span");
+  fallback.className = "grid h-full w-full place-items-center bg-[linear-gradient(145deg,rgba(139,197,255,0.35),rgba(112,138,188,0.35))] text-[0.85rem] text-slate-100";
+  fallback.textContent = (name.charAt(0) || "M").toUpperCase();
+
+  if (monster.Image) {
+    const image = document.createElement("img");
+    image.className = "h-full w-full object-contain";
+    image.loading = "lazy";
+    image.alt = "";
+    image.src = buildImagePath("assets/images/monsters", monster.Image);
+    image.addEventListener("error", () => {
+      if (!image.dataset.triedWorkspaceFolder) {
+        image.dataset.triedWorkspaceFolder = "1";
+        image.src = buildImagePath("Images", monster.Image);
+        return;
+      }
+      media.innerHTML = "";
+      media.appendChild(fallback);
+    });
+    media.appendChild(image);
+  } else {
+    media.appendChild(fallback);
+  }
+
+  const label = document.createElement("span");
+  label.className = "min-w-0 flex-1 truncate";
+  label.textContent = name;
+
+  button.append(media, label);
   button.addEventListener("click", () => selectMonster(monster));
   return button;
 }

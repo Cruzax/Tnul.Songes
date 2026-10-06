@@ -6,7 +6,7 @@
   Evasion: 7
   Tanking: 3
   Information: |
-    - Applique un poison PA très fort à 12 PO en ligne, tape qu'une fois au contact
+    - Applique un poison PA très fort à 12 PO en ligne, tape qu'une fois à 1-2 PO
     - Aux tours 3, 8, 13 etc: invoque une Arakne Majeure qui peut ret PA, pousser et débuff un perso intégralement
   Advice: |
     - La Prysmenvout peut enlèver le poison au tour 1
@@ -117,14 +117,15 @@
   Information: |
     - Tape en ligne de 5 PO
     - En étant délock: à la place, tape en croix de 4 PO autour en fonction de ses PV manquants et attire
-    - Invoque un Hamrack Indéplaçable et un monstre random de sa zone à 10 PO (max. 1)
+    - Invoque un Hamrack Indéplaçable
+    - Frère de la côte (uniquement quand il est Invulnérable, 1 à 8 PO, 2x par tour): se soigne et gagne 150 Puissance (1 tour)
     - Délock: L'Hamrack délock pour 5 tours en ciblant le boss au contact, tape en zone bâton et se tue
     - L'Hamrack gagne 3 PM (1 tour) par tentative de retrait PM subi
   Advice: |
     - Il tape 0 en étant délock et full vie. Vu le délock de 5 tours, le focus peut attendre
-    - Son invocation random ayant seulement 3 de relance, le kill est peu rentable
+    - Frère de la côte ne se lance que quand il est Invulnérable: le délock coupe ce sort
   InformationShort: |
-    - Invoque 1 mob random de sa zone et un Hamrack
+    - Invoque un Hamrack
     - Délock: L'Hamrack délock pour 5 tours en ciblant le boss au contact
   AdviceShort: |
     - Il tape 0 en étant délock et full vie. Vu le délock de 5 tours, le focus peut attendre
@@ -610,7 +611,8 @@
   Evasion: 7
   Tanking: 3
   Information: |
-    - Tape à 3 PO en poussant, tape en cercle de 5 (relance 2), tape fort à 10 PO en ligne (relance 3)
+    - Tape jusqu'à 6 PO en poussant, tape en cercle de 5 (relance 2), tape fort à 10 PO en ligne (relance 3)
+    - Crokabriole (1 à 4 PO, relance 2): échange de place avec sa cible et tape en Terre
     - Aux tours 1, 6, 11 etc: Invoque une Coquille aléatoire qui boost tous les mobs (Soin, Bouclier, PM, dégâts). Sur la Croca, le boost est doublé
     - La coquille vous tacle et explose à 8 PO à sa mort. L'explosion tape et vous applique un malus selon le type
     - La durée du malus est de 4 à son tour 1, et devient de plus en plus faible au fil des tours (que 1 tour en tuant tour 4)
@@ -642,6 +644,29 @@
   Advice: |
     - Crocus a un stuff 600 do pou et vous oneshot facilement contre un mur. Esquivez le à tout prix ou équipez des lourds re pou, servez vous des états Indéplaçable, Inébranlable ou des pièges
     - Pour rapidement délock les Chênes, servez vous des do pou de Crocus. Vous pouvez utilisez vos invocations pour pas se faire do pou vous-même
+
+- Id: 5664
+  Name: Croqueleur
+  Image: 5664_Croqueleur.png
+  Difficulty: 6
+  ImmediateFocus: 4
+  Evasion: 5
+  Tanking: 4
+  Information: |
+    - Attraction gourmande: attire en ligne jusqu'à 8 PO (2x par tour, 1x par cible) avec -20 Fuite, -50% dommages mêlée, -4 portée et Pesanteur (1 tour), puis tape au contact
+    - Total Impwâkt: tape en 4 éléments à 1-2 PO (3x par tour, 1x par cible) en cône: repousse et retire des PM selon la distance
+    - Croustichoc: tape à 3-9 PO en croix diagonale de 1 avec -2 PA et 10% érosion. En fin de tour: 5 dégâts d'Air par PA utilisé
+  Advice: |
+    - Gardez-vous à plus de 8 PO ou hors ligne pour éviter son attirance
+    - Évitez d'utiliser tous vos PA après un Croustichoc: les dégâts de fin de tour dépendent des PA utilisés
+    - Le critique est nettement plus dangereux: -3 PA, plus d'érosion, retrait PM plus fort
+  InformationShort: |
+    - Attire en ligne jusqu'à 8 PO
+    - Tape en 4 éléments en cône à 1-2 PO
+    - -2 PA et érosion à 3-9 PO en diagonale
+  AdviceShort: |
+    - Restez hors ligne pour éviter l'attirance
+    - Ne dépensez pas tous vos PA après Croustichoc
 
 - Id: 3000000
   Name: Diddy
@@ -897,6 +922,30 @@
     - S'il y a d'autres menaces à gérer dans le combat: évitez que les diablotins se déchargent. Un EC à 0 états est inoffensif
     - Après avoir survécu l'état X, il n'y a plus de difficulté. Il suffit de tuer les diablotins en boucle plutôt que de les laisser booster l'EC
 
+- Id: 2904
+  Name: Fantômayte
+  Image: 2904_Fantomayte.png
+  Difficulty: 6
+  ImmediateFocus: 6
+  Evasion: 5
+  Tanking: 4
+  Information: |
+    - Qui rit: se téléporte jusqu'à 15 PO sur une case libre (2x par tour) et tape en croix de 1 autour de la case d'arrivée en repoussant de 4 cases
+    - Qui pète: invoque un Mefisto au contact (relance 3). Critique: se soigne
+    - Littérature (relance 5): renvoie 400 dommages (valeur fixe) à ceux qui le frappent
+    - Aucune esquive PA/PM, mais très résistant Neutre et Feu (25% et 30%)
+  Advice: |
+    - Évitez les petits coups multiples pendant Littérature: chaque coup renvoie des dégâts fixes. Préférez peu de gros coups
+    - L'état Pesanteur empêche sa téléportation: il ne peut plus vous poser en croix de 1 ni vous repousser
+    - Le Mefisto invoqué a 3000 PV et 5 PM: tuez-le s'il vous gêne
+  InformationShort: |
+    - Se téléporte jusqu'à 15 PO et repousse de 4 cases
+    - Littérature: renvoie 400 dommages fixes à ceux qui le frappent
+    - Invoque un Mefisto
+  AdviceShort: |
+    - Évitez les petits coups pendant Littérature (relance 5)
+    - Mettez-lui Pesanteur pour annuler sa téléportation
+
 - Id: 6249
   Name: Founoroshi
   Image: 6249_Founoroshi.png
@@ -908,6 +957,7 @@
     - Tape à 8 PO et à 3 PO en croix de 1
     - Se met Invisible aux tours 1, 4, 7 etc
     - Boost toute votre team de 15% do finaux chaque tour, cumulable
+    - Délock (brouillon, déduit des sorts): il alterne entre Invulnérable et vulnérable. Invulnérable: Fumée alourdissante, Fumée asphyxiante, Lanternes volantes. Vulnérable: Fumée aveuglante, Fumée brûlante, Pétards volants (invisible, +2 PM, invoque)
   Advice: |
     - Un poutch qui vous boost gratuitement...
   InformationShort: |
@@ -939,6 +989,27 @@
   AdviceShort: |
     - Si votre compo tape en zone, placez le Fraktale dans la zone pour gagner 50% dégâts
     - Pensez à la transition de placement à 50% PV
+
+- Id: 2970
+  Name: Fuji Givrefoux
+  Image: 2970_Fuji Givrefoux.png
+  Difficulty: 6
+  ImmediateFocus: 6
+  Evasion: 10
+  Tanking: 0
+  Information: |
+    - Tape à 3-4 PO en diagonale uniquement, avec une zone diagonale des 3 prochaines cases + la case ciblée: vol de vie Eau et 20% érosion
+    - Oneshot au contact (1 PO) et remplace par un Givrefoux aléatoire (1x par tour, démarre à partir du tour 2)
+    - En cercle de 5: soigne et boost des dommages fixes (2 tours, relance 3)
+  Advice: |
+    - Avoir la Fuji loin, en ligne de votre team, la rend useless
+    - Elle peut facilement oneshot en diagonale après des morts
+    - Le ret PO est inutile vu la PO mini et la grande zone
+  InformationShort: |
+    - Tape en diagonale
+    - Oneshot au contact et remplace par un Givrefoux aléatoire
+  AdviceShort: |
+    - Avoir la Fuji loin, en ligne de votre team, la rend useless
 
 - Id: 3234
   Name: Fuji Givrefoux Nourricière
@@ -1021,7 +1092,7 @@
   Evasion: 9
   Tanking: 1
   Information: |
-    - Tape faiblement en zone jusqu'à 10 PO, tape au contact avec des dégâts extrêment aléatoires (de base 11 à 110)
+    - Tape faiblement en zone jusqu'à 10 PO, tape au contact avec des dégâts extrêment aléatoires (de base 11 à 110, 2x par cible max)
     - Invoque 1 Tonneau par tour à 6-12 PO (4 max) qui retire 200% rés au contact (élément aléatoire, allié comme ennemi)
     - Délock: Utiliser les tonneaux sur le Gourlo
   Advice: |
@@ -1100,6 +1171,32 @@
     - Une arme morte avant que Guerre rejoue ne boost pas! Blitz chaque arme est de loin la stratégie la plus facile
     - En phase 2, esquiver Guerre à 3 PO empêche le Pacifiste et évite d'éterniser le combat
 
+- Id: 3306
+  Name: Halouine
+  Image: 3306_Halouine.png
+  Difficulty: 4
+  ImmediateFocus: 5
+  Evasion: 3
+  Tanking: 6
+  Information: |
+    - Râttirance: attire de 5 cases en ligne (2-6 PO) et met Pesanteur (1 tour)
+    - Moissonnage: vole de la vie Terre au contact, se donne 20% de vitalité (3 tours), repousse d'une case (2x par tour)
+    - Peste Issyde à 3 PO (relance 1): la cible partage 50% des dégâts qu'elle reçoit à ses alliés en cercle de 2
+    - Plantes Zombies (relance 2, démarre tour 3): ressuscite le dernier allié mort avec 1% de ses PV
+    - Citwouille Explosive à 7 PO: tape en croix de 1 et minimise les effets aléatoires
+    - Délock (brouillon, déduit des sorts): l'allié ressuscité par Plantes Zombies est Invulnérable 1 tour (2 en critique), inutile de le taper avant son tour suivant
+  Advice: |
+    - Tuez-la avant ses alliés si vous ne voulez pas les voir revenir avec Plantes Zombies
+    - Après Râttirance vous avez Pesanteur: vous ne pouvez plus être déplacé, ni attiré ni repoussé
+    - Évitez de rester groupé quand elle a mis Peste Issyde: les dégâts sont répartis en cercle de 2
+  InformationShort: |
+    - Attire de 5 cases en ligne et met Pesanteur
+    - Ressuscite le dernier allié mort à 1% PV
+    - Peste Issyde partage les dégâts à ses alliés
+  AdviceShort: |
+    - Tuez-la avant ses alliés pour empêcher la résurrection
+    - Ne restez pas groupés avec Peste Issyde
+
 - Id: 6212
   Name: Hanshi
   Image: 6212_Hanshi.png
@@ -1121,6 +1218,179 @@
   AdviceShort: |
     - Shihan est rentable à tacler, Hanshi rentable à entraver
     - Globalement les sorts et passifs sont variés mais c'est beaucoup d'information pour pas grande chose
+
+- Id: 5653
+  Name: Mawabouaino
+  Image: 5653_Mawabouaino.png
+  Difficulty: 3
+  ImmediateFocus: 3
+  Evasion: 4
+  Tanking: 6
+  Information: |
+    - Cacaobstwuant: tape en Terre jusqu'à 8 PO et retire 1 PM (2 en critique), 3x par tour
+    - Chocohowte: invoque un Twakeuf à 3 PO (relance 3, 1x par tour)
+    - Éclat: tape en Terre en cercle de 2 autour de lui et repousse de 2 cases, non esquivable (relance 2, démarre tour 4)
+    - Chocolave: tape en Feu en ligne jusqu'à 10 PO et retire 20% de résistance Terre (30% en critique)
+  Advice: |
+    - Il tape peu fort et a peu de PV: il se tue sans difficulté
+    - Les Twakeuf invoqués ont plus de PM que lui: tuez-les vite ou attendez qu'ils arrivent
+    - Restez à plus de 2 PO pour éviter Éclat
+  InformationShort: |
+    - Tape en ligne jusqu'à 10 PO et baisse votre résistance Terre
+    - Invoque des Twakeuf
+  AdviceShort: |
+    - Tuez-le vite, il tient peu
+    - Restez à plus de 2 PO pour éviter Éclat
+
+- Id: 6256
+  Name: Nagate
+  Image: 6256_Nagate.png
+  Difficulty: 6
+  ImmediateFocus: 5
+  Evasion: 5
+  Tanking: 3
+  Information: |
+    - Ne bouge pas (0 PM)
+    - Hatsunamiku: tape en Eau tous les ennemis sur toute la carte sans ligne de vue (relance 2, démarre tour 2)
+    - Colère bouillonnante: tape fort en Feu au contact (3x par tour)
+    - Hors de ma vue: tape en Air de 2 à 6 PO et téléporte sa cible sur une case précise (3x par tour)
+    - Eau fraîche: soigne ses alliés monstres (hors invocations) de 25% à 63% de leurs PV max (1x par tour)
+    - Invoque un Bombombre immobile à 13-17 PO (1500 PV)
+  Advice: |
+    - Ne l'approchez pas: sa seule attaque forte est au contact
+    - Hatsunamiku est inévitable: prévoyez de quoi absorber en zone tous les 2 tours
+    - Eau fraîche remet ses alliés en forme: ne laissez pas un mob blessé trop longtemps
+    - Le Bombombre est un piège immobile: tuez-le ou ignorez-le
+  InformationShort: |
+    - Immobile, tape en Eau sur toute la carte
+    - Soigne ses alliés monstres
+    - Téléporte sa cible sur une case précise
+  AdviceShort: |
+    - Ne vous mettez pas au contact
+    - Prévoyez un bouclier ou un soin de zone contre Hatsunamiku
+
+- Id: 872
+  Name: Papa Nowel
+  Image: 872_Papa Nowel.png
+  Difficulty: 5
+  ImmediateFocus: 6
+  Evasion: 3
+  Tanking: 5
+  Information: |
+    - Attire de 3 cases en ligne de 2 à 60 PO (2x par tour, 1x par cible), tant qu'il n'est pas Fragilisé
+    - Engluement à 8 PO: -1 PM (-3 PM en critique)
+    - Invoque à 4-5 PO (relance 4) un enfant au hasard: Kol'nenfan, Koup'nenfan, Pet'nenfan (bombe) ou Cadob'Onux
+    - Embûche de Nowel: se soigne complètement et devient Fragilisé 4 tours (une seule fois)
+    - Fragilisé: ne peut plus attirer ni invoquer. Peut utiliser Dichotomie: se sépare en un Demi Papa Nowel et perd 50% de sa vitalité
+    - Infantophagie: tue sa cible au contact (1 PO) et se soigne
+  Advice: |
+    - L'état Pesanteur annule son attirance
+    - Il se soigne totalement une fois: ne gaspillez pas vos gros dégâts avant ça
+    - Gardez la ligne de vue coupée: son attirance fonctionne de loin mais seulement en ligne
+  InformationShort: |
+    - Attire de 3 cases en ligne, retire des PM
+    - Invoque des enfants (dont des bombes)
+    - Se soigne à 100% une fois, puis devient Fragilisé
+  AdviceShort: |
+    - Mettez le Pesanteur pour annuler son attirance
+    - Gardez vos gros dégâts pour après son soin complet
+
+- Id: 1194
+  Name: Père Fwetar
+  Image: 1194_Pere Fwetar.png
+  Difficulty: 7
+  ImmediateFocus: 5
+  Evasion: 4
+  Tanking: 3
+  Information: |
+    - Esquive toujours le retrait PA et PM (96 / 40)
+    - Fwetage: tape à 8-20 PO sans ligne de vue (2x par tour, 1x par cible) avec les 5 éléments, chacun une chance sur cinq. Critique: vol de vie
+    - Aspir'nenfan: attire de 3 cases en ligne de 2 à 60 PO
+    - Embûche de Nowel: se soigne totalement et donne 100 Puissance à tous ses alliés (10 tours, relance 10)
+    - Invoque à 1-3 PO un Poutch Ingball (50 000 PV, 0 PM) et se rembourse 1 PM (relance 3)
+    - Parade des vieux jouets: boost de 2 PA ou transforme une de ses invocations en marionnette (relance 3)
+    - Infantophagie: tue sa cible au contact et se soigne
+  Advice: |
+    - Ne comptez pas sur le retrait PA/PM, il est insensible. Réglez le problème par la distance et la ligne
+    - Le Fwetage ignore la ligne de vue: le seul moyen de l'éviter est de rester à moins de 8 PO ou de le tuer avant
+    - Pesanteur annule son attirance
+    - Tuez ses alliés avant qu'il les transforme en marionnettes
+  InformationShort: |
+    - Tape à 8-20 PO sans ligne de vue
+    - Attire de 3 cases en ligne
+    - Invoque des Poutch Ingball (50 000 PV) et transforme ses invocations en marionnettes
+  AdviceShort: |
+    - Insensible au retrait PA et PM
+    - Restez à moins de 8 PO pour éviter le Fwetage
+    - Pesanteur annule son attirance
+
+- Id: 5666
+  Name: Prêtresse de Kao
+  Image: 5666_Pretresse de Kao.png
+  Difficulty: 7
+  ImmediateFocus: 6
+  Evasion: 5
+  Tanking: 3
+  Information: |
+    - Cloches du Kao: tape en Neutre sur toute la carte sans ligne de vue (relance 2). Chaque lancer augmente ses dégâts de base (+30)
+    - Equador: soigne 10% des PV max de ses alliés en cercle de 6 et leur donne +50 dommages (1 tour, relance 3)
+    - Spatule Tranche-Gourmands: tape en Air en ligne de 3 à 4 PO (relance 1) avec -50 Fuite
+    - Commerce Inéquitable: tape en Neutre jusqu'à 8 PO, vole 1 PM (2 en critique), 3x par tour
+  Advice: |
+    - Cloches du Kao la rend plus dangereuse chaque fois qu'elle l'utilise: tuez-la avant que ça monte trop
+    - Les dégâts de zone sont garantis: prévoyez bouclier, réduction ou soin de zone
+    - Equador soigne et boost ses alliés en cercle de 6: éloignez-les d'elle ou tuez-les avant
+  InformationShort: |
+    - Cloches du Kao: dégâts Neutre sur toute la carte, de plus en plus forts
+    - Soigne et boost ses alliés (Equador)
+    - Vole des PM
+  AdviceShort: |
+    - Tuez-la avant que Cloches du Kao monte trop
+    - Prévoyez une protection de zone
+
+- Id: 3828
+  Name: Protozorreur
+  Image: 3828_Protozorreur.png
+  Difficulty: 5
+  ImmediateFocus: 10
+  Evasion: 2
+  Tanking: 3
+  Information: |
+    - Très peu de PV (1000 de base) mais 20 PA, très forte esquive PM (20)
+    - Jet Proto: tape en Air en ligne jusqu'à 10 PO et attire de 10 cases. À chaque lancer, il gagne définitivement +5 dégâts de base (2x par tour)
+    - Électrocution: tape fort en Feu de 1-2 PO sans ligne de vue en retirant 6 PM et 6 PA (2x par tour, 1x par cible)
+    - Infection (relance 3, démarre tour 3): 20% érosion à tous les ennemis, repousse puis attire en cercle, et inflige des dégâts d'Eau égaux à 50% des PV érodés de chacun
+  Advice: |
+    - Il ne tient pas un tour: la solution est de le tuer le plus vite possible avant Électrocution et Infection
+    - S'il survit, Électrocution retire 6 PA et 6 PM: évitez de rester à 1-2 PO
+    - Pour Infection, plus vous êtes érodé, plus elle fait mal: soignez ou protégez avant qu'elle tombe
+  InformationShort: |
+    - Très peu de PV mais enlève 6 PA et 6 PM au contact
+    - Infection: érosion + dégâts Eau selon les PV érodés
+  AdviceShort: |
+    - Tuez-le tout de suite, il ne tient pas un tour
+
+- Id: 1179
+  Name: Sapik
+  Image: 1179_Sapik.png
+  Difficulty: 3
+  ImmediateFocus: 3
+  Evasion: 3
+  Tanking: 6
+  Information: |
+    - Ne bouge pas (0 PM) et esquive très bien le retrait PA
+    - Enguirlandage: tape en Eau de 2 à 63 PO (modifiable, 3x par tour, 2x par cible) et retire 15% de critique (2 tours)
+    - Câlin Kipik: tape en Air autour de lui (cercle de 1) et retire 10 Fuite (relance 1)
+    - Invoque un Kipik à 3 PO (1x par tour)
+  Advice: |
+    - Il tape de loin mais ne se déplace jamais: les dégâts restent faibles
+    - Évitez le contact pour ne pas prendre le Câlin Kipik et le retrait de Fuite
+    - Les Kipik invoqués sont plus gênants que lui. Tuez-les ou ignorez-le tant qu'ils sont là
+  InformationShort: |
+    - Immobile, tape à très longue portée en Eau
+    - Invoque des Kipik
+  AdviceShort: |
+    - Restez hors de son cercle de 1 et tuez les Kipik
 
 - Id: 6204
   Name: Shihan
@@ -1177,7 +1447,7 @@
   Evasion: 5
   Tanking: 5
   Information: |
-    - Bond à 6 PO en érodant au contact, attire à 5 PO en ligne, tape au contact en poussant de 6 cases
+    - Bond à 6 PO en érodant au contact (4 PA, impossible sous Pesanteur), attire à 5 PO en ligne, tape au contact en poussant de 6 cases
     - À son début de tour, elle désigne chaque perso avec un élément aléatoire. L'élément doit être utilisé ou le perso subira des lourds dégâts
     - Délock: Consommer 6 états élémentaires désignés par Hell Mina. Elle se boostera PM et dommages finaux pour le reste du combat
   Advice: |
@@ -1297,7 +1567,8 @@
     - Tape à 6 PO en ligne (1x par tour). Pour 1 tour, sa poupée va renvoyer 100% de dégâts sur cette cible
     - Invoque une poupée qui se tape elle-même à la fin de son tour (1 max, relance illimité)
     - La poupée coop à 10 PO sans ligne de vue et retire 5 PO pour 2 tours (relance 4)
-    - Bénédiction Moonesque: Chaque mob soigne ses alliés en cercle 2 à la hauteur des dégâts subi (2 tours, relance 4)
+    - Ebilation: attire de 2 cases autour de lui, tape en Neutre et retire 20% de critique (1 tour, 1x par tour)
+    - Bénédiction Moonesque (n'est plus dans sa liste de sorts: à vérifier en jeu): chaque mob soigne ses alliés en cercle 2 à la hauteur des dégâts subi (2 tours)
   Advice: |
     - Pesanteur en zone au tour 1 peut être utile pour empêcher la coop de la poupée, sinon anticiper les risques
     - Son combo avec la poupée tape fort. Esquiver le sort à 6 PO est conseillé vu la facilité de la chose (même le ret PO fonctionne)
@@ -1423,6 +1694,7 @@
   Information: |
     - Tape au contact (cible nécessaire!). Les dégâts sont en cône infini dans la direction de la frappe
     - Attire ses alliés à 3 PO en ligne en les soignant
+    - Xalactite (à 1-8 PO, 2x par tour, 1x par cible): vol de vie Eau et -30% Fuite (1 tour), conditionné à un état
     - Délock: Le taper avec une invocation délock pour 1 tour
   Advice: |
     - Si votre invoc délock au contact, la mettre à l'opposé du Kolosso par rapport à votre team évite de subir sa ligne de dégâts
@@ -1443,7 +1715,7 @@
     - Tape et attire à 4 PO en ligne (1 ligne classique et 1 ligne à 10% de ses PV manquants)
     - Pose un poison à 6 PO en ligne qui tape pour chaque ligne de dégâts subi
     - Invoque une Sporakne (relance 3) à 3 PO qui pousse de 1 au contact et qui pousse de 1 les entités en croix infini quand elle est déplacé
-    - Reinvoque un mob mort à 3 PO avec 50% PV (relance 3)
+    - Riraule (relance 2): se téléporte jusqu'à 3 PO (impossible sous Pesanteur ou Invulnérable). Il ne réinvoque plus de mob mort
   Mechanic: |
     - Les alliés posent un glyphe après leur début du tour (infini). Commencer ou finir dédans vous oneshot
   Advice: |
@@ -1453,7 +1725,7 @@
   InformationShort: |
     - Tape et attire à 4 PO en ligne et vous met un poison sur dégâts à 6 PO en ligne
     - Invoque une Sporakne qui pousse de 1
-    - Reinvoque un mob mort avec 50% PV
+    - Se téléporte jusqu'à 3 PO (relance 2)
   MechanicShort: |
     - Les alliés posent un glyphe après leur début du tour (infini). Commencer ou finir dédans vous oneshot
   AdviceShort: |
@@ -1649,17 +1921,18 @@
   Evasion: 9
   Tanking: 1
   Information: |
-    - Tape au contact en échangeant de place
+    - Tape à 1-2 PO en échangeant de place
     - Délock: Soigner un perso à son contact délock 6 tours (vol de vie ne compte pas)
     - Débloque un autre sort au contact lors du délock qui tape 10% de ses PV manquants
     - Quand un mob meurt, il se boost 1 PM, vita et quelques dommages fixes
+    - Mansoxygène (relance 4): +2 PM, +30 Fuite et bouclier de 200% du niveau (2 tours)
   Mechanic: |
     - Quand un perso est soigné, il tape à son contact ses autres alliés
   Advice: |
     - Boss inoffensif, délock ou sans délock
     - Si vous n'avez pas de soin pour délock, la Cawotte est utilisable
   InformationShort: |
-    - Tape au contact en échangeant de place
+    - Tape à 1-2 PO en échangeant de place
     - Délock: Soigner un perso à son contact délock 6 tours (vol de vie ne compte pas)
   MechanicShort: |
     - Quand un perso est soigné, il tape à son contact ses autres alliés
@@ -1794,6 +2067,7 @@
     - L'attirance est entre 1 et 4 cases selon le % de ses PV: >75%, >50%, >25%, >0%. Chaque dégât sur elle déclenche également l'attirance
     - Quand une entité avec son marqueur meurt, elle laisse une Charogne statique qui ne sert à rien (4 max)
     - Phase 2 à 50% PV: Devient Invulnérable (1 tour). Elle débloque notamment un sort qui coop à 4-8 PO (relance 2)
+    - Délock (brouillon, déduit des sorts): Dakhma rend sa cible Invulnérable 1 tour en lui mettant -100 PA/PM. Les dégâts d'un allié enlèvent l'effet. En phase 2, Misère elle-même est Invulnérable 1 tour
   Advice: |
     - Elle retire votre Puissance à l'infini, vous ne voulez absolument pas la subir sauf avec un tank pur
     - La gestion la plus simple est de la bloquer dans un coin avec deux invocations: Elle joue et tue les invoc en se bloquant elle-même avec ses Charognes. Vous tuez les Charognes, remettez deux invocations et ainsi de suite
@@ -1985,6 +2259,7 @@
   Information: |
     - Tape à 7 PO en ligne en s'attirant, tape en cercle de 3 autour de lui
     - Aux tours 3, 6, 9 etc: Ombre gagne 2 PM
+    - Paranoïa (2 à 5 PO, relance 2): se téléporte, gagne 1 PM et pose un glyphe (impossible sous Pesanteur ou Invulnérable)
     - Invoque un Globilum. Ce dernier invoque une Silhouette au contact de Ombre
     - La Silhouette retire 10 PM à 5 PO. Le Globilum tape tous les alliés à 6 PO et plus
     - Un déplacement débuff le malus 10 PM
@@ -2477,6 +2752,30 @@
   AdviceShort: |
     - Mettez votre focus Insoignable pour éviter la recons des invocations, ou ramenez / bloquez la cible
 
+- Id: 780
+  Name: Skeunk
+  Image: 780_Skeunk.png
+  Difficulty: 3
+  ImmediateFocus: 4
+  Evasion: 4
+  Tanking: 6
+  Information: |
+    - Tape en zone (cercle de 2) de 1 à 10 PO
+    - Chant Immobilisant: retire 4 PM et 30 Fuite (1 tour) et tape en Air à 10 PO (2x par tour, 1x par cible)
+    - Chant Régénérant: soigne ses alliés à 10 PO, avec un soin supplémentaire sur 4 tours (3x par tour, 1x par cible)
+    - Chant Stimulant: donne 2 PA et 150 Puissance à ses alliés (2 tours, jusqu'à 10 PO, relance 1)
+    - Chant de Jouvence (relance 2): réduit de 2 tours la durée des effets sur ses alliés
+  Advice: |
+    - C'est surtout un soutien: seul, il fait peu de dégâts. Le danger vient des soins et du boost PA/Puissance sur ses alliés
+    - Son Stimulant est en relance 1 et son -4 PM n'a plus de relance: il peut les relancer tous les tours
+    - Il raccourcit de 2 tours vos malus sur ses alliés (Jouvence): ne misez pas sur des malus longs
+  InformationShort: |
+    - Soutien: soigne et donne 2 PA et 150 Puissance à ses alliés (Stimulant en relance 1)
+    - Retire 4 PM (1 tour) à 10 PO
+  AdviceShort: |
+    - Ne vous occupez pas de lui au début, ses alliés sont plus dangereux
+    - Son -4 PM peut revenir chaque tour (2x par tour): gardez de la marge de PM
+
 - Id: 5100
   Name: Solar
   Image: 5100_Solar.png
@@ -2862,14 +3161,14 @@
   Tanking: 9
   Information: |
     - Tape faiblement à 11 PO, une seule fois par tour. Dommages triplés en crit (10%)
-    - Aux tours 1, 7, 13 etc: Réduit les statistiques élémentaires de vos persos (3 tours)
-    - Aux tours 1, 6, 11 etc: Réduit les dommages d'arme sur lui à 0 (4 tours)
+    - Aux tours 1, 4, 7 etc: Retire 150 Puissance et 300 Puissance à vos persos (1 tour) et tape en Eau
+    - Aux tours 1, 6, 11 etc: Il subit 70% des dégâts et gagne un bouclier de 200% du niveau (2 tours)
   Advice: |
     - Le Wa Wabbit pose proche de 0 danger sauf en crit
     - Si vous jouez fortement sur les dommages fixes, les dommages critiques ou les dommages de poussée, son malus vous impactera à peine
     - Il joue très tard dans l'initiative. Au tour 1, taper à fond avant le malus est rentable
   InformationShort: |
-    - Aux tours 1, 7, 13 etc: Réduit les statistiques élémentaires de vos persos (3 tours)
+    - Aux tours 1, 4, 7 etc: Retire 150 Puissance et 300 Puissance à vos persos (1 tour) et tape en Eau
   AdviceShort: |
     - Il joue très tard dans l'initiative. Au tour 1, taper à fond avant le malus est rentable
 
@@ -2934,6 +3233,7 @@
   ImmediateFocus: 7
   Evasion: 1
   Tanking: 9
+  IsBounty: true
   Information: |
     - Tape au contact en poussant de 3, tape fort une invocation à 8 PO (relance 4)
     - À 6 PO: Soigne 3 mobs par tour en boostant 2-3 PM et Puissance (3 tours)
@@ -2954,6 +3254,7 @@
   ImmediateFocus: 5
   Evasion: 10
   Tanking: 0
+  IsBounty: true
   Information: |
     - Tape à 7 PO en ligne en attirant de 3 et en retirant 3 PM. Oneshot au contact (relance 3)
     - Se boost 1 PM par tour (cumul infini)
@@ -2967,6 +3268,7 @@
   ImmediateFocus: 3
   Evasion: 7
   Tanking: 3
+  IsBounty: true
   Information: |
     - Tape à 8 PO en demi-cercle, tape fort au contact, bondit à 5 PO en ligne (1x par tour)
     - Aux tours 2, 5, 8 etc: Se rend Invulnérable en mettant un état sur votre team (2 tours): À chaque début de tour, vous infligez 20% de vos PV actuels en dégâts à 2 PO et à vous-même. Ces dégâts retirent son Invulnérabilité. Vous récupérez aussi l'état Foudroyé
@@ -2988,6 +3290,7 @@
   ImmediateFocus: 7
   Evasion: 8
   Tanking: 2
+  IsBounty: true
   Information: |
     - Tape au contact en poussant de 5. Au tour 6, oneshot au contact et remplace par un Boufmouth (relance 5)
     - Invoque un Boufmouth de Guerre (relance 6) qui peut mettre -50% rés à un perso
@@ -3010,10 +3313,12 @@
   ImmediateFocus: 5
   Evasion: 9
   Tanking: 1
+  IsBounty: true
   Information: |
     - Tape à 8 PO en retirant 3 PM, met un piège à 8 PO
     - Il a un glyphe qui oneshot début et fin de tour, et qui est en cercle de 2. Chaque glyphe est retiré après le prochain début de tour d'une entité
     - Son glyphe est posé sur lui en début de tour, ou sur un perso qui déclenche son piège. Un glyphe posé attire de 3 cases vers le centre les alliés en ligne de vue du centre. Le déclencheur d'un piège sera attiré vers Buldalazred
+    - Délock (brouillon, déduit des sorts): Incantation de Ripley Scott (contact, relance 2, à partir du tour 5) désactive l'Invulnérabilité de sa cible et la sienne. C'est sa fenêtre pour être touché
   Advice: |
     - Pour jamais être attiré vers lui, vous pouvez rester hors ligne de vue
     - L'IA pose les pièges uniquement sur les cases de vos alliés directement. S'il est hors ligne de vue ou à 9 PO ou plus il ne fera rien
@@ -3033,6 +3338,7 @@
   ImmediateFocus: 5
   Evasion: 2
   Tanking: 8
+  IsBounty: true
   Information: |
     - Tape à 15 PO en volant des do fixes (3 tours), tape fort à 2 PO en mettant Pesanteur
     - Aux tours 1, 5, 9 etc: Tape à 14 PO en cercle 2 en minimisant vos effets (2 tours)
@@ -3060,6 +3366,7 @@
   ImmediateFocus: 8
   Evasion: 3
   Tanking: 7
+  IsBounty: true
   Information: |
     - Tape à 4 PO en mettant un poison dans 2 ou 3 tours (aléatoirement), tape fort au contact en retirant Puissance, 10 PM et en infligeant 40% érosion
     - À 14 PO en ligne sans ligne de vue: Applique un poison PA et l'état Pesanteur en ligne de 3 (relance 2)
@@ -3091,6 +3398,7 @@
   ImmediateFocus: 5
   Evasion: 2
   Tanking: 8
+  IsBounty: true
   Information: |
     - Tape à PO infinie en ligne en croix de 3 en mettant Insoignable (2 tours)
     - Aux tours 1, 7, 13 etc: Invoque un Oeuf dans votre camp qui ne peut pas être porté. À son tour suivant, l'Oeuf attire à PO infinie en ligne et explose en oneshottant à 4 PO autour. Si l'Oeuf a un bonus PM externe, il bouge avant d'attirer!
@@ -3116,6 +3424,7 @@
   ImmediateFocus: 0
   Evasion: 2
   Tanking: 8
+  IsBounty: true
   Information: |
     - Tape en ligne de 3 jusqu'à 4 PO en retirant 2-3 PM, tape lourdement feu un autre mob chaque tour en se soignant
     - Aux tours 3, 8, 13 etc: met -100 PM et Pesanteur à votre team et tape tout le monde neutre au tour suivant. Les invocations gagnent également l'état Zombi
@@ -3150,6 +3459,7 @@
   ImmediateFocus: 9
   Evasion: 1
   Tanking: 9
+  IsBounty: true
   Information: |
     - Tape au contact en repoussant de 20 cases (forcé!), tape en ligne de 10 cases
     - Peut bondir à PO infinie sans ligne de vue
@@ -3173,6 +3483,7 @@
   ImmediateFocus: 9
   Evasion: 0
   Tanking: 10
+  IsBounty: true
   Information: |
     - Tape en cercle de 3 autour de lui en repoussant de 3 et en retirant 3 PM. Tape et repousse de 3 en cône de 3 (2x par tour)
     - Aux tours 1, 5, 9 etc: S'applique un buff pour 2 tours: À chaque dégât subit, se boost 1 PM (1 tour) et repousse l'attaquant de 3 cases
@@ -3202,10 +3513,12 @@
   ImmediateFocus: 4
   Evasion: 9
   Tanking: 1
+  IsBounty: true
   Information: |
     - Tape en zone jusqu'à 7 PO en retirant 2 PM et en poussant de 1, tape et coop à 5 PO en se mettant Invulnérable (infini), tape au contact en repoussant de 3
     - Taper l'Homard au contact enlève son Invulnérabilité
     - À chaque début de tour, il se boost Puissance (infini) pour chaque allié à 4 PO ou plus. Le bonus est extrêment faible
+    - Délock (brouillon, déduit des sorts): Télépunch le rend Invulnérable (infini). Prendre des dégâts en mêlée enlève l'état, il faut donc le taper au contact
   Advice: |
     - L'évitez à 5 PO pour pas se faire coop et pour éviter l'Invulnérabilité
     - Ses sorts ont PO minimale sauf la poussée au contact. Si vous le taclez entièrement contre un mur, il lance 1 sort et passe son tour
@@ -3221,6 +3534,7 @@
   ImmediateFocus: 3
   Evasion: 2
   Tanking: 8
+  IsBounty: true
   Information: |
     - Tape au contact et rajoute une ligne qui tape à la hauteur de 20% de ses PV manquants
     - Bondit à 12 PO en tapant au contact (1x par tour)
@@ -3241,6 +3555,7 @@
   ImmediateFocus: 2
   Evasion: 1
   Tanking: 9
+  IsBounty: true
   Information: |
     - Sans délock: tape à 10 PO, et au contact en volant 1 PA
     - Quand il subit un dégât: Se délock (3 tours) à son prochain début de tour
@@ -3266,6 +3581,7 @@
   ImmediateFocus: 4
   Evasion: 3
   Tanking: 7
+  IsBounty: true
   Information: |
     - Tape en zone jusq'à 10 PO en retirant 2 PM et en mettant Pesanteur. Tape en zone jusqu'à 3 PO en repoussant de 2
     - À chaque dégât subit, son sort à 3 PO est boosté (infini, cumulable). Une augmentation correspond à 20% des dégâts
@@ -3286,6 +3602,7 @@
   ImmediateFocus: 0
   Evasion: 1
   Tanking: 9
+  IsBounty: true
   Information: |
     - Il met des glyphes divers pour 2 tours qui sont tous à 10-12 PO en ligne sans ligne de vue et avec des bonus / malus selon ennemi / allié
     - Les glyphes de cette liste: dégâts / soin (proc début de tour), -20% rés / +20% rés et Pesanteur (proc fin de tour, relance 2), 25% érosion / 25% vita (proc début de tour, relance 4), -3 PA / +3 PA (proc fin de tour, relance 3)
@@ -3318,6 +3635,7 @@
   ImmediateFocus: 9
   Evasion: 9
   Tanking: 1
+  IsBounty: true
   Information: |
     - Au début du combat votre team est Pesanteur et perd 100 PM (1 tour)
     - Tape jusqu'à 2 PO en zone en appliquant un effet aléatoire parmi ret PA, ret PM, poussée, passe-tour et une deuxième ligne de dégâts (2x par tour)
@@ -3342,6 +3660,7 @@
   ImmediateFocus: 1
   Evasion: 1
   Tanking: 9
+  IsBounty: true
   Information: |
     - Tape à 10 PO en boostant de la Puissance à tous les mobs (relance 2), tape au contact, bondit à 5 PO en tapant et attirant vers lui en cercle 3 et en se boostant 200 tacle
     - Il ne subit que 70% des dégâts et renvoie 50% à 2 PO autour de lui
@@ -3364,6 +3683,7 @@
   ImmediateFocus: 6
   Evasion: 2
   Tanking: 8
+  IsBounty: true
   Information: |
     - Tape à 12 PO en volant 4 PO, tape à 14 PO en croix de 1 (dégâts doublés sur les invoc), tape à 1 PO en ligne à la hauteur de 10% de ses PV restants
     - Son sort en croix de 1 applique un état (2 tours): Recevoir un soin (hors vol de vie) vous oneshot!
@@ -3392,6 +3712,7 @@
   ImmediateFocus: 0
   Evasion: 10
   Tanking: 10
+  IsBounty: true
   Information: |
     - Invoque 4 bombes sur ses 4 cases en diagonale. Reinvoque à chaque fin de tour jusqu'à ce qu'il y de nouveau 4 bombes au total
     - Une bombe qui meurt tape en zone autour (3 PO max). Elle meurt dans 4 tours par elle-même. Chaque tour elle se boost
@@ -3410,6 +3731,7 @@
   ImmediateFocus: 7
   Evasion: 6
   Tanking: 4
+  IsBounty: true
   Information: |
     - Tape à 10 PO en oneshottant toutes vos invocations, bondit à 6 PO en tapant en zone de 3 (relance 3), tape à 3 PO en vous retirant Puissance et 3 PM (4 tours, cumulable). Le sort augmente ses dommages de base pour le prochain tour
     - Aux tours 1, 4, 7 etc: Boost de la Puissance, 4 PA et 10% Crit aux mobs et maximise les effets sur votre team (1 tour)
@@ -3433,6 +3755,7 @@
   ImmediateFocus: 9
   Evasion: 8
   Tanking: 2
+  IsBounty: true
   Information: |
     - Tape extrêment fort à 10 PO sans ligne de vue en fonction des PM utilisés. Il tape moins fort en ayant utilisé des PM
     - Met Pacifiste et Insoignable à 10 PO en ligne (2 persos max par tour)
@@ -3457,6 +3780,7 @@
   ImmediateFocus: 9
   Evasion: 1
   Tanking: 9
+  IsBounty: true
   Information: |
     - Tape à 15 PO en retirant 2-3 PM et à 1 PO (modifiable). Dommages doublés en Crit
     - Aux tours 1, 5, 9 etc: boosts tous les mobs dommages fixes, 2 PM, 10% CC et 4 PO (4 tours)
@@ -3478,6 +3802,7 @@
   ImmediateFocus: 8
   Evasion: 5
   Tanking: 5
+  IsBounty: true
   Information: |
     - Tape à PO infinie sans ligne de vue, inflige un poison à 12 PO et 20% érosion, tape fort en zone jusqu'à 4 PO
     - Quand vous tapez Voldelor, il vous applique un état (1 tour) qui améliore ses sorts sur les persos qui ont l'état: Le sort à PO infinie coop et le sort en zone jusqu'à 4 PO oneshot!
@@ -3490,6 +3815,3 @@
     - Reinvoque un mob mort avec 70% de ses PV (relance 3)
   AdviceShort: |
     - Pour entamer Voldelor, mettez le Pesanteur en permanence, il servira à rien tant qu'il vous ne choppe pas à 4 PO. Sans Pesanteur, il faudra soit le oneturn, soit séparer toute votre team tel qu'il puisse pas coop into oneshot
-
-
-
