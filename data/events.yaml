@@ -1,0 +1,17 @@
+# Dates des événements saisonniers. Les boss avec un champ "Event" dans monsters.yaml
+# ne s'affichent sur le site que pendant la période indiquée ici (dates incluses, AAAA-MM-JJ).
+# ATTENTION: ces dates sont des ESTIMATIONS d'après les années précédentes, pas des dates
+# officielles. Corrige-les quand Ankama annonce l'événement.
+# Pour tester sans toucher aux dates: http://localhost:5500/?events=halloween,nowel,chocolat
+halloween:
+  Name: Halouine (Halloween)
+  Start: "2026-10-20"
+  End: "2026-11-03"
+nowel:
+  Name: Île de Nowel
+  Start: "2026-12-02"
+  End: "2027-01-05"
+chocolat:
+  Name: Île de Pwâk (chocolat)
+  Start: "2027-03-25"
+  End: "2027-04-15"

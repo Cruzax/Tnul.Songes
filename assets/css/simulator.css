@@ -1,0 +1,60 @@
+.sim-section { margin-top: 1.5rem; }
+.sim-header { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; justify-content: space-between; }
+.sim-title { margin: 0; font-size: 1.25rem; font-weight: 600; }
+.sim-tools { display: flex; align-items: center; gap: 0.75rem; font-size: 0.85rem; }
+
+.sim-reset {
+  padding: 0.25rem 0.6rem; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08); color: inherit; cursor: pointer;
+}
+.sim-reset:hover { background: rgba(255, 255, 255, 0.16); }
+.sim-hint { margin: 0.4rem 0 0; font-size: 0.8rem; opacity: 0.75; }
+
+.sim-spells { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 0.45rem; margin: 0.75rem 0; }
+.sim-spell {
+  display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.4rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px;
+  background: rgba(9, 14, 28, 0.82); color: inherit; font-size: 0.8rem; cursor: pointer; text-align: left;
+}
+.sim-spell:hover { border-color: rgba(139, 197, 255, 0.65); }
+.sim-spell[aria-pressed="true"] { background: rgba(139, 197, 255, 0.25); border-color: rgba(139, 197, 255, 0.9); }
+.sim-spell-icon { width: 32px; height: 32px; flex: none; border-radius: 6px; object-fit: contain; }
+.sim-spell-text { display: grid; gap: 0.1rem; min-width: 0; }
+.sim-spell-text strong { font-weight: 600; }
+.sim-spell small { display: block; opacity: 0.7; }
+.sim-spell-desc { font-size: 0.72rem; opacity: 0.9 !important; color: #cfe3ff; }
+
+.sim-board { width: 100%; max-width: 900px; height: auto; touch-action: none; user-select: none; }
+.sim-slab { fill: #3d3822; stroke: rgba(0, 0, 0, 0.5); stroke-width: 0.8; stroke-linejoin: round; }
+.sim-cell { fill: #b8ac7c; stroke: rgba(70, 60, 25, 0.22); stroke-width: 0.5; }
+.sim-cell.alt { fill: #ada170; }
+.sim-cell.nolos { fill: #6f6849; }
+.sim-cell.range { fill: #7cc6e8; }
+.sim-cell.zone { fill: #e8745e; }
+.sim-cell.range.zone { fill: #f2ae55; }
+.sim-cell.ally { fill: #2323d8; }
+.sim-cell.hover { stroke: #fff; stroke-width: 1.3; }
+.sim-walls { pointer-events: none; }
+.sim-wall-top { fill: #8a8260; stroke: rgba(0, 0, 0, 0.4); stroke-width: 0.5; stroke-linejoin: round; }
+.sim-wall-left { fill: #625c40; stroke: rgba(0, 0, 0, 0.4); stroke-width: 0.5; stroke-linejoin: round; }
+.sim-wall-right { fill: #4b4630; stroke: rgba(0, 0, 0, 0.4); stroke-width: 0.5; stroke-linejoin: round; }
+.sim-boss-token { cursor: grab; }
+.sim-boss-fallback { fill: #b03a2e; stroke: #fff; stroke-width: 1.5; }
+.sim-allies { pointer-events: none; }
+.sim-ally-sprite { pointer-events: none; }
+
+.sim-detail {
+  margin-top: 1rem; padding: 0.9rem 1rem; border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px; background: rgba(9, 14, 28, 0.82); font-size: 0.88rem;
+}
+.sim-detail-empty { margin: 0; opacity: 0.7; }
+.sim-detail-head { display: flex; align-items: center; gap: 0.6rem; }
+.sim-detail-title { margin: 0; font-size: 1.1rem; font-weight: 600; }
+.sim-detail-meta { margin: 0.4rem 0 0; opacity: 0.8; }
+.sim-detail-cond { margin: 0.35rem 0 0; color: #ffd48a; }
+.sim-detail-sub { margin: 0.8rem 0 0.3rem; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.8; }
+.sim-effects { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.35rem; }
+.sim-effect { display: grid; gap: 0.1rem; padding-left: 0.7rem; border-left: 2px solid rgba(139, 197, 255, 0.5); }
+.sim-effect-est { color: #f2ae55; font-weight: 600; }
+.sim-effect-note { font-size: 0.75rem; opacity: 0.65; }
+.sim-detail-note { margin: 0.8rem 0 0; font-size: 0.75rem; opacity: 0.6; }

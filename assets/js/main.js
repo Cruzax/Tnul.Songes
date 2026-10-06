@@ -9,6 +9,7 @@ let allMonsters = [];
 let lastFilteredMonsters = [];
 let prefersShortInfo = false;
 let isCompactMenu = false;
+let spellsData = {};
 
 function updateScrollingMenuAppearance() {
   if (!movingMenuTrack) {
@@ -538,7 +539,26 @@ function renderMonsterDetail(monster, showShort = false) {
   }
 
   monsterDetailNode.append(head, grid);
+  mountSimulation(monster, monsterDetailNode);
   playDetailTransition(grid);
+}
+
+// Carte de simulation sous la fiche (masquée si le boss n'a pas de données dans data/spells.json)
+function mountSimulation(monster, parentNode) {
+  const data = spellsData[monster.Id];
+  if (!data || !data.spells || !data.spells.length || !window.TnulSimulator) {
+    return;
+  }
+
+  const container = document.createElement("div");
+  parentNode.appendChild(container);
+  window.TnulSimulator.mount(container, {
+    monsterName: cleanDisplayText(monster.Name || ""),
+    imageUrls: monster.Image
+      ? [buildImagePath("assets/images/monsters", monster.Image), buildImagePath("Images", monster.Image)]
+      : [],
+    data,
+  });
 }
 
 function selectMonster(monster) {
@@ -656,6 +676,44 @@ function showAllSuggestions() {
   openSearchResults(allMonsters);
 }
 
+// Événements en cours d'après data/events.yaml (null si le fichier est illisible: on affiche tout).
+// ?events=halloween,nowel force des événements pour les tests.
+async function loadActiveEvents() {
+  try {
+    const response = await fetch("data/events.yaml");
+    if (!response.ok) {
+      return null;
+    }
+
+    const events = window.jsyaml.load(await response.text()) || {};
+    const today = new Date().toISOString().slice(0, 10);
+    const forced = (new URLSearchParams(window.location.search).get("events") || "")
+      .split(",")
+      .map((name) => name.trim())
+      .filter(Boolean);
+
+    return new Set(
+      Object.entries(events)
+        .filter(([key, event]) => {
+          const start = String(event?.Start || "");
+          const end = String(event?.End || "");
+          return forced.includes(key) || (start && end && today >= start && today <= end);
+        })
+        .map(([key]) => key)
+    );
+  } catch (error) {
+    console.warn("Événements illisibles:", error.message);
+    return null;
+  }
+}
+
+function isAvailableNow(monster, activeEvents) {
+  if (!monster?.Event || !activeEvents) {
+    return true;
+  }
+  return activeEvents.has(String(monster.Event));
+}
+
 async function init() {
   try {
     if (!window.jsyaml) {
@@ -674,7 +732,17 @@ async function init() {
       throw new Error("Format YAML invalide: une liste de monstres est attendue.");
     }
 
-    allMonsters = parsed.filter((monster) => !isEasterEgg(monster));
+    try {
+      const spellsResponse = await fetch("data/spells.json");
+      spellsData = spellsResponse.ok ? await spellsResponse.json() : {};
+    } catch (error) {
+      spellsData = {};
+    }
+
+    const activeEvents = await loadActiveEvents();
+    allMonsters = parsed.filter(
+      (monster) => !isEasterEgg(monster) && isAvailableNow(monster, activeEvents)
+    );
     setCompactMode(false);
     renderScrollingMonsterMenu(allMonsters);
 

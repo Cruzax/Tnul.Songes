@@ -71,7 +71,7 @@
 - Id: 800
   Name: Batofu
   Image: 800_Batofu.png
-  Difficulty: 4
+  Difficulty: 6
   ImmediateFocus: 8
   Evasion: 0
   Tanking: 10
@@ -187,7 +187,7 @@
 - Id: 1184
   Name: Blops Royaux
   Image: 1184_Blop Coco Royal.png
-  Difficulty: 4
+  Difficulty: 5
   ImmediateFocus: 3
   Evasion: 3
   Tanking: 7
@@ -203,7 +203,7 @@
 - Id: 2975
   Name: Boostache
   Image: 2975_Boostache.png
-  Difficulty: 6
+  Difficulty: 8
   ImmediateFocus: 10
   Evasion: 6
   Tanking: 4
@@ -225,7 +225,7 @@
 - Id: 147
   Name: Bouftou Royal
   Image: 147_Bouftou Royal.png
-  Difficulty: 4
+  Difficulty: 6
   ImmediateFocus: 7
   Evasion: 3
   Tanking: 7
@@ -263,7 +263,7 @@
 - Id: 792
   Name: Bworkette
   Image: 792_Bworkette.png
-  Difficulty: 4
+  Difficulty: 5
   ImmediateFocus: 3
   Evasion: 5
   Tanking: 5
@@ -334,7 +334,7 @@
 - Id: 3238
   Name: Chafer Rōnin
   Image: 3238_Chafer Ronin.png
-  Difficulty: 2
+  Difficulty: 4
   ImmediateFocus: 2
   Evasion: 6
   Tanking: 4
@@ -438,7 +438,7 @@
 - Id: 252
   Name: Coffre des Forgerons
   Image: 252_Coffre des Forgerons.png
-  Difficulty: 4
+  Difficulty: 5
   ImmediateFocus: 1
   Evasion: 10
   Tanking: 0
@@ -520,7 +520,7 @@
 - Id: 1027
   Name: Corailleur Magistral
   Image: 1027_Corailleur Magistral.png
-  Difficulty: 2
+  Difficulty: 3
   ImmediateFocus: 1
   Evasion: 10
   Tanking: 0
@@ -577,7 +577,7 @@
 - Id: 669
   Name: Craqueleur Légendaire
   Image: 669_Craqueleur Legendaire.png
-  Difficulty: 7
+  Difficulty: 8
   ImmediateFocus: 8
   Evasion: 1
   Tanking: 9
@@ -652,6 +652,7 @@
   ImmediateFocus: 4
   Evasion: 5
   Tanking: 4
+  Event: chocolat
   Information: |
     - Attraction gourmande: attire en ligne jusqu'à 8 PO (2x par tour, 1x par cible) avec -20 Fuite, -50% dommages mêlée, -4 portée et Pesanteur (1 tour), puis tape au contact
     - Total Impwâkt: tape en 4 éléments à 1-2 PO (3x par tour, 1x par cible) en cône: repousse et retire des PM selon la distance
@@ -812,7 +813,7 @@
 - Id: 6903
   Name: Directeur Grunob
   Image: 6903_Directeur Grunob.png
-  Difficulty: 1
+  Difficulty: 2
   ImmediateFocus: 2
   Evasion: 0
   Tanking: 10
@@ -826,7 +827,7 @@
 - Id: 5823
   Name: Draegnerys
   Image: 5823_Draegnerys.png
-  Difficulty: 3
+  Difficulty: 4
   ImmediateFocus: 9
   Evasion: 2
   Tanking: 8
@@ -1039,7 +1040,7 @@
 - Id: 430
   Name: Gélées Royales
   Image: 430_Gelee Royale Citron.png
-  Difficulty: 4
+  Difficulty: 5
   ImmediateFocus: 2
   Evasion: 3
   Tanking: 7
@@ -1087,7 +1088,7 @@
 - Id: 1051
   Name: Gourlo le Terrible
   Image: 1051_Gourlo le Terrible.png
-  Difficulty: 3
+  Difficulty: 4
   ImmediateFocus: 0
   Evasion: 9
   Tanking: 1
@@ -1178,6 +1179,7 @@
   ImmediateFocus: 5
   Evasion: 3
   Tanking: 6
+  Event: halloween
   Information: |
     - Râttirance: attire de 5 cases en ligne (2-6 PO) et met Pesanteur (1 tour)
     - Moissonnage: vole de la vie Terre au contact, se donne 20% de vitalité (3 tours), repousse d'une case (2x par tour)
@@ -1219,13 +1221,35 @@
     - Shihan est rentable à tacler, Hanshi rentable à entraver
     - Globalement les sorts et passifs sont variés mais c'est beaucoup d'information pour pas grande chose
 
+- Id: 3476
+  Name: Maître des Pantins
+  Image: 3476_Maitre des Pantins.png
+  Difficulty: 4
+  ImmediateFocus: 5
+  Evasion: 0
+  Tanking: 7
+  Information: |
+    - Ne bouge pas (pas de PM) et esquive très bien le retrait PA
+    - Tirer les ficelles: tape à PO infinie sans ligne de vue (1x par tour, impossible s'il est Invulnérable). Zone en croix de 1: retire 2 tours aux effets et peut voler 100 d'une caractéristique (2 tours) avec des dégâts de l'élément
+    - Ensecret (relance 4, démarre tour 5): invoque une Marionnette (blanche, bleue, rouge, verte ou grise)
+    - Bunraku (1 à 10 PO, relance 3): effet différé d'un tour
+  Advice: |
+    - Sa portée est infinie sans ligne de vue: impossible à éviter, il faut le tuer ou profiter de ses phases Invulnérable où il ne peut plus tirer les ficelles
+    - Tuez les Marionnettes avant qu'elles s'accumulent
+  InformationShort: |
+    - Immobile, tape à PO infinie sans ligne de vue en croix de 1
+    - Invoque des Marionnettes (relance 4)
+  AdviceShort: |
+    - Impossible à éviter: tuez-le, ou attendez ses phases Invulnérable
+
 - Id: 5653
   Name: Mawabouaino
   Image: 5653_Mawabouaino.png
-  Difficulty: 3
+  Difficulty: 4
   ImmediateFocus: 3
   Evasion: 4
   Tanking: 6
+  Event: chocolat
   Information: |
     - Cacaobstwuant: tape en Terre jusqu'à 8 PO et retire 1 PM (2 en critique), 3x par tour
     - Chocohowte: invoque un Twakeuf à 3 PO (relance 3, 1x par tour)
@@ -1276,6 +1300,7 @@
   ImmediateFocus: 6
   Evasion: 3
   Tanking: 5
+  Event: nowel
   Information: |
     - Attire de 3 cases en ligne de 2 à 60 PO (2x par tour, 1x par cible), tant qu'il n'est pas Fragilisé
     - Engluement à 8 PO: -1 PM (-3 PM en critique)
@@ -1302,6 +1327,7 @@
   ImmediateFocus: 5
   Evasion: 4
   Tanking: 3
+  Event: nowel
   Information: |
     - Esquive toujours le retrait PA et PM (96 / 40)
     - Fwetage: tape à 8-20 PO sans ligne de vue (2x par tour, 1x par cible) avec les 5 éléments, chacun une chance sur cinq. Critique: vol de vie
@@ -1331,6 +1357,7 @@
   ImmediateFocus: 6
   Evasion: 5
   Tanking: 3
+  Event: chocolat
   Information: |
     - Cloches du Kao: tape en Neutre sur toute la carte sans ligne de vue (relance 2). Chaque lancer augmente ses dégâts de base (+30)
     - Equador: soigne 10% des PV max de ses alliés en cercle de 6 et leur donne +50 dommages (1 tour, relance 3)
@@ -1373,10 +1400,11 @@
 - Id: 1179
   Name: Sapik
   Image: 1179_Sapik.png
-  Difficulty: 3
+  Difficulty: 4
   ImmediateFocus: 3
   Evasion: 3
   Tanking: 6
+  Event: nowel
   Information: |
     - Ne bouge pas (0 PM) et esquive très bien le retrait PA
     - Enguirlandage: tape en Eau de 2 à 63 PO (modifiable, 3x par tour, 2x par cible) et retire 15% de critique (2 tours)
@@ -1546,7 +1574,7 @@
 - Id: 3945
   Name: Kankreblath
   Image: 3945_Kankreblath.png
-  Difficulty: 2
+  Difficulty: 4
   ImmediateFocus: 2
   Evasion: 0
   Tanking: 10
@@ -1559,7 +1587,7 @@
 - Id: 2960
   Name: Kanniboul Ebil
   Image: 2960_Kanniboul Ebil.png
-  Difficulty: 5
+  Difficulty: 6
   ImmediateFocus: 5
   Evasion: 7
   Tanking: 3
@@ -1582,7 +1610,7 @@
 - Id: 4051
   Name: Kardorim
   Image: 4051_Kardorim.png
-  Difficulty: 3
+  Difficulty: 6
   ImmediateFocus: 6
   Evasion: 8
   Tanking: 2
@@ -1780,7 +1808,7 @@
 - Id: 2995
   Name: Kwakwa
   Image: 2995_Kwakwa.png
-  Difficulty: 6
+  Difficulty: 7
   ImmediateFocus: 8
   Evasion: 1
   Tanking: 9
@@ -1890,7 +1918,7 @@
 - Id: 3652
   Name: Mallefisk
   Image: 3652_Mallefisk.png
-  Difficulty: 1
+  Difficulty: 2
   ImmediateFocus: 0
   Evasion: 9
   Tanking: 1
@@ -1943,7 +1971,7 @@
 - Id: 4621
   Name: Mantiscore
   Image: 4621_Mantiscore.png
-  Difficulty: 3
+  Difficulty: 4
   ImmediateFocus: 7
   Evasion: 6
   Tanking: 4
@@ -2127,7 +2155,7 @@
 - Id: 928
   Name: Mob l'Éponge
   Image: 928_Mob l'Eponge.png
-  Difficulty: 1
+  Difficulty: 4
   ImmediateFocus: 2
   Evasion: 0
   Tanking: 10
@@ -2169,7 +2197,7 @@
 - Id: 3100
   Name: Nelween
   Image: 3100_Nelween.png
-  Difficulty: 5
+  Difficulty: 6
   ImmediateFocus: 5
   Evasion: 8
   Tanking: 2
@@ -2423,7 +2451,7 @@
 - Id: 7197
   Name: Rakoopeur
   Image: 7197_Rakoopeur.png
-  Difficulty: 2
+  Difficulty: 4
   ImmediateFocus: 5
   Evasion: 1
   Tanking: 9
@@ -2630,7 +2658,7 @@
 - Id: 797
   Name: Scarabosse Dorée
   Image: 797_Scarabosse Dore.png
-  Difficulty: 2
+  Difficulty: 4
   ImmediateFocus: 2
   Evasion: 1
   Tanking: 9
@@ -2688,7 +2716,7 @@
 - Id: 457
   Name: Shin Larve
   Image: 457_Shin Larve.png
-  Difficulty: 4
+  Difficulty: 5
   ImmediateFocus: 6
   Evasion: 8
   Tanking: 2
@@ -3011,7 +3039,7 @@
 - Id: 799
   Name: Tournesol Affamé
   Image: 799_Tournesol Affame.png
-  Difficulty: 3
+  Difficulty: 6
   ImmediateFocus: 2
   Evasion: 8
   Tanking: 2
@@ -3155,7 +3183,7 @@
 - Id: 180
   Name: Wa Wabbit
   Image: 180_Wa Wabbit.png
-  Difficulty: 2
+  Difficulty: 3
   ImmediateFocus: 1
   Evasion: 1
   Tanking: 9
@@ -3177,7 +3205,7 @@
   Image: 3460_Wa Wobot.png
   Illustration: Wa Wobot.png
   Caption: Placement pour oneshot
-  Difficulty: 3
+  Difficulty: 4
   ImmediateFocus: 5
   Evasion: 4
   Tanking: 6
@@ -3250,7 +3278,7 @@
 - Id: 2419
   Name: Aigripoil
   Image: 2419_Aigripoil.png
-  Difficulty: 3
+  Difficulty: 4
   ImmediateFocus: 5
   Evasion: 10
   Tanking: 0
@@ -3309,7 +3337,7 @@
 - Id: 3356
   Name: Buldalazred
   Image: 3356_Buldalazred.png
-  Difficulty: 2
+  Difficulty: 3
   ImmediateFocus: 5
   Evasion: 9
   Tanking: 1
@@ -3577,7 +3605,7 @@
 - Id: 3670
   Name: Maxi-Malle
   Image: 3670_Maxi-Malle.png
-  Difficulty: 3
+  Difficulty: 4
   ImmediateFocus: 4
   Evasion: 3
   Tanking: 7
@@ -3656,7 +3684,7 @@
 - Id: 3845
   Name: Morblok
   Image: 3845_Morblok.png
-  Difficulty: 2
+  Difficulty: 3
   ImmediateFocus: 1
   Evasion: 1
   Tanking: 9
@@ -3708,7 +3736,7 @@
 - Id: 4270
   Name: Roub’ Ignolles
   Image: 4270_Roub’ Ignolles.png
-  Difficulty: 0
+  Difficulty: 2
   ImmediateFocus: 0
   Evasion: 10
   Tanking: 10
