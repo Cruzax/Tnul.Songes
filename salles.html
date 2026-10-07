@@ -7,35 +7,46 @@
   <link rel="icon" type="image/png" href="assets/images/ui/avoir.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind-config.js"></script>
   <link rel="stylesheet" href="assets/css/theme.css" />
 </head>
-<body
-  class="min-h-screen flex flex-col text-ink"
->
-  <header class="px-4 pb-2 pt-4 text-center">
-    <h1 class="m-0 text-[1.2rem] font-bold tracking-[0.04em] text-white [text-shadow:0_3px_22px_rgba(0,0,0,0.55)]">
-      <a href="./" class="rounded-md text-inherit no-underline outline-none transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">Tnul.Songes</a>
-    </h1>
-    <a href="./" class="mt-1 inline-block rounded-full border border-line bg-panel/60 px-3 py-1 text-[0.78rem] text-ink no-underline transition-colors hover:border-accent/70 hover:bg-panel2/70">&larr; Retour aux boss</a>
+<body class="flex min-h-screen flex-col text-[14px] text-ink">
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <header class="border-b border-line">
+    <div class="mx-auto flex min-h-20 w-full max-w-[1120px] items-center justify-between gap-5 px-4">
+      <a href="./" class="flex items-center gap-3 text-ink no-underline outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent" aria-label="Tnul.Songes, accueil">
+        <span class="flex size-8 items-center justify-center rounded-md border border-line text-accent"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6" /><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5" /><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586" /><path d="m16 16 4 4" /><path d="m19 21 2-2" /><path d="m5 14 4 4" /><path d="m5 21-2-2" /><path d="M7.5 16.5 4 20" /></svg></span>
+        <span class="text-lg font-semibold">Tnul<span class="text-accent">.</span>Songes</span>
+      </a>
+      <a href="./" class="text-xs text-muted no-underline transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">&larr; Retour aux boss</a>
+    </div>
   </header>
 
-  <main class="mx-auto w-full max-w-[980px] flex-1 px-4 pb-8 pt-4">
-    <section class="rounded-[20px] border border-line bg-panel/55 p-4 shadow-[0_20px_60px_-25px_rgba(1,6,22,0.6)] backdrop-blur-[16px] backdrop-saturate-[120%]">
-      <h2 class="m-0 text-xl font-semibold">Positions de départ des salles de boss</h2>
-      <p class="mt-2 text-sm text-muted">
-        Les trois cartes connues de la salle de boss, avec les obstacles et les positions de départ. Ce sont les mêmes en Rêve, Paradoxe et Cauchemar.
-        Si tu en croises une autre, préviens-moi.
+  <main class="mx-auto grid w-full max-w-[1120px] flex-1 content-start gap-6 px-4 pb-14 pt-10">
+    <div class="mx-auto max-w-[560px] py-4 text-center">
+      <p class="card-label mb-3">Salles de boss</p>
+      <h2 class="m-0 text-3xl font-semibold">Positions de départ</h2>
+      <p class="mt-3 text-[13px] leading-relaxed text-muted">
+        Les 3 cartes connues, avec leurs obstacles et leurs positions de départ. Identiques en Rêve, Paradoxe et Cauchemar.
       </p>
-      <div id="simulation"></div>
-    </section>
+      <p class="mt-1 text-[11px] text-muted/70">Une autre carte ? Préviens-moi.</p>
+    </div>
 
-    <section id="domireversi" class="mt-4 rounded-[20px] border border-line bg-panel/55 p-4 shadow-[0_20px_60px_-25px_rgba(1,6,22,0.6)] backdrop-blur-[16px] backdrop-saturate-[120%]"></section>
+    <div id="simulation"></div>
+
+    <section id="domireversi" class="rounded-lg border border-line bg-panel p-5"></section>
   </main>
 
+  <footer class="border-t border-line">
+    <div class="mx-auto flex w-full max-w-[1120px] flex-col justify-between gap-3 px-4 py-6 text-[11px] text-muted sm:flex-row">
+      <p class="m-0"><span class="font-medium text-ink">Tnul.Songes</span><span class="mx-3">·</span>Un mémo, pas un pavé.</p>
+    </div>
+  </footer>
+
   <link rel="stylesheet" href="assets/css/simulator.css">
+  <script src="assets/js/lib/background.js" defer></script>
   <script src="assets/js/simulator/grid.js" defer></script>
   <script src="assets/js/simulator/simulator.js" defer></script>
   <script src="assets/js/salles.js" defer></script>

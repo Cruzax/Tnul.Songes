@@ -40,14 +40,14 @@
 
   try {
     const data = await fetch("data/domireversi.json").then((response) => response.json());
-    root.appendChild(el("h2", "m-0 text-xl font-semibold", "Top Domi Reversi"));
+    root.appendChild(el("h2", "card-label", "Top Domi Reversi"));
 
-    const list = el("ol", "mt-4 grid gap-2");
+    const list = el("ol", "mt-5 grid gap-2");
     data.top.forEach((monster, index) => {
-      const item = el("li", "flex items-center gap-3 rounded-2xl border border-line/60 bg-panel2/50 p-2.5");
+      const item = el("li", "flex items-center gap-3 rounded-lg border border-line bg-panel2 p-2.5");
       item.appendChild(el("span", "w-6 flex-none text-center text-sm font-semibold text-muted", String(index + 1)));
 
-      const media = el("span", "grid h-14 w-14 flex-none place-items-center overflow-hidden rounded-xl bg-panel/60");
+      const media = el("span", "grid h-14 w-14 flex-none place-items-center overflow-hidden rounded-md bg-panel");
       if (monster.image) {
         const image = el("img", "h-full w-full object-contain");
         image.src = "assets/images/monsters/" + encodeURIComponent(monster.image);
@@ -64,9 +64,9 @@
       item.appendChild(media);
 
       const body = el("div", "min-w-0 flex-1");
-      body.appendChild(el("p", "m-0 font-semibold", monster.name));
+      body.appendChild(el("p", "m-0 text-sm font-medium", monster.name));
       if (monster.why) {
-        body.appendChild(el("p", "m-0 text-sm text-muted", monster.why));
+        body.appendChild(el("p", "m-0 mt-0.5 text-[13px] leading-relaxed text-muted", monster.why));
       }
       item.appendChild(body);
 

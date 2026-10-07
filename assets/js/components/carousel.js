@@ -3,39 +3,57 @@ import { cleanDisplayText, shuffleList } from "../lib/text.js";
 import { createInitialFallback, monsterImageUrl } from "../lib/images.js";
 
 const track = document.querySelector(".moving-menu-track");
-const pageContainer = document.getElementById("page-container");
-const siteFooter = document.getElementById("site-footer");
 
 let isCompact = false;
 
+// Grand format (accueil): carte plate avec portrait et nom dessous
 const FULL_ITEM_CLASS =
-  "grid w-[156px] min-h-[148px] flex-none grid-rows-[100px_auto] items-center gap-1.5 overflow-hidden rounded-[14px] border border-transparent bg-transparent px-1.5 pb-1.5 pt-1.5 transition-colors hover:border-accent/70 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent";
+  "flex h-[256px] w-[208px] flex-none flex-col gap-3 overflow-hidden rounded-lg border border-line bg-panel p-3 text-ink transition-colors hover:border-accent/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent";
+// Petit format (après sélection): simple icône
 const COMPACT_ITEM_CLASS =
-  "block h-11 w-11 flex-none overflow-hidden rounded-xl border border-transparent bg-transparent p-0 transition-colors hover:border-accent/70 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent";
+  "block h-11 w-11 flex-none overflow-hidden rounded-md border border-transparent bg-transparent p-[3px] transition-colors hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent";
+const FULL_MEDIA_CLASS = "h-[176px] w-full flex-none overflow-hidden rounded bg-panel2";
+const COMPACT_MEDIA_CLASS = "h-full w-full overflow-hidden rounded bg-transparent";
 const FULL_LABEL_CLASS =
-  "menu-monster-name-label block w-full text-center text-[0.75rem] leading-[1.2] text-ink";
+  "menu-monster-name-label flex min-h-10 w-full items-center justify-center text-center text-[13px] leading-[18px] text-ink";
 const COMPACT_LABEL_CLASS = "menu-monster-name-label hidden";
 const FALLBACK_CLASS =
-  "grid h-full w-full place-items-center bg-[linear-gradient(145deg,rgba(139,197,255,0.35),rgba(112,138,188,0.35))] text-[0.95rem] text-ink";
+  "grid h-full w-full place-items-center bg-panel2 text-[0.95rem] text-muted";
+
+let activeId = null;
+
+function applyActive() {
+  track?.querySelectorAll("button").forEach((item) => {
+    const active = isCompact && activeId !== null && item.dataset.id === String(activeId);
+    item.classList.toggle("menu-item-active", active);
+    item.setAttribute("aria-pressed", String(active));
+  });
+}
 
 function updateAppearance() {
   if (!track) {
     return;
   }
 
+  // pr = gap: la 2e moitié de la liste doublée recolle exactement au tour précédent (boucle sans saut)
   track.className = [
     "moving-menu-track",
-    "flex w-max items-center whitespace-nowrap",
-    isCompact ? "gap-2 p-2" : "gap-3 p-3",
+    "flex w-max items-start whitespace-nowrap",
+    isCompact ? "gap-2 py-2 pr-2" : "gap-4 py-1 pr-4",
   ].join(" ");
 
   track.querySelectorAll("button").forEach((item) => {
     item.className = isCompact ? COMPACT_ITEM_CLASS : FULL_ITEM_CLASS;
+    const media = item.querySelector(".menu-monster-media");
+    if (media) {
+      media.className = `menu-monster-media ${isCompact ? COMPACT_MEDIA_CLASS : FULL_MEDIA_CLASS}`;
+    }
     const label = item.querySelector(".menu-monster-name-label");
     if (label) {
       label.className = isCompact ? COMPACT_LABEL_CLASS : FULL_LABEL_CLASS;
     }
   });
+  applyActive();
 }
 
 // Recalcule la durée du tour complet pour garder la même vitesse, sans saut visuel
@@ -64,12 +82,14 @@ function updateScrollSpeed() {
 export function setCompactMode(compact) {
   isCompact = compact;
   document.body.classList.toggle("menu-compact", compact);
-  siteFooter?.classList.toggle("hidden", !compact);
-  pageContainer?.classList.toggle("pb-8", !compact);
-  pageContainer?.classList.toggle("pb-40", compact);
-
   updateAppearance();
   updateScrollSpeed();
+}
+
+// Surligne le monstre affiché dans la rangée compacte
+export function setActiveMonster(id) {
+  activeId = id;
+  applyActive();
 }
 
 function buildItem(monster, isDuplicate, onSelect) {
@@ -79,10 +99,11 @@ function buildItem(monster, isDuplicate, onSelect) {
   item.type = "button";
   item.className = isCompact ? COMPACT_ITEM_CLASS : FULL_ITEM_CLASS;
   item.title = name;
+  item.dataset.id = String(monster.Id);
   item.addEventListener("click", () => onSelect(monster));
 
   const media = document.createElement("div");
-  media.className = "h-full w-full overflow-hidden rounded-[10px] bg-transparent";
+  media.className = `menu-monster-media ${isCompact ? COMPACT_MEDIA_CLASS : FULL_MEDIA_CLASS}`;
 
   const showFallback = () => {
     media.innerHTML = "";
@@ -91,7 +112,7 @@ function buildItem(monster, isDuplicate, onSelect) {
 
   if (monster.Image) {
     const image = document.createElement("img");
-    image.className = "block h-full w-full object-contain";
+    image.className = "block h-full w-full object-contain p-1";
     image.loading = "lazy";
     image.alt = name;
     image.src = monsterImageUrl(monster.Image);

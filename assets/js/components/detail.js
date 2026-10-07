@@ -4,7 +4,7 @@ import { monsterImageUrl } from "../lib/images.js";
 const detailNode = document.getElementById("monster-detail");
 
 const MISSING_IMAGE_CLASS =
-  "grid aspect-square w-full place-items-center rounded-2xl border border-line bg-white/5 text-sm text-muted";
+  "grid size-24 place-items-center rounded-lg border border-line bg-panel2 text-center text-xs text-muted";
 
 let spellsData = {};
 let prefersShortInfo = false;
@@ -60,11 +60,15 @@ function appendTextSection(container, title, content) {
   }
 
   const block = document.createElement("section");
-  block.className = "border-t border-line pt-3 first:border-t-0 first:pt-0";
+  block.className = "border-t border-line pt-5 first:border-t-0 first:pt-0";
 
   const heading = document.createElement("h4");
-  heading.className = "mb-1.5 text-[0.95rem] font-semibold text-ink";
-  heading.textContent = title;
+  heading.className = "m-0 mb-3 flex items-center gap-2 text-sm font-medium text-ink";
+  const headingIcon = { Information: ["info", "text-muted"], Conseil: ["sparkles", "text-accent"] }[title];
+  if (headingIcon) {
+    heading.append(decorativeIcon(headingIcon[0], `text-[0.95rem] leading-none ${headingIcon[1]}`));
+  }
+  heading.append(title);
 
   const lines = clean
     .split("\n")
@@ -75,11 +79,13 @@ function appendTextSection(container, title, content) {
   const mostlyBullets = bulletCount >= 2 && bulletCount >= Math.ceil(lines.length / 2);
 
   const wrapper = document.createElement(mostlyBullets ? "ul" : "div");
-  wrapper.className = mostlyBullets ? "m-0 grid list-disc gap-1.5 pl-5" : "space-y-2";
+  wrapper.className = mostlyBullets
+    ? "m-0 ml-5 list-disc space-y-2.5 p-0 text-[13px] leading-relaxed text-muted marker:text-muted"
+    : "space-y-2.5 text-[13px] leading-relaxed text-muted";
 
   lines.forEach((line) => {
     const entry = document.createElement(mostlyBullets ? "li" : "p");
-    entry.className = mostlyBullets ? "leading-6 text-ink" : "m-0 leading-6 text-ink";
+    entry.className = mostlyBullets ? "" : "m-0";
     appendLineWithLinks(entry, line);
     wrapper.appendChild(entry);
   });
@@ -100,28 +106,40 @@ function getSections(monster, short) {
 
 // ---------- Blocs de la fiche ----------
 
-function createStatBar(label, value) {
+// Jauge sur 10: dix petits segments, ceux remplis en couleur d'accent
+function createRating(label, value) {
+  const numeric = Number.isFinite(Number(value)) ? Math.max(0, Math.min(10, Number(value))) : 0;
+
   const row = document.createElement("div");
-  row.className = "grid grid-cols-[112px_1fr_28px] items-center gap-2";
+  row.className = "grid grid-cols-[110px_1fr_28px] items-center gap-3 text-xs";
 
   const name = document.createElement("span");
-  name.className = "text-[0.85rem] text-ink";
+  name.className = "text-muted";
   name.textContent = label;
 
-  const bar = document.createElement("div");
-  bar.className = "h-[9px] overflow-hidden rounded-full bg-white/15";
+  const track = document.createElement("span");
+  track.className = "rating-track !w-full";
+  track.setAttribute("role", "meter");
+  track.setAttribute("aria-label", label);
+  track.setAttribute("aria-valuemin", "0");
+  track.setAttribute("aria-valuemax", "10");
+  track.setAttribute("aria-valuenow", String(numeric));
+  for (let i = 0; i < 10; i += 1) {
+    const segment = document.createElement("i");
+    if (i < numeric) {
+      segment.className = "filled";
+    }
+    track.appendChild(segment);
+  }
 
-  const fill = document.createElement("span");
-  fill.className = "block h-full rounded-full bg-[linear-gradient(90deg,#76d1ff_0%,#93f0bb_45%,#ffd36f_75%,#ff8f8f_100%)]";
-  const numeric = Number.isFinite(Number(value)) ? Number(value) : 0;
-  fill.style.width = `${Math.max(0, Math.min(10, numeric)) * 10}%`;
+  const score = document.createElement("span");
+  score.className = "text-right text-muted";
+  const strong = document.createElement("span");
+  strong.className = "text-ink";
+  strong.textContent = String(value ?? "-");
+  score.append(strong, "/10");
 
-  const valueText = document.createElement("span");
-  valueText.className = "text-right text-[0.82rem] text-ink";
-  valueText.textContent = String(value ?? "-");
-
-  bar.appendChild(fill);
-  row.append(name, bar, valueText);
+  row.append(name, track, score);
   return row;
 }
 
@@ -140,7 +158,7 @@ function renderImage(container, monster) {
   }
 
   const image = document.createElement("img");
-  image.className = "aspect-square w-full rounded-2xl border border-accent/30 bg-panel2 object-contain p-1";
+  image.className = "size-24 rounded-lg border border-line bg-panel2 object-contain p-1";
   image.alt = cleanDisplayText(monster.Name || "Monstre");
   image.loading = "lazy";
   image.src = monsterImageUrl(monster.Image);
@@ -152,17 +170,17 @@ function createShortInfoToggle(isShortMode, hasShortInfo, onToggle) {
   const button = document.createElement("button");
   button.type = "button";
   button.className =
-    "flex items-center gap-2 rounded-full border border-line bg-white/5 px-2.5 py-1 text-[0.75rem] text-ink transition-colors hover:border-accent/70 disabled:cursor-not-allowed disabled:opacity-40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent";
+    "flex items-center gap-2.5 text-[11px] text-muted transition-colors hover:text-ink disabled:cursor-not-allowed disabled:opacity-40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent";
   button.setAttribute("aria-label", "Activer la version courte si possible");
   button.setAttribute("aria-pressed", isShortMode ? "true" : "false");
   button.disabled = !hasShortInfo;
 
   const track = document.createElement("span");
-  track.className = "relative h-4 w-7 flex-none rounded-full bg-white/20 transition-colors";
+  track.className = "relative h-4 w-7 flex-none rounded-full bg-line transition-colors";
   track.classList.toggle("bg-accent", isShortMode);
 
   const knob = document.createElement("span");
-  knob.className = "absolute left-[2px] top-[2px] h-3 w-3 rounded-full bg-white transition-transform";
+  knob.className = "absolute left-[2px] top-[2px] h-3 w-3 rounded-full bg-ink transition-transform";
   knob.classList.toggle("translate-x-3", isShortMode);
 
   track.appendChild(knob);
@@ -201,18 +219,21 @@ function playTransition(targetNode) {
 
 // ---------- Cartes ----------
 
-const CARD_CLASS = "rounded-2xl border border-line bg-panel/80 p-4 backdrop-blur-[10px]";
+const CARD_CLASS = "rounded-lg border border-line bg-panel p-5";
 
-function createCard(label, headerExtra) {
+function createCard(label, headerExtra, iconName) {
   const card = document.createElement("section");
   card.className = CARD_CLASS;
 
   const header = document.createElement("div");
-  header.className = "mb-3 flex items-center justify-between gap-3";
+  header.className = "mb-6 flex items-center justify-between gap-3";
 
   const title = document.createElement("h4");
-  title.className = "card-label";
-  title.textContent = label;
+  title.className = "card-label flex items-center gap-2";
+  if (iconName) {
+    title.append(decorativeIcon(iconName, "text-[0.9rem] leading-none"));
+  }
+  title.append(label);
 
   header.appendChild(title);
   if (headerExtra) {
@@ -236,6 +257,14 @@ function formatNumber(value) {
   return Number(value).toLocaleString("fr-FR");
 }
 
+// Icône décorative (titres): couleur du texte autour
+function decorativeIcon(name, className) {
+  const wrapper = document.createElement("span");
+  wrapper.className = className || "";
+  wrapper.innerHTML = window.TnulIcons?.html(name) || "";
+  return wrapper;
+}
+
 // Icône SVG (voir lib/icons.js) avec une étiquette accessible
 function iconNode(name, className) {
   const wrapper = document.createElement("span");
@@ -247,16 +276,18 @@ function iconNode(name, className) {
   return wrapper;
 }
 
+const CHIP_CLASS = "inline-flex items-center gap-1.5 rounded border border-line bg-panel px-2 py-1 text-xs text-ink";
+
 function createIconChip(iconName, value) {
   const chip = document.createElement("span");
-  chip.className = "inline-flex items-center gap-1.5 rounded-full border border-line bg-white/5 px-2.5 py-1 text-[0.78rem] text-ink";
-  chip.append(iconNode(iconName, "text-[1.05rem]"), String(value));
+  chip.className = CHIP_CLASS;
+  chip.append(iconNode(iconName, "text-[0.8rem] leading-none"), String(value));
   return chip;
 }
 
 function createChip(label, value) {
   const chip = document.createElement("span");
-  chip.className = "inline-flex items-center gap-1.5 rounded-full border border-line bg-white/5 px-2.5 py-1 text-[0.78rem] text-ink";
+  chip.className = CHIP_CLASS;
   const name = document.createElement("span");
   name.className = "text-muted";
   name.textContent = label;
@@ -264,27 +295,31 @@ function createChip(label, value) {
   return chip;
 }
 
+// En-tête du monstre: portrait, nom, pastilles et jauges, sur toute la largeur
 function createHero(monster, baseStats) {
   const hero = document.createElement("section");
-  hero.className = `${CARD_CLASS} flex items-center gap-5 max-[900px]:flex-col max-[900px]:text-center`;
+  hero.className = "flex flex-col justify-between gap-8 border-b border-line pb-8 lg:flex-row lg:items-center";
+
+  const identity = document.createElement("div");
+  identity.className = "flex min-w-0 items-center gap-5";
 
   const media = document.createElement("div");
-  media.className = "w-28 flex-none";
+  media.className = "flex-none";
   renderImage(media, monster);
 
   const text = document.createElement("div");
-  text.className = "min-w-0 flex-1";
+  text.className = "min-w-0";
 
   const eyebrow = document.createElement("p");
-  eyebrow.className = "card-label mb-1";
+  eyebrow.className = "card-label mb-2";
   eyebrow.textContent = monster.IsBounty ? "Avis de recherche" : "Songe infini";
 
   const title = document.createElement("h3");
-  title.className = "m-0 text-[1.75rem] font-bold leading-tight text-ink";
+  title.className = "m-0 text-3xl font-semibold leading-tight text-ink sm:text-4xl";
   title.textContent = cleanDisplayText(monster.Name || "Monstre sans nom");
 
   const chips = document.createElement("div");
-  chips.className = "mt-3 flex flex-wrap gap-2 max-[900px]:justify-center";
+  chips.className = "mt-3 flex flex-wrap items-center gap-2";
   if (baseStats) {
     if (hasLife(baseStats)) {
       chips.append(createIconChip("hp", formatNumber(baseStats.stats.life) + lifeSuffix(monster)));
@@ -293,15 +328,16 @@ function createHero(monster, baseStats) {
   }
 
   text.append(eyebrow, title, chips);
-  hero.append(media, text, createRatings(monster));
+  identity.append(media, text);
+  hero.append(identity, createRatings(monster));
   return hero;
 }
 
 function createSummaryCard(monster, isShortMode, hasShortInfo, sections, onToggle) {
-  const card = createCard("Résumé", createShortInfoToggle(isShortMode, hasShortInfo, onToggle));
+  const card = createCard("Résumé", createShortInfoToggle(isShortMode, hasShortInfo, onToggle), "book");
 
   const body = document.createElement("div");
-  body.className = "grid gap-4";
+  body.className = "grid gap-5";
   sections.forEach((section) => appendTextSection(body, section.title, section.content));
   if (!body.childElementCount) {
     appendTextSection(body, "Details", "Aucune information supplementaire.");
@@ -314,12 +350,12 @@ function createSummaryCard(monster, isShortMode, hasShortInfo, sections, onToggl
 
 function createRatings(monster) {
   const bars = document.createElement("div");
-  bars.className = "grid w-full max-w-[320px] flex-none gap-2 max-[900px]:max-w-none";
+  bars.className = "grid w-full flex-none gap-3 lg:w-[295px]";
   bars.append(
-    createStatBar("Difficulte", monster.Difficulty),
-    createStatBar("Focus immediat", monster.ImmediateFocus),
-    createStatBar("Evasion", monster.Evasion),
-    createStatBar("Tanking", monster.Tanking)
+    createRating("Difficulté", monster.Difficulty),
+    createRating("Focus immédiat", monster.ImmediateFocus),
+    createRating("Évasion", monster.Evasion),
+    createRating("Tanking", monster.Tanking)
   );
   return bars;
 }
@@ -333,56 +369,50 @@ const BASE_STAT_ROWS = [
 ];
 
 function createStatsCard(monster, baseStats) {
-  const card = createCard("Caractéristiques");
+  const card = createCard("Caractéristiques", null, "shield");
 
+  // Quatre tuiles: icône, valeur, libellé
   const tiles = document.createElement("div");
-  tiles.className = "grid grid-cols-2 gap-2";
+  tiles.className = "mb-5 grid grid-cols-4 gap-2.5";
   [
-    ...(hasLife(baseStats) ? [{ icon: "hp", value: formatNumber(baseStats.stats.life), caption: monster.IsBounty ? "seul" : "estimés" }] : []),
-    { label: "Niveau", value: baseStats.stats?.level },
-    { icon: "pa", value: baseStats.pa },
-    { icon: "pm", value: baseStats.pm },
-  ].forEach(({ icon, label, value, caption }) => {
+    ...(hasLife(baseStats) ? [{ icon: "hp", label: monster.IsBounty ? "PV seul" : "PV", value: formatNumber(baseStats.stats.life) }] : []),
+    { icon: "level", label: "Niveau", value: baseStats.stats?.level },
+    { icon: "pa", label: "PA", value: baseStats.pa },
+    { icon: "pm", label: "PM", value: baseStats.pm },
+  ].forEach(({ icon, label, value }) => {
     const tile = document.createElement("div");
-    tile.className = "rounded-xl border border-line bg-white/5 px-2 py-2 text-center";
-    const name = document.createElement("div");
-    name.className = "flex items-center justify-center gap-1.5 text-[0.7rem] uppercase tracking-wider text-muted";
-    if (icon) {
-      name.append(iconNode(icon, "text-[1.3rem] leading-none"));
-      if (caption) {
-        name.append(caption);
-      }
-    } else {
-      name.textContent = label;
-    }
+    tile.className = "rounded-md border border-line bg-panel2 px-1 py-3 text-center";
     const number = document.createElement("div");
-    number.className = "text-xl font-bold text-ink";
+    number.className = "mt-1.5 whitespace-nowrap text-base font-semibold text-ink";
     number.textContent = String(value ?? "-");
-    tile.append(name, number);
+    const name = document.createElement("div");
+    name.className = "mt-1 text-[9px] uppercase tracking-wider text-muted";
+    name.textContent = label;
+    tile.append(iconNode(icon, "block text-[0.95rem] leading-none"), number, name);
     tiles.appendChild(tile);
   });
 
   const rows = document.createElement("dl");
-  rows.className = "m-0 mt-3 grid gap-1.5";
+  rows.className = "m-0 space-y-3";
   BASE_STAT_ROWS.forEach(([label, key]) => {
     const value = baseStats.stats?.[key];
     if (value === undefined) {
       return;
     }
     const row = document.createElement("div");
-    row.className = "flex items-center justify-between rounded-lg bg-white/5 px-3 py-1.5 text-[0.85rem]";
+    row.className = "flex items-center justify-between text-[13px]";
     const term = document.createElement("dt");
-    term.className = "flex items-center gap-2 text-muted";
-    term.append(iconNode(key, "text-[1.05rem] leading-none"), label);
+    term.className = "flex items-center gap-2.5 text-muted";
+    term.append(iconNode(key, "text-[0.95rem] leading-none"), label);
     const detail = document.createElement("dd");
-    detail.className = "m-0 font-semibold text-ink";
-    detail.textContent = String(value);
+    detail.className = "m-0 font-medium tabular-nums text-ink";
+    detail.textContent = formatNumber(value);
     row.append(term, detail);
     rows.appendChild(row);
   });
 
   const note = document.createElement("p");
-  note.className = "m-0 mt-3 text-[0.72rem] leading-snug text-muted";
+  note.className = "m-0 mt-5 border-t border-line pt-4 text-[10px] leading-relaxed text-muted";
   note.textContent = "Estimation au palier 225 (Paradoxe I, palier II). Les valeurs évoluent avec le palier du Songe.";
 
   card.append(tiles, rows, note);
@@ -402,26 +432,18 @@ export function renderMonsterDetail(monster, showShort = prefersShortInfo) {
   const isShortMode = hasShortInfo && showShort;
   const sections = isShortMode ? shortSections : getSections(monster, false);
 
-  const main = document.createElement("div");
-  main.className = "grid min-w-0 gap-4";
-  main.appendChild(
-    createSummaryCard(monster, isShortMode, hasShortInfo, sections, () => {
-      prefersShortInfo = !isShortMode;
-      renderMonsterDetail(monster, prefersShortInfo);
-    })
-  );
-
-  const side = document.createElement("div");
-  side.className = "grid gap-4";
-  if (baseStats?.stats) {
-    side.appendChild(createStatsCard(monster, baseStats));
-  }
+  const summary = createSummaryCard(monster, isShortMode, hasShortInfo, sections, () => {
+    prefersShortInfo = !isShortMode;
+    renderMonsterDetail(monster, prefersShortInfo);
+  });
+  summary.classList.add("min-w-0");
 
   const columns = document.createElement("div");
-  columns.className = `grid items-stretch gap-4 ${side.childElementCount ? "lg:grid-cols-[minmax(0,1fr)_320px]" : ""}`;
-  columns.append(main);
-  if (side.childElementCount) {
-    columns.append(side);
+  columns.className = "grid items-stretch gap-6";
+  columns.append(summary);
+  if (baseStats?.stats) {
+    columns.classList.add("lg:grid-cols-[minmax(0,1fr)_340px]");
+    columns.append(createStatsCard(monster, baseStats));
   }
 
   detailNode.hidden = false;
@@ -429,4 +451,3 @@ export function renderMonsterDetail(monster, showShort = prefersShortInfo) {
   detailNode.append(createHero(monster, baseStats), columns);
   mountSimulation(monster, detailNode);
 }
-

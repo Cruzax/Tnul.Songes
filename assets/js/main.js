@@ -1,5 +1,5 @@
 import { loadMonsters, loadSpells } from "./data/loaders.js";
-import { renderCarousel, setCompactMode } from "./components/carousel.js";
+import { renderCarousel, setActiveMonster, setCompactMode } from "./components/carousel.js";
 import { closeSearchResults, initSearch, setSearchValue } from "./components/search.js";
 import { renderMonsterDetail, setSpellsData } from "./components/detail.js";
 import { cleanDisplayText } from "./lib/text.js";
@@ -9,6 +9,7 @@ function selectMonster(monster) {
     return;
   }
   setCompactMode(true);
+  setActiveMonster(monster.Id);
   setSearchValue(cleanDisplayText(monster.Name || ""));
   renderMonsterDetail(monster);
   closeSearchResults();

@@ -177,7 +177,7 @@
     section.className = "sim-section";
     section.innerHTML = `
       <div class="sim-header">
-        <h2 class="sim-title">Simulation</h2>
+        <h2 class="sim-title">${root.TnulIcons ? root.TnulIcons.html("crosshair") : ""}Simulation</h2>
         <div class="sim-tools">
           ${maps.length ? '<div class="sim-map-tabs" role="group" aria-label="Carte">' + (options.noEmptyOption ? "" : '<button type="button" class="sim-map-tab" data-index="-1" aria-pressed="false">Grille vide</button>') + maps.map((m, i) => `<button type="button" class="sim-map-tab" data-index="${i}" aria-pressed="false">${m.name.replace(/^Salle de boss — /, "").replace(/^./, (c) => c.toUpperCase())}</button>`).join("") + "</div>" : ""}
           ${maps.length && !options.hideStartsToggle ? '<label class="sim-starts-label"><input type="checkbox" class="sim-starts"> Placements de départ</label>' : ""}

@@ -2,44 +2,68 @@
   Thème du site: tout ce qui change avec la direction artistique est ici.
   Les couleurs sont des canaux "R G B" pour pouvoir écrire rgb(var(--c-accent) / 0.3),
   et Tailwind les reprend (voir assets/js/tailwind-config.js).
+  Direction actuelle: sombre, sobre et minimal (cartes plates, bordure fine, un seul accent bleu ciel).
 */
 :root {
-  --c-bg: 7 11 22;
-  --c-panel: 2 6 23;
-  --c-panel2: 15 23 42;
-  --c-line: 84 96 122;
-  --c-ink: 241 245 249;
-  --c-muted: 203 213 225;
-  --c-accent: 125 211 252;
-  --c-danger: 232 116 94;
-  --c-warm: 242 174 85;
+  --c-bg: 9 10 12;
+  --c-panel: 17 19 21;
+  --c-panel2: 21 23 26;
+  --c-line: 40 42 46;
+  --c-ink: 230 232 235;
+  --c-muted: 126 131 140;
+  --c-accent: 110 186 237;
+  --c-accent-soft: 28 36 42;
+  --c-danger: 241 112 116;
+  --c-warm: 202 174 99;
 
-  --bg-image: url("../images/ui/songes.webp");
-  --bg-overlay: linear-gradient(165deg, rgba(7, 11, 22, 0.78) 0%, rgba(12, 19, 36, 0.72) 100%);
-  --bg-glow: radial-gradient(circle at 12% 18%, rgba(89, 145, 255, 0.24), transparent 38%), radial-gradient(circle at 88% 10%, rgba(105, 229, 216, 0.14), transparent 36%);
+  /* Couleurs des icônes de caractéristiques */
+  --c-health: 241 112 116;
+  --c-movement: 102 193 137;
+  --c-earth: 205 153 92;
+  --c-fire: 243 126 97;
+  --c-water: 112 182 231;
+  --c-air: 120 193 146;
+  --c-power: 202 174 99;
 
-  --font-sans: "Barlow", "Segoe UI", system-ui, sans-serif;
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
 }
 
 body {
   font-family: var(--font-sans);
   background-color: rgb(var(--c-bg));
-  background-image: var(--bg-glow), var(--bg-overlay), var(--bg-image);
-  background-position: center, center, center;
-  background-size: auto, auto, cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Petit titre de carte en capitales, façon fiche encyclopédie */
+/* Petit titre de carte en capitales, couleur d'accent */
 .card-label {
   margin: 0;
   font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: rgb(var(--c-accent));
 }
 
 /* Icônes SVG en ligne (PV, PA, PM...): alignées sur le texte */
 .ico { display: inline-block; vertical-align: -0.14em; flex: none; }
+
+/* Jauge de notation: 10 segments, ceux remplis en accent */
+.rating-track { display: flex; height: 4px; width: 112px; overflow: hidden; border-radius: 2px; background: rgb(var(--c-line)); }
+.rating-track i { flex: 1; }
+.rating-track i + i { margin-left: 1px; }
+.rating-track i.filled { background: rgb(var(--c-accent)); }
+
+/* Monstre actif dans le carrousel compact */
+.menu-item-active { border-color: rgb(var(--c-accent)) !important; background: rgb(var(--c-accent-soft)); }
+
+/* Fond animé (assets/js/lib/background.js): derrière tout, estompé vers les bords */
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 25%, #000 0%, transparent 100%);
+  mask-image: radial-gradient(ellipse 85% 70% at 50% 25%, #000 0%, transparent 100%);
+}

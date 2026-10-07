@@ -1,17 +1,14 @@
 /* Simulateur: carte "Sorts & simulation" + grille isométrique. Couleurs: voir theme.css */
 .sim-section {
-  margin-top: 1rem; padding: 1rem; border: 1px solid rgb(var(--c-line));
-  border-radius: 1rem; background: rgb(var(--c-panel) / 0.8); backdrop-filter: blur(10px);
+  margin-top: 0; padding: 1.25rem; border: 1px solid rgb(var(--c-line));
+  border-radius: 0.5rem; background: rgb(var(--c-panel));
 }
 .sim-header { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; justify-content: space-between; }
-.sim-title {
-  margin: 0; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
-  text-transform: uppercase; color: rgb(var(--c-accent));
-}
+.sim-title { display: inline-flex; align-items: center; gap: 0.5rem; margin: 0; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgb(var(--c-accent)); }
 .sim-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; font-size: 0.8rem; }
 
 .sim-reset, .sim-map-tab, .sim-hare-hp-btn, .sim-hare-melee-input {
-  padding: 0.25rem 0.65rem; border: 1px solid rgb(var(--c-line)); border-radius: 999px;
+  padding: 0.25rem 0.65rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem;
   background: rgb(255 255 255 / 0.05); color: inherit; font: inherit; cursor: pointer;
 }
 .sim-reset:hover, .sim-map-tab:hover, .sim-hare-hp-btn:hover { border-color: rgb(var(--c-accent) / 0.7); }
@@ -21,11 +18,11 @@
 .sim-spells { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 0.45rem; margin: 0.8rem 0; }
 .sim-spell {
   display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.45rem 0.6rem;
-  border: 1px solid rgb(var(--c-line)); border-radius: 0.75rem;
-  background: rgb(var(--c-panel2) / 0.8); color: inherit; font-size: 0.8rem; cursor: pointer; text-align: left;
+  border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem;
+  background: rgb(var(--c-panel)); color: inherit; font-size: 0.8rem; cursor: pointer; text-align: left;
 }
 .sim-spell:hover { border-color: rgb(var(--c-accent) / 0.6); }
-.sim-spell[aria-pressed="true"] { background: rgb(var(--c-accent) / 0.14); border-color: rgb(var(--c-accent) / 0.85); }
+.sim-spell[aria-pressed="true"] { background: rgb(var(--c-accent-soft)); border-color: rgb(var(--c-accent)); }
 .sim-spell-icon { width: 32px; height: 32px; flex: none; border-radius: 6px; object-fit: contain; }
 .sim-spell-text { display: grid; gap: 0.1rem; min-width: 0; }
 .sim-spell-text strong { font-weight: 600; }
@@ -34,7 +31,7 @@
 
 .sim-detail {
   margin: 0.8rem 0 0; padding: 0.9rem 1rem; border: 1px solid rgb(var(--c-line));
-  border-radius: 0.75rem; background: rgb(var(--c-panel2) / 0.8); font-size: 0.88rem;
+  border-radius: 0.5rem; background: rgb(var(--c-panel2)); font-size: 0.88rem;
 }
 .sim-detail-empty { margin: 0; color: rgb(var(--c-muted)); }
 .sim-detail-head { display: flex; align-items: center; gap: 0.6rem; }
@@ -42,7 +39,7 @@
 .sim-detail-meta { margin: 0.4rem 0 0; color: rgb(var(--c-muted)); }
 .sim-detail-cond { margin: 0.35rem 0 0; color: rgb(var(--c-warm)); }
 .sim-detail-sub {
-  margin: 0.8rem 0 0.3rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+  margin: 0.8rem 0 0.3rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
   text-transform: uppercase; color: rgb(var(--c-accent));
 }
 .sim-effects { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.35rem; }
@@ -85,7 +82,7 @@
 .sim-boss-token:active { cursor: grabbing; }
 .sim-boss-fallback { fill: #b03a2e; stroke: #fff; stroke-width: 1.5; }
 
-.sim-hare-panel { margin: 0.6rem 0; padding: 0.7rem 0.8rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.75rem; background: rgb(var(--c-panel2) / 0.8); }
+.sim-hare-panel { margin: 0.6rem 0; padding: 0.7rem 0.8rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem; background: rgb(var(--c-panel2)); }
 .sim-hare-hp { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .sim-hare-hp-btn[aria-pressed="true"] { background: rgb(var(--c-accent) / 0.18); border-color: rgb(var(--c-accent) / 0.9); }
 .sim-hare-melee { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.6rem; font-size: 0.85rem; }
@@ -101,12 +98,12 @@
 
 /* Édition de la grille (simulation des mobs) */
 .sim-edit-label { display: flex; align-items: center; gap: 0.3rem; cursor: pointer; }
-.sim-editor { margin: 0.6rem 0; padding: 0.7rem 0.8rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.75rem; background: rgb(var(--c-panel2) / 0.8); }
+.sim-editor { margin: 0.6rem 0; padding: 0.7rem 0.8rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem; background: rgb(var(--c-panel2)); }
 .sim-editor-tools, .sim-editor-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .sim-editor-actions { margin-top: 0.6rem; }
 .sim-editor-hint { margin: 0.6rem 0 0; font-size: 0.8rem; color: rgb(var(--c-muted)); }
 .sim-tool, .sim-edit-export, .sim-edit-restore {
-  padding: 0.3rem 0.7rem; border: 1px solid rgb(var(--c-line)); border-radius: 999px;
+  padding: 0.3rem 0.7rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem;
   background: rgb(255 255 255 / 0.05); color: inherit; font: inherit; font-size: 0.82rem; cursor: pointer;
 }
 .sim-tool:hover, .sim-edit-export:hover, .sim-edit-restore:hover { border-color: rgb(var(--c-accent) / 0.7); }

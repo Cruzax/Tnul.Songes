@@ -9,6 +9,6 @@ export const PATHS = {
 // (≈ 168 px par monstre en 3 s)
 export const SCROLL_SPEED_PX_PER_SEC = 55;
 
-// Largeur d'un monstre + espace entre deux (Tailwind: w-[156px] + gap-3, et w-11 + gap-2).
+// Largeur d'un monstre + espace entre deux (Tailwind: w-[208px] + gap-4, et w-11 + gap-2).
 // On ne mesure pas le DOM: Tailwind CDN applique ses classes après coup.
-export const MENU_ITEM_PITCH_PX = { full: 168, compact: 52 };
+export const MENU_ITEM_PITCH_PX = { full: 224, compact: 52 };

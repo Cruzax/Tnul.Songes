@@ -7,51 +7,50 @@
   <link rel="icon" type="image/png" href="assets/images/ui/avoir.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind-config.js"></script>
   <link rel="stylesheet" href="assets/css/theme.css" />
 </head>
-<body
-  class="min-h-screen flex flex-col text-ink"
->
-  <header class="px-4 pb-2 pt-4 text-center">
-    <h1 class="m-0 text-[1.2rem] font-bold tracking-[0.04em] text-white [text-shadow:0_3px_22px_rgba(0,0,0,0.55)]">
-      <a href="./" class="rounded-md text-inherit no-underline outline-none transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">Tnul.Songes</a>
-    </h1>
-    <a href="salles.html" class="mt-1 inline-block rounded-full border border-line bg-panel/60 px-3 py-1 text-[0.78rem] text-ink no-underline transition-colors hover:border-accent/70 hover:bg-panel2/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">Positions de départ des salles de boss</a>
+<body class="flex min-h-screen flex-col overflow-x-hidden text-[14px] text-ink">
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <header class="border-b border-line">
+    <div class="mx-auto flex min-h-20 w-full max-w-[1120px] items-center justify-between gap-5 px-4">
+      <a href="./" class="flex items-center gap-3 text-ink no-underline outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent" aria-label="Tnul.Songes, accueil">
+        <span class="flex size-8 items-center justify-center rounded-md border border-line text-accent"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6" /><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5" /><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586" /><path d="m16 16 4 4" /><path d="m19 21 2-2" /><path d="m5 14 4 4" /><path d="m5 21-2-2" /><path d="M7.5 16.5 4 20" /></svg></span>
+        <span class="text-lg font-semibold">Tnul<span class="text-accent">.</span>Songes</span>
+      </a>
+      <a href="salles.html" class="flex items-center gap-2 text-xs text-muted no-underline transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" /><path d="M15 5.764v15" /><path d="M9 3.236v15" /></svg><span class="hidden sm:inline">Positions de départ des salles de boss</span><span class="sm:hidden">Positions de départ</span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg></a>
+    </div>
   </header>
 
-  <main id="page-container" class="mx-auto w-full max-w-[1120px] flex-1 px-4 pb-8 pt-4 transition-[padding] duration-300">
-    <section class="relative z-30 rounded-[20px] border border-line bg-panel/55 p-4 shadow-[0_20px_60px_-25px_rgba(1,6,22,0.6)] backdrop-blur-[16px] backdrop-saturate-[120%]">
-      <div class="my-3 mb-4">
-        <div class="relative">
-          <label for="monster-search" class="sr-only">Rechercher un monstre</label>
-          <input
-            id="monster-search"
-            class="w-full rounded-[14px] border border-line bg-panel/80 px-4 py-3 text-base text-ink backdrop-blur-[10px] backdrop-saturate-[125%] placeholder:text-muted focus:outline focus:outline-2 focus:outline-accent"
-            type="search"
-            placeholder="Rechercher un monstre..."
-            autocomplete="off"
-          />
-          <div id="search-results" class="absolute left-0 right-0 top-[calc(100%+0.12rem)] z-[80] max-h-[280px] overflow-auto rounded-[14px] border border-line bg-panel/95 p-1.5 shadow-[0_20px_45px_-25px_rgba(1,6,22,0.6)] backdrop-blur-[18px] backdrop-saturate-[125%]" hidden></div>
-        </div>
+  <main id="page-container" class="mx-auto w-full max-w-[1120px] flex-1 px-4 pb-14 pt-10">
+    <div class="relative z-30">
+      <label for="monster-search" class="sr-only">Rechercher un monstre</label>
+      <span class="pointer-events-none absolute left-4 top-[26px] -translate-y-1/2 text-muted"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></svg></span>
+      <input
+        id="monster-search"
+        class="h-[52px] w-full rounded-md border border-line bg-panel pl-11 pr-4 text-sm text-ink placeholder:text-muted focus:border-accent/60 focus:outline-none"
+        type="search"
+        placeholder="Rechercher un monstre..."
+        autocomplete="off"
+      />
+      <div id="search-results" class="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-[80] max-h-80 overflow-auto rounded-lg border border-line bg-panel2 p-1.5" hidden></div>
+    </div>
 
-        <nav class="group relative mt-2 overflow-hidden rounded-xl border border-line bg-panel/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]" aria-label="Monstres en defilement">
-          <div class="moving-menu-track"></div>
-        </nav>
-      </div>
-    </section>
+    <nav class="group relative left-1/2 mt-6 w-screen -translate-x-1/2 overflow-hidden" aria-label="Monstres en defilement">
+      <div class="moving-menu-track"></div>
+    </nav>
 
-    <article id="monster-detail" class="mt-4 grid gap-4" hidden></article>
+    <article id="monster-detail" class="mt-4 grid gap-6" hidden></article>
   </main>
 
-  <footer id="site-footer" class="mt-auto hidden w-full border-t border-line/60 bg-panel/85 shadow-[0_-10px_30px_-24px_rgba(1,6,22,0.6)] backdrop-blur-[12px] backdrop-saturate-[112%]">
-    <div class="mx-auto flex w-full max-w-[1120px] items-center justify-between gap-3 px-4 py-3 max-[640px]:flex-col max-[640px]:items-start">
-      <p class="m-0 text-[0.84rem] font-semibold tracking-[0.02em] text-muted">Tnul.Songes</p>
-      <p class="m-0 text-[0.84rem] text-muted">
+  <footer id="site-footer" class="border-t border-line">
+    <div class="mx-auto flex w-full max-w-[1120px] flex-col justify-between gap-3 px-4 py-6 text-[11px] text-muted sm:flex-row">
+      <p class="m-0"><span class="font-medium text-ink">Tnul.Songes</span><span class="mx-3">·</span>Un mémo, pas un pavé.</p>
+      <p class="m-0">
         Inspiré de
-        <a class="text-accent underline underline-offset-2 transition-colors hover:text-white" href="https://volcasaurus.github.io/Songes_Pour_Les_Noobs/" target="_blank" rel="noopener noreferrer">Songes Pour Les Noobs</a>
+        <a class="text-accent underline underline-offset-2 transition-colors hover:text-ink" href="https://volcasaurus.github.io/Songes_Pour_Les_Noobs/" target="_blank" rel="noopener noreferrer">Songes Pour Les Noobs</a>
         - GL HF
       </p>
     </div>
@@ -59,6 +58,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js" defer></script>
   <link rel="stylesheet" href="assets/css/simulator.css">
+  <script src="assets/js/lib/background.js" defer></script>
   <script src="assets/js/lib/icons.js" defer></script>
   <script src="assets/js/simulator/grid.js" defer></script>
   <script src="assets/js/simulator/simulator.js" defer></script>
