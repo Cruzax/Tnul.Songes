@@ -10,11 +10,11 @@
 }
 .sim-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; font-size: 0.8rem; }
 
-.sim-reset, .sim-copy, .sim-map-tab, .sim-hare-hp-btn, .sim-hare-melee-input {
+.sim-reset, .sim-map-tab, .sim-hare-hp-btn, .sim-hare-melee-input {
   padding: 0.25rem 0.65rem; border: 1px solid rgb(var(--c-line)); border-radius: 999px;
   background: rgb(255 255 255 / 0.05); color: inherit; font: inherit; cursor: pointer;
 }
-.sim-reset:hover, .sim-copy:hover, .sim-map-tab:hover, .sim-hare-hp-btn:hover { border-color: rgb(var(--c-accent) / 0.7); }
+.sim-reset:hover, .sim-map-tab:hover, .sim-hare-hp-btn:hover { border-color: rgb(var(--c-accent) / 0.7); }
 .sim-starts-label, .sim-hare-label { display: flex; align-items: center; gap: 0.3rem; cursor: pointer; }
 .sim-hint { margin: 0.6rem 0 0; font-size: 0.78rem; color: rgb(var(--c-muted)); }
 
@@ -66,6 +66,7 @@
 .sim-cell.alt { fill: #5a6683; }
 .sim-cell.nolos { fill: #3a4360; }
 .sim-cell.range { fill: #2447e0; stroke: rgba(255, 255, 255, 0.45); }
+.sim-cell.range-blocked { fill: #8fb0ee; stroke: rgba(255, 255, 255, 0.35); }
 .sim-cell.zone { fill: #e0262e; stroke: rgba(255, 255, 255, 0.45); }
 .sim-cell.range.zone { fill: #d4263f; }
 .sim-cell.ally { fill: #5468ff; }

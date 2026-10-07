@@ -40,11 +40,31 @@ async function getJson(url, headers) {
 }
 
 const dofensiveHeaders = { "User-Agent": "Mozilla/5.0" };
+
+// Les masques et déclencheurs contiennent des #1 à remplacer par leurs paramètres (« l'état #1 » → « l'état Porteur »)
+const maskText = (mask) => cleanBraces(String(mask.Name || "").replace(/#(\d)/g, (match, index) => {
+  const parameter = (mask.Parameters || [])[Number(index) - 1];
+  return parameter ? parameter.Name : "";
+}));
+
+// Noms des états et des sorts cités par un effet (DofusDB), avec cache
+const nameCache = new Map();
+async function lookupName(kind, id) {
+  const key = `${kind}:${id}`;
+  if (!nameCache.has(key)) {
+    const route = kind === "state" ? "spell-states" : "spells";
+    const data = await getJson(`https://api.dofusdb.fr/${route}/${id}`);
+    const raw = (data && data.name && data.name.fr) || "";
+    nameCache.set(key, raw.replace(/^\[!\]\s*/, "").trim());
+  }
+  return nameCache.get(key);
+}
 const cleanBraces = (text) => String(text || "").replace(/\{[^}]*\}/g, "").replace(/\s+/g, " ").trim();
 
 function monsterIds() {
   const text = fs.readFileSync(path.join(ROOT, "data", "monsters.yaml"), "utf8");
-  return [...text.matchAll(/^- Id: (\d+)/gm)].map((m) => Number(m[1]));
+  // Le fichier commence par un BOM: sans le prévoir, la toute première fiche était ignorée
+  return [...text.matchAll(/^﻿?- Id: (\d+)/gm)].map((m) => Number(m[1]));
 }
 
 function pickZone(effects) {
@@ -106,6 +126,19 @@ async function effectText(effect) {
   const n2 = effect.diceSide || 0;
   const n3 = effect.value || 0;
   const hasRange = n2 && n2 !== n1;
+  // « État #3 » → nom de l'état ; un effet réduit à « #1 » est un sort déclenché (n1 = id du sort)
+  if (template.trim() === "État #3" && n3) {
+    const name = await lookupName("state", n3);
+    if (name) {
+      return `État: ${name}`;
+    }
+  }
+  if (template.trim() === "#1" && n1 > 0) {
+    const name = await lookupName("spell", n1);
+    if (name) {
+      return `Lance « ${name} »`;
+    }
+  }
   return template
     .replace(/#1\{\{~1~2([^}]*)\}\}#2/g, (match, sep) => (hasRange ? `${n1}${sep}${n2}` : String(n1 || n2)))
     .replace(/\{\{~ps\}\}/g, Math.max(n1, n2, n3) > 1 ? "s" : "")
@@ -179,10 +212,10 @@ async function describeFull(effects, dofensiveEffects, stats) {
     }
     if (aligned) {
       const d = dofensiveEffects[i];
-      const target = (d.InclusionMasks || []).map((m) => cleanBraces(m.Name)).filter(Boolean).join(" / ");
-      const excluded = (d.ExclusionMasks || []).map((m) => cleanBraces(m.Name)).filter(Boolean).join(" / ");
+      const target = (d.InclusionMasks || []).map(maskText).filter(Boolean).join(" / ");
+      const excluded = (d.ExclusionMasks || []).map(maskText).filter(Boolean).join(" / ");
       const when = [...(d.TargetTriggers || []), ...(d.CasterTriggers || []), ...(d.SpecialTriggers || [])]
-        .map((m) => cleanBraces(m.Name))
+        .map(maskText)
         .filter((name) => name && !/imm[ée]diatement/i.test(name))
         .join(" / ");
       if (target) {
@@ -299,6 +332,7 @@ async function downloadIcons(iconIds) {
   console.log(`${done} nouvelles icônes téléchargées dans assets/images/spells`);
 }
 
+// node tools/build-spells.js --missing: ajoute seulement les monstres qui manquent à data/spells.json
 // node tools/build-spells.js --life-only: ajoute seulement les PV à data/spells.json existant
 async function patchLife() {
   const file = path.join(ROOT, "data", "spells.json");
@@ -325,8 +359,10 @@ async function main() {
   if (process.argv.includes("--life-only")) {
     return patchLife();
   }
-  const out = {};
-  const queue = monsterIds();
+  // --missing: ne construit que les monstres absents de data/spells.json et garde les autres tels quels
+  const missingOnly = process.argv.includes("--missing");
+  const out = missingOnly ? JSON.parse(fs.readFileSync(path.join(ROOT, "data", "spells.json"), "utf8")) : {};
+  const queue = monsterIds().filter((id) => !missingOnly || !out[id]);
   await Promise.all(Array.from({ length: 6 }, async () => {
     while (queue.length) {
       const id = queue.shift();

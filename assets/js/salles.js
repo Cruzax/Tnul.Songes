@@ -70,22 +70,12 @@
       }
       item.appendChild(body);
 
-      const link = el("a", "flex-none rounded-full border border-line px-3 py-1 text-xs text-accent no-underline hover:border-accent/70", "▶ Voir");
-      link.href = data.video + "&t=" + monster.time + "s";
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      item.appendChild(link);
       list.appendChild(item);
     });
     root.appendChild(list);
 
     const source = el("p", "mt-3 text-xs text-muted");
-    source.append("Source: « Top 10 Domi Reversi en Songe » par " + data.author + " (");
-    const videoLink = el("a", "text-accent underline underline-offset-2", "YouTube");
-    videoLink.href = data.video;
-    videoLink.target = "_blank";
-    videoLink.rel = "noopener noreferrer";
-    source.append(videoLink, "), dans l'ordre de la vidéo.");
+    source.append("Source: « Top 10 Domi Reversi en Songe » par " + data.author + ", dans l'ordre de la vidéo.");
     root.appendChild(source);
   } catch (error) {
     root.textContent = "Impossible de charger le classement.";

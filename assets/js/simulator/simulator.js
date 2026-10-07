@@ -162,7 +162,7 @@
       hover: null,
       drag: false,
     };
-    const cache = { range: new Set(), visible: null };
+    const cache = { range: new Set(), blocked: new Set(), visible: null };
     const hare = { on: false, bracket: 0, melee: 0, player: null, target: null, visible: null };
     const HARE_BRACKETS = [
       { label: "100% - 90%", angle: 90 },
@@ -183,7 +183,6 @@
           ${maps.length && !options.hideStartsToggle ? '<label class="sim-starts-label"><input type="checkbox" class="sim-starts"> Placements de départ</label>' : ""}
           ${options.harebourg ? '<label class="sim-hare-label"><input type="checkbox" class="sim-hare-toggle"> Mode Harebourg</label>' : ""}
           ${options.editable ? '<label class="sim-edit-label"><input type="checkbox" class="sim-edit-toggle"> Éditer la grille</label>' : ""}
-          <button type="button" class="sim-copy" title="Copie les obstacles de la carte pour me les envoyer">Copier la carte</button>
           ${options.hideReset ? "" : '<button type="button" class="sim-reset">Réinitialiser</button>'}
         </div>
       </div>
@@ -421,17 +420,27 @@
     }
 
     // Recalculs lourds: seulement quand le boss, le sort ou les obstacles changent (pas au survol).
+    // Obstacles + personnages posés: tout ça coupe la ligne de vue du boss
+    const losBlockers = () => new Set([...state.walls, ...state.allies.map(keyOf)]);
+
     function refreshRange() {
       cache.range = new Set();
+      cache.blocked = new Set();
       if (state.spell) {
-        G.rangeCells(state.boss, state.spell, state.walls)
+        G.rangeCells(state.boss, state.spell, state.walls, losBlockers())
           .filter((c) => allowed(c))
           .forEach((c) => cache.range.add(keyOf(c)));
+        // Cases à portée mais cachées par un obstacle (seulement pour un sort qui demande une ligne de vue)
+        if (state.spell.los) {
+          G.rangeCells(state.boss, { ...state.spell, los: false }, state.walls)
+            .filter((c) => allowed(c) && !cache.range.has(keyOf(c)))
+            .forEach((c) => cache.blocked.add(keyOf(c)));
+        }
       }
     }
 
     function refreshVisibility() {
-      cache.visible = G.visibleKeys(state.boss, state.walls);
+      cache.visible = G.visibleKeys(state.boss, losBlockers());
     }
 
     function paintCells() {
@@ -441,7 +450,9 @@
       }
       const allies = new Set(state.allies.map(keyOf));
       const hoverKey = state.hover ? keyOf(state.hover) : null;
-      const showShade = hare.on ? Boolean(hare.visible && state.walls.size > 0) : !viewOnly && cache.visible && state.walls.size > 0;
+      // Un sort sans ligne de vue ignore les obstacles: on n'assombrit alors rien
+      const sansLdv = Boolean(state.spell && !state.spell.los);
+      const showShade = hare.on ? Boolean(hare.visible && state.walls.size > 0) : !viewOnly && !sansLdv && cache.visible && (state.walls.size > 0 || state.allies.length > 0);
       const visibleSet = hare.on ? hare.visible : cache.visible;
       const aim = hare.on ? hareAim() : null;
       const playerKey = hare.on && hare.player ? keyOf(hare.player) : null;
@@ -460,6 +471,9 @@
         }
         if (state.starts && !hare.on && state.startAlly.has(key)) {
           cls += " start-ally";
+        }
+        if (cache.blocked.has(key)) {
+          cls += " range-blocked";
         }
         if (cache.range.has(key)) {
           cls += " range";
@@ -518,18 +532,19 @@
             : `${fmt(effect.est[0])} à ${fmt(effect.est[1])}`;
           item.appendChild(el("span", "sim-effect-est", `≈ ${range} ${label}`));
         }
+        // Version simple: on ne précise la cible que si elle sort de l'ordinaire (les ennemis, c'est le cas par défaut)
         const notes = [];
-        if (effect.target) {
-          notes.push(`Cible: ${effect.target.replace(/#1/g, "un état")}`);
+        if (effect.target && effect.target !== "les ennemis du lanceur") {
+          notes.push(effect.target.replace(/ \(.*?\)/g, ""));
         }
         if (effect.except) {
-          notes.push(`Sauf: ${effect.except.replace(/#1/g, "un état")}`);
+          notes.push(effect.except.replace("les entités possédant l'état", "sauf si état"));
         }
         if (effect.when) {
-          notes.push(`Déclenché: ${effect.when}`);
+          notes.push(`si ${effect.when}`);
         }
         if (notes.length) {
-          item.appendChild(el("span", "sim-effect-note", notes.join(" — ")));
+          item.appendChild(el("span", "sim-effect-note", notes.join(" · ")));
         }
         list.appendChild(item);
       });
@@ -587,7 +602,7 @@
         detail.appendChild(el(
           "p",
           "sim-detail-note",
-          `Estimations au niveau ${stats.level} (Songes): Force ${fmt(stats.strength)}, Intelligence ${fmt(stats.intelligence)}, Chance ${fmt(stats.chance)}, Agilité ${fmt(stats.agility)}. Avant résistances, sans Puissance ni bonus de dommages.`
+          `Estimé au niveau ${stats.level}, avant résistances.`
         ));
       }
     }
@@ -690,20 +705,6 @@
         paintCells();
       });
     }
-
-    section.querySelector(".sim-copy").addEventListener("click", async (event) => {
-      const payload = JSON.stringify({
-        map: currentMap >= 0 ? maps[currentMap].name : "Grille vide",
-        blocs: [...state.walls].map((k) => k.split(",").map(Number)),
-      });
-      try {
-        await navigator.clipboard.writeText(payload);
-        event.target.textContent = "Copié !";
-      } catch (error) {
-        window.prompt("Copie ce texte:", payload);
-      }
-      setTimeout(() => { event.target.textContent = "Copier la carte"; }, 1500);
-    });
 
     // ---- Édition de la grille vide (options.editable): sol et blocs ----
     const editPanel = section.querySelector(".sim-editor");
@@ -860,6 +861,8 @@
           state.allies.push(cell);
         }
         drawAllies();
+        refreshRange(); // un personnage coupe la ligne de vue du boss
+        refreshVisibility();
       }
       state.drag = false;
       dragMoved = false;

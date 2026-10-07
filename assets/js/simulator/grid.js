@@ -83,7 +83,9 @@
     return seen;
   }
 
-  function rangeCells(origin, spell, blocked) {
+  // blocked: cases impossibles à cibler (obstacles). losBlockers: ce qui coupe la ligne de vue (par défaut les
+  // mêmes obstacles; on y ajoute les personnages, qui cachent la vue mais restent ciblables).
+  function rangeCells(origin, spell, blocked, losBlockers = blocked) {
     const min = spell.poMin || 0;
     const max = spell.poMax || 0;
     return allCells().filter((cell) => {
@@ -96,7 +98,7 @@
       if (blocked && blocked.has(`${cell.u},${cell.v}`)) {
         return false;
       }
-      if (spell.los && !hasLineOfSight(origin, cell, blocked)) {
+      if (spell.los && !hasLineOfSight(origin, cell, losBlockers)) {
         return false;
       }
       if (spell.line && du !== 0 && dv !== 0) {
