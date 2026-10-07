@@ -4,7 +4,7 @@
 // à ses anciens alliés. Estimation avec les dégâts du niveau 225, avant résistances.
 const fs = require("fs");
 const path = require("path");
-const G = require("../assets/js/grid.js");
+const G = require("../assets/js/simulator/grid.js");
 
 const ROOT = path.join(__dirname, "..");
 const spells = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "spells.json"), "utf8"));

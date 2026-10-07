@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert");
-const G = require("../assets/js/grid.js");
+const G = require("../assets/js/simulator/grid.js");
 
 const C = { u: 17, v: -3 };
 const key = (c) => `${c.u},${c.v}`;

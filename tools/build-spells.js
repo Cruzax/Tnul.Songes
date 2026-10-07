@@ -275,7 +275,7 @@ async function buildMonster(id) {
 }
 
 async function downloadIcons(iconIds) {
-  const dir = path.join(ROOT, "assets", "spells");
+  const dir = path.join(ROOT, "assets", "images", "spells");
   fs.mkdirSync(dir, { recursive: true });
   const queue = [...iconIds].filter((id) => !fs.existsSync(path.join(dir, `sort_${id}.png`)));
   let done = 0;
@@ -293,7 +293,7 @@ async function downloadIcons(iconIds) {
       }
     }
   }));
-  console.log(`${done} nouvelles icônes téléchargées dans assets/spells`);
+  console.log(`${done} nouvelles icônes téléchargées dans assets/images/spells`);
 }
 
 async function main() {

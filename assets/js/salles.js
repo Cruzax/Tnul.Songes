@@ -49,7 +49,7 @@
       const media = el("span", "grid h-14 w-14 flex-none place-items-center overflow-hidden rounded-xl bg-slate-950/60");
       if (monster.image) {
         const image = el("img", "h-full w-full object-contain");
-        image.src = "Images/" + encodeURIComponent(monster.image);
+        image.src = "assets/images/monsters/" + encodeURIComponent(monster.image);
         image.alt = "";
         image.loading = "lazy";
         image.addEventListener("error", () => {

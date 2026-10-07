@@ -1,0 +1,15 @@
+/* Thème du site: tout ce qui change avec la direction artistique est ici. */
+:root {
+  --bg-image: url("../images/ui/songes.webp");
+  --bg-overlay: linear-gradient(165deg, rgba(7, 11, 22, 0.78) 0%, rgba(12, 19, 36, 0.72) 100%);
+  --bg-glow-left: radial-gradient(circle at 12% 18%, rgba(89, 145, 255, 0.24), transparent 38%);
+  --bg-glow-right: radial-gradient(circle at 88% 10%, rgba(105, 229, 216, 0.14), transparent 36%);
+}
+
+body {
+  background:
+    var(--bg-overlay),
+    var(--bg-glow-left),
+    var(--bg-glow-right),
+    var(--bg-image) center / cover no-repeat fixed;
+}

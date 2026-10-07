@@ -54,7 +54,7 @@
     const DEFAULT_BOSS = { u: 17, v: -3 };
     const initialMap = options.noEmptyOption && maps.length ? 0 : -1;
     const viewOnly = Boolean(options.viewOnly);
-    const allyImage = options.allyImage || "assets/allies/ouginak.png";
+    const allyImage = options.allyImage || "assets/images/allies/ouginak.png";
     const state = {
       boss: { u: 17, v: -3 },
       allies: [],
@@ -388,7 +388,7 @@
       const head = el("div", "sim-detail-head");
       if (spell.icon) {
         const icon = el("img", "sim-spell-icon");
-        icon.src = `assets/spells/sort_${spell.icon}.png`;
+        icon.src = `assets/images/spells/sort_${spell.icon}.png`;
         icon.alt = "";
         icon.addEventListener("error", () => icon.remove());
         head.appendChild(icon);
@@ -451,7 +451,7 @@
       button.className = "sim-spell";
       button.setAttribute("aria-pressed", "false");
       const icon = spell.icon
-        ? `<img class="sim-spell-icon" src="assets/spells/sort_${spell.icon}.png" alt="" loading="lazy" onerror="this.remove()">`
+        ? `<img class="sim-spell-icon" src="assets/images/spells/sort_${spell.icon}.png" alt="" loading="lazy" onerror="this.remove()">`
         : "";
       const description = spell.desc ? `<small class="sim-spell-desc">${spell.desc}</small>` : "";
       button.innerHTML = `${icon}<span class="sim-spell-text"><strong>${title}</strong><small>${detail}</small>${description}</span>`;
