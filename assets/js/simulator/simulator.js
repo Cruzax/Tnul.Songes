@@ -2,9 +2,11 @@
   const G = root.TnulGrid;
   const SVG_NS = "http://www.w3.org/2000/svg";
   const A = 20; // demi-largeur d'une case
-  const B = 8; // demi-hauteur d'une case (plus plat que 2:1)
+  const B_NORMAL = 10; // demi-hauteur d'une case: 2:1, comme dans le jeu
+  const B_FLAT = 8; // grille des mobs: un peu plus plate
+  let B = B_NORMAL; // fixé à chaque mount (une seule simulation à la fois par page)
   const WALL_HEIGHT = 10;
-  const SLAB = 9; // épaisseur du socle sous la carte
+  const SLAB = 12; // épaisseur de la tranche sous la carte
   const MAX_ALLIES = 8;
 
   function svg(name, attrs) {
@@ -41,25 +43,110 @@
     return { x: (px + 1) * A, y: (py + 1) * B };
   }
 
+  const icon = (name, fallback) => (root.TnulIcons ? root.TnulIcons.html(name) : fallback);
+
+  // Les images de monstres ont des marges transparentes très variables (jusqu'à 25 % sous les pieds):
+  // on mesure la partie réellement dessinée pour poser les pieds sur la case, au centre.
+  const spriteBoxes = new Map();
+
+  function measureSprite(url) {
+    if (!spriteBoxes.has(url)) {
+      spriteBoxes.set(url, new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+          try {
+            const canvas = document.createElement("canvas");
+            canvas.width = img.naturalWidth;
+            canvas.height = img.naturalHeight;
+            const context = canvas.getContext("2d", { willReadFrequently: true });
+            context.drawImage(img, 0, 0);
+            const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
+            let minX = canvas.width;
+            let minY = canvas.height;
+            let maxX = -1;
+            let maxY = -1;
+            for (let y = 0; y < canvas.height; y += 1) {
+              for (let x = 0; x < canvas.width; x += 1) {
+                if (pixels[(y * canvas.width + x) * 4 + 3] > 24) {
+                  minX = Math.min(minX, x);
+                  maxX = Math.max(maxX, x);
+                  minY = Math.min(minY, y);
+                  maxY = Math.max(maxY, y);
+                }
+              }
+            }
+            resolve(maxX < 0 ? null : { width: canvas.width, height: canvas.height, minX, maxX, minY, maxY });
+          } catch (error) {
+            resolve(null); // image illisible (ex.: ouverture en file://): on garde le placement par défaut
+          }
+        };
+        img.onerror = () => resolve(null);
+        img.src = url;
+      }));
+    }
+    return spriteBoxes.get(url);
+  }
+
+  const SPRITE_SIZE = 44; // taille de référence: l'image entière tient dans ce carré (les proportions entre monstres sont gardées)
+  const SPRITE_FEET = 2; // les pieds dépassent un peu sous le centre de la case
+
+  async function alignSprite(node, url) {
+    const box = await measureSprite(url);
+    if (!box) {
+      return;
+    }
+    const scale = SPRITE_SIZE / Math.max(box.width, box.height);
+    node.setAttribute("width", box.width * scale);
+    node.setAttribute("height", box.height * scale);
+    node.setAttribute("x", -((box.minX + box.maxX + 1) / 2) * scale);
+    node.setAttribute("y", -(box.maxY + 1) * scale + SPRITE_FEET);
+  }
+
   function spellLabel(spell) {
-    const po = spell.poMin === spell.poMax ? `${spell.poMax} PO` : `${spell.poMin}-${spell.poMax} PO`;
+    const range = spell.poMin === spell.poMax ? `${spell.poMax}` : `${spell.poMin}-${spell.poMax}`;
+    const po = `${range} ${icon("po", "PO")}`;
     const extras = [spell.line ? "ligne" : null, spell.diagonal ? "diagonale" : null, spell.los ? null : "sans LDV"]
       .filter(Boolean);
-    return { title: spell.name, detail: [`${spell.pa} PA`, po, ...extras].join(" · ") };
+    return { title: spell.name, detail: [`${spell.pa} ${icon("pa", "PA")}`, po, ...extras].join(" · ") };
   }
 
   function mount(container, options) {
     const { imageUrls, data } = options;
+    B = options.compactGrid ? B_FLAT : B_NORMAL;
     const maps = options.maps || [];
     const DEFAULT_BOSS = { u: 17, v: -3 };
     // Grille vide réduite autour du boss (options.compactGrid): moins de cases quand aucune carte n'est choisie
-    const compactMask = options.compactGrid
-      ? new Set(G.allCells().filter((cell) => {
+    const compactCells = options.compactGrid
+      ? G.allCells().filter((cell) => {
         const { px, py } = G.toScreen(cell.u, cell.v);
         const boss = G.toScreen(DEFAULT_BOSS.u, DEFAULT_BOSS.v);
-        return Math.abs(px - boss.px) <= 7 && Math.abs(py - boss.py) <= 9;
-      }).map(keyOf))
+        return Math.abs(px - boss.px) <= 9 && Math.abs(py - boss.py) <= 11;
+      }).map((cell) => [cell.u, cell.v])
       : null;
+
+    // Édition (options.editable): la grille vide modifiée est gardée dans le navigateur de l'utilisateur
+    const EMPTY_NAME = "Grille vide (mobs)";
+    const STORAGE_KEY = "tnul.grid.v1";
+    const readSaved = () => {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+      } catch (error) {
+        return {};
+      }
+    };
+    const writeSaved = (saved) => {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+      } catch (error) {
+        // stockage indisponible: les modifications durent le temps de la page
+      }
+    };
+    const emptyOriginal = compactCells ? { name: EMPTY_NAME, cells: compactCells, blocks: [], ally: [], enemy: [] } : null;
+    let emptyMap = emptyOriginal
+      ? ((options.editable && readSaved()[EMPTY_NAME]) || JSON.parse(JSON.stringify(emptyOriginal)))
+      : null;
+    const mapAt = (index) => (index >= 0 ? maps[index] : emptyMap);
+    const editor = { on: false, tool: "floor", painting: false, mode: true };
     const initialMap = options.noEmptyOption && maps.length ? 0 : -1;
     const viewOnly = Boolean(options.viewOnly);
     const allyImage = options.allyImage || "assets/images/allies/ouginak.png";
@@ -67,7 +154,7 @@
       boss: { u: 17, v: -3 },
       allies: [],
       walls: new Set(),
-      mask: compactMask, // Set des cases existantes (null = grille complète)
+      mask: emptyMap ? new Set(emptyMap.cells.map(([u, v]) => `${u},${v}`)) : null, // Set des cases existantes (null = grille complète)
       starts: false,
       startAlly: new Set(),
       startEnemy: new Set(),
@@ -92,16 +179,33 @@
       <div class="sim-header">
         <h2 class="sim-title">Simulation</h2>
         <div class="sim-tools">
-          ${maps.length ? '<select class="sim-map" aria-label="Carte">' + (options.noEmptyOption ? "" : '<option value="-1">Grille vide</option>') + maps.map((m, i) => `<option value="${i}">${m.name}</option>`).join("") + "</select>" : ""}
+          ${maps.length ? '<div class="sim-map-tabs" role="group" aria-label="Carte">' + (options.noEmptyOption ? "" : '<button type="button" class="sim-map-tab" data-index="-1" aria-pressed="false">Grille vide</button>') + maps.map((m, i) => `<button type="button" class="sim-map-tab" data-index="${i}" aria-pressed="false">${m.name.replace(/^Salle de boss — /, "").replace(/^./, (c) => c.toUpperCase())}</button>`).join("") + "</div>" : ""}
           ${maps.length && !options.hideStartsToggle ? '<label class="sim-starts-label"><input type="checkbox" class="sim-starts"> Placements de départ</label>' : ""}
           ${options.harebourg ? '<label class="sim-hare-label"><input type="checkbox" class="sim-hare-toggle"> Mode Harebourg</label>' : ""}
+          ${options.editable ? '<label class="sim-edit-label"><input type="checkbox" class="sim-edit-toggle"> Éditer la grille</label>' : ""}
           <button type="button" class="sim-copy" title="Copie les obstacles de la carte pour me les envoyer">Copier la carte</button>
-          <button type="button" class="sim-reset">Réinitialiser</button>
+          ${options.hideReset ? "" : '<button type="button" class="sim-reset">Réinitialiser</button>'}
+        </div>
+      </div>
+      <div class="sim-editor" hidden>
+        <div class="sim-editor-tools">
+          <button type="button" class="sim-tool" data-tool="floor" aria-pressed="true">Sol</button>
+          <button type="button" class="sim-tool" data-tool="block" aria-pressed="false">Bloc</button>
+        </div>
+        <p class="sim-editor-hint">Clique ou glisse sur la grille: ça ajoute la case si elle n'existe pas, sinon ça la retire. Les cases en pointillés sont vides.</p>
+        <div class="sim-editor-actions">
+          <button type="button" class="sim-edit-export">Copier la grille</button>
+          <button type="button" class="sim-edit-restore">Restaurer l'originale</button>
         </div>
       </div>
       <div class="sim-hare-panel" hidden>
         <div class="sim-hare-hp">${HARE_BRACKETS.map((b, i) => `<button type="button" class="sim-hare-hp-btn" data-i="${i}" aria-pressed="${i === 0}">${b.label}</button>`).join("")}</div>
         <label class="sim-hare-melee">Coups en mêlée <input type="number" class="sim-hare-melee-input" min="0" max="12" value="0"></label>
+        <ul class="sim-legend">
+          <li><span class="sim-swatch hare-player"></span>Ton perso (clic gauche)</li>
+          <li><span class="sim-swatch hare-target"></span>Case que tu veux toucher (clic droit)</li>
+          <li><span class="sim-swatch hare-aim"></span>Case à viser pour compenser la confusion</li>
+        </ul>
         <p class="sim-hare-info"></p>
       </div>
       <p class="sim-hint">${viewOnly ? "Clic droit sur une case: poser ou retirer un obstacle (pour corriger la carte)." : "Glisse le boss. Clic gauche: poser ou retirer un allié. Clic droit: poser ou retirer un obstacle. Les cases sombres sont hors de la ligne de vue du boss."}</p>`;
@@ -116,7 +220,8 @@
 
     // Recadre la vue sur les cases qui existent (carte réelle) plutôt que sur la grille complète
     function fitBoard() {
-      const cells = G.allCells().filter((cell) => !state.mask || state.mask.has(keyOf(cell)));
+      // En édition on cadre toute la grille pour pouvoir ajouter des cases n'importe où
+      const cells = G.allCells().filter((cell) => editor.on || !state.mask || state.mask.has(keyOf(cell)));
       if (!cells.length) {
         return;
       }
@@ -132,17 +237,26 @@
     function updateSlab() {
       fitBoard();
       slab.innerHTML = "";
+      const exists = (u, v) => (state.mask ? state.mask.has(`${u},${v}`) : G.isValid(u, v));
+      // Tranche de la carte: une face verticale sous chaque bord visible (là où la case voisine
+      // vers l'avant n'existe pas), à gauche (u, v-1) et à droite (u+1, v).
       G.allCells().forEach((cell) => {
-        if (state.mask && !state.mask.has(keyOf(cell))) {
+        if (!exists(cell.u, cell.v)) {
           return;
         }
-        const { px, py } = G.toScreen(cell.u, cell.v);
-        const cx = (px + 1) * A;
-        const cy = (py + 1) * B + SLAB;
-        slab.appendChild(svg("polygon", {
-          points: `${cx - A},${cy} ${cx},${cy - B} ${cx + A},${cy} ${cx},${cy + B}`,
-          class: "sim-slab",
-        }));
+        const { x, y } = center(cell);
+        if (!exists(cell.u, cell.v - 1)) {
+          slab.appendChild(svg("polygon", {
+            points: `${x - A},${y} ${x},${y + B} ${x},${y + B + SLAB} ${x - A},${y + SLAB}`,
+            class: "sim-slab-left",
+          }));
+        }
+        if (!exists(cell.u + 1, cell.v)) {
+          slab.appendChild(svg("polygon", {
+            points: `${x},${y + B} ${x + A},${y} ${x + A},${y + SLAB} ${x},${y + B + SLAB}`,
+            class: "sim-slab-right",
+          }));
+        }
       });
     }
     updateSlab();
@@ -153,7 +267,7 @@
       const cy = (py + 1) * B;
       const polygon = svg("polygon", {
         points: `${cx - A},${cy} ${cx},${cy - B} ${cx + A},${cy} ${cx},${cy + B}`,
-        class: `sim-cell${(px + py) % 4 === 0 ? " alt" : ""}`,
+        class: `sim-cell${px % 2 === 1 ? " alt" : ""}`,
       });
       polygon.dataset.u = cell.u;
       polygon.dataset.v = cell.v;
@@ -190,7 +304,10 @@
           image.remove();
         }
       });
-      image.addEventListener("load", () => bossFallback.remove());
+      image.addEventListener("load", () => {
+        bossFallback.remove();
+        alignSprite(image, imageUrls[attempt]);
+      });
       bossToken.appendChild(image);
     }
     bossToken.addEventListener("pointerdown", (event) => {
@@ -212,7 +329,7 @@
     container.appendChild(section);
 
     function cellFromPoint(event) {
-      const node = state.drag ? document.elementFromPoint(event.clientX, event.clientY) : event.target;
+      const node = state.drag || editor.painting ? document.elementFromPoint(event.clientX, event.clientY) : event.target;
       if (node && node.dataset && node.dataset.u !== undefined) {
         return { u: Number(node.dataset.u), v: Number(node.dataset.v) };
       }
@@ -297,7 +414,7 @@
         return;
       }
       if (!hare.player || !hare.target) {
-        info.textContent = "Clic gauche: ton perso. Clic droit: la case que tu veux toucher. La case blanche est celle à viser.";
+        info.textContent = "Place ton perso et la case que tu veux toucher: la case à viser apparaît en blanc.";
       } else {
         info.textContent = `Confusion de ${hareAngle()}°. ${hareAim() ? "Vise la case blanche." : "Case à viser impossible (mur ou hors de la carte)."}`;
       }
@@ -338,10 +455,10 @@
         } else if (showShade && !visibleSet.has(key)) {
           cls += " nolos";
         }
-        if (state.starts && state.startEnemy.has(key)) {
+        if (state.starts && !hare.on && state.startEnemy.has(key)) {
           cls += " start-enemy";
         }
-        if (state.starts && state.startAlly.has(key)) {
+        if (state.starts && !hare.on && state.startAlly.has(key)) {
           cls += " start-ally";
         }
         if (cache.range.has(key)) {
@@ -507,9 +624,9 @@
 
     function loadMap(index) {
       currentMap = index;
-      const map = index >= 0 ? maps[index] : null;
+      const map = mapAt(index);
       const toKey = ([u, v]) => `${u},${v}`;
-      state.mask = map ? new Set(map.cells.map(toKey)) : compactMask;
+      state.mask = map ? new Set(map.cells.map(toKey)) : null;
       state.walls = new Set(map ? map.blocks.map(toKey) : []);
       state.startAlly = new Set(map ? map.ally.map(toKey) : []);
       state.startEnemy = new Set(map ? map.enemy.map(toKey) : []);
@@ -525,7 +642,7 @@
       paintCells();
     }
 
-    section.querySelector(".sim-reset").addEventListener("click", () => {
+    section.querySelector(".sim-reset")?.addEventListener("click", () => {
       hare.player = null;
       hare.target = null;
       hareRefresh();
@@ -556,10 +673,15 @@
       });
     }
 
-    const mapSelect = section.querySelector(".sim-map");
-    if (mapSelect) {
-      mapSelect.addEventListener("change", () => loadMap(Number(mapSelect.value)));
-    }
+    const mapTabs = [...section.querySelectorAll(".sim-map-tab")];
+    const markMapTab = (index) => mapTabs.forEach((tab) => tab.setAttribute("aria-pressed", String(Number(tab.dataset.index) === index)));
+    mapTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const index = Number(tab.dataset.index);
+        markMapTab(index);
+        loadMap(index);
+      });
+    });
 
     const startsToggle = section.querySelector(".sim-starts");
     if (startsToggle) {
@@ -583,6 +705,105 @@
       setTimeout(() => { event.target.textContent = "Copier la carte"; }, 1500);
     });
 
+    // ---- Édition de la grille vide (options.editable): sol et blocs ----
+    const editPanel = section.querySelector(".sim-editor");
+    const editToggle = section.querySelector(".sim-edit-toggle");
+    const toolSet = () => (editor.tool === "block" ? state.walls : state.mask);
+
+    function saveEdit() {
+      const toList = (set) => [...set].map((k) => k.split(",").map(Number)).sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+      emptyMap = { name: EMPTY_NAME, cells: toList(state.mask), blocks: toList(state.walls), ally: [], enemy: [] };
+      const saved = readSaved();
+      saved[EMPTY_NAME] = emptyMap;
+      writeSaved(saved);
+    }
+
+    // add = true pose l'élément, false le retire. Retirer du sol retire aussi le bloc qui était dessus.
+    function applyTool(cell, add) {
+      if (!cell) {
+        return;
+      }
+      const key = keyOf(cell);
+      if (editor.tool === "block" && !state.mask.has(key)) {
+        return; // sur une case vide, seul l'outil Sol agit
+      }
+      const target = toolSet();
+      if (target.has(key) === add) {
+        return;
+      }
+      if (add) {
+        target.add(key);
+        if (editor.tool === "block") {
+          state.allies = state.allies.filter((a) => !sameCell(a, cell));
+          drawAllies();
+        }
+      } else {
+        target.delete(key);
+        if (editor.tool === "floor") {
+          state.walls.delete(key);
+          state.allies = state.allies.filter((a) => !sameCell(a, cell));
+          drawAllies();
+        }
+      }
+      updateSlab();
+      drawWalls();
+      refreshRange();
+      refreshVisibility();
+      paintCells();
+      saveEdit();
+    }
+
+    function setEditing(on) {
+      editor.on = on;
+      editPanel.hidden = !on;
+      board.classList.toggle("editing", on);
+      section.querySelector(".sim-hint").hidden = on;
+      updateSlab();
+      paintCells();
+    }
+
+    if (editToggle) {
+      editToggle.addEventListener("change", () => setEditing(editToggle.checked));
+      section.querySelectorAll(".sim-tool").forEach((button) => {
+        button.addEventListener("click", () => {
+          editor.tool = button.dataset.tool;
+          section.querySelectorAll(".sim-tool").forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+        });
+      });
+      section.querySelector(".sim-edit-export").addEventListener("click", async (event) => {
+        const label = "Copier la grille";
+        const text = JSON.stringify(emptyMap);
+        try {
+          await navigator.clipboard.writeText(text);
+          event.target.textContent = "Copié !";
+        } catch (error) {
+          window.prompt("Copie ce texte:", text);
+        }
+        setTimeout(() => { event.target.textContent = label; }, 1500);
+      });
+      section.querySelector(".sim-edit-restore").addEventListener("click", () => {
+        emptyMap = JSON.parse(JSON.stringify(emptyOriginal));
+        const saved = readSaved();
+        delete saved[EMPTY_NAME];
+        writeSaved(saved);
+        loadMap(-1);
+      });
+      board.addEventListener("pointerdown", (event) => {
+        if (!editor.on || event.button !== 0) {
+          return;
+        }
+        const cell = cellFromPoint(event);
+        if (!cell) {
+          return;
+        }
+        editor.mode = !toolSet().has(keyOf(cell)); // le 1er clic décide: ajouter ou retirer, pour tout le glissé
+        editor.painting = true;
+        board.setPointerCapture(event.pointerId);
+        applyTool(cell, editor.mode);
+        event.preventDefault();
+      });
+    }
+
     let dragMoved = false;
     let frame = null;
     function schedulePaint() {
@@ -596,6 +817,9 @@
 
     board.addEventListener("pointermove", (event) => {
       const cell = cellFromPoint(event);
+      if (editor.painting) {
+        applyTool(cell, editor.mode);
+      }
       if (state.drag && cell && !sameCell(cell, state.boss) && !state.walls.has(keyOf(cell)) && allowed(cell)) {
         state.boss = cell;
         dragMoved = true;
@@ -615,10 +839,14 @@
       if (event.button !== 0) {
         return;
       }
+      if (editor.on) {
+        editor.painting = false;
+        return;
+      }
       const cell = cellFromPoint(event) || state.hover;
       if (hare.on) {
         if (cell && allowed(cell) && !state.walls.has(keyOf(cell))) {
-          hare.player = cell;
+          hare.player = sameCell(hare.player, cell) ? null : cell; // un second clic sur la même case la retire
           hareRefresh();
           paintCells();
         }
@@ -641,10 +869,13 @@
     // Clic droit: poser ou retirer un obstacle
     board.addEventListener("contextmenu", (event) => {
       event.preventDefault();
+      if (editor.on) {
+        return;
+      }
       const cell = cellFromPoint(event);
       if (hare.on) {
         if (cell && allowed(cell)) {
-          hare.target = cell;
+          hare.target = sameCell(hare.target, cell) ? null : cell; // un second clic droit sur la même case la retire
           hareRefresh();
           paintCells();
         }
@@ -670,13 +901,12 @@
     board.addEventListener("pointerleave", () => {
       state.hover = null;
       state.drag = false;
+      editor.painting = false;
       dragMoved = false;
       schedulePaint();
     });
 
-    if (mapSelect) {
-      mapSelect.value = String(initialMap);
-    }
+    markMapTab(initialMap);
     if (options.showStarts) {
       if (startsToggle) {
         startsToggle.checked = true;

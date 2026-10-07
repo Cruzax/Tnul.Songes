@@ -40,3 +40,6 @@ body {
   text-transform: uppercase;
   color: rgb(var(--c-accent));
 }
+
+/* Icônes SVG en ligne (PV, PA, PM...): alignées sur le texte */
+.ico { display: inline-block; vertical-align: -0.14em; flex: none; }

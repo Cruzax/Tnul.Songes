@@ -10,12 +10,11 @@
 }
 .sim-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; font-size: 0.8rem; }
 
-.sim-reset, .sim-copy, .sim-map, .sim-hare-hp-btn, .sim-hare-melee-input {
+.sim-reset, .sim-copy, .sim-map-tab, .sim-hare-hp-btn, .sim-hare-melee-input {
   padding: 0.25rem 0.65rem; border: 1px solid rgb(var(--c-line)); border-radius: 999px;
   background: rgb(255 255 255 / 0.05); color: inherit; font: inherit; cursor: pointer;
 }
-.sim-reset:hover, .sim-copy:hover, .sim-hare-hp-btn:hover { border-color: rgb(var(--c-accent) / 0.7); }
-.sim-map { background: rgb(var(--c-panel2)); }
+.sim-reset:hover, .sim-copy:hover, .sim-map-tab:hover, .sim-hare-hp-btn:hover { border-color: rgb(var(--c-accent) / 0.7); }
 .sim-starts-label, .sim-hare-label { display: flex; align-items: center; gap: 0.3rem; cursor: pointer; }
 .sim-hint { margin: 0.6rem 0 0; font-size: 0.78rem; color: rgb(var(--c-muted)); }
 
@@ -52,27 +51,31 @@
 .sim-effect-note { font-size: 0.75rem; color: rgb(var(--c-muted)); }
 .sim-detail-note { margin: 0.8rem 0 0; font-size: 0.75rem; color: rgb(var(--c-muted)); }
 
+/* Couleurs du mode Harebourg (cases de la grille et pastilles de la légende) */
+.sim-section { --hare-player: #5468ff; --hare-target: #e04848; --hare-aim: #ffffff; }
+
 /* Grille: pierre bleutée, zones translucides. Les couleurs de cases ne dépendent pas du thème du site. */
 .sim-board {
   display: block; width: 100%; max-width: 1000px; margin: 0 auto; height: auto;
   touch-action: none; user-select: none;
   filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.45));
 }
-.sim-slab { fill: #1d2438; stroke: rgba(0, 0, 0, 0.35); stroke-width: 0.6; stroke-linejoin: round; }
-.sim-cell { fill: #6b7794; stroke: rgba(255, 255, 255, 0.08); stroke-width: 0.6; transition: fill 0.12s; }
-.sim-cell.alt { fill: #636f8c; }
+.sim-slab-left { fill: #3c4666; stroke: rgba(0, 0, 0, 0.35); stroke-width: 0.5; stroke-linejoin: round; }
+.sim-slab-right { fill: #2a3350; stroke: rgba(0, 0, 0, 0.35); stroke-width: 0.5; stroke-linejoin: round; }
+.sim-cell { fill: #76829f; stroke: rgba(255, 255, 255, 0.08); stroke-width: 0.6; transition: fill 0.12s; }
+.sim-cell.alt { fill: #5a6683; }
 .sim-cell.nolos { fill: #3a4360; }
-.sim-cell.range { fill: #57b8ec; }
-.sim-cell.zone { fill: #f0806c; }
-.sim-cell.range.zone { fill: #f7b25e; }
+.sim-cell.range { fill: #2447e0; stroke: rgba(255, 255, 255, 0.45); }
+.sim-cell.zone { fill: #e0262e; stroke: rgba(255, 255, 255, 0.45); }
+.sim-cell.range.zone { fill: #d4263f; }
 .sim-cell.ally { fill: #5468ff; }
 .sim-cell.hover { stroke: #fff; stroke-width: 1.5; }
 .sim-cell.void { display: none; }
-.sim-cell.start-enemy { fill: #c4596e; }
-.sim-cell.start-ally { fill: #4f9bd1; }
-.sim-cell.hare-player { fill: #5468ff; }
-.sim-cell.hare-target { fill: #e04848; }
-.sim-cell.hare-aim { fill: #ffffff; }
+.sim-cell.start-enemy { fill: #e0334f; }
+.sim-cell.start-ally { fill: #1f86f5; }
+.sim-cell.hare-player { fill: var(--hare-player); }
+.sim-cell.hare-target { fill: var(--hare-target); }
+.sim-cell.hare-aim { fill: var(--hare-aim); }
 .sim-wall, .sim-ally-sprite { pointer-events: none; }
 .sim-wall-top { fill: #9aa6c2; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; }
 .sim-wall-left { fill: #6d7899; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; }
@@ -87,3 +90,30 @@
 .sim-hare-melee { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.6rem; font-size: 0.85rem; }
 .sim-hare-melee-input { width: 4rem; border-radius: 6px; }
 .sim-hare-info { margin: 0.5rem 0 0; font-size: 0.82rem; opacity: 0.85; }
+
+.sim-legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.1rem; margin: 0.7rem 0 0; padding: 0; list-style: none; font-size: 0.82rem; }
+.sim-legend li { display: flex; align-items: center; gap: 0.4rem; }
+.sim-swatch { width: 0.9rem; height: 0.9rem; flex: none; border-radius: 3px; border: 1px solid rgb(255 255 255 / 0.35); }
+.sim-swatch.hare-player { background: var(--hare-player); }
+.sim-swatch.hare-target { background: var(--hare-target); }
+.sim-swatch.hare-aim { background: var(--hare-aim); }
+
+/* Édition de la grille (simulation des mobs) */
+.sim-edit-label { display: flex; align-items: center; gap: 0.3rem; cursor: pointer; }
+.sim-editor { margin: 0.6rem 0; padding: 0.7rem 0.8rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.75rem; background: rgb(var(--c-panel2) / 0.8); }
+.sim-editor-tools, .sim-editor-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.sim-editor-actions { margin-top: 0.6rem; }
+.sim-editor-hint { margin: 0.6rem 0 0; font-size: 0.8rem; color: rgb(var(--c-muted)); }
+.sim-tool, .sim-edit-export, .sim-edit-restore {
+  padding: 0.3rem 0.7rem; border: 1px solid rgb(var(--c-line)); border-radius: 999px;
+  background: rgb(255 255 255 / 0.05); color: inherit; font: inherit; font-size: 0.82rem; cursor: pointer;
+}
+.sim-tool:hover, .sim-edit-export:hover, .sim-edit-restore:hover { border-color: rgb(var(--c-accent) / 0.7); }
+.sim-tool[aria-pressed="true"] { background: rgb(var(--c-accent) / 0.18); border-color: rgb(var(--c-accent) / 0.9); }
+.sim-board.editing { cursor: crosshair; }
+.sim-board.editing .sim-boss-token { pointer-events: none; }
+.sim-board.editing .sim-cell.void { display: block; fill: rgb(255 255 255 / 0.03); stroke: rgb(255 255 255 / 0.22); stroke-dasharray: 3 3; }
+
+/* Choix de la carte: boutons à cliquer */
+.sim-map-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.sim-map-tab[aria-pressed="true"] { background: rgb(var(--c-accent) / 0.18); border-color: rgb(var(--c-accent) / 0.9); }

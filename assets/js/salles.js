@@ -12,6 +12,7 @@
       hideStartsToggle: true,
       harebourg: true,
       viewOnly: true,
+      hideReset: true,
     });
   } catch (error) {
     container.textContent = "Impossible de charger les cartes.";

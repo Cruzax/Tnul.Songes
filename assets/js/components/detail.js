@@ -185,6 +185,7 @@ function mountSimulation(monster, parentNode) {
     imageUrls: monster.Image ? [monsterImageUrl(monster.Image)] : [],
     data,
     compactGrid: true,
+    editable: true,
   });
 }
 
@@ -235,6 +236,24 @@ function formatNumber(value) {
   return Number(value).toLocaleString("fr-FR");
 }
 
+// Icône SVG (voir lib/icons.js) avec une étiquette accessible
+function iconNode(name, className) {
+  const wrapper = document.createElement("span");
+  wrapper.className = className || "";
+  wrapper.title = window.TnulIcons?.label(name) || name;
+  wrapper.setAttribute("role", "img");
+  wrapper.setAttribute("aria-label", wrapper.title);
+  wrapper.innerHTML = window.TnulIcons?.html(name) || "";
+  return wrapper;
+}
+
+function createIconChip(iconName, value) {
+  const chip = document.createElement("span");
+  chip.className = "inline-flex items-center gap-1.5 rounded-full border border-line bg-white/5 px-2.5 py-1 text-[0.78rem] text-ink";
+  chip.append(iconNode(iconName, "text-[1.05rem]"), String(value));
+  return chip;
+}
+
 function createChip(label, value) {
   const chip = document.createElement("span");
   chip.className = "inline-flex items-center gap-1.5 rounded-full border border-line bg-white/5 px-2.5 py-1 text-[0.78rem] text-ink";
@@ -268,9 +287,9 @@ function createHero(monster, baseStats) {
   chips.className = "mt-3 flex flex-wrap gap-2 max-[900px]:justify-center";
   if (baseStats) {
     if (hasLife(baseStats)) {
-      chips.append(createChip("PV", formatNumber(baseStats.stats.life) + lifeSuffix(monster)));
+      chips.append(createIconChip("hp", formatNumber(baseStats.stats.life) + lifeSuffix(monster)));
     }
-    chips.append(createChip("Niv.", baseStats.stats?.level ?? "?"), createChip("PA", baseStats.pa), createChip("PM", baseStats.pm));
+    chips.append(createChip("Niv.", baseStats.stats?.level ?? "?"), createIconChip("pa", baseStats.pa), createIconChip("pm", baseStats.pm));
   }
 
   text.append(eyebrow, title, chips);
@@ -319,16 +338,23 @@ function createStatsCard(monster, baseStats) {
   const tiles = document.createElement("div");
   tiles.className = "grid grid-cols-2 gap-2";
   [
-    ...(hasLife(baseStats) ? [[monster.IsBounty ? "PV (estimés, seul)" : "PV (estimés)", formatNumber(baseStats.stats.life)]] : []),
-    ["Niveau", baseStats.stats?.level],
-    ["PA", baseStats.pa],
-    ["PM", baseStats.pm],
-  ].forEach(([label, value]) => {
+    ...(hasLife(baseStats) ? [{ icon: "hp", value: formatNumber(baseStats.stats.life), caption: monster.IsBounty ? "seul" : "estimés" }] : []),
+    { label: "Niveau", value: baseStats.stats?.level },
+    { icon: "pa", value: baseStats.pa },
+    { icon: "pm", value: baseStats.pm },
+  ].forEach(({ icon, label, value, caption }) => {
     const tile = document.createElement("div");
     tile.className = "rounded-xl border border-line bg-white/5 px-2 py-2 text-center";
     const name = document.createElement("div");
-    name.className = "text-[0.7rem] uppercase tracking-wider text-muted";
-    name.textContent = label;
+    name.className = "flex items-center justify-center gap-1.5 text-[0.7rem] uppercase tracking-wider text-muted";
+    if (icon) {
+      name.append(iconNode(icon, "text-[1.3rem] leading-none"));
+      if (caption) {
+        name.append(caption);
+      }
+    } else {
+      name.textContent = label;
+    }
     const number = document.createElement("div");
     number.className = "text-xl font-bold text-ink";
     number.textContent = String(value ?? "-");
@@ -346,8 +372,8 @@ function createStatsCard(monster, baseStats) {
     const row = document.createElement("div");
     row.className = "flex items-center justify-between rounded-lg bg-white/5 px-3 py-1.5 text-[0.85rem]";
     const term = document.createElement("dt");
-    term.className = "text-muted";
-    term.textContent = label;
+    term.className = "flex items-center gap-2 text-muted";
+    term.append(iconNode(key, "text-[1.05rem] leading-none"), label);
     const detail = document.createElement("dd");
     detail.className = "m-0 font-semibold text-ink";
     detail.textContent = String(value);
