@@ -136,17 +136,19 @@ function buildItem(monster, isDuplicate, onSelect) {
   return item;
 }
 
-function bindPauseOnHover(menuNode) {
+// Le carrousel ne s'arrête plus au survol de la souris (il faut l'attraper au vol).
+// Il se met seulement en pause quand un élément reçoit le focus au clavier, sinon il est impossible à utiliser.
+function bindPauseOnKeyboardFocus(menuNode) {
   if (!menuNode || menuNode.dataset.scrollBound) {
     return;
   }
   menuNode.dataset.scrollBound = "1";
-  const pause = () => track._scrollAnimation?.pause();
-  const play = () => track._scrollAnimation?.play();
-  menuNode.addEventListener("mouseenter", pause);
-  menuNode.addEventListener("mouseleave", play);
-  menuNode.addEventListener("focusin", pause);
-  menuNode.addEventListener("focusout", play);
+  menuNode.addEventListener("focusin", (event) => {
+    if (event.target.matches(":focus-visible")) {
+      track._scrollAnimation?.pause();
+    }
+  });
+  menuNode.addEventListener("focusout", () => track._scrollAnimation?.play());
 }
 
 export function renderCarousel(monsters, onSelect) {
@@ -174,5 +176,5 @@ export function renderCarousel(monsters, onSelect) {
     { duration: 190000, iterations: Infinity, easing: "linear" }
   );
   updateScrollSpeed();
-  bindPauseOnHover(track.parentElement);
+  bindPauseOnKeyboardFocus(track.parentElement);
 }

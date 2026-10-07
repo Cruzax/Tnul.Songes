@@ -278,10 +278,14 @@ function iconNode(name, className) {
 
 const CHIP_CLASS = "inline-flex items-center gap-1.5 rounded border border-line bg-panel px-2 py-1 text-xs text-ink";
 
-function createIconChip(iconName, value) {
+// Pastille « icône + valeur + libellé » (♥ 10 000 PV), comme sur la maquette
+function createIconChip(iconName, value, label) {
   const chip = document.createElement("span");
   chip.className = CHIP_CLASS;
-  chip.append(iconNode(iconName, "text-[0.8rem] leading-none"), String(value));
+  const name = document.createElement("span");
+  name.className = "text-muted";
+  name.textContent = label;
+  chip.append(iconNode(iconName, "text-[0.8rem] leading-none"), String(value), name);
   return chip;
 }
 
@@ -322,9 +326,9 @@ function createHero(monster, baseStats) {
   chips.className = "mt-3 flex flex-wrap items-center gap-2";
   if (baseStats) {
     if (hasLife(baseStats)) {
-      chips.append(createIconChip("hp", formatNumber(baseStats.stats.life) + lifeSuffix(monster)));
+      chips.append(createIconChip("hp", formatNumber(baseStats.stats.life) + lifeSuffix(monster), "PV"));
     }
-    chips.append(createChip("Niv.", baseStats.stats?.level ?? "?"), createIconChip("pa", baseStats.pa), createIconChip("pm", baseStats.pm));
+    chips.append(createChip("Niv.", baseStats.stats?.level ?? "?"), createIconChip("pa", baseStats.pa, "PA"), createIconChip("pm", baseStats.pm, "PM"));
   }
 
   text.append(eyebrow, title, chips);

@@ -107,7 +107,7 @@
     const po = `${range} ${icon("po", "PO")}`;
     const extras = [spell.line ? "ligne" : null, spell.diagonal ? "diagonale" : null, spell.los ? null : "sans LDV"]
       .filter(Boolean);
-    return { title: spell.name, detail: [`${spell.pa} ${icon("pa", "PA")}`, po, ...extras].join(" · ") };
+    return { title: spell.name, detail: [`${icon("pa", "")} ${spell.pa} PA`, po, ...extras].join(" · ") };
   }
 
   function mount(container, options) {
