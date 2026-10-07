@@ -1,15 +1,42 @@
-/* Thème du site: tout ce qui change avec la direction artistique est ici. */
+/*
+  Thème du site: tout ce qui change avec la direction artistique est ici.
+  Les couleurs sont des canaux "R G B" pour pouvoir écrire rgb(var(--c-accent) / 0.3),
+  et Tailwind les reprend (voir assets/js/tailwind-config.js).
+*/
 :root {
+  --c-bg: 7 11 22;
+  --c-panel: 2 6 23;
+  --c-panel2: 15 23 42;
+  --c-line: 84 96 122;
+  --c-ink: 241 245 249;
+  --c-muted: 203 213 225;
+  --c-accent: 125 211 252;
+  --c-danger: 232 116 94;
+  --c-warm: 242 174 85;
+
   --bg-image: url("../images/ui/songes.webp");
   --bg-overlay: linear-gradient(165deg, rgba(7, 11, 22, 0.78) 0%, rgba(12, 19, 36, 0.72) 100%);
-  --bg-glow-left: radial-gradient(circle at 12% 18%, rgba(89, 145, 255, 0.24), transparent 38%);
-  --bg-glow-right: radial-gradient(circle at 88% 10%, rgba(105, 229, 216, 0.14), transparent 36%);
+  --bg-glow: radial-gradient(circle at 12% 18%, rgba(89, 145, 255, 0.24), transparent 38%), radial-gradient(circle at 88% 10%, rgba(105, 229, 216, 0.14), transparent 36%);
+
+  --font-sans: "Barlow", "Segoe UI", system-ui, sans-serif;
 }
 
 body {
-  background:
-    var(--bg-overlay),
-    var(--bg-glow-left),
-    var(--bg-glow-right),
-    var(--bg-image) center / cover no-repeat fixed;
+  font-family: var(--font-sans);
+  background-color: rgb(var(--c-bg));
+  background-image: var(--bg-glow), var(--bg-overlay), var(--bg-image);
+  background-position: center, center, center;
+  background-size: auto, auto, cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Petit titre de carte en capitales, façon fiche encyclopédie */
+.card-label {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(var(--c-accent));
 }

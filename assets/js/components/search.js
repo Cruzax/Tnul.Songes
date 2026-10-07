@@ -5,7 +5,7 @@ const input = document.getElementById("monster-search");
 const resultsNode = document.getElementById("search-results");
 
 const FALLBACK_CLASS =
-  "grid h-full w-full place-items-center bg-[linear-gradient(145deg,rgba(139,197,255,0.35),rgba(112,138,188,0.35))] text-[0.85rem] text-slate-100";
+  "grid h-full w-full place-items-center bg-[linear-gradient(145deg,rgba(139,197,255,0.35),rgba(112,138,188,0.35))] text-[0.85rem] text-ink";
 
 let allMonsters = [];
 let lastResults = [];
@@ -30,7 +30,7 @@ function buildResultItem(monster, onSelect) {
   const button = document.createElement("button");
   button.type = "button";
   button.className =
-    "flex w-full items-center gap-3 rounded-[10px] border-0 bg-transparent px-2.5 py-1.5 text-left text-slate-100 transition-colors hover:bg-sky-300/25";
+    "flex w-full items-center gap-3 rounded-[10px] border-0 bg-transparent px-2.5 py-1.5 text-left text-ink transition-colors hover:bg-accent/25";
 
   const media = document.createElement("span");
   media.className = "grid h-10 w-10 flex-none place-items-center overflow-hidden rounded-lg";
@@ -71,7 +71,7 @@ function openResults(monsters, onSelect) {
 
   if (!monsters.length) {
     const empty = document.createElement("p");
-    empty.className = "m-0 px-2.5 py-2 text-[0.92rem] text-slate-300";
+    empty.className = "m-0 px-2.5 py-2 text-[0.92rem] text-muted";
     empty.textContent = "Aucun monstre trouve.";
     resultsNode.appendChild(empty);
     return;

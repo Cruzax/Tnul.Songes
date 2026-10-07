@@ -9,14 +9,14 @@ const siteFooter = document.getElementById("site-footer");
 let isCompact = false;
 
 const FULL_ITEM_CLASS =
-  "grid w-[156px] min-h-[148px] flex-none grid-rows-[100px_auto] items-center gap-1.5 overflow-hidden rounded-[14px] border border-transparent bg-transparent px-1.5 pb-1.5 pt-1.5 transition-colors hover:border-sky-300/70 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-300";
+  "grid w-[156px] min-h-[148px] flex-none grid-rows-[100px_auto] items-center gap-1.5 overflow-hidden rounded-[14px] border border-transparent bg-transparent px-1.5 pb-1.5 pt-1.5 transition-colors hover:border-accent/70 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent";
 const COMPACT_ITEM_CLASS =
-  "block h-11 w-11 flex-none overflow-hidden rounded-xl border border-transparent bg-transparent p-0 transition-colors hover:border-sky-300/70 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-300";
+  "block h-11 w-11 flex-none overflow-hidden rounded-xl border border-transparent bg-transparent p-0 transition-colors hover:border-accent/70 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent";
 const FULL_LABEL_CLASS =
-  "menu-monster-name-label block w-full text-center text-[0.75rem] leading-[1.2] text-slate-100";
+  "menu-monster-name-label block w-full text-center text-[0.75rem] leading-[1.2] text-ink";
 const COMPACT_LABEL_CLASS = "menu-monster-name-label hidden";
 const FALLBACK_CLASS =
-  "grid h-full w-full place-items-center bg-[linear-gradient(145deg,rgba(139,197,255,0.35),rgba(112,138,188,0.35))] text-[0.95rem] text-slate-100";
+  "grid h-full w-full place-items-center bg-[linear-gradient(145deg,rgba(139,197,255,0.35),rgba(112,138,188,0.35))] text-[0.95rem] text-ink";
 
 function updateAppearance() {
   if (!track) {

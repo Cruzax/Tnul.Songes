@@ -74,8 +74,11 @@ function songeStats(monster) {
   const ratios = Object.fromEntries((monster.characRatios || []).map(([id, value]) => [id, value]));
   const level = Math.max(SONGE_LEVEL, ...monster.grades.map((g) => g.level || 0));
   const stat = (id) => Math.floor((ratios[id] || 0) * Math.pow(level, 1.26) + 7);
+  // PV: ratio × niveau^1,625, arrondi à 2 chiffres significatifs (même formule que Dofensive)
+  const life = Math.max(1, Number(Math.floor((ratios[RATIO_IDS.life] || 0) * Math.pow(level, 1.625)).toPrecision(2)));
   return {
     level,
+    life,
     strength: stat(RATIO_IDS.strength),
     intelligence: stat(RATIO_IDS.intelligence),
     chance: stat(RATIO_IDS.chance),
@@ -296,7 +299,32 @@ async function downloadIcons(iconIds) {
   console.log(`${done} nouvelles icônes téléchargées dans assets/images/spells`);
 }
 
+// node tools/build-spells.js --life-only: ajoute seulement les PV à data/spells.json existant
+async function patchLife() {
+  const file = path.join(ROOT, "data", "spells.json");
+  const data = JSON.parse(fs.readFileSync(file, "utf8"));
+  const queue = Object.keys(data);
+  await Promise.all(Array.from({ length: 6 }, async () => {
+    while (queue.length) {
+      const id = queue.shift();
+      const monster = (await getJson(`https://api.dofusdb.fr/monsters/${id}`))
+        || (ALT_IDS[id] ? await getJson(`https://api.dofusdb.fr/monsters/${ALT_IDS[id]}`) : null);
+      if (monster && monster.grades && monster.grades.length) {
+        const { level, ...rest } = data[id].stats;
+        data[id].stats = { level, life: songeStats(monster).life, ...rest };
+      } else {
+        console.warn(`Pas de PV pour l'Id ${id}`);
+      }
+    }
+  }));
+  fs.writeFileSync(file, JSON.stringify(data));
+  console.log(`PV ajoutés à ${Object.keys(data).length} monstres`);
+}
+
 async function main() {
+  if (process.argv.includes("--life-only")) {
+    return patchLife();
+  }
   const out = {};
   const queue = monsterIds();
   await Promise.all(Array.from({ length: 6 }, async () => {

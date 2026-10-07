@@ -52,6 +52,14 @@
     const { imageUrls, data } = options;
     const maps = options.maps || [];
     const DEFAULT_BOSS = { u: 17, v: -3 };
+    // Grille vide réduite autour du boss (options.compactGrid): moins de cases quand aucune carte n'est choisie
+    const compactMask = options.compactGrid
+      ? new Set(G.allCells().filter((cell) => {
+        const { px, py } = G.toScreen(cell.u, cell.v);
+        const boss = G.toScreen(DEFAULT_BOSS.u, DEFAULT_BOSS.v);
+        return Math.abs(px - boss.px) <= 7 && Math.abs(py - boss.py) <= 9;
+      }).map(keyOf))
+      : null;
     const initialMap = options.noEmptyOption && maps.length ? 0 : -1;
     const viewOnly = Boolean(options.viewOnly);
     const allyImage = options.allyImage || "assets/images/allies/ouginak.png";
@@ -59,7 +67,7 @@
       boss: { u: 17, v: -3 },
       allies: [],
       walls: new Set(),
-      mask: null, // Set des cases existantes (null = grille complète)
+      mask: compactMask, // Set des cases existantes (null = grille complète)
       starts: false,
       startAlly: new Set(),
       startEnemy: new Set(),
@@ -106,7 +114,23 @@
     const slab = svg("g", { class: "sim-slab-layer" });
     board.appendChild(slab);
 
+    // Recadre la vue sur les cases qui existent (carte réelle) plutôt que sur la grille complète
+    function fitBoard() {
+      const cells = G.allCells().filter((cell) => !state.mask || state.mask.has(keyOf(cell)));
+      if (!cells.length) {
+        return;
+      }
+      const xs = cells.map((cell) => center(cell).x);
+      const ys = cells.map((cell) => center(cell).y);
+      const left = Math.min(...xs) - A - 8;
+      const top = Math.min(...ys) - B - 44; // place pour les murs et le jeton du boss
+      const width = Math.max(...xs) + A + 8 - left;
+      const height = Math.max(...ys) + B + SLAB + 8 - top;
+      board.setAttribute("viewBox", `${left} ${top} ${width} ${height}`);
+    }
+
     function updateSlab() {
+      fitBoard();
       slab.innerHTML = "";
       G.allCells().forEach((cell) => {
         if (state.mask && !state.mask.has(keyOf(cell))) {
@@ -139,11 +163,16 @@
       cellNodes.set(keyOf(cell), polygon);
     });
 
-    const wallsLayer = svg("g", { class: "sim-walls" });
-    board.appendChild(wallsLayer);
+    // Murs, alliés et boss partagent une couche triée par profondeur (u - v croissant = du fond vers l'avant),
+    // pour qu'un personnage placé derrière un mur soit bien masqué par lui.
+    const objectsLayer = svg("g", { class: "sim-objects" });
+    board.appendChild(objectsLayer);
 
-    const alliesLayer = svg("g", { class: "sim-allies" });
-    board.appendChild(alliesLayer);
+    function sortObjects() {
+      [...objectsLayer.children]
+        .sort((a, b) => Number(a.dataset.depth) - Number(b.dataset.depth))
+        .forEach((node) => objectsLayer.appendChild(node));
+    }
 
     // Le jeton du boss est créé une seule fois: on le déplace, on ne le recrée pas (pas de clignotement).
     const bossToken = svg("g", { class: "sim-boss-token" });
@@ -170,15 +199,15 @@
       event.preventDefault();
     });
     bossToken.style.display = viewOnly ? "none" : "";
-    board.appendChild(bossToken);
+    objectsLayer.appendChild(bossToken);
 
     if (viewOnly) {
       spellList.hidden = true;
     }
-    section.appendChild(board);
     const detail = document.createElement("div");
     detail.className = "sim-detail";
     detail.hidden = viewOnly;
+    section.appendChild(board);
     section.appendChild(detail);
     container.appendChild(section);
 
@@ -192,43 +221,55 @@
 
     const sameCell = (a, b) => Boolean(a && b && a.u === b.u && a.v === b.v);
 
+    const depthOf = (cell) => cell.u - cell.v;
+
+    function clearObjects(className) {
+      objectsLayer.querySelectorAll(`.${className}`).forEach((node) => node.remove());
+    }
+
     function drawWalls() {
-      wallsLayer.innerHTML = "";
-      const cells = [...state.walls].map((k) => {
-        const [u, v] = k.split(",").map(Number);
-        return { u, v };
-      }).sort((a, b) => (a.u - a.v) - (b.u - b.v));
-      cells.forEach((cell) => {
-        const { x, y } = center(cell);
+      clearObjects("sim-wall");
+      [...state.walls].forEach((key) => {
+        const [u, v] = key.split(",").map(Number);
+        const { x, y } = center({ u, v });
         const lift = (dy) => y - dy;
-        wallsLayer.appendChild(svg("polygon", {
+        const wall = svg("g", { class: "sim-wall" });
+        wall.dataset.depth = depthOf({ u, v });
+        wall.appendChild(svg("polygon", {
           points: `${x - A},${lift(WALL_HEIGHT)} ${x},${lift(WALL_HEIGHT) + B} ${x},${y + B} ${x - A},${y}`,
           class: "sim-wall-left",
         }));
-        wallsLayer.appendChild(svg("polygon", {
+        wall.appendChild(svg("polygon", {
           points: `${x + A},${lift(WALL_HEIGHT)} ${x},${lift(WALL_HEIGHT) + B} ${x},${y + B} ${x + A},${y}`,
           class: "sim-wall-right",
         }));
-        wallsLayer.appendChild(svg("polygon", {
+        wall.appendChild(svg("polygon", {
           points: `${x - A},${lift(WALL_HEIGHT)} ${x},${lift(WALL_HEIGHT) - B} ${x + A},${lift(WALL_HEIGHT)} ${x},${lift(WALL_HEIGHT) + B}`,
           class: "sim-wall-top",
         }));
+        objectsLayer.appendChild(wall);
       });
+      sortObjects();
     }
 
     function drawAllies() {
-      alliesLayer.innerHTML = "";
-      [...state.allies].sort((a, b) => (a.u - a.v) - (b.u - b.v)).forEach((ally) => {
+      clearObjects("sim-ally-sprite");
+      state.allies.forEach((ally) => {
         const c = center(ally);
-        alliesLayer.appendChild(svg("image", {
+        const sprite = svg("image", {
           href: allyImage, x: c.x - 22, y: c.y - 40, width: 44, height: 44, class: "sim-ally-sprite",
-        }));
+        });
+        sprite.dataset.depth = depthOf(ally);
+        objectsLayer.appendChild(sprite);
       });
+      sortObjects();
     }
 
     function placeBoss() {
       const c = center(state.boss);
       bossToken.setAttribute("transform", `translate(${c.x} ${c.y})`);
+      bossToken.dataset.depth = depthOf(state.boss);
+      sortObjects();
     }
 
     const allowed = (cell) => !state.mask || state.mask.has(keyOf(cell));
@@ -468,7 +509,7 @@
       currentMap = index;
       const map = index >= 0 ? maps[index] : null;
       const toKey = ([u, v]) => `${u},${v}`;
-      state.mask = map ? new Set(map.cells.map(toKey)) : null;
+      state.mask = map ? new Set(map.cells.map(toKey)) : compactMask;
       state.walls = new Set(map ? map.blocks.map(toKey) : []);
       state.startAlly = new Set(map ? map.ally.map(toKey) : []);
       state.startEnemy = new Set(map ? map.enemy.map(toKey) : []);

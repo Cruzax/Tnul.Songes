@@ -5,68 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tnul.Songes</title>
   <link rel="icon" type="image/png" href="assets/images/ui/avoir.png" />
-  <script>
-    window.tailwind = {
-      config: {
-        theme: {
-          extend: {
-            keyframes: {
-              "detail-grid-in": {
-                from: { opacity: "0.35" },
-                to: { opacity: "1" }
-              }
-            },
-            animation: {
-              "detail-grid-in": "detail-grid-in 320ms cubic-bezier(0.22, 1, 0.36, 1)"
-            }
-          }
-        }
-      }
-    };
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
   <link rel="stylesheet" href="assets/css/theme.css" />
 </head>
 <body
-  class="min-h-screen flex flex-col text-slate-100"
+  class="min-h-screen flex flex-col text-ink"
 >
   <header class="px-4 pb-2 pt-4 text-center">
     <h1 class="m-0 text-[1.2rem] font-bold tracking-[0.04em] text-white [text-shadow:0_3px_22px_rgba(0,0,0,0.55)]">
-      <a href="./" class="rounded-md text-inherit no-underline outline-none transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-300">Tnul.Songes</a>
+      <a href="./" class="rounded-md text-inherit no-underline outline-none transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">Tnul.Songes</a>
     </h1>
-    <a href="salles.html" class="mt-1 inline-block rounded-full border border-slate-200/35 bg-slate-950/60 px-3 py-1 text-[0.78rem] text-slate-200 no-underline transition-colors hover:border-sky-300/70 hover:bg-slate-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-300">Positions de départ des salles de boss</a>
+    <a href="salles.html" class="mt-1 inline-block rounded-full border border-line bg-panel/60 px-3 py-1 text-[0.78rem] text-ink no-underline transition-colors hover:border-accent/70 hover:bg-panel2/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">Positions de départ des salles de boss</a>
   </header>
 
-  <main id="page-container" class="mx-auto w-full max-w-[980px] flex-1 px-4 pb-8 pt-4 transition-[padding] duration-300">
-    <section class="rounded-[20px] border border-slate-200/35 bg-slate-950/55 p-4 shadow-[0_20px_60px_-25px_rgba(1,6,22,0.6)] backdrop-blur-[16px] backdrop-saturate-[120%]">
+  <main id="page-container" class="mx-auto w-full max-w-[1120px] flex-1 px-4 pb-8 pt-4 transition-[padding] duration-300">
+    <section class="rounded-[20px] border border-line bg-panel/55 p-4 shadow-[0_20px_60px_-25px_rgba(1,6,22,0.6)] backdrop-blur-[16px] backdrop-saturate-[120%]">
       <div class="my-3 mb-4">
         <div class="relative">
           <label for="monster-search" class="sr-only">Rechercher un monstre</label>
           <input
             id="monster-search"
-            class="w-full rounded-[14px] border border-slate-200/35 bg-slate-950/80 px-4 py-3 text-base text-slate-100 backdrop-blur-[10px] backdrop-saturate-[125%] placeholder:text-slate-300 focus:outline focus:outline-2 focus:outline-sky-300"
+            class="w-full rounded-[14px] border border-line bg-panel/80 px-4 py-3 text-base text-ink backdrop-blur-[10px] backdrop-saturate-[125%] placeholder:text-muted focus:outline focus:outline-2 focus:outline-accent"
             type="search"
             placeholder="Rechercher un monstre..."
             autocomplete="off"
           />
-          <div id="search-results" class="absolute left-0 right-0 top-[calc(100%+0.12rem)] z-[80] max-h-[280px] overflow-auto rounded-[14px] border border-slate-200/35 bg-slate-950/95 p-1.5 shadow-[0_20px_45px_-25px_rgba(1,6,22,0.6)] backdrop-blur-[18px] backdrop-saturate-[125%]" hidden></div>
+          <div id="search-results" class="absolute left-0 right-0 top-[calc(100%+0.12rem)] z-[80] max-h-[280px] overflow-auto rounded-[14px] border border-line bg-panel/95 p-1.5 shadow-[0_20px_45px_-25px_rgba(1,6,22,0.6)] backdrop-blur-[18px] backdrop-saturate-[125%]" hidden></div>
         </div>
 
-        <nav class="group relative mt-2 overflow-hidden rounded-xl border border-slate-200/35 bg-slate-950/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]" aria-label="Monstres en defilement">
+        <nav class="group relative mt-2 overflow-hidden rounded-xl border border-line bg-panel/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]" aria-label="Monstres en defilement">
           <div class="moving-menu-track"></div>
         </nav>
       </div>
-
-      <article id="monster-detail" class="mt-4 rounded-2xl border border-slate-200/35 bg-slate-900/70 p-4 shadow-[0_14px_35px_-24px_rgba(1,6,22,0.6)] backdrop-blur-[14px] backdrop-saturate-[120%]" hidden></article>
     </section>
+
+    <article id="monster-detail" class="mt-4 grid gap-4" hidden></article>
   </main>
 
-  <footer id="site-footer" class="mt-auto hidden w-full border-t border-slate-200/20 bg-slate-950/85 shadow-[0_-10px_30px_-24px_rgba(1,6,22,0.6)] backdrop-blur-[12px] backdrop-saturate-[112%]">
-    <div class="mx-auto flex w-full max-w-[980px] items-center justify-between gap-3 px-4 py-3 max-[640px]:flex-col max-[640px]:items-start">
-      <p class="m-0 text-[0.84rem] font-semibold tracking-[0.02em] text-slate-300">Tnul.Songes</p>
-      <p class="m-0 text-[0.84rem] text-slate-300">
+  <footer id="site-footer" class="mt-auto hidden w-full border-t border-line/60 bg-panel/85 shadow-[0_-10px_30px_-24px_rgba(1,6,22,0.6)] backdrop-blur-[12px] backdrop-saturate-[112%]">
+    <div class="mx-auto flex w-full max-w-[1120px] items-center justify-between gap-3 px-4 py-3 max-[640px]:flex-col max-[640px]:items-start">
+      <p class="m-0 text-[0.84rem] font-semibold tracking-[0.02em] text-muted">Tnul.Songes</p>
+      <p class="m-0 text-[0.84rem] text-muted">
         Inspiré de
-        <a class="text-sky-100 underline underline-offset-2 transition-colors hover:text-white" href="https://volcasaurus.github.io/Songes_Pour_Les_Noobs/" target="_blank" rel="noopener noreferrer">Songes Pour Les Noobs</a>
+        <a class="text-accent underline underline-offset-2 transition-colors hover:text-white" href="https://volcasaurus.github.io/Songes_Pour_Les_Noobs/" target="_blank" rel="noopener noreferrer">Songes Pour Les Noobs</a>
         - GL HF
       </p>
     </div>

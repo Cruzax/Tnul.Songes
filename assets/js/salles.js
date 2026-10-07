@@ -43,10 +43,10 @@
 
     const list = el("ol", "mt-4 grid gap-2");
     data.top.forEach((monster, index) => {
-      const item = el("li", "flex items-center gap-3 rounded-2xl border border-slate-200/20 bg-slate-900/50 p-2.5");
-      item.appendChild(el("span", "w-6 flex-none text-center text-sm font-semibold text-slate-300", String(index + 1)));
+      const item = el("li", "flex items-center gap-3 rounded-2xl border border-line/60 bg-panel2/50 p-2.5");
+      item.appendChild(el("span", "w-6 flex-none text-center text-sm font-semibold text-muted", String(index + 1)));
 
-      const media = el("span", "grid h-14 w-14 flex-none place-items-center overflow-hidden rounded-xl bg-slate-950/60");
+      const media = el("span", "grid h-14 w-14 flex-none place-items-center overflow-hidden rounded-xl bg-panel/60");
       if (monster.image) {
         const image = el("img", "h-full w-full object-contain");
         image.src = "assets/images/monsters/" + encodeURIComponent(monster.image);
@@ -65,11 +65,11 @@
       const body = el("div", "min-w-0 flex-1");
       body.appendChild(el("p", "m-0 font-semibold", monster.name));
       if (monster.why) {
-        body.appendChild(el("p", "m-0 text-sm text-slate-300", monster.why));
+        body.appendChild(el("p", "m-0 text-sm text-muted", monster.why));
       }
       item.appendChild(body);
 
-      const link = el("a", "flex-none rounded-full border border-slate-200/30 px-3 py-1 text-xs text-sky-200 no-underline hover:border-sky-300/70", "▶ Voir");
+      const link = el("a", "flex-none rounded-full border border-line px-3 py-1 text-xs text-accent no-underline hover:border-accent/70", "▶ Voir");
       link.href = data.video + "&t=" + monster.time + "s";
       link.target = "_blank";
       link.rel = "noopener noreferrer";
@@ -78,9 +78,9 @@
     });
     root.appendChild(list);
 
-    const source = el("p", "mt-3 text-xs text-slate-400");
+    const source = el("p", "mt-3 text-xs text-muted");
     source.append("Source: « Top 10 Domi Reversi en Songe » par " + data.author + " (");
-    const videoLink = el("a", "text-sky-200 underline underline-offset-2", "YouTube");
+    const videoLink = el("a", "text-accent underline underline-offset-2", "YouTube");
     videoLink.href = data.video;
     videoLink.target = "_blank";
     videoLink.rel = "noopener noreferrer";

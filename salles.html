@@ -5,30 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Positions de départ des salles de boss - Tnul.Songes</title>
   <link rel="icon" type="image/png" href="assets/images/ui/avoir.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
   <link rel="stylesheet" href="assets/css/theme.css" />
 </head>
 <body
-  class="min-h-screen flex flex-col text-slate-100"
+  class="min-h-screen flex flex-col text-ink"
 >
   <header class="px-4 pb-2 pt-4 text-center">
     <h1 class="m-0 text-[1.2rem] font-bold tracking-[0.04em] text-white [text-shadow:0_3px_22px_rgba(0,0,0,0.55)]">
-      <a href="./" class="rounded-md text-inherit no-underline outline-none transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-300">Tnul.Songes</a>
+      <a href="./" class="rounded-md text-inherit no-underline outline-none transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">Tnul.Songes</a>
     </h1>
-    <a href="./" class="mt-1 inline-block rounded-full border border-slate-200/35 bg-slate-950/60 px-3 py-1 text-[0.78rem] text-slate-200 no-underline transition-colors hover:border-sky-300/70 hover:bg-slate-900/70">&larr; Retour aux boss</a>
+    <a href="./" class="mt-1 inline-block rounded-full border border-line bg-panel/60 px-3 py-1 text-[0.78rem] text-ink no-underline transition-colors hover:border-accent/70 hover:bg-panel2/70">&larr; Retour aux boss</a>
   </header>
 
   <main class="mx-auto w-full max-w-[980px] flex-1 px-4 pb-8 pt-4">
-    <section class="rounded-[20px] border border-slate-200/35 bg-slate-950/55 p-4 shadow-[0_20px_60px_-25px_rgba(1,6,22,0.6)] backdrop-blur-[16px] backdrop-saturate-[120%]">
+    <section class="rounded-[20px] border border-line bg-panel/55 p-4 shadow-[0_20px_60px_-25px_rgba(1,6,22,0.6)] backdrop-blur-[16px] backdrop-saturate-[120%]">
       <h2 class="m-0 text-xl font-semibold">Positions de départ des salles de boss</h2>
-      <p class="mt-2 text-sm text-slate-300">
+      <p class="mt-2 text-sm text-muted">
         Les trois cartes connues de la salle de boss, avec les obstacles et les positions de départ. Ce sont les mêmes en Rêve, Paradoxe et Cauchemar.
         Si tu en croises une autre, préviens-moi.
       </p>
       <div id="simulation"></div>
     </section>
 
-    <section id="domireversi" class="mt-4 rounded-[20px] border border-slate-200/35 bg-slate-950/55 p-4 shadow-[0_20px_60px_-25px_rgba(1,6,22,0.6)] backdrop-blur-[16px] backdrop-saturate-[120%]"></section>
+    <section id="domireversi" class="mt-4 rounded-[20px] border border-line bg-panel/55 p-4 shadow-[0_20px_60px_-25px_rgba(1,6,22,0.6)] backdrop-blur-[16px] backdrop-saturate-[120%]"></section>
   </main>
 
   <link rel="stylesheet" href="assets/css/simulator.css">
