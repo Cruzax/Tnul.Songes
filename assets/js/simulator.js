@@ -50,16 +50,32 @@
 
   function mount(container, options) {
     const { imageUrls, data } = options;
+    const maps = options.maps || [];
+    const DEFAULT_BOSS = { u: 17, v: -3 };
+    const initialMap = options.noEmptyOption && maps.length ? 0 : -1;
+    const viewOnly = Boolean(options.viewOnly);
     const allyImage = options.allyImage || "assets/allies/ouginak.png";
     const state = {
       boss: { u: 17, v: -3 },
       allies: [],
       walls: new Set(),
+      mask: null, // Set des cases existantes (null = grille complète)
+      starts: false,
+      startAlly: new Set(),
+      startEnemy: new Set(),
       spell: null,
       hover: null,
       drag: false,
     };
     const cache = { range: new Set(), visible: null };
+    const hare = { on: false, bracket: 0, melee: 0, player: null, target: null, visible: null };
+    const HARE_BRACKETS = [
+      { label: "100% - 90%", angle: 90 },
+      { label: "89% - 75%", angle: 270 },
+      { label: "74% - 45%", angle: 180 },
+      { label: "44% - 30%", angle: 270 },
+      { label: "29% - 0%", angle: 90 },
+    ];
 
     container.innerHTML = "";
     const section = document.createElement("section");
@@ -68,27 +84,44 @@
       <div class="sim-header">
         <h2 class="sim-title">Simulation</h2>
         <div class="sim-tools">
+          ${maps.length ? '<select class="sim-map" aria-label="Carte">' + (options.noEmptyOption ? "" : '<option value="-1">Grille vide</option>') + maps.map((m, i) => `<option value="${i}">${m.name}</option>`).join("") + "</select>" : ""}
+          ${maps.length && !options.hideStartsToggle ? '<label class="sim-starts-label"><input type="checkbox" class="sim-starts"> Placements de départ</label>' : ""}
+          ${options.harebourg ? '<label class="sim-hare-label"><input type="checkbox" class="sim-hare-toggle"> Mode Harebourg</label>' : ""}
+          <button type="button" class="sim-copy" title="Copie les obstacles de la carte pour me les envoyer">Copier la carte</button>
           <button type="button" class="sim-reset">Réinitialiser</button>
         </div>
       </div>
-      <p class="sim-hint">Glisse le boss. Clic gauche: poser ou retirer un allié. Clic droit: poser ou retirer un obstacle. Les cases sombres sont hors de la ligne de vue du boss.</p>`;
+      <div class="sim-hare-panel" hidden>
+        <div class="sim-hare-hp">${HARE_BRACKETS.map((b, i) => `<button type="button" class="sim-hare-hp-btn" data-i="${i}" aria-pressed="${i === 0}">${b.label}</button>`).join("")}</div>
+        <label class="sim-hare-melee">Coups en mêlée <input type="number" class="sim-hare-melee-input" min="0" max="12" value="0"></label>
+        <p class="sim-hare-info"></p>
+      </div>
+      <p class="sim-hint">${viewOnly ? "Clic droit sur une case: poser ou retirer un obstacle (pour corriger la carte)." : "Glisse le boss. Clic gauche: poser ou retirer un allié. Clic droit: poser ou retirer un obstacle. Les cases sombres sont hors de la ligne de vue du boss."}</p>`;
     const spellList = document.createElement("div");
     spellList.className = "sim-spells";
     section.appendChild(spellList);
 
     const board = svg("svg", { viewBox: `0 0 ${(G.COLS * 2 + 1) * A} ${(G.ROWS + 1) * B + SLAB}`, class: "sim-board" });
-    const points = [];
-    G.allCells().forEach((cell) => {
-      const { px, py } = G.toScreen(cell.u, cell.v);
-      const cx = (px + 1) * A;
-      const cy = (py + 1) * B;
-      points.push([cx - A, cy], [cx, cy - B], [cx + A, cy], [cx, cy + B]);
-    });
-    const hull = convexHull(points);
-    board.appendChild(svg("polygon", {
-      points: hull.map(([x, y]) => `${x},${y + SLAB}`).join(" "),
-      class: "sim-slab",
-    }));
+    // Socle: une case décalée vers le bas par case existante (suit la forme réelle de la carte).
+    const slab = svg("g", { class: "sim-slab-layer" });
+    board.appendChild(slab);
+
+    function updateSlab() {
+      slab.innerHTML = "";
+      G.allCells().forEach((cell) => {
+        if (state.mask && !state.mask.has(keyOf(cell))) {
+          return;
+        }
+        const { px, py } = G.toScreen(cell.u, cell.v);
+        const cx = (px + 1) * A;
+        const cy = (py + 1) * B + SLAB;
+        slab.appendChild(svg("polygon", {
+          points: `${cx - A},${cy} ${cx},${cy - B} ${cx + A},${cy} ${cx},${cy + B}`,
+          class: "sim-slab",
+        }));
+      });
+    }
+    updateSlab();
     const cellNodes = new Map();
     G.allCells().forEach((cell) => {
       const { px, py } = G.toScreen(cell.u, cell.v);
@@ -136,11 +169,16 @@
       board.setPointerCapture(event.pointerId);
       event.preventDefault();
     });
+    bossToken.style.display = viewOnly ? "none" : "";
     board.appendChild(bossToken);
 
+    if (viewOnly) {
+      spellList.hidden = true;
+    }
     section.appendChild(board);
     const detail = document.createElement("div");
     detail.className = "sim-detail";
+    detail.hidden = viewOnly;
     section.appendChild(detail);
     container.appendChild(section);
 
@@ -193,11 +231,44 @@
       bossToken.setAttribute("transform", `translate(${c.x} ${c.y})`);
     }
 
+    const allowed = (cell) => !state.mask || state.mask.has(keyOf(cell));
+
+    // --- Mode Harebourg: confusion horaire (le sort est redirigé de 90°, 180° ou 270°)
+    const hareAngle = () => (HARE_BRACKETS[hare.bracket].angle + 90 * hare.melee) % 360;
+
+    function hareAim() {
+      if (!hare.player || !hare.target) {
+        return null;
+      }
+      let du = hare.target.u - hare.player.u;
+      let dv = hare.target.v - hare.player.v;
+      for (let i = 0; i < hareAngle() / 90; i += 1) {
+        [du, dv] = [-dv, du]; // quart de tour anti-horaire à l'écran
+      }
+      const cell = { u: hare.player.u + du, v: hare.player.v + dv };
+      return G.isValid(cell.u, cell.v) && allowed(cell) && !state.walls.has(keyOf(cell)) ? cell : null;
+    }
+
+    function hareRefresh() {
+      hare.visible = hare.player ? G.visibleKeys(hare.player, state.walls) : null;
+      const info = section.querySelector(".sim-hare-info");
+      if (!info) {
+        return;
+      }
+      if (!hare.player || !hare.target) {
+        info.textContent = "Clic gauche: ton perso. Clic droit: la case que tu veux toucher. La case blanche est celle à viser.";
+      } else {
+        info.textContent = `Confusion de ${hareAngle()}°. ${hareAim() ? "Vise la case blanche." : "Case à viser impossible (mur ou hors de la carte)."}`;
+      }
+    }
+
     // Recalculs lourds: seulement quand le boss, le sort ou les obstacles changent (pas au survol).
     function refreshRange() {
       cache.range = new Set();
       if (state.spell) {
-        G.rangeCells(state.boss, state.spell, state.walls).forEach((c) => cache.range.add(keyOf(c)));
+        G.rangeCells(state.boss, state.spell, state.walls)
+          .filter((c) => allowed(c))
+          .forEach((c) => cache.range.add(keyOf(c)));
       }
     }
 
@@ -212,12 +283,25 @@
       }
       const allies = new Set(state.allies.map(keyOf));
       const hoverKey = state.hover ? keyOf(state.hover) : null;
-      const showShade = cache.visible && state.walls.size > 0;
+      const showShade = hare.on ? Boolean(hare.visible && state.walls.size > 0) : !viewOnly && cache.visible && state.walls.size > 0;
+      const visibleSet = hare.on ? hare.visible : cache.visible;
+      const aim = hare.on ? hareAim() : null;
+      const playerKey = hare.on && hare.player ? keyOf(hare.player) : null;
+      const targetKey = hare.on && hare.target ? keyOf(hare.target) : null;
+      const aimKey = aim ? keyOf(aim) : null;
 
       cellNodes.forEach((node, key) => {
         let cls = node._base;
-        if (showShade && !cache.visible.has(key)) {
+        if (state.mask && !state.mask.has(key)) {
+          cls += " void";
+        } else if (showShade && !visibleSet.has(key)) {
           cls += " nolos";
+        }
+        if (state.starts && state.startEnemy.has(key)) {
+          cls += " start-enemy";
+        }
+        if (state.starts && state.startAlly.has(key)) {
+          cls += " start-ally";
         }
         if (cache.range.has(key)) {
           cls += " range";
@@ -227,6 +311,15 @@
         }
         if (allies.has(key)) {
           cls += " ally";
+        }
+        if (key === playerKey) {
+          cls += " hare-player";
+        }
+        if (key === targetKey) {
+          cls += " hare-target";
+        }
+        if (key === aimKey) {
+          cls += " hare-aim";
         }
         if (key === hoverKey) {
           cls += " hover";
@@ -369,16 +462,84 @@
       spellList.appendChild(button);
     });
 
-    section.querySelector(".sim-reset").addEventListener("click", () => {
+    let currentMap = -1;
+
+    function loadMap(index) {
+      currentMap = index;
+      const map = index >= 0 ? maps[index] : null;
+      const toKey = ([u, v]) => `${u},${v}`;
+      state.mask = map ? new Set(map.cells.map(toKey)) : null;
+      state.walls = new Set(map ? map.blocks.map(toKey) : []);
+      state.startAlly = new Set(map ? map.ally.map(toKey) : []);
+      state.startEnemy = new Set(map ? map.enemy.map(toKey) : []);
       state.allies = [];
-      state.walls = new Set();
-      state.boss = { u: 17, v: -3 };
+      const firstEnemy = map && map.enemy.length ? { u: map.enemy[0][0], v: map.enemy[0][1] } : null;
+      state.boss = firstEnemy || { ...DEFAULT_BOSS };
+      updateSlab();
       drawWalls();
       drawAllies();
       placeBoss();
       refreshRange();
       refreshVisibility();
       paintCells();
+    }
+
+    section.querySelector(".sim-reset").addEventListener("click", () => {
+      hare.player = null;
+      hare.target = null;
+      hareRefresh();
+      loadMap(currentMap);
+    });
+
+    const harePanel = section.querySelector(".sim-hare-panel");
+    const hareToggle = section.querySelector(".sim-hare-toggle");
+    if (hareToggle) {
+      hareToggle.addEventListener("change", () => {
+        hare.on = hareToggle.checked;
+        harePanel.hidden = !hare.on;
+        hareRefresh();
+        paintCells();
+      });
+      harePanel.querySelectorAll(".sim-hare-hp-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          hare.bracket = Number(button.dataset.i);
+          harePanel.querySelectorAll(".sim-hare-hp-btn").forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+          hareRefresh();
+          paintCells();
+        });
+      });
+      harePanel.querySelector(".sim-hare-melee-input").addEventListener("input", (event) => {
+        hare.melee = Math.max(0, Math.min(12, Number(event.target.value) || 0));
+        hareRefresh();
+        paintCells();
+      });
+    }
+
+    const mapSelect = section.querySelector(".sim-map");
+    if (mapSelect) {
+      mapSelect.addEventListener("change", () => loadMap(Number(mapSelect.value)));
+    }
+
+    const startsToggle = section.querySelector(".sim-starts");
+    if (startsToggle) {
+      startsToggle.addEventListener("change", () => {
+        state.starts = startsToggle.checked;
+        paintCells();
+      });
+    }
+
+    section.querySelector(".sim-copy").addEventListener("click", async (event) => {
+      const payload = JSON.stringify({
+        map: currentMap >= 0 ? maps[currentMap].name : "Grille vide",
+        blocs: [...state.walls].map((k) => k.split(",").map(Number)),
+      });
+      try {
+        await navigator.clipboard.writeText(payload);
+        event.target.textContent = "Copié !";
+      } catch (error) {
+        window.prompt("Copie ce texte:", payload);
+      }
+      setTimeout(() => { event.target.textContent = "Copier la carte"; }, 1500);
     });
 
     let dragMoved = false;
@@ -394,7 +555,7 @@
 
     board.addEventListener("pointermove", (event) => {
       const cell = cellFromPoint(event);
-      if (state.drag && cell && !sameCell(cell, state.boss) && !state.walls.has(keyOf(cell))) {
+      if (state.drag && cell && !sameCell(cell, state.boss) && !state.walls.has(keyOf(cell)) && allowed(cell)) {
         state.boss = cell;
         dragMoved = true;
         state.allies = state.allies.filter((a) => !sameCell(a, cell));
@@ -414,7 +575,15 @@
         return;
       }
       const cell = cellFromPoint(event) || state.hover;
-      if (!state.drag && !dragMoved && cell && !sameCell(cell, state.boss) && !state.walls.has(keyOf(cell))) {
+      if (hare.on) {
+        if (cell && allowed(cell) && !state.walls.has(keyOf(cell))) {
+          hare.player = cell;
+          hareRefresh();
+          paintCells();
+        }
+        return;
+      }
+      if (!viewOnly && !state.drag && !dragMoved && cell && allowed(cell) && !sameCell(cell, state.boss) && !state.walls.has(keyOf(cell))) {
         const index = state.allies.findIndex((a) => sameCell(a, cell));
         if (index >= 0) {
           state.allies.splice(index, 1);
@@ -432,7 +601,15 @@
     board.addEventListener("contextmenu", (event) => {
       event.preventDefault();
       const cell = cellFromPoint(event);
-      if (!cell || sameCell(cell, state.boss)) {
+      if (hare.on) {
+        if (cell && allowed(cell)) {
+          hare.target = cell;
+          hareRefresh();
+          paintCells();
+        }
+        return;
+      }
+      if (!cell || !allowed(cell) || (!viewOnly && sameCell(cell, state.boss))) {
         return;
       }
       const key = keyOf(cell);
@@ -456,12 +633,17 @@
       schedulePaint();
     });
 
+    if (mapSelect) {
+      mapSelect.value = String(initialMap);
+    }
+    if (options.showStarts) {
+      if (startsToggle) {
+        startsToggle.checked = true;
+      }
+      state.starts = true;
+    }
     renderDetail(null);
-    drawAllies();
-    placeBoss();
-    refreshRange();
-    refreshVisibility();
-    paintCells();
+    loadMap(initialMap);
   }
 
   root.TnulSimulator = { mount };
