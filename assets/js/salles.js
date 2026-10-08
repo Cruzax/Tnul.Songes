@@ -11,6 +11,7 @@
       showStarts: true,
       hideStartsToggle: true,
       harebourg: true,
+      kimbo: true,
       viewOnly: true,
       hideReset: true,
     });

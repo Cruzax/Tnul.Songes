@@ -49,7 +49,7 @@
 .sim-detail-note { margin: 0.8rem 0 0; font-size: 0.75rem; color: rgb(var(--c-muted)); }
 
 /* Couleurs du mode Harebourg (cases de la grille et pastilles de la légende) */
-.sim-section { --hare-player: #5468ff; --hare-target: #e04848; --hare-aim: #ffffff; }
+.sim-section { --kimbo-glyph: #141824; --kimbo-glyph-edge: #ffffff; --kimbo-disciple: #f5c542; --hare-player: #5468ff; --hare-target: #e04848; --hare-aim: #ffffff; }
 
 /* Grille: pierre bleutée, zones translucides. Les couleurs de cases ne dépendent pas du thème du site. */
 .sim-board {
@@ -115,3 +115,14 @@
 /* Choix de la carte: boutons à cliquer */
 .sim-map-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .sim-map-tab[aria-pressed="true"] { background: rgb(var(--c-accent) / 0.18); border-color: rgb(var(--c-accent) / 0.9); }
+
+/* Mode Kimbo: cases du glyphe en noir sombre (comme en jeu); les départs restent rouge (mobs) et bleu (persos), cerclés de blanc s'ils sont sous le glyphe */
+.sim-cell.kimbo-glyph { fill: var(--kimbo-glyph); }
+.sim-cell.kimbo-glyph.start-enemy { fill: #e0334f; stroke: var(--kimbo-glyph-edge); stroke-width: 3; }
+.sim-cell.kimbo-glyph.start-ally { fill: #1f86f5; stroke: var(--kimbo-glyph-edge); stroke-width: 3; }
+.sim-cell.kimbo-disciple { fill: var(--kimbo-disciple); }
+.sim-swatch.kimbo-glyph { background: var(--kimbo-glyph); }
+.sim-swatch.start-enemy { background: #e0334f; }
+.sim-swatch.start-ally { background: #1f86f5; }
+.sim-swatch.kimbo-disciple { background: var(--kimbo-disciple); }
+.sim-kimbo-q { margin: 0 0 0.5rem; font-size: 0.85rem; }

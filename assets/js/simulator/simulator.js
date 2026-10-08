@@ -163,6 +163,18 @@
       drag: false,
     };
     const cache = { range: new Set(), blocked: new Set(), visible: null };
+    // Mode Kimbo: le Disciple pose son glyphe sur toutes les cases de la parité de sa case (Air / Feu)
+    // ou de la parité inverse (Terre / Eau), selon le dernier élément (hors Neutre) reçu par le Kimbo.
+    const KIMBO_ELEMENTS = [["airfire", "Air / Feu", true], ["earthwater", "Terre / Eau", false]];
+    const kimbo = { on: false, element: "airfire", disciple: null };
+    const parityOf = (cell) => ((cell.u + cell.v) % 2 + 2) % 2;
+    const kimboGlyphParity = () => {
+      if (!kimbo.disciple) {
+        return null;
+      }
+      const same = KIMBO_ELEMENTS.find((e) => e[0] === kimbo.element)[2];
+      return same ? parityOf(kimbo.disciple) : 1 - parityOf(kimbo.disciple);
+    };
     const hare = { on: false, bracket: 0, melee: 0, player: null, target: null, visible: null };
     const HARE_BRACKETS = [
       { label: "100% - 90%", angle: 90 },
@@ -181,6 +193,7 @@
         <div class="sim-tools">
           ${maps.length ? '<div class="sim-map-tabs" role="group" aria-label="Carte">' + (options.noEmptyOption ? "" : '<button type="button" class="sim-map-tab" data-index="-1" aria-pressed="false">Grille vide</button>') + maps.map((m, i) => `<button type="button" class="sim-map-tab" data-index="${i}" aria-pressed="false">${m.name.replace(/^Salle de boss — /, "").replace(/^./, (c) => c.toUpperCase())}</button>`).join("") + "</div>" : ""}
           ${maps.length && !options.hideStartsToggle ? '<label class="sim-starts-label"><input type="checkbox" class="sim-starts"> Placements de départ</label>' : ""}
+          ${options.kimbo ? '<label class="sim-hare-label"><input type="checkbox" class="sim-kimbo-toggle"> Mode Kimbo</label>' : ""}
           ${options.harebourg ? '<label class="sim-hare-label"><input type="checkbox" class="sim-hare-toggle"> Mode Harebourg</label>' : ""}
           ${options.editable ? '<label class="sim-edit-label"><input type="checkbox" class="sim-edit-toggle"> Éditer la grille</label>' : ""}
           ${options.hideReset ? "" : '<button type="button" class="sim-reset">Réinitialiser</button>'}
@@ -196,6 +209,14 @@
           <button type="button" class="sim-edit-export">Copier la grille</button>
           <button type="button" class="sim-edit-restore">Restaurer l'originale</button>
         </div>
+      </div>
+      <div class="sim-hare-panel sim-kimbo-panel" hidden>
+        <p class="sim-kimbo-q">Dernier élément (hors Neutre) tapé sur le Kimbo:</p>
+        <div class="sim-hare-hp">${KIMBO_ELEMENTS.map(([key, label]) => `<button type="button" class="sim-hare-hp-btn sim-kimbo-el" data-el="${key}" aria-pressed="${key === "airfire"}">${label}</button>`).join("")}</div>
+        <ul class="sim-hare-legend">
+          <li><span class="sim-swatch kimbo-disciple"></span>Clic gauche: Disciple du Kimbo</li>
+        </ul>
+        <p class="sim-hare-info sim-kimbo-info">Clique sur la case où se trouve le Disciple.</p>
       </div>
       <div class="sim-hare-panel" hidden>
         <div class="sim-hare-hp">${HARE_BRACKETS.map((b, i) => `<button type="button" class="sim-hare-hp-btn" data-i="${i}" aria-pressed="${i === 0}">${b.label}</button>`).join("")}</div>
@@ -458,6 +479,7 @@
       const playerKey = hare.on && hare.player ? keyOf(hare.player) : null;
       const targetKey = hare.on && hare.target ? keyOf(hare.target) : null;
       const aimKey = aim ? keyOf(aim) : null;
+      const kimboGlyph = kimbo.on ? kimboGlyphParity() : null;
 
       cellNodes.forEach((node, key) => {
         let cls = node._base;
@@ -465,6 +487,15 @@
           cls += " void";
         } else if (showShade && !visibleSet.has(key)) {
           cls += " nolos";
+        }
+        if (kimbo.on && kimboGlyph !== null && !(state.mask && !state.mask.has(key))) {
+          const [ku, kv] = key.split(",").map(Number);
+          if (parityOf({ u: ku, v: kv }) === kimboGlyph) {
+            cls += " kimbo-glyph";
+          }
+        }
+        if (kimbo.on && kimbo.disciple && key === keyOf(kimbo.disciple)) {
+          cls += " kimbo-disciple";
         }
         if (state.starts && !hare.on && state.startEnemy.has(key)) {
           cls += " start-enemy";
@@ -664,11 +695,52 @@
       loadMap(currentMap);
     });
 
-    const harePanel = section.querySelector(".sim-hare-panel");
+    const kimboPanel = section.querySelector(".sim-kimbo-panel");
+    const kimboToggle = section.querySelector(".sim-kimbo-toggle");
+    function kimboRefresh() {
+      const info = section.querySelector(".sim-kimbo-info");
+      const parity = kimboGlyphParity();
+      if (parity === null) {
+        info.textContent = "Clique sur la case où se trouve le Disciple.";
+        return;
+      }
+      const name = KIMBO_ELEMENTS.find((e) => e[0] === kimbo.element)[1];
+      const same = parity === parityOf(kimbo.disciple);
+      info.textContent = `${name}: le glyphe sort sur les cases de la ${same ? "même parité que le Disciple" : "parité inverse du Disciple"}. Reste sur les cases sans glyphe.`;
+    }
+    if (kimboToggle) {
+      kimboToggle.addEventListener("change", () => {
+        kimbo.on = kimboToggle.checked;
+        kimboPanel.hidden = !kimbo.on;
+        if (kimbo.on) {
+          const hareBox = section.querySelector(".sim-hare-toggle");
+          if (hareBox && hareBox.checked) {
+            hareBox.checked = false;
+            hareBox.dispatchEvent(new Event("change"));
+          }
+        }
+        kimboRefresh();
+        paintCells();
+      });
+      kimboPanel.querySelectorAll(".sim-kimbo-el").forEach((button) => {
+        button.addEventListener("click", () => {
+          kimbo.element = button.dataset.el;
+          kimboPanel.querySelectorAll(".sim-kimbo-el").forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+          kimboRefresh();
+          paintCells();
+        });
+      });
+    }
+
+    const harePanel = section.querySelector(".sim-hare-panel:not(.sim-kimbo-panel)");
     const hareToggle = section.querySelector(".sim-hare-toggle");
     if (hareToggle) {
       hareToggle.addEventListener("change", () => {
         hare.on = hareToggle.checked;
+        if (hare.on && kimboToggle && kimboToggle.checked) {
+          kimboToggle.checked = false;
+          kimboToggle.dispatchEvent(new Event("change"));
+        }
         harePanel.hidden = !hare.on;
         hareRefresh();
         paintCells();
@@ -845,6 +917,14 @@
         return;
       }
       const cell = cellFromPoint(event) || state.hover;
+      if (kimbo.on) {
+        if (cell && allowed(cell) && !state.walls.has(keyOf(cell))) {
+          kimbo.disciple = sameCell(kimbo.disciple, cell) ? null : cell; // un second clic sur la même case le retire
+          kimboRefresh();
+          paintCells();
+        }
+        return;
+      }
       if (hare.on) {
         if (cell && allowed(cell) && !state.walls.has(keyOf(cell))) {
           hare.player = sameCell(hare.player, cell) ? null : cell; // un second clic sur la même case la retire
@@ -876,6 +956,9 @@
         return;
       }
       const cell = cellFromPoint(event);
+      if (kimbo.on) {
+        return;
+      }
       if (hare.on) {
         if (cell && allowed(cell)) {
           hare.target = sameCell(hare.target, cell) ? null : cell; // un second clic droit sur la même case la retire
