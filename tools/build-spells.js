@@ -307,7 +307,7 @@ async function buildMonster(id) {
       spells.push(built);
     }
   }
-  return { pa: grade.actionPoints, pm: grade.movementPoints, stats, spells };
+  return { pa: grade.actionPoints, pm: grade.movementPoints, stats: { ...stats, resistances: resistancesOf(monster) }, spells };
 }
 
 async function downloadIcons(iconIds) {
@@ -333,6 +333,33 @@ async function downloadIcons(iconIds) {
 }
 
 // node tools/build-spells.js --missing: ajoute seulement les monstres qui manquent à data/spells.json
+// Résistances (%) du dernier grade DofusDB, par élément
+function resistancesOf(monster) {
+  const g = monster.grades[monster.grades.length - 1];
+  return { neutral: g.reductionNeutral || 0, earth: g.reductionEarth || 0, fire: g.reductionFire || 0, water: g.reductionWater || 0, air: g.reductionAir || 0 };
+}
+
+// node tools/build-spells.js --resist-only: ajoute seulement les résistances à data/spells.json existant
+async function patchResist() {
+  const file = path.join(ROOT, "data", "spells.json");
+  const data = JSON.parse(fs.readFileSync(file, "utf8"));
+  const queue = Object.keys(data);
+  await Promise.all(Array.from({ length: 6 }, async () => {
+    while (queue.length) {
+      const id = queue.shift();
+      const monster = (await getJson(`https://api.dofusdb.fr/monsters/${id}`))
+        || (ALT_IDS[id] ? await getJson(`https://api.dofusdb.fr/monsters/${ALT_IDS[id]}`) : null);
+      if (monster && monster.grades && monster.grades.length) {
+        data[id].stats.resistances = resistancesOf(monster);
+      } else {
+        console.warn(`Pas de résistances pour l'Id ${id}`);
+      }
+    }
+  }));
+  fs.writeFileSync(file, JSON.stringify(data));
+  console.log("Résistances ajoutées");
+}
+
 // node tools/build-spells.js --life-only: ajoute seulement les PV à data/spells.json existant
 async function patchLife() {
   const file = path.join(ROOT, "data", "spells.json");
@@ -356,6 +383,9 @@ async function patchLife() {
 }
 
 async function main() {
+  if (process.argv.includes("--resist-only")) {
+    return patchResist();
+  }
   if (process.argv.includes("--life-only")) {
     return patchLife();
   }

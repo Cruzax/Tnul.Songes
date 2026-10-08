@@ -372,6 +372,14 @@ const BASE_STAT_ROWS = [
   ["Puissance", "power"],
 ];
 
+const RESISTANCE_ROWS = [
+  ["Neutre", "neutral", "shield"],
+  ["Terre", "earth", "strength"],
+  ["Feu", "fire", "intelligence"],
+  ["Eau", "water", "chance"],
+  ["Air", "air", "agility"],
+];
+
 function createStatsCard(monster, baseStats) {
   const card = createCard("Caractéristiques", null, "shield");
 
@@ -415,11 +423,32 @@ function createStatsCard(monster, baseStats) {
     rows.appendChild(row);
   });
 
+  card.append(tiles, rows);
+  const resistances = baseStats.stats?.resistances;
+  if (resistances) {
+    const title = document.createElement("p");
+    title.className = "card-label m-0 mb-2.5 mt-5 border-t border-line pt-4";
+    title.textContent = "Résistances";
+    const grid = document.createElement("div");
+    grid.className = "grid grid-cols-5 gap-2";
+    RESISTANCE_ROWS.forEach(([label, key, icon]) => {
+      const cell = document.createElement("div");
+      cell.className = "rounded-md border border-line bg-panel2 px-1 py-2 text-center";
+      cell.title = label;
+      const value = document.createElement("div");
+      value.className = "mt-1 whitespace-nowrap text-[13px] font-semibold tabular-nums text-ink";
+      value.textContent = `${resistances[key]}%`;
+      cell.append(iconNode(icon, "block text-[0.9rem] leading-none"), value);
+      grid.appendChild(cell);
+    });
+    card.append(title, grid);
+  }
+
   const note = document.createElement("p");
   note.className = "m-0 mt-5 border-t border-line pt-4 text-[10px] leading-relaxed text-muted";
   note.textContent = "Estimation au palier 225 (Paradoxe I, palier II). Les valeurs évoluent avec le palier du Songe.";
 
-  card.append(tiles, rows, note);
+  card.append(note);
   return card;
 }
 
