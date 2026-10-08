@@ -49,7 +49,7 @@
 .sim-detail-note { margin: 0.8rem 0 0; font-size: 0.75rem; color: rgb(var(--c-muted)); }
 
 /* Couleurs du mode Harebourg (cases de la grille et pastilles de la légende) */
-.sim-section { --kimbo-glyph: #141824; --kimbo-glyph-edge: #ffffff; --kimbo-disciple: #f5c542; --hare-player: #5468ff; --hare-target: #e04848; --hare-aim: #ffffff; }
+.sim-section { --kimbo-glyph: #2c3347; --kimbo-glyph-edge: #ffffff; --kimbo-disciple: #f5c542; --hare-player: #5468ff; --hare-target: #e04848; --hare-aim: #ffffff; }
 
 /* Grille: pierre bleutée, zones translucides. Les couleurs de cases ne dépendent pas du thème du site. */
 .sim-board {
