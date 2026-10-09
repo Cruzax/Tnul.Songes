@@ -69,6 +69,10 @@
       if (monster.why) {
         body.appendChild(el("p", "m-0 mt-0.5 text-[13px] leading-relaxed text-muted", monster.why));
       }
+      if (monster.broken) {
+        item.classList.add("opacity-60");
+        body.appendChild(el("p", "m-0 mt-1 text-[13px] font-medium text-amber-400", "⚠ " + monster.broken));
+      }
       item.appendChild(body);
 
       list.appendChild(item);
