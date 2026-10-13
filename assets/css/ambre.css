@@ -1,0 +1,51 @@
+/* Page d'aide au combat tactique d'Ocre d'ambre */
+.am-toolbar { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.am-tool {
+  display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.3rem 0.7rem; border: 1px solid rgb(var(--c-line));
+  border-radius: 0.375rem; background: rgb(255 255 255 / 0.05); color: inherit; font: inherit; font-size: 0.82rem; cursor: pointer;
+}
+.am-tool:hover { border-color: rgb(var(--c-accent) / 0.7); }
+.am-tool[aria-pressed="true"] { background: rgb(var(--c-accent) / 0.18); border-color: rgb(var(--c-accent) / 0.9); }
+.am-swatch { display: inline-block; width: 0.85rem; height: 0.85rem; flex: none; border-radius: 3px; border: 1px solid rgb(255 255 255 / 0.4); vertical-align: -0.1rem; margin-right: 0.35rem; }
+.am-tool .am-swatch { margin-right: 0; }
+.am-hint { margin: 0.6rem 0 0; font-size: 0.78rem; color: rgb(var(--c-muted)); }
+
+.am-layout { display: grid; gap: 1.2rem; margin-top: 1rem; }
+@media (min-width: 900px) { .am-layout { grid-template-columns: minmax(0, 1fr) 280px; align-items: start; } }
+.am-board-wrap { min-width: 0; }
+.am-board { display: block; width: 100%; max-width: 820px; margin: 0 auto; height: auto; user-select: none; filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.45)); }
+
+.am-side-l { fill: #3c4666; stroke: rgba(0, 0, 0, 0.35); stroke-width: 0.5; stroke-linejoin: round; }
+.am-side-r { fill: #2a3350; stroke: rgba(0, 0, 0, 0.35); stroke-width: 0.5; stroke-linejoin: round; }
+.am-cell { fill: #76829f; stroke: rgba(255, 255, 255, 0.08); stroke-width: 0.6; cursor: pointer; transition: fill 0.12s; }
+.am-cell.alt { fill: #5a6683; }
+.am-cell:hover { stroke: #fff; stroke-width: 1.5; }
+.am-cell.is-home { fill: #3a4360; cursor: default; }
+.am-cell.is-home:hover { stroke: rgba(255, 255, 255, 0.08); stroke-width: 0.6; }
+.am-cell.is-done { opacity: 0.35; }
+.am-cell.is-empty { fill: #3a4360 !important; }
+.am-rock-top { fill: #9aa6c2; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; pointer-events: none; }
+.am-rock-l { fill: #6d7899; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; pointer-events: none; }
+.am-rock-r { fill: #4e587a; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; pointer-events: none; }
+.am-badge { fill: #fff; font-size: 11px; font-weight: 700; pointer-events: none; paint-order: stroke; stroke: rgba(0, 0, 0, 0.55); stroke-width: 2.5px; }
+.am-badge.on-light { fill: #222; stroke: none; }
+
+.am-side { display: grid; gap: 0.8rem; }
+.am-card { padding: 0.8rem 0.9rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem; background: rgb(var(--c-panel2)); }
+.am-title { margin: 0 0 0.5rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgb(var(--c-accent)); }
+.am-title small { text-transform: none; letter-spacing: 0; font-weight: 500; color: rgb(var(--c-muted)); }
+.am-turn { display: flex; align-items: center; gap: 0.4rem; }
+.am-turn button { width: 1.9rem; height: 1.9rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(255 255 255 / 0.05); color: inherit; font: inherit; cursor: pointer; }
+.am-turn button:hover { border-color: rgb(var(--c-accent) / 0.7); }
+.am-turn input { width: 3.4rem; padding: 0.3rem 0.4rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(var(--c-panel)); color: inherit; font: inherit; text-align: center; }
+.am-turn-max { font-size: 0.8rem; color: rgb(var(--c-muted)); }
+.am-demon { margin: 0.6rem 0 0; font-size: 0.82rem; color: rgb(var(--c-warm)); }
+.am-pairs, .am-islands { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.35rem; font-size: 0.85rem; }
+.am-pairs .is-waiting { color: rgb(var(--c-muted)); }
+.am-progress { margin: 0 0 0.5rem; font-size: 0.85rem; }
+.am-islands { grid-template-columns: 1fr 1fr; color: rgb(var(--c-muted)); }
+.am-reset { margin-top: 0.7rem; padding: 0.25rem 0.65rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(255 255 255 / 0.05); color: inherit; font: inherit; font-size: 0.8rem; cursor: pointer; }
+.am-reset:hover { border-color: rgb(var(--c-danger) / 0.8); }
+.am-rules { margin: 0.8rem 0 0; padding-left: 1.1rem; display: grid; gap: 0.4rem; font-size: 0.85rem; line-height: 1.5; }
+.level-input { -moz-appearance: textfield; appearance: textfield; }
+.level-input::-webkit-outer-spin-button, .level-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }

@@ -52,7 +52,7 @@ const nameCache = new Map();
 async function lookupName(kind, id) {
   const key = `${kind}:${id}`;
   if (!nameCache.has(key)) {
-    const route = kind === "state" ? "spell-states" : "spells";
+    const route = kind === "state" ? "spell-states" : kind === "monster" ? "monsters" : "spells";
     const data = await getJson(`https://api.dofusdb.fr/${route}/${id}`);
     const raw = (data && data.name && data.name.fr) || "";
     nameCache.set(key, raw.replace(/^\[!\]\s*/, "").trim());
@@ -104,6 +104,8 @@ function songeStats(monster) {
     chance: stat(RATIO_IDS.chance),
     agility: stat(RATIO_IDS.agility),
     power: stat(RATIO_IDS.power),
+    floor: Math.max(0, ...monster.grades.map((g) => g.level || 0)),
+    ratios: Object.fromEntries(Object.keys(RATIO_IDS).map((key) => [key, ratios[RATIO_IDS[key]] || 0])),
   };
 }
 
@@ -131,6 +133,20 @@ async function effectText(effect) {
     const name = await lookupName("state", n3);
     if (name) {
       return `État: ${name}`;
+    }
+  }
+  // « Enlève l'état #3 », « Désactive l'état #3 »: on remplace le numéro par le nom de l'état
+  if (/l'état #3/i.test(template) && n3) {
+    const name = await lookupName("state", n3);
+    if (name) {
+      return template.replace(/{[^}]*}/g, "").replace(/#3/, `« ${name} »`).replace(/[{}~]/g, "").replace(/s+/g, " ").trim();
+    }
+  }
+  // « Invoque : #1 »: n1 est l'id du monstre invoqué
+  if (/^invoques*:s*#1$/i.test(template.trim()) && n1 > 0) {
+    const name = await lookupName("monster", n1);
+    if (name) {
+      return `Invoque : ${name}`;
     }
   }
   if (template.trim() === "#1" && n1 > 0) {
@@ -382,7 +398,32 @@ async function patchLife() {
   console.log(`PV ajoutés à ${Object.keys(data).length} monstres`);
 }
 
+// node tools/build-spells.js --ratios-only: ajoute les ratios (pour recalculer à un autre niveau) à data/spells.json existant
+async function patchRatios() {
+  const file = path.join(ROOT, "data", "spells.json");
+  const data = JSON.parse(fs.readFileSync(file, "utf8"));
+  const queue = Object.keys(data);
+  await Promise.all(Array.from({ length: 6 }, async () => {
+    while (queue.length) {
+      const id = queue.shift();
+      const monster = (await getJson(`https://api.dofusdb.fr/monsters/${id}`))
+        || (ALT_IDS[id] ? await getJson(`https://api.dofusdb.fr/monsters/${ALT_IDS[id]}`) : null);
+      if (monster && monster.grades && monster.grades.length) {
+        const { floor, ratios } = songeStats(monster);
+        data[id].stats = { ...data[id].stats, floor, ratios };
+      } else {
+        console.warn(`Pas de ratios pour l'Id ${id}`);
+      }
+    }
+  }));
+  fs.writeFileSync(file, JSON.stringify(data));
+  console.log(`Ratios ajoutés à ${Object.keys(data).length} monstres`);
+}
+
 async function main() {
+  if (process.argv.includes("--ratios-only")) {
+    return patchRatios();
+  }
   if (process.argv.includes("--resist-only")) {
     return patchResist();
   }

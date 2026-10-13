@@ -67,3 +67,39 @@ body {
   -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 25%, #000 0%, transparent 100%);
   mask-image: radial-gradient(ellipse 85% 70% at 50% 25%, #000 0%, transparent 100%);
 }
+
+/* Écran de chargement façon HUD: anneaux qui tournent, puis les deux moitiés s'écartent (haut vers le haut, bas vers le bas) */
+html.intro-seen #loading-screen { display: none; }
+#loading-screen { position: fixed; inset: 0; z-index: 1000; pointer-events: all; }
+#loading-screen .ls-half { position: absolute; left: 0; right: 0; height: 50.2%; background: rgb(var(--c-bg)); transition: transform 0.6s cubic-bezier(0.7, 0, 0.2, 1); }
+#loading-screen .ls-left { top: 0; }
+#loading-screen .ls-right { bottom: 0; }
+#loading-screen .ls-content { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 1.2rem; transition: opacity 0.2s ease; }
+#loading-screen.done { pointer-events: none; }
+#loading-screen.done .ls-content { opacity: 0; }
+#loading-screen.done .ls-left { transform: translateY(-100%); transition-delay: 0.15s; }
+#loading-screen.done .ls-right { transform: translateY(100%); transition-delay: 0.15s; }
+#loading-screen .ls-core { position: relative; display: grid; place-items: center; width: min(220px, 50vw); aspect-ratio: 1; color: rgb(var(--c-accent)); }
+#loading-screen .ls-rings { position: absolute; inset: 0; width: 100%; height: 100%; stroke: currentColor; filter: drop-shadow(0 0 6px rgb(var(--c-accent) / 0.6)); }
+#loading-screen .ls-ring { transform-origin: 100px 100px; }
+#loading-screen .ls-ring-a { animation: ls-spin 2.2s linear infinite; }
+#loading-screen .ls-ring-b { animation: ls-spin 1.5s linear infinite reverse; }
+#loading-screen .ls-ring-c { animation: ls-spin 4s linear infinite; }
+#loading-screen .ls-logo { position: relative; width: 28%; height: auto; filter: drop-shadow(0 0 8px rgb(var(--c-accent) / 0.8)); animation: ls-pulse 1.4s ease-in-out infinite; }
+#loading-screen .loading-name { font-size: clamp(2rem, 7vw, 3.2rem); font-weight: 700; letter-spacing: -0.02em; color: rgb(var(--c-ink)); }
+#loading-screen .loading-name span { color: rgb(var(--c-accent)); }
+#loading-screen .loading-bar { width: min(280px, 70vw); height: 3px; overflow: hidden; border-radius: 999px; background: rgb(var(--c-line)); }
+#loading-screen .loading-bar-fill { width: 0; height: 100%; border-radius: inherit; background: rgb(var(--c-accent)); animation: ls-fill 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+#loading-screen .loading-text { margin: 0; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgb(var(--c-muted)); }
+@keyframes ls-spin { to { transform: rotate(360deg); } }
+@keyframes ls-fill { to { width: 100%; } }
+@keyframes ls-pulse { 50% { transform: scale(1.12); opacity: 0.75; } }
+@media (prefers-reduced-motion: reduce) { #loading-screen .ls-ring, #loading-screen .ls-logo { animation: none; } }
+
+/* Barres de défilement: fines, blanches, sans flèches */
+@supports not selector(::-webkit-scrollbar) { * { scrollbar-width: thin; scrollbar-color: rgb(255 255 255 / 0.55) transparent; } }
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: rgb(255 255 255 / 0.55); border-radius: 999px; }
+*::-webkit-scrollbar-thumb:hover { background: rgb(255 255 255 / 0.8); }
+*::-webkit-scrollbar-button { display: none; width: 0; height: 0; }

@@ -1,5 +1,6 @@
 import { cleanDisplayText, cleanSectionText } from "../lib/text.js";
 import { monsterImageUrl } from "../lib/images.js";
+import { DEFAULT_LEVEL, MIN_LEVEL, MAX_LEVEL, clampLevel, scaleEntry } from "../lib/songes.js";
 
 const detailNode = document.getElementById("monster-detail");
 
@@ -8,6 +9,7 @@ const MISSING_IMAGE_CLASS =
 
 let spellsData = {};
 let prefersShortInfo = false;
+let songeLevel = DEFAULT_LEVEL;
 
 export function setSpellsData(data) {
   spellsData = data || {};
@@ -190,8 +192,7 @@ function createShortInfoToggle(isShortMode, hasShortInfo, onToggle) {
 }
 
 // Carte de simulation sous la fiche (masquée si le boss n'a pas de données dans data/spells.json)
-function mountSimulation(monster, parentNode) {
-  const data = spellsData[monster.Id];
+function mountSimulation(monster, parentNode, data) {
   if (!data?.spells?.length || !window.TnulSimulator) {
     return;
   }
@@ -380,8 +381,29 @@ const RESISTANCE_ROWS = [
   ["Air", "air", "agility"],
 ];
 
+function createLevelPicker(monster, baseStats) {
+  const wrap = document.createElement("label");
+  wrap.className = "mb-4 flex items-center justify-between gap-3 rounded-md border border-line bg-panel2 px-3 py-2 text-[13px] text-muted";
+  wrap.append("Niveau du monstre");
+  const input = document.createElement("input");
+  input.type = "number";
+  input.min = String(MIN_LEVEL);
+  input.max = String(MAX_LEVEL);
+  input.value = String(songeLevel);
+  input.className = "level-input w-20 rounded-md border border-line bg-panel px-2 py-1 text-right font-medium tabular-nums text-ink focus:border-accent/60 focus:outline-none";
+  input.addEventListener("change", () => {
+    songeLevel = clampLevel(input.value);
+    renderMonsterDetail(monster);
+  });
+  wrap.append(input);
+  return wrap;
+}
+
 function createStatsCard(monster, baseStats) {
   const card = createCard("Caractéristiques", null, "shield");
+  if (baseStats.stats?.ratios) {
+    card.append(createLevelPicker(monster, baseStats));
+  }
 
   // Quatre tuiles: icône, valeur, libellé
   const tiles = document.createElement("div");
@@ -446,7 +468,9 @@ function createStatsCard(monster, baseStats) {
 
   const note = document.createElement("p");
   note.className = "m-0 mt-5 border-t border-line pt-4 text-[10px] leading-relaxed text-muted";
-  note.textContent = "Estimation au palier 225 (Paradoxe I, palier II). Les valeurs évoluent avec le palier du Songe.";
+  note.textContent = baseStats.stats?.ratios
+    ? "Estimation au niveau choisi (225 = Paradoxe I, palier II). Un monstre ne descend jamais sous son niveau réel."
+    : "Estimation au palier 225 (Paradoxe I, palier II). Les valeurs évoluent avec le palier du Songe.";
 
   card.append(note);
   return card;
@@ -459,7 +483,7 @@ export function renderMonsterDetail(monster, showShort = prefersShortInfo) {
     return;
   }
 
-  const baseStats = spellsData[monster.Id];
+  const baseStats = scaleEntry(spellsData[monster.Id], songeLevel);
   const shortSections = getSections(monster, true);
   const hasShortInfo = shortSections.length > 0;
   const isShortMode = hasShortInfo && showShort;
@@ -482,5 +506,5 @@ export function renderMonsterDetail(monster, showShort = prefersShortInfo) {
   detailNode.hidden = false;
   detailNode.innerHTML = "";
   detailNode.append(createHero(monster, baseStats), columns);
-  mountSimulation(monster, detailNode);
+  mountSimulation(monster, detailNode, baseStats);
 }

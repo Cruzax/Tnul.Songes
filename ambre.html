@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ocre d'ambre, combat tactique - Tnul.Songes</title>
+  <link rel="icon" type="image/png" href="assets/images/ui/avoir.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/ambre.css" />
+</head>
+<body class="flex min-h-screen flex-col text-[14px] text-ink">
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <header class="border-b border-line">
+    <div class="mx-auto flex min-h-20 w-full max-w-[1120px] items-center justify-between gap-5 px-4">
+      <a href="./" class="flex items-center gap-3 text-ink no-underline outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent" aria-label="Tnul.Songes, accueil">
+        <span class="flex size-8 items-center justify-center rounded-md border border-line text-accent"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6" /><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5" /><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586" /><path d="m16 16 4 4" /><path d="m19 21 2-2" /><path d="m5 14 4 4" /><path d="m5 21-2-2" /><path d="M7.5 16.5 4 20" /></svg></span>
+        <span class="text-lg font-semibold">Tnul<span class="text-accent">.</span>Songes</span>
+      </a>
+      <nav class="flex items-center gap-1" aria-label="Navigation"><a href="./" class="nav-link rounded-md px-3 py-1.5 text-xs no-underline transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent text-muted hover:text-ink"><span class="hidden sm:inline">Boss</span><span class="sm:hidden">Boss</span></a><a href="salles.html" class="nav-link rounded-md px-3 py-1.5 text-xs no-underline transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent text-muted hover:text-ink"><span class="hidden sm:inline">Positions de départ</span><span class="sm:hidden">Salles</span></a><a href="ambre.html" aria-current="page" class="nav-link rounded-md px-3 py-1.5 text-xs no-underline transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent bg-accent/15 text-ink"><span class="hidden sm:inline">Ocre d'ambre</span><span class="sm:hidden">Ocre</span></a></nav>
+    </div>
+  </header>
+
+  <main class="mx-auto grid w-full max-w-[1120px] flex-1 content-start gap-6 px-4 pb-14 pt-10">
+    <div class="mx-auto max-w-[620px] py-4 text-center">
+      <p class="card-label mb-3">Quête « Le serment de l'ambre »</p>
+      <h2 class="m-0 text-3xl font-semibold">Combat tactique: le Memory des Malters</h2>
+      <p class="mt-3 text-[13px] leading-relaxed text-muted">
+        Seul, 50 PV, 12 PA, 6 PM. 32 Malters cachés (8 par îlot), 4 types, 16 paires à former avant le tour 31, sinon tu es OS.
+        Note ici ce que tu détectes: la page te dit quelles paires révéler ensemble.
+      </p>
+    </div>
+
+    <section class="rounded-lg border border-line bg-panel p-5">
+      <div class="am-toolbar" id="am-tools" role="group" aria-label="Outil de marquage"></div>
+      <p class="am-hint">Clic gauche: applique l'outil choisi sur une case. Clic droit (ou même outil une 2e fois): efface la case.</p>
+
+      <div class="am-layout">
+        <div class="am-board-wrap"><svg id="am-board" class="am-board" role="img" aria-label="Carte du combat"></svg></div>
+        <aside class="am-side">
+          <div class="am-card">
+            <h3 class="am-title">Tour</h3>
+            <div class="am-turn">
+              <button type="button" id="am-turn-minus" aria-label="Tour précédent">−</button>
+              <input id="am-turn" type="number" min="1" max="31" value="1" class="level-input" aria-label="Numéro du tour" />
+              <button type="button" id="am-turn-plus" aria-label="Tour suivant">+</button>
+              <span class="am-turn-max">/ 31</span>
+            </div>
+            <p id="am-demon" class="am-demon"></p>
+          </div>
+
+          <div class="am-card">
+            <h3 class="am-title">Paires à révéler <small>(même tour)</small></h3>
+            <ul id="am-pairs" class="am-pairs"></ul>
+          </div>
+
+          <div class="am-card">
+            <h3 class="am-title">Progression</h3>
+            <p id="am-progress" class="am-progress"></p>
+            <ul id="am-islands" class="am-islands"></ul>
+            <button type="button" id="am-reset" class="am-reset">Tout effacer</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="rounded-lg border border-line bg-panel p-5">
+      <h2 class="card-label">Rappel des sorts</h2>
+      <ul class="am-rules">
+        <li><strong>Prescience de Terrakourial</strong> (2 PV): glyphe sous chaque Malter en ligne de vue, sans le type; indique le nombre restant par îlot.</li>
+        <li><strong>Perception ambrée</strong> (1 PV, remboursé si touché): révèle un Malter sur toute la carte. Deux Malters du même type révélés le même tour sont tués (+2 PV). Une fois 2 révélés, plus de lancer ce tour.</li>
+        <li><strong>Intuition fossile</strong> (0 PV, 1/tour): donne le type des Malters en croix de taille 1, sans les révéler, même sans ligne de vue.</li>
+        <li><strong>Bouclier d'ambre</strong> (3 PV, relance 4 tours): invulnérable un tour.</li>
+        <li>Le Malter démoniaque fait 10 de dégâts si tu finis ton tour dans sa ligne de vue; les Malters révélés non pairés, 1.</li>
+      </ul>
+      <p class="mt-4 text-xs text-muted">Règles du combat d'après le guide de Dofus pour les Noobs. La carte est reconstituée à partir d'une capture: dis-moi s'il manque une case ou un obstacle.</p>
+    </section>
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="mx-auto flex w-full max-w-[1120px] flex-col justify-between gap-3 px-4 py-6 text-[11px] text-muted sm:flex-row">
+      <p class="m-0"><span class="font-medium text-ink">Tnul.Songes</span><span class="mx-3">·</span>Va falloir s'améliorer..</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/lib/background.js" defer></script>
+  <script src="assets/js/ambre.js" defer></script>
+</body>
+</html>

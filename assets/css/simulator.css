@@ -126,3 +126,8 @@
 .sim-swatch.start-ally { background: #1f86f5; }
 .sim-swatch.kimbo-disciple { background: var(--kimbo-disciple); }
 .sim-kimbo-q { margin: 0 0 0.5rem; font-size: 0.85rem; }
+
+/* Champ du niveau: sans les flèches du navigateur */
+input[type="number"].level-input { -moz-appearance: textfield; appearance: textfield; }
+input[type="number"].level-input::-webkit-outer-spin-button,
+input[type="number"].level-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
