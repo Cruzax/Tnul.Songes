@@ -117,3 +117,7 @@ html.intro-seen #loading-screen { display: none; }
 .nav-menu-panel a { display: grid; gap: 0.1rem; padding: 0.5rem 0.65rem; border-radius: 0.375rem; color: rgb(var(--c-ink)); text-decoration: none; font-size: 0.8rem; }
 .nav-menu-panel a small { color: rgb(var(--c-muted)); font-size: 0.7rem; }
 .nav-menu-panel a:hover, .nav-menu-panel a[aria-current="page"] { background: rgb(var(--c-accent) / 0.14); }
+
+/* Bouton Accueil flottant */
+.home-fab { position: fixed; right: 14px; bottom: 14px; z-index: 40; padding: 0.45rem 0.8rem; border: 1px solid rgb(var(--c-line)); border-radius: 999px; background: rgb(var(--c-panel2) / 0.92); color: rgb(var(--c-ink)); font-size: 0.78rem; font-weight: 600; text-decoration: none; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4); backdrop-filter: blur(6px); }
+.home-fab:hover { background: rgb(var(--c-accent) / 0.25); }
