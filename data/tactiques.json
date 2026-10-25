@@ -1,0 +1,154 @@
+{
+  "tools": [
+    {
+      "title": "Ocre d'ambre",
+      "quest": "Le serment de l'ambre",
+      "summary": "Un Memory: 32 Malters cachés sur 4 îlots, 16 paires à former avant le tour 31, avec un Malter rouge qui change d'îlot tous les 2 tours.",
+      "href": "ambre.html",
+      "guide": "le-serment-de-l-ambre"
+    },
+    {
+      "title": "Dofus Pourpre",
+      "quest": "Une âme en peine",
+      "summary": "Un labyrinthe à traverser en 1 PM par tour, pendant que les 4 Minogolems posent des murs devant toi. L'outil calcule 4 tours d'avance.",
+      "href": "minogolem.html",
+      "guide": "une-acircme-en-peine"
+    },
+    {
+      "title": "Dofus Turquoise",
+      "quest": "Extinction des feux",
+      "summary": "Tuer 36 feux en sautant dessus, sans que leurs collisions te tuent. L'outil lit ta capture d'écran et calcule le plan.",
+      "href": "bolgrot.html",
+      "guide": "extinction-des-feux"
+    },
+    {
+      "title": "Dofus Ivoire",
+      "quest": "Le bonheur est dans le spray",
+      "summary": "Une grille de glyphes de 4 couleurs: atteindre les 4 coins roses en sautant d'une case. L'outil lit ta capture d'écran et trouve les bonds.",
+      "href": "rainikrone.html",
+      "guide": "le-bonheur-est-dans-le-spray"
+    }
+  ],
+  "fights": [
+    {
+      "title": "Dark Vlad",
+      "quest": "Ultime réminiscence (chaîne du Dofus Émeraude)",
+      "goal": "Tuer Dark Vlad en dragon: 10 000 PV, 4 PA et 4 PM, un seul sort par tour (3 PA chacun, relance de 5 tours).",
+      "mechanic": "Ses Flammes Diagonales et son Épée Kibrûl font très mal et te retirent 50 % de résistance Feu pour tout le combat. Les Flammes Diagonales demandent une ligne de vue et une diagonale; l'Épée porte à 2 cases.",
+      "tips": [
+        "Reste en ligne avec lui et à 6 cases ou plus: il ne peut pas te toucher en diagonale.",
+        "Les obstacles coupent la ligne de vue des Flammes Diagonales.",
+        "Ses états annoncent les relances de ses gros sorts: regarde-les à chaque tour.",
+        "Au bord de la carte, Courage échange ta place avec la sienne (4 cases max). Sagesse (obtenu en répondant bien à la Mystérieuse Inconnue) remet toutes tes relances à 0, une seule fois."
+      ],
+      "guide": "ultime-reacuteminiscence"
+    },
+    {
+      "title": "La bobine du destin",
+      "quest": "La fin... ou le commencement (1er combat)",
+      "goal": "Mettre à 0 PV une bobine répétée 4 fois (10 PV au total) avant le tour 20, sinon tu es tué.",
+      "mechanic": "Des glyphes rouges apparaissent et disparaissent très vite sous les 4 appareils. Il faut frapper celui où le glyphe est apparu en dernier; un bon coup retire 1 PV et lance le tour suivant tout de suite.",
+      "tips": [
+        "C'est un test d'observation: aucune aide possible hors d'un enregistrement vidéo.",
+        "Un mauvais coup coûte environ 500 de dégâts, et le Trésor se soigne au 2e."
+      ],
+      "guide": "la-fin-ou-le-commencement"
+    },
+    {
+      "title": "Les petites machines",
+      "quest": "La fin... ou le commencement (2e combat)",
+      "goal": "Placer chaque petite machine sur l'un des 4 glyphes de la grosse machine du centre.",
+      "mechanic": "Frapper une petite machine en étant en ligne avec elle l'attire à ton corps à corps. Il faut donc de la mobilité: sorts de déplacement et 6 PM.",
+      "tips": [],
+      "guide": "la-fin-ou-le-commencement"
+    },
+    {
+      "title": "La course aux glyphes",
+      "quest": "La fin... ou le commencement (3e combat)",
+      "goal": "Atteindre la case verte au bout de la machine en moins de 10 tours.",
+      "mechanic": "Chaque glyphe où tu passes te fait perdre 1 tour. Marron: retour à la position de début de tour. Rouge: −1 à la durée des effets. Violet: −1 PM (infini). Bleu: repoussé de 2 cases.",
+      "tips": [
+        "Tu peux déplacer une petite machine en la frappant, pour dégager un glyphe gênant."
+      ],
+      "guide": "la-fin-ou-le-commencement"
+    },
+    {
+      "title": "Les boules élémentaires",
+      "quest": "Dans la gueule du dragon",
+      "goal": "Amener chacune des 6 petites boules sur l'une des 4 cases du glyphe de sa couleur.",
+      "mechanic": "Tu choisis la direction en allant sur l'un des 4 glyphes blancs autour de toi (cela te retire tous tes PM pour le tour: une seule direction par tour). Chaque coup sur une grosse boule fait avancer toutes les petites d'une case dans cette direction, et celle de la boule frappée de deux.",
+      "tips": [
+        "Une petite boule arrivée sur son glyphe ne bouge plus.",
+        "Passer sur le glyphe d'une autre couleur la tue: la grosse boule la ré-invoque, mais le combat est alors perdu.",
+        "Fais reculer les boules plutôt que de les laisser passer sur un mauvais glyphe."
+      ],
+      "guide": "dans-la-gueule-du-dragon"
+    },
+    {
+      "title": "Les Souffles du Reflet",
+      "quest": "En ce jardin qui nous unit (Dorigami)",
+      "goal": "Rendre les 20 Souffles de la même couleur (10 noirs et 10 blancs au départ). 50 PV, 10 PA, 1 PM, et 1 PV perdu à chaque début de tour.",
+      "mechanic": "Vibration Paradoxale (1 PV, en ligne, portée infinie): un Souffle noir est repoussé d'une case, un blanc est attiré, et il change de couleur ainsi que tous les Souffles alignés avec sa case d'arrivée. Réciprocité (3 PV, 2 à 5 PO, 1 fois par tour): même changement de couleur, mais tu échanges ta place avec lui.",
+      "tips": [
+        "Cible un Souffle de façon que sa case d'arrivée ne soit alignée qu'avec des Souffles de l'autre couleur à convertir.",
+        "Vise une couleur et tiens-t'y: choisir tout noir ou tout blanc selon la disposition évite les allers-retours."
+      ],
+      "guide": "en-ce-jardin-qui-nous-unit"
+    },
+    {
+      "title": "Crocoburio contre son père",
+      "quest": "Un nouvel héritier (Dofus Ébène)",
+      "goal": "Crocoburio doit avancer de 14 cases jusqu'au Dofus avant Grougalorasalar, qui n'en a que 8 à faire: 8 mauvais placements et c'est perdu. Pas de PM, tu te déplaces avec tes 4 sorts.",
+      "mechanic": "Chaque tour, imagine que tu es au centre de la carte: des glyphes noirs et blancs sont projetés autour de toi, et des piliers portent le dessin de tes sorts. Un glyphe noir sur un pilier fait avancer le dragon noir. Aucun pilier touché: Crocoburio avance. Un glyphe blanc sur un pilier: Crocoburio avance et le sort de ce pilier se recharge.",
+      "tips": [
+        "Ne reste jamais sur place et ne finis jamais sur le glyphe noir du centre.",
+        "Finir sur un glyphe blanc du centre recharge tes sorts de 1.",
+        "Si le curseur d'un sort atteint le glyphe noir, il faut le recharger avec un glyphe blanc sur un pilier avant de pouvoir le relancer."
+      ],
+      "guide": "un-nouvel-heritier"
+    },
+    {
+      "title": "La petite arakne",
+      "quest": "L'arakne de Leng et Le plateau de Leng (Dofus Turquoise)",
+      "goal": "Transformé en petite arakne (13 PV, 3 PA, 2 PM), franchir la horde de monstres jusqu'à la case bleue.",
+      "mechanic": "Tes 3 sorts: Morsure (mêlée, sert aussi à manger un œuf pour te soigner), Invocation d'Œuf, Petite Course (+2 PM, intacclable). Dans le 2e combat, un glyphe violet autour de chaque monstre te tue sauf si tu as lancé Petite Course, et le glyphe marron te rend invulnérable.",
+      "tips": [
+        "Les placements des monstres sont fixes: le guide donne des méthodes pas à pas, tour par tour, qui marchent à chaque fois."
+      ],
+      "guide": "larakne-de-leng"
+    },
+    {
+      "title": "Le roi Beldarion",
+      "quest": "Une dernière volonté",
+      "goal": "Tu incarnes le roi Beldarion contre les brûlames, avec 3 sorts de feu: Abolition (en ligne, 3 PO, 2 fois par tour), Empire (10 PO, sans ligne de vue) et Oligarchie (zone de rayon 2, 10 PO).",
+      "mechanic": "Combat de placement classique contre des monstres: pas de règle spéciale.",
+      "tips": [
+        "Tourne autour de la carte et utilise les blocs pour couper la ligne de vue des monstres."
+      ],
+      "guide": "une-derniere-volonte"
+    },
+    {
+      "title": "Barnabé et les démons",
+      "quest": "Barnabé dans l'espace",
+      "goal": "Tu es un épouvantail invulnérable (1 PV, 3 PA, 0 PM) qui invoque des gladiateurs (Ecaflip, Crâ, Féca) et soutient Barnabé, qui ne doit pas mourir.",
+      "mechanic": "Les sorts de frappe de tes invocations ne se lancent qu'une fois par monstre et par tour. Tu as aussi Éponge (soin de 10 %) et Engueulade (+100 dommages).",
+      "tips": [
+        "Empêche Barnabé de foncer dans le tas dès le début.",
+        "Place tes invocations derrière des obstacles pour éviter le poison du Soissanth.",
+        "N'entame pas le Trantroa: plus il perd de PV, plus il tape fort. Finis-le d'un coup ou garde-le pour la fin.",
+        "Frappe chaque monstre avec l'élément qui lui est faible."
+      ],
+      "guide": "barnabe-dans-l-espace"
+    },
+    {
+      "title": "Le Trésor et les Vigicoffres",
+      "quest": "Combat final des chasses au trésor",
+      "goal": "Frapper autant de fois le bon Vigicoffre que le Trésor a de PV (5 à 10).",
+      "mechanic": "Parmi les 4 Vigicoffres, un seul a une apparence différente (il est sur 4 pattes). Le frapper retire 1 PV au Trésor, puis il change de place avec un autre. Un mauvais coffre coûte environ 500 de dégâts; au 2e, le Trésor se soigne de 1 PV; au 3e, tu perds une tentative.",
+      "tips": [
+        "Suis des yeux le coffre aux 4 pattes pendant qu'il échange sa place: c'est tout le combat."
+      ],
+      "guide": "chasse-au-tresor-quotidienne"
+    }
+  ]
+}

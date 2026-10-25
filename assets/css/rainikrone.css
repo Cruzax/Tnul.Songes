@@ -1,0 +1,70 @@
+/* Page d'aide au combat de la Rainikrone (Dofus Ivoire). Mêmes couleurs de carte que la page des salles. */
+.rk-toolbar { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.rk-tool { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.3rem 0.7rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(255 255 255 / 0.05); color: inherit; font: inherit; font-size: 0.82rem; cursor: pointer; }
+.rk-tool:hover { border-color: rgb(var(--c-accent) / 0.7); }
+.rk-tool[aria-pressed="true"] { background: rgb(var(--c-accent) / 0.18); border-color: rgb(var(--c-accent) / 0.9); }
+.rk-chip, .rk-swatch { display: inline-block; width: 0.85rem; height: 0.85rem; flex: none; border-radius: 3px; border: 1px solid rgb(255 255 255 / 0.4); vertical-align: -0.12rem; }
+.rk-hint { margin: 0.6rem 0 0; font-size: 0.78rem; color: rgb(var(--c-muted)); }
+.rk-compass { margin: 0.6rem 0 0; text-align: center; font-size: 0.78rem; color: rgb(var(--c-muted)); }
+
+.rk-layout { display: grid; gap: 1.2rem; margin-top: 1rem; }
+@media (min-width: 900px) { .rk-layout { grid-template-columns: minmax(0, 1fr) 320px; align-items: start; } }
+.rk-board-wrap { min-width: 0; }
+.rk-board { display: block; width: 100%; max-width: 760px; margin: 0 auto; height: auto; user-select: none; touch-action: none; filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.45)); }
+
+.rk-step-bar { display: flex; align-items: center; justify-content: center; gap: 0.8rem; margin-bottom: 0.6rem; }
+.rk-step-label { min-width: 11rem; text-align: center; font-size: 0.85rem; font-weight: 600; }
+.rk-round { width: 2rem; height: 2rem; border: 1px solid rgb(var(--c-line)); border-radius: 999px; background: rgb(255 255 255 / 0.05); color: inherit; font-size: 0.7rem; cursor: pointer; }
+.rk-round:hover:not(:disabled) { border-color: rgb(var(--c-accent) / 0.7); }
+.rk-round:disabled { opacity: 0.35; cursor: default; }
+
+/* Carte */
+.rk-slab-l { fill: #3c4666; stroke: rgba(0, 0, 0, 0.35); stroke-width: 0.5; stroke-linejoin: round; }
+.rk-slab-r { fill: #2a3350; stroke: rgba(0, 0, 0, 0.35); stroke-width: 0.5; stroke-linejoin: round; }
+.rk-cell { fill: #76829f; stroke: rgba(255, 255, 255, 0.08); stroke-width: 0.6; cursor: pointer; }
+.rk-cell.alt { fill: #5a6683; }
+.rk-cell:hover { stroke: #fff; stroke-width: 1.5; }
+.rk-cell.c1 { fill: #f5b301; }
+.rk-cell.c2 { fill: #e5484d; }
+.rk-cell.c3 { fill: #2fb67c; }
+.rk-cell.c4 { fill: #15181f; stroke: rgba(255, 255, 255, 0.28); }
+.rk-cell.c5 { fill: #e879b9; }
+.rk-cell.trail { stroke: #fff; stroke-width: 1.4; }
+.rk-cell.target { stroke: #6ebaed; stroke-width: 2.2; }
+.rk-label { fill: rgba(0, 0, 0, 0.55); font-size: 10px; font-weight: 700; text-anchor: middle; pointer-events: none; }
+.rk-label.light { fill: rgba(255, 255, 255, 0.8); }
+.rk-wall-top { fill: #9aa6c2; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; pointer-events: none; }
+.rk-wall-l { fill: #6d7899; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; pointer-events: none; }
+.rk-wall-r { fill: #4e587a; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; pointer-events: none; }
+.rk-player { pointer-events: none; }
+.rk-player-body { fill: #6ebaed; stroke: #fff; stroke-width: 1.5; }
+.rk-player-shadow { fill: rgba(0, 0, 0, 0.35); }
+
+/* Panneau */
+.rk-side { display: grid; gap: 0.8rem; }
+.rk-card { padding: 0.8rem 0.9rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem; background: rgb(var(--c-panel2)); }
+.rk-card[hidden] { display: none; }
+.rk-title { margin: 0 0 0.6rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgb(var(--c-accent)); }
+.rk-count { margin: 0 0 0.6rem; font-size: 0.82rem; color: rgb(var(--c-muted)); }
+.rk-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.rk-primary { width: 100%; margin-top: 0.7rem; padding: 0.55rem 0.8rem; border: 1px solid rgb(var(--c-accent) / 0.9); border-radius: 0.375rem; background: rgb(var(--c-accent) / 0.18); color: rgb(var(--c-ink)); font: inherit; font-weight: 600; cursor: pointer; }
+.rk-primary:hover:not(:disabled) { background: rgb(var(--c-accent) / 0.3); }
+.rk-primary:disabled { opacity: 0.4; cursor: default; }
+.rk-secondary { padding: 0.3rem 0.7rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(255 255 255 / 0.05); color: inherit; font: inherit; font-size: 0.8rem; cursor: pointer; }
+.rk-secondary:hover { border-color: rgb(var(--c-accent) / 0.7); }
+.rk-stop { margin-top: 0.5rem; }
+.rk-stop[hidden] { display: none; }
+.rk-message { margin: 0.5rem 0 0; min-height: 1.1em; font-size: 0.8rem; color: rgb(var(--c-warm)); }
+.rk-message.ok { color: #6fd39b; }
+.rk-summary { margin: 0 0 0.6rem; font-size: 0.8rem; color: rgb(var(--c-muted)); }
+.rk-plan { margin: 0 0 0.7rem; padding: 0; list-style: none; display: grid; gap: 0.25rem; max-height: 420px; overflow: auto; counter-reset: jump; }
+.rk-plan li { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0.5rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(var(--c-panel)); font-size: 0.82rem; cursor: pointer; }
+.rk-plan li::before { counter-increment: jump; content: counter(jump); min-width: 1.4rem; font-size: 0.7rem; color: rgb(var(--c-muted)); text-align: right; }
+.rk-plan li.current { border-color: rgb(var(--c-accent)); }
+.rk-plan .arrow { min-width: 1.4rem; font-size: 1.05rem; line-height: 1; text-align: center; }
+.rk-plan .landing { margin-left: auto; display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.72rem; color: rgb(var(--c-muted)); }
+.rk-rules { margin: 0.8rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.45rem; font-size: 0.85rem; line-height: 1.5; }
+
+.rk-cell.doubt { stroke: #fff; stroke-width: 2.4; stroke-dasharray: 4 3; }
+.rk-board-wrap.dragging { outline: 2px dashed rgb(var(--c-accent)); outline-offset: 6px; border-radius: 0.5rem; }
+.rk-import { border-color: rgb(var(--c-accent) / 0.6); }

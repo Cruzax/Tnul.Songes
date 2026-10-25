@@ -1,0 +1,75 @@
+/* Page d'aide au combat de Bolgrot (Dofus Turquoise). Mêmes couleurs de carte que la page des salles. */
+.bg-toolbar { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.bg-tool { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.3rem 0.7rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(255 255 255 / 0.05); color: inherit; font: inherit; font-size: 0.82rem; cursor: pointer; }
+.bg-tool:hover { border-color: rgb(var(--c-accent) / 0.7); }
+.bg-tool[aria-pressed="true"] { background: rgb(var(--c-accent) / 0.18); border-color: rgb(var(--c-accent) / 0.9); }
+.bg-swatch { display: inline-block; width: 0.85rem; height: 0.85rem; flex: none; border-radius: 3px; border: 1px solid rgb(255 255 255 / 0.4); }
+.bg-hint { margin: 0.6rem 0 0; font-size: 0.78rem; color: rgb(var(--c-muted)); }
+
+.bg-layout { display: grid; gap: 1.2rem; margin-top: 1rem; }
+@media (min-width: 900px) { .bg-layout { grid-template-columns: minmax(0, 1fr) 320px; align-items: start; } }
+.bg-board-wrap { min-width: 0; }
+.bg-board { display: block; width: 100%; max-width: 860px; margin: 0 auto; height: auto; user-select: none; filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.45)); }
+.bg-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 1rem; margin: 0.7rem 0 0; padding: 0; list-style: none; font-size: 0.78rem; color: rgb(var(--c-muted)); }
+.bg-legend li { display: flex; align-items: center; gap: 0.35rem; }
+
+.bg-step-bar { display: flex; align-items: center; justify-content: center; gap: 0.8rem; margin-bottom: 0.6rem; }
+.bg-step-label { min-width: 12rem; text-align: center; font-size: 0.85rem; font-weight: 600; }
+.bg-round { width: 2rem; height: 2rem; border: 1px solid rgb(var(--c-line)); border-radius: 999px; background: rgb(255 255 255 / 0.05); color: inherit; font-size: 0.7rem; cursor: pointer; }
+.bg-round:hover:not(:disabled) { border-color: rgb(var(--c-accent) / 0.7); }
+.bg-round:disabled { opacity: 0.35; cursor: default; }
+
+/* Carte */
+.bg-slab-l { fill: #3c4666; stroke: rgba(0, 0, 0, 0.35); stroke-width: 0.5; stroke-linejoin: round; }
+.bg-slab-r { fill: #2a3350; stroke: rgba(0, 0, 0, 0.35); stroke-width: 0.5; stroke-linejoin: round; }
+.bg-cell { fill: #76829f; stroke: rgba(255, 255, 255, 0.08); stroke-width: 0.6; cursor: pointer; }
+.bg-cell.alt { fill: #5a6683; }
+.bg-cell:hover { stroke: #fff; stroke-width: 1.5; }
+.bg-cell.glyph { fill: #8a4fc8; }
+.bg-cell.landed { stroke: #f0c542; stroke-width: 1.8; }
+.bg-cell.killed { fill: #e0a24a; }
+.bg-wall-top { fill: #9aa6c2; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; pointer-events: none; }
+.bg-wall-l { fill: #6d7899; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; pointer-events: none; }
+.bg-wall-r { fill: #4e587a; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; pointer-events: none; }
+.bg-fire { pointer-events: none; }
+.bg-fire-body { fill: #e8702a; stroke: #7a2a08; stroke-width: 1; }
+.bg-fire-core { fill: #ffd27a; }
+.bg-fire.moved .bg-fire-body { fill: #f0a030; }
+.bg-player { pointer-events: none; }
+.bg-player-body { fill: #6ebaed; stroke: #fff; stroke-width: 1.5; }
+.bg-player-shadow { fill: rgba(0, 0, 0, 0.35); }
+
+/* Panneau */
+.bg-side { display: grid; gap: 0.8rem; }
+.bg-card { padding: 0.8rem 0.9rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem; background: rgb(var(--c-panel2)); }
+.bg-card[hidden] { display: none; }
+.bg-title { margin: 0 0 0.6rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgb(var(--c-accent)); }
+.bg-fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; font-size: 0.75rem; color: rgb(var(--c-muted)); }
+.bg-fields label, .bg-effort { display: grid; gap: 0.25rem; font-size: 0.75rem; color: rgb(var(--c-muted)); }
+.bg-input { width: 100%; padding: 0.3rem 0.4rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(var(--c-panel)); color: rgb(var(--c-ink)); font: inherit; font-size: 0.9rem; text-align: center; -moz-appearance: textfield; appearance: textfield; }
+.bg-input::-webkit-outer-spin-button, .bg-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+select.bg-input { text-align: left; }
+.bg-count { margin: 0.6rem 0 0; font-size: 0.8rem; color: rgb(var(--c-muted)); }
+.bg-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+.bg-primary { width: 100%; margin-top: 0.7rem; padding: 0.55rem 0.8rem; border: 1px solid rgb(var(--c-accent) / 0.9); border-radius: 0.375rem; background: rgb(var(--c-accent) / 0.18); color: rgb(var(--c-ink)); font: inherit; font-weight: 600; cursor: pointer; }
+.bg-primary:hover:not(:disabled) { background: rgb(var(--c-accent) / 0.3); }
+.bg-primary:disabled { opacity: 0.4; cursor: default; }
+.bg-secondary { padding: 0.3rem 0.7rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(255 255 255 / 0.05); color: inherit; font: inherit; font-size: 0.8rem; cursor: pointer; }
+.bg-secondary:hover { border-color: rgb(var(--c-accent) / 0.7); }
+.bg-stop { margin-top: 0.5rem; }
+.bg-stop[hidden] { display: none; }
+.bg-message { margin: 0.5rem 0 0; min-height: 1.1em; font-size: 0.8rem; color: rgb(var(--c-warm)); }
+.bg-message.ok { color: #6fd39b; }
+.bg-summary { margin: 0 0 0.6rem; font-size: 0.8rem; color: rgb(var(--c-muted)); }
+
+.bg-plan { margin: 0 0 0.7rem; padding: 0; list-style: none; display: grid; gap: 0.25rem; max-height: 420px; overflow: auto; }
+.bg-plan li { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0.5rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(var(--c-panel)); font-size: 0.82rem; cursor: pointer; }
+.bg-plan li.current { border-color: rgb(var(--c-accent)); }
+.bg-plan li.turn { background: transparent; border: 0; padding: 0.4rem 0 0.1rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgb(var(--c-accent)); cursor: default; }
+.bg-plan .arrow { min-width: 1.6rem; font-size: 1rem; line-height: 1; text-align: center; }
+.bg-plan .kill { margin-left: auto; font-size: 0.7rem; color: #6fd39b; }
+.bg-plan .cost { margin-left: auto; font-size: 0.7rem; color: rgb(var(--c-muted)); }
+.bg-rules { margin: 0.8rem 0 0; padding-left: 1.1rem; display: grid; gap: 0.4rem; font-size: 0.85rem; line-height: 1.5; }
+
+.bg-board-wrap.dragging { outline: 2px dashed rgb(var(--c-accent)); outline-offset: 6px; border-radius: 0.5rem; }
+.bg-import { border-color: rgb(var(--c-accent) / 0.6); }

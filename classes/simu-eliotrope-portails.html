@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simu portails Eliotrope</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #14131A; --card: #1E1D26; --border: #2E2C3A; --text: #EEE8DC; --muted: #A9A3B5; --accent: #E8B04B;
+  --portal: #4FD1D9; --warn: #F07A60;
+  --font-title: 'Barlow Condensed', 'Arial Narrow', sans-serif; --font-text: 'Barlow', Arial, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font: 16px/1.4 var(--font-text); }
+main { max-width: 1240px; margin: 0 auto; padding: 40px 24px 60px; }
+a { color: var(--accent); }
+.kicker { font-family: var(--font-title); font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); font-size: 15px; }
+h1 { font-family: var(--font-title); font-weight: 800; color: var(--accent); font-size: 64px; line-height: 1; margin: 6px 0 8px; }
+.intro { color: var(--muted); max-width: 760px; }
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; margin-top: 28px; align-items: start; }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } h1 { font-size: 44px; } }
+.board { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+.board svg { width: 100%; height: auto; display: block; user-select: none; }
+.cell { fill: #17161D; stroke: var(--border); stroke-width: 1; cursor: pointer; }
+.cell:hover { fill: #24222E; }
+.p-ring { fill: none; stroke: var(--portal); stroke-width: 3.5; pointer-events: none; }
+.p-glow { fill: var(--portal); opacity: .14; pointer-events: none; }
+.p-entry .p-ring { stroke: var(--accent); }
+.p-entry .p-glow { fill: var(--accent); opacity: .22; }
+.p-exit .p-glow { opacity: .35; }
+.p-num { fill: var(--text); font: 700 15px var(--font-title); text-anchor: middle; pointer-events: none; }
+.hop { fill: none; stroke: var(--portal); stroke-width: 3; stroke-dasharray: 2 6; stroke-linecap: round; pointer-events: none; }
+.hop-tie { stroke: var(--warn); }
+.hop-head { fill: var(--portal); pointer-events: none; }
+.hop-head.hop-tie { fill: var(--warn); stroke: none; }
+.hop-label { fill: var(--text); font: 700 14px var(--font-title); text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: var(--bg); stroke-width: 4px; }
+.clock { pointer-events: none; }
+.clock line { stroke: var(--warn); stroke-width: 2; stroke-dasharray: 4 4; }
+.clock path { fill: none; stroke: var(--warn); stroke-width: 2; }
+
+.panel { display: flex; flex-direction: column; gap: 16px; }
+.box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+.box h2 { font-family: var(--font-title); font-weight: 700; font-size: 22px; text-transform: uppercase; margin-bottom: 10px; }
+.modes, .seg { display: flex; gap: 6px; flex-wrap: wrap; }
+button, select { font: 600 15px var(--font-text); color: var(--text); background: #17161D; border: 1px solid var(--border);
+  border-radius: 8px; padding: 7px 12px; cursor: pointer; }
+button:hover, select:hover { border-color: var(--muted); }
+button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+label { display: block; color: var(--muted); font-size: 14px; margin: 10px 0 4px; }
+select { width: 100%; }
+.result .big { font-family: var(--font-title); font-weight: 800; font-size: 40px; color: var(--accent); line-height: 1; }
+.result ol { margin: 10px 0 0 20px; }
+.result li { margin: 3px 0; }
+.tie { color: var(--warn); }
+.muted { color: var(--muted); font-size: 14px; }
+.warn { border-color: #5a3a2e; background: #241a1a; }
+.warn b { color: var(--warn); }
+.back-menu { position: fixed; top: 16px; left: 16px; z-index: 10; font: 700 16px var(--font-title); letter-spacing: .06em;
+  color: var(--accent); background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; text-decoration: none; }
+.back-menu:hover { border-color: var(--accent); }
+kbd { font: 600 13px var(--font-text); border: 1px solid var(--border); border-radius: 4px; padding: 0 5px; }
+</style>
+</head>
+<body>
+<a class="back-menu" href="../classes.html" target="_top">← Menu</a>
+<main>
+  <div class="kicker">Eliotrope · simulateur</div>
+  <h1>Redirection des portails</h1>
+  <p class="intro">Pose jusqu'à 4 portails, choisis celui dans lequel tu lances le sort : le simu montre le chemin à travers le réseau et le portail de sortie.
+    Règle utilisée : depuis chaque portail, le sort va vers le <b>portail non visité le plus proche</b> (distance en cases), et ressort par le dernier.</p>
+
+  <div class="layout">
+    <div class="board"><svg id="grid" viewBox="0 0 100 100" aria-label="Grille de combat"></svg></div>
+
+    <div class="panel">
+      <div class="box">
+        <h2>Outils</h2>
+        <div class="modes" role="group" aria-label="Mode de clic">
+          <button data-mode="portail" aria-pressed="true">Poser / retirer un portail</button>
+          <button data-mode="entree" aria-pressed="false">Choisir l'entrée</button>
+        </div>
+        <p class="muted" style="margin-top:10px">Astuce : <kbd>Maj</kbd> + clic sur un portail = choisir l'entrée.</p>
+        <div class="seg" style="margin-top:10px">
+          <button id="reset">Tout effacer</button>
+          <button id="exemple">Exemple avec égalité</button>
+        </div>
+      </div>
+
+      <div class="box result" id="result"></div>
+
+      <div class="box warn">
+        <h2>Égalités : à vérifier</h2>
+        <p class="muted">Quand deux portails sont à la même distance, les sources ne sont pas d'accord. Choisis le réglage, teste la même config en jeu et garde celui qui colle.</p>
+        <label for="sens">Sens de lecture</label>
+        <select id="sens">
+          <option value="horaire">Horaire</option>
+          <option value="anti">Anti-horaire</option>
+        </select>
+        <label for="depart">« Midi » de l'horloge (centrée sur le portail actuel)</label>
+        <select id="depart">
+          <option value="hd">Diagonale haut-droite</option>
+          <option value="h">Haut de l'écran</option>
+          <option value="hg">Diagonale haut-gauche</option>
+          <option value="d">Droite de l'écran</option>
+        </select>
+        <p class="muted" style="margin-top:10px">Par défaut : horaire, départ en haut-droite (source la plus récente trouvée). Les arcs <b>orange</b> marquent les sauts décidés par une égalité.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+// Grille isométrique façon Dofus : cases (x, y), affichées en losanges.
+const N = 13;               // cases par côté
+const W = 64, H = 32;       // taille d'une case à l'écran
+const MAX_PORTAILS = 4;
+const BONUS_PAR_CASE = 2;   // % de dommages et soins par case (DofusDB, effet 1181 du sort Portail)
+
+const svg = document.getElementById('grid');
+const NS = 'http://www.w3.org/2000/svg';
+const OX = N * W / 2, OY = H / 2 + 6;
+
+const state = { portails: [], entree: null, mode: 'portail' };
+
+const screen = ({ x, y }) => ({ sx: OX + (x - y) * W / 2, sy: OY + (x + y) * H / 2 });
+const key = (p) => `${p.x},${p.y}`;
+const dist = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
+
+// Direction de « midi » : vecteur écran.
+const DEPARTS = {
+  hd: { dx: W / 2, dy: -H / 2 },   // case voisine en haut à droite
+  hg: { dx: -W / 2, dy: -H / 2 },  // case voisine en haut à gauche
+  h: { dx: 0, dy: -1 },
+  d: { dx: 1, dy: 0 },
+};
+
+/** Angle sur l'horloge (0 = midi), en degrés, dans le sens choisi. */
+function clockAngle(from, to, sens, depart) {
+  const a = screen(from), b = screen(to);
+  const ang = (dx, dy) => Math.atan2(dx, -dy) * 180 / Math.PI;   // 0 = haut, horaire positif
+  const ref = DEPARTS[depart];
+  let t = (ang(b.sx - a.sx, b.sy - a.sy) - ang(ref.dx, ref.dy) + 720) % 360;
+  if (sens === 'anti') t = (360 - t) % 360;
+  return t;
+}
+
+/** Chemin du sort : plus proche portail non visité, égalités départagées à l'horloge. */
+function chemin(portails, entree, sens, depart) {
+  const path = [entree];
+  const hops = [];
+  let restants = portails.filter((p) => key(p) !== key(entree));
+  let cur = entree;
+  while (restants.length) {
+    const dmin = Math.min(...restants.map((p) => dist(cur, p)));
+    const proches = restants.filter((p) => dist(cur, p) === dmin);
+    let next = proches[0];
+    let tie = false;
+    if (proches.length > 1) {
+      tie = true;
+      next = proches.reduce((best, p) =>
+        clockAngle(cur, p, sens, depart) < clockAngle(cur, best, sens, depart) ? p : best);
+    }
+    hops.push({ from: cur, to: next, d: dmin, tie, candidats: proches.length });
+    path.push(next);
+    restants = restants.filter((p) => key(p) !== key(next));
+    cur = next;
+  }
+  return { path, hops };
+}
+
+function el(name, attrs, parent = svg) {
+  const e = document.createElementNS(NS, name);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  parent.appendChild(e);
+  return e;
+}
+
+function draw() {
+  const sens = document.getElementById('sens').value;
+  const depart = document.getElementById('depart').value;
+  svg.innerHTML = '';
+  svg.setAttribute('viewBox', `0 0 ${N * W} ${N * H + 12}`);
+
+  for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+    const { sx, sy } = screen({ x, y });
+    const c = el('polygon', {
+      class: 'cell',
+      points: `${sx},${sy - H / 2} ${sx + W / 2},${sy} ${sx},${sy + H / 2} ${sx - W / 2},${sy}`,
+    });
+    c.addEventListener('click', (ev) => clic({ x, y }, ev.shiftKey));
+  }
+
+  const entree = state.entree && state.portails.find((p) => key(p) === key(state.entree));
+  const res = entree ? chemin(state.portails, entree, sens, depart) : null;
+
+  if (res) {
+    res.hops.forEach((h, i) => {
+      const a = screen(h.from), b = screen(h.to);
+      const mx = (a.sx + b.sx) / 2, my = (a.sy + b.sy) / 2 - 28 - Math.min(60, Math.hypot(b.sx - a.sx, b.sy - a.sy) / 6);
+      const cls = h.tie ? 'hop hop-tie' : 'hop';
+      el('path', { class: cls, d: `M${a.sx} ${a.sy - 10} Q${mx} ${my} ${b.sx} ${b.sy - 10}` });
+      const ang = Math.atan2(b.sy - 10 - my, b.sx - mx);
+      const hx = b.sx, hy = b.sy - 10;
+      const p1 = [hx - 12 * Math.cos(ang - 0.45), hy - 12 * Math.sin(ang - 0.45)];
+      const p2 = [hx - 12 * Math.cos(ang + 0.45), hy - 12 * Math.sin(ang + 0.45)];
+      el('polygon', { class: h.tie ? 'hop-head hop-tie' : 'hop-head', points: `${hx},${hy} ${p1} ${p2}` });
+      el('text', { class: 'hop-label', x: mx, y: my + 22 }).textContent = `${i + 1} · ${h.d} c.`;
+    });
+    // Horloge sur le premier portail où une égalité a été départagée.
+    const t = res.hops.find((h) => h.tie);
+    if (t) {
+      const c = screen(t.from), ref = DEPARTS[depart];
+      const len = Math.hypot(ref.dx, ref.dy), R = 46;
+      const ux = ref.dx / len, uy = ref.dy / len;
+      const g = el('g', { class: 'clock' });
+      el('line', { x1: c.sx, y1: c.sy, x2: c.sx + ux * R, y2: c.sy + uy * R }, g);
+      const s = sens === 'anti' ? -1 : 1;
+      const rot = (vx, vy, deg) => { const r = deg * Math.PI / 180 * s; return [vx * Math.cos(r) - vy * Math.sin(r), vx * Math.sin(r) + vy * Math.cos(r)]; };
+      const [ex, ey] = rot(ux, uy, 50);
+      el('path', { d: `M${c.sx + ux * R} ${c.sy + uy * R} A${R} ${R} 0 0 ${s > 0 ? 1 : 0} ${c.sx + ex * R} ${c.sy + ey * R}` }, g);
+    }
+  }
+
+  state.portails.forEach((p, i) => {
+    const { sx, sy } = screen(p);
+    const isEntry = res && key(p) === key(res.path[0]);
+    const isExit = res && res.path.length > 1 && key(p) === key(res.path.at(-1));
+    const g = el('g', { class: isEntry ? 'p-entry' : isExit ? 'p-exit' : '' });
+    el('ellipse', { class: 'p-glow', cx: sx, cy: sy - 10, rx: 20, ry: 26 }, g);
+    el('ellipse', { class: 'p-ring', cx: sx, cy: sy - 10, rx: 10, ry: 19 }, g);
+    const order = res ? res.path.findIndex((q) => key(q) === key(p)) : -1;
+    el('text', { class: 'p-num', x: sx, y: sy - 4 }, g).textContent = order >= 0 ? (order === 0 ? 'E' : order === res.path.length - 1 ? 'S' : order) : '';
+  });
+
+  renderResult(res);
+}
+
+function renderResult(res) {
+  const box = document.getElementById('result');
+  if (state.portails.length < 2) {
+    box.innerHTML = `<h2>Résultat</h2><p class="muted">Pose au moins 2 portails (${state.portails.length}/${MAX_PORTAILS}).</p>`;
+    return;
+  }
+  if (!res) {
+    box.innerHTML = `<h2>Résultat</h2><p class="muted">Choisis le portail d'entrée (bouton « Choisir l'entrée » ou <kbd>Maj</kbd> + clic).</p>`;
+    return;
+  }
+  const total = res.hops.reduce((s, h) => s + h.d, 0);
+  const ties = res.hops.filter((h) => h.tie).length;
+  box.innerHTML = `<h2>Résultat</h2>
+    <div class="big">+${total * BONUS_PAR_CASE} %</div>
+    <p class="muted">dommages et soins si le bonus suit tout le chemin (${total} cases × ${BONUS_PAR_CASE} %).</p>
+    <ol>${res.hops.map((h, i) => `<li${h.tie ? ' class="tie"' : ''}>Saut ${i + 1} : ${h.d} case${h.d > 1 ? 's' : ''}${h.tie ? ` · égalité entre ${h.candidats} portails, départagée à l'horloge` : ''}</li>`).join('')}</ol>
+    <p class="muted" style="margin-top:8px">Le sort ressort par le portail <b>S</b>.${ties ? ' <span class="tie">Résultat à confirmer en jeu (égalité).</span>' : ''}</p>`;
+}
+
+function clic(cell, shift) {
+  const k = key(cell);
+  const existing = state.portails.find((p) => key(p) === k);
+  if (shift || state.mode === 'entree') {
+    if (existing) state.entree = cell;
+  } else if (existing) {
+    state.portails = state.portails.filter((p) => key(p) !== k);
+    if (state.entree && key(state.entree) === k) state.entree = null;
+  } else if (state.portails.length < MAX_PORTAILS) {
+    state.portails.push(cell);
+    if (!state.entree) state.entree = cell;
+  }
+  draw();
+}
+
+document.querySelectorAll('[data-mode]').forEach((b) =>
+  b.addEventListener('click', () => {
+    state.mode = b.dataset.mode;
+    document.querySelectorAll('[data-mode]').forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
+  }));
+document.getElementById('reset').addEventListener('click', () => { state.portails = []; state.entree = null; draw(); });
+document.getElementById('exemple').addEventListener('click', () => {
+  // Entrée au centre, deux portails à 3 cases de chaque côté : égalité.
+  state.portails = [{ x: 6, y: 6 }, { x: 9, y: 6 }, { x: 6, y: 9 }, { x: 2, y: 4 }];
+  state.entree = { x: 6, y: 6 };
+  draw();
+});
+for (const id of ['sens', 'depart']) {
+  const s = document.getElementById(id);
+  try { const v = localStorage.getItem('elio-' + id); if (v) s.value = v; } catch {}
+  s.addEventListener('change', () => { try { localStorage.setItem('elio-' + id, s.value); } catch {} draw(); });
+}
+draw();
+</script>
+</body>
+</html>

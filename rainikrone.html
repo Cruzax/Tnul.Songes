@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dofus Ivoire, la Rainikrone - Tnul.Songes</title>
+  <link rel="icon" type="image/png" href="assets/images/ui/avoir.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/rainikrone.css" />
+</head>
+<body class="flex min-h-screen flex-col text-[14px] text-ink">
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <header class="border-b border-line">
+    <div class="mx-auto flex min-h-20 w-full max-w-[1120px] items-center justify-between gap-5 px-4">
+      <a href="./" class="flex items-center gap-3 text-ink no-underline outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent" aria-label="Tnul.Songes, accueil">
+        <span class="flex size-8 items-center justify-center rounded-md border border-line text-accent"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6" /><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5" /><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586" /><path d="m16 16 4 4" /><path d="m19 21 2-2" /><path d="m5 14 4 4" /><path d="m5 21-2-2" /><path d="M7.5 16.5 4 20" /></svg></span>
+        <span class="text-lg font-semibold">Tnul<span class="text-accent">.</span>Songes</span>
+      </a>
+      <nav class="flex flex-wrap items-center justify-end gap-1" aria-label="Navigation"><a href="./" class="nav-link rounded-md px-3 py-1.5 text-xs no-underline transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent text-muted hover:text-ink"><span class="hidden sm:inline">Boss</span><span class="sm:hidden">Boss</span></a><a href="salles.html" class="nav-link rounded-md px-3 py-1.5 text-xs no-underline transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent text-muted hover:text-ink"><span class="hidden sm:inline">Positions de départ</span><span class="sm:hidden">Salles</span></a><a href="classes.html" class="nav-link rounded-md px-3 py-1.5 text-xs no-underline transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent text-muted hover:text-ink"><span class="hidden sm:inline">Classes</span><span class="sm:hidden">Classes</span></a><a href="palette/" class="nav-link rounded-md px-3 py-1.5 text-xs no-underline transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent text-muted hover:text-ink"><span class="hidden sm:inline">Palette</span><span class="sm:hidden">Palette</span></a><details class="nav-menu"><summary class="nav-link rounded-md px-3 py-1.5 text-xs no-underline transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent bg-accent/15 text-ink"><span class="hidden sm:inline">Combats tactiques</span><span class="sm:hidden">Tactiques</span></summary><div class="nav-menu-panel"><a href="tactiques.html"><span>Tous les combats</span><small>Vue d'ensemble et fiches</small></a><a href="ambre.html"><span>Ocre d'ambre</span><small>Memory des Malters</small></a><a href="minogolem.html"><span>Dofus Pourpre</span><small>Labyrinthe du Minogolem</small></a><a href="bolgrot.html"><span>Dofus Turquoise</span><small>Esprit de Bolgrot</small></a><a href="rainikrone.html" aria-current="page"><span>Dofus Ivoire</span><small>Glyphes de la Rainikrone</small></a></div></details></nav>
+    </div>
+  
+  </header>
+
+  <main class="mx-auto grid w-full max-w-[1120px] flex-1 content-start gap-6 px-4 pb-14 pt-10">
+    <div class="mx-auto max-w-[640px] py-4 text-center">
+      <p class="card-label mb-3">Quête « Le bonheur est dans le spray »</p>
+      <h2 class="m-0 text-3xl font-semibold">Combat tactique: la Rainikrone</h2>
+      <p class="mt-3 text-[13px] leading-relaxed text-muted">
+        1 PV, 12 PA, pas de PM: tu ne peux pas perdre. Atteins les 4 glyphes roses des coins en sautant d'une case à la fois.
+        Peins la grille avec les couleurs de ton écran: la page te donne la suite de bonds.
+      </p>
+    </div>
+
+    <section class="rounded-lg border border-line bg-panel p-5">
+      <div class="rk-toolbar" id="rk-tools" role="group" aria-label="Couleur à peindre"></div>
+      <p class="rk-hint">Colle une capture de ton écran (Ctrl+V) ou glisse-la sur la grille: les couleurs sont lues toutes seules (les 4 coins roses doivent être visibles). Sinon, choisis une couleur (touches 1 à 4) et peins les cases; clic droit: effacer.</p>
+
+      <div class="rk-layout">
+        <div class="rk-board-wrap">
+          <div class="rk-step-bar">
+            <button type="button" id="rk-prev" class="rk-round" aria-label="Bond précédent" disabled>&#9664;</button>
+            <span id="rk-step-label" class="rk-step-label">Grille de départ</span>
+            <button type="button" id="rk-next" class="rk-round" aria-label="Bond suivant" disabled>&#9654;</button>
+          </div>
+          <svg id="rk-board" class="rk-board" role="img" aria-label="Grille de glyphes"></svg>
+          <p class="rk-compass">Sur l'écran: ↗ Nord, ↘ Est, ↙ Sud, ↖ Ouest</p>
+        </div>
+
+        <aside class="rk-side">
+          <div class="rk-card">
+            <h3 class="rk-title">Grille</h3>
+            <p id="rk-count" class="rk-count"></p>
+            <div class="rk-actions">
+              <button type="button" id="rk-import" class="rk-secondary rk-import">Importer une capture (ou Ctrl+V)</button>
+              <input type="file" id="rk-file" accept="image/*" hidden />
+              <button type="button" id="rk-random" class="rk-secondary">Grille aléatoire</button>
+              <button type="button" id="rk-clear" class="rk-secondary">Tout effacer</button>
+            </div>
+            <button type="button" id="rk-solve" class="rk-primary" disabled>Trouver les bonds</button>
+            <button type="button" id="rk-stop" class="rk-secondary rk-stop" hidden>Annuler</button>
+            <p id="rk-message" class="rk-message" role="status"></p>
+          </div>
+
+          <div class="rk-card" id="rk-plan-card" hidden>
+            <h3 class="rk-title">Bonds à jouer</h3>
+            <p id="rk-summary" class="rk-summary"></p>
+            <ol id="rk-plan" class="rk-plan"></ol>
+            <button type="button" id="rk-from-here" class="rk-secondary">Repartir de l'étape affichée</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="rounded-lg border border-line bg-panel p-5">
+      <h2 class="card-label">Effet de chaque glyphe</h2>
+      <ul class="rk-rules">
+        <li><span class="rk-chip" style="background:#f5b301"></span> <strong>Jaune</strong>: devient rouge et te téléporte d'une case de plus dans le sens du bond.</li>
+        <li><span class="rk-chip" style="background:#e5484d"></span> <strong>Rouge</strong>: devient vert et fait tourner la couleur des 4 voisins (jaune, rouge, vert, noir, jaune…).</li>
+        <li><span class="rk-chip" style="background:#2fb67c"></span> <strong>Vert</strong>: devient jaune et te ramène sur la case précédente.</li>
+        <li><span class="rk-chip" style="background:#15181f;border-color:#8892a6"></span> <strong>Noir</strong>: devient rouge et te ramène sur la dernière case vide où tu es passé (le centre au début).</li>
+        <li><span class="rk-chip" style="background:#e879b9"></span> <strong>Rose</strong>: objectif. Il disparaît quand tu l'actives; il faut activer les 4.</li>
+      </ul>
+      <p class="mt-4 text-xs text-muted">
+        La disposition des glyphes change à chaque combat. Si ton écran ne correspond plus au plan, clique ta case et corrige les couleurs,
+        puis « Repartir de l'étape affichée ».
+      </p>
+    </section>
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="mx-auto flex w-full max-w-[1120px] flex-col justify-between gap-3 px-4 py-6 text-[11px] text-muted sm:flex-row">
+      <p class="m-0"><span class="font-medium text-ink">Tnul.Songes</span><span class="mx-3">·</span>Va falloir s'améliorer..</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/lib/background.js" defer></script>
+  <script src="assets/js/lib/nav.js" defer></script>
+  <script src="assets/js/rainikrone/engine.js" defer></script>
+  <script src="assets/js/rainikrone/search.js" defer></script>
+  <script src="assets/js/rainikrone/capture.js" defer></script>
+  <script src="assets/js/rainikrone/rainikrone.js" defer></script>
+</body>
+</html>

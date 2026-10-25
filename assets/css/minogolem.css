@@ -1,0 +1,79 @@
+/* Page d'aide au combat du Minogolem (Dofus Pourpre). Mêmes couleurs de carte que la page des salles. */
+.mg-layout { display: grid; gap: 1.2rem; }
+@media (min-width: 900px) { .mg-layout { grid-template-columns: minmax(0, 1fr) 320px; align-items: start; } }
+.mg-board-wrap { min-width: 0; }
+.mg-board { display: block; width: 100%; max-width: 760px; margin: 0 auto; height: auto; user-select: none; filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.45)); }
+.mg-hint { margin: 0.6rem 0 0; font-size: 0.78rem; color: rgb(var(--c-muted)); text-align: center; }
+
+.mg-step-bar { display: flex; align-items: center; justify-content: center; gap: 0.8rem; margin-bottom: 0.6rem; }
+.mg-step-label { min-width: 9rem; text-align: center; font-size: 0.85rem; font-weight: 600; }
+.mg-round { width: 2rem; height: 2rem; border: 1px solid rgb(var(--c-line)); border-radius: 999px; background: rgb(255 255 255 / 0.05); color: inherit; font-size: 0.7rem; cursor: pointer; }
+.mg-round:hover:not(:disabled) { border-color: rgb(var(--c-accent) / 0.7); }
+.mg-round:disabled { opacity: 0.35; cursor: default; }
+
+/* Carte */
+.mg-slab-l { fill: #3c4666; stroke: rgba(0, 0, 0, 0.35); stroke-width: 0.5; stroke-linejoin: round; }
+.mg-slab-r { fill: #2a3350; stroke: rgba(0, 0, 0, 0.35); stroke-width: 0.5; stroke-linejoin: round; }
+.mg-cell { fill: #76829f; stroke: rgba(255, 255, 255, 0.08); stroke-width: 0.6; cursor: pointer; }
+.mg-cell.alt { fill: #5a6683; }
+.mg-cell:hover { stroke: #fff; stroke-width: 1.5; }
+.mg-cell.goal { fill: #2fbf71; }
+.mg-cell.start { stroke: #6ebaed; stroke-width: 1.6; }
+.mg-cell.trail { fill: #8fb0ee; }
+.mg-wall-top { fill: #9aa6c2; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; pointer-events: none; }
+.mg-wall-l { fill: #6d7899; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; pointer-events: none; }
+.mg-wall-r { fill: #4e587a; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; pointer-events: none; }
+.mg-wall.new .mg-wall-top { fill: #e0a24a; }
+.mg-player { pointer-events: none; }
+.mg-player-body { fill: #6ebaed; stroke: #fff; stroke-width: 1.5; }
+.mg-player-shadow { fill: rgba(0, 0, 0, 0.35); }
+
+.mg-corner rect { fill: rgb(var(--c-panel2)); stroke: rgb(var(--c-line)); stroke-width: 1; }
+.mg-corner text { fill: rgb(var(--c-ink)); font-size: 12px; font-weight: 600; }
+.mg-corner.boss rect { fill: rgb(var(--c-accent-soft)); stroke: rgb(var(--c-accent)); stroke-width: 1.6; }
+.mg-corner.boss text { fill: rgb(var(--c-accent)); }
+.mg-corner .dot { stroke: rgba(255, 255, 255, 0.5); stroke-width: 1; }
+
+/* Panneau */
+.mg-side { display: grid; gap: 0.8rem; }
+.mg-card { padding: 0.8rem 0.9rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem; background: rgb(var(--c-panel2)); }
+.mg-card[hidden] { display: none; }
+.mg-title { margin: 0 0 0.6rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgb(var(--c-accent)); }
+.mg-fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; font-size: 0.75rem; color: rgb(var(--c-muted)); }
+.mg-fields label { display: grid; gap: 0.25rem; }
+.mg-input { width: 100%; padding: 0.3rem 0.4rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(var(--c-panel)); color: rgb(var(--c-ink)); font: inherit; font-size: 0.9rem; text-align: center; -moz-appearance: textfield; appearance: textfield; }
+.mg-input::-webkit-outer-spin-button, .mg-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.mg-check { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.6rem; font-size: 0.75rem; color: rgb(var(--c-muted)); cursor: pointer; }
+
+.mg-slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.4rem; }
+.mg-slot { position: relative; padding: 0.5rem 0.2rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(var(--c-panel)); color: inherit; font: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; text-align: center; }
+.mg-slot small { position: absolute; top: 1px; left: 4px; font-size: 0.6rem; font-weight: 500; color: rgb(var(--c-muted)); }
+.mg-slot.auto { cursor: default; opacity: 0.75; border-style: dashed; }
+.mg-slot.active { border-color: rgb(var(--c-accent)); box-shadow: 0 0 0 1px rgb(var(--c-accent) / 0.5); }
+.mg-slot.empty { color: rgb(var(--c-muted)); font-weight: 400; }
+.mg-slot[data-value="sang"] { color: #ff7b86; }
+.mg-slot[data-value="sel"] { color: #e6ecf5; }
+.mg-slot[data-value="or"] { color: #f0c542; }
+.mg-block-sep { grid-column: 1 / -1; height: 0; }
+.mg-picker { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.6rem 0; }
+.mg-pick { padding: 0.3rem 0.8rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(255 255 255 / 0.05); color: inherit; font: inherit; font-size: 0.82rem; cursor: pointer; }
+.mg-pick:hover { border-color: rgb(var(--c-accent) / 0.7); }
+.mg-pick[data-value="sang"] { color: #ff7b86; }
+.mg-pick[data-value="sel"] { color: #e6ecf5; }
+.mg-pick[data-value="or"] { color: #f0c542; }
+.mg-pick-clear { color: rgb(var(--c-muted)) !important; }
+.mg-primary { width: 100%; padding: 0.55rem 0.8rem; border: 1px solid rgb(var(--c-accent) / 0.9); border-radius: 0.375rem; background: rgb(var(--c-accent) / 0.18); color: rgb(var(--c-ink)); font: inherit; font-weight: 600; cursor: pointer; }
+.mg-primary:hover:not(:disabled) { background: rgb(var(--c-accent) / 0.3); }
+.mg-primary:disabled { opacity: 0.4; cursor: default; }
+.mg-message { margin: 0.5rem 0 0; min-height: 1.1em; font-size: 0.8rem; color: rgb(var(--c-warm)); }
+.mg-message.ok { color: #6fd39b; }
+
+.mg-plan { margin: 0 0 0.7rem; padding: 0; list-style: none; display: grid; gap: 0.35rem; counter-reset: turn; }
+.mg-plan li { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.55rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(var(--c-panel)); font-size: 0.85rem; cursor: pointer; }
+.mg-plan li::before { counter-increment: turn; content: counter(turn); display: grid; place-items: center; width: 1.3rem; height: 1.3rem; flex: none; border-radius: 999px; background: rgb(var(--c-accent) / 0.2); font-size: 0.72rem; font-weight: 700; }
+.mg-plan li.current { border-color: rgb(var(--c-accent)); }
+.mg-plan .arrow { font-size: 1.1rem; line-height: 1; }
+.mg-plan .extra { color: rgb(var(--c-muted)); font-size: 0.75rem; }
+.mg-reset { padding: 0.3rem 0.7rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(255 255 255 / 0.05); color: inherit; font: inherit; font-size: 0.8rem; cursor: pointer; width: fit-content; }
+.mg-reset:hover { border-color: rgb(var(--c-danger) / 0.8); }
+.mg-rules { margin: 0.8rem 0 0; padding-left: 1.2rem; display: grid; gap: 0.4rem; font-size: 0.85rem; line-height: 1.5; }
