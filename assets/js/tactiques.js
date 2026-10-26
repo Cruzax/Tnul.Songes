@@ -55,15 +55,6 @@
     title.appendChild(open);
     const body = el("div", "tq-tool-body");
     body.append(title, el("p", "tq-tool-quest", `Quête « ${tool.quest} »`), el("p", "tq-tool-text", tool.summary));
-    // Mini tuto: dépliable, pour ne pas allonger la carte (au-dessus du lien qui couvre la carte)
-    if (tool.setup && tool.setup.length) {
-      const howto = el("details", "tq-howto");
-      howto.appendChild(el("summary", "", "Mise en place"));
-      const steps = el("ol", "tq-howto-steps");
-      tool.setup.forEach((step) => steps.appendChild(el("li", "", step)));
-      howto.appendChild(steps);
-      body.appendChild(howto);
-    }
     card.append(banner(tool, index), body);
     const foot = el("div", "tq-tool-foot");
     foot.append(el("span", "tq-tool-open", "Ouvrir l'outil"), guideLink(tool.guide, "Guide ↗"));
