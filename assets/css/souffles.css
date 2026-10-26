@@ -1,0 +1,69 @@
+/* Page « Les Souffles du Reflet »: carte du Jardin paradoxal (sable, herbe), Souffles noirs et blancs */
+.sf-toolbar { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.sf-tool { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.45rem 0.8rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(var(--c-panel2)); color: rgb(var(--c-ink)); font: inherit; font-size: 0.82rem; cursor: pointer; }
+.sf-tool[aria-pressed="true"] { border-color: rgb(var(--c-accent) / 0.8); background: rgb(var(--c-accent) / 0.15); }
+.sf-tool i { width: 0.8rem; height: 0.8rem; border-radius: 3px; }
+.sf-tool.tool-n i { background: #1b1c22; border: 1px solid #9aa6c2; }
+.sf-tool.tool-b i { background: #f1efe6; }
+.sf-tool.tool-p i { border-radius: 50%; background: #6ebaed; }
+.sf-tool.tool-x i { background: #76829f; }
+.sf-hint { margin: 0.6rem 0 1rem; font-size: 0.78rem; color: rgb(var(--c-muted)); }
+
+.sf-layout { display: grid; gap: 1.2rem; }
+@media (min-width: 900px) { .sf-layout { grid-template-columns: minmax(0, 1fr) 330px; align-items: start; } }
+.sf-board-wrap { min-width: 0; }
+.sf-board { display: block; width: 100%; max-width: 780px; margin: 0 auto; height: auto; user-select: none; filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.45)); }
+.sf-count { margin: 0.5rem 0 0; font-size: 0.8rem; color: rgb(var(--c-muted)); text-align: center; }
+.sf-step-bar { display: flex; align-items: center; justify-content: center; gap: 0.8rem; margin-bottom: 0.6rem; }
+.sf-step-label { min-width: 8rem; text-align: center; font-size: 0.9rem; font-weight: 600; }
+.sf-round { width: 2.2rem; height: 2.2rem; border: 1px solid rgb(var(--c-line)); border-radius: 999px; background: rgb(255 255 255 / 0.05); color: inherit; font-size: 0.7rem; cursor: pointer; }
+.sf-round:hover:not(:disabled) { border-color: rgb(var(--c-accent) / 0.7); }
+.sf-round:disabled { opacity: 0.35; cursor: default; }
+
+/* Carte */
+.sf-side-l { fill: #8a7a4c; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; }
+.sf-side-r { fill: #6d603b; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; }
+.sf-cell { fill: #d9c98e; stroke: rgba(0, 0, 0, 0.12); stroke-width: 0.5; cursor: pointer; }
+.sf-cell.alt { fill: #cdbc80; }
+.sf-cell:hover { stroke: #fff; stroke-width: 1.4; }
+.sf-grass-top { fill: #8cc63f; stroke: rgba(0, 0, 0, 0.25); stroke-width: 0.5; pointer-events: none; }
+.sf-grass-l { fill: #6b9a2e; pointer-events: none; }
+.sf-grass-r { fill: #557b24; pointer-events: none; }
+.sf-piece { pointer-events: none; }
+.sf-shadow { fill: rgba(0, 0, 0, 0.3); }
+.sf-souffle { stroke-width: 1; }
+.sf-souffle.black { fill: #1b1c22; stroke: #9aa6c2; }
+.sf-souffle.white { fill: #f4f1e8; stroke: #6b6550; }
+.sf-souffle.changed { stroke: #f2c94c; stroke-width: 1.8; }
+.sf-id { font-size: 6.5px; font-weight: 700; }
+.sf-souffle.black + .sf-id, .sf-target + .sf-souffle.black + .sf-id { fill: #e6e8eb; }
+.sf-souffle.white + .sf-id { fill: #2a2a2a; }
+.sf-target { fill: rgba(110, 186, 237, 0.35); stroke: #6ebaed; stroke-width: 1.4; }
+.sf-player { fill: #6ebaed; stroke: #fff; stroke-width: 1.5; }
+
+/* Panneau */
+.sf-side { display: grid; gap: 0.8rem; }
+.sf-card { display: grid; gap: 0.6rem; padding: 0.9rem 1rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem; background: rgb(var(--c-panel2)); }
+.sf-card[hidden] { display: none; }
+.sf-title { margin: 0; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgb(var(--c-accent)); }
+.sf-check { display: flex; align-items: flex-start; gap: 0.45rem; font-size: 0.78rem; line-height: 1.4; color: rgb(var(--c-muted)); cursor: pointer; }
+.sf-check input { margin-top: 0.15rem; }
+.sf-primary { padding: 0.6rem; border: 1px solid rgb(var(--c-accent) / 0.7); border-radius: 0.45rem; background: rgb(var(--c-accent) / 0.18); color: rgb(var(--c-ink)); font: inherit; font-weight: 600; cursor: pointer; }
+.sf-primary:hover:not(:disabled) { background: rgb(var(--c-accent) / 0.28); }
+.sf-primary:disabled { opacity: 0.5; cursor: wait; }
+.sf-secondary { padding: 0.4rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: none; color: rgb(var(--c-muted)); font: inherit; font-size: 0.78rem; cursor: pointer; }
+.sf-secondary:hover { color: rgb(var(--c-ink)); }
+.sf-message { margin: 0; font-size: 0.82rem; line-height: 1.45; }
+.sf-message:empty { display: none; }
+
+.sf-plan { display: grid; gap: 0.25rem; margin: 0; padding: 0; list-style: none; max-height: 30rem; overflow-y: auto; }
+.sf-turn { margin-top: 0.4rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: rgb(var(--c-muted)); }
+.sf-turn:first-child { margin-top: 0; }
+.sf-pass { padding: 0.35rem 0.6rem; font-size: 0.8rem; font-style: italic; color: rgb(var(--c-muted)); }
+.sf-plan button { width: 100%; padding: 0.45rem 0.6rem; border: 1px solid transparent; border-radius: 0.375rem; background: rgb(255 255 255 / 0.03); color: inherit; font: inherit; font-size: 0.82rem; text-align: left; cursor: pointer; }
+.sf-plan button:hover { background: rgb(255 255 255 / 0.07); }
+.sf-plan li.is-current button { border-color: rgb(var(--c-accent) / 0.6); background: rgb(var(--c-accent) / 0.12); }
+.sf-plan li.is-done button { opacity: 0.5; }
+
+.sf-spells { display: grid; gap: 0.4rem; margin: 0.6rem 0 0; padding-left: 1.1rem; font-size: 0.86rem; line-height: 1.5; }
+.sf-note { margin: 0.8rem 0 0; font-size: 0.75rem; color: rgb(var(--c-muted)); }

@@ -21,6 +21,7 @@
         { href: "bolgrot.html", label: "Dofus Turquoise", hint: "Esprit de Bolgrot", gem: "#3cc8e6" },
         { href: "rainikrone.html", label: "Dofus Ivoire", hint: "Glyphes de la Rainikrone", gem: "#e9e2cf" },
         { href: "arakne.html", label: "Arakne de Leng", hint: "Les 2 combats en petite arakne", icon: "spider" },
+        { href: "souffles.html", label: "Souffles du Reflet", hint: "Tout en noir ou tout en blanc", icon: "yin" },
       ],
     },
     {
@@ -39,6 +40,7 @@
     spider: svg('<circle cx="12" cy="13" r="3.2"/><circle cx="12" cy="8" r="1.8"/><path d="M9 11 4 7M9 13H3M9.5 15.5 5 20M15 11l5-4M15 13h6M14.5 15.5 19 20"/>'),
     book: svg('<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7M8 11h5"/>'),
     palette: svg('<path d="M12 3a9 9 0 1 0 0 18c1.4 0 2-1 2-2 0-1.5-1-1.6-1-3 0-1 .8-2 2-2h2a4 4 0 0 0 4-4c0-4-4-7-9-7z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10.5" cy="7" r="1.2"/><circle cx="15" cy="7.5" r="1.2"/>'),
+    yin: svg('<circle cx="12" cy="12" r="9"/><path d="M12 3a4.5 4.5 0 0 1 0 9 4.5 4.5 0 0 0 0 9" fill="currentColor"/>'),
     list: svg('<path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6h.01M4 12h.01M4 18h.01"/>'),
   };
   const gem = (color) => `<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2.5 20 9l-8 12.5L4 9z" fill="${color}" stroke="rgb(0 0 0 / 0.35)" stroke-width="1"/><path d="M4 9h16M12 2.5 9 9l3 12.5L15 9z" fill="none" stroke="rgb(255 255 255 / 0.45)" stroke-width="0.9"/></svg>`;

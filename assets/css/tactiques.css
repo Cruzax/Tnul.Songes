@@ -5,6 +5,7 @@
 
 /* Outils: cartes de même taille, la carte entière ouvre l'outil. --tool = couleur du Dofus (data/tactiques.json) */
 .tq-tools { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); }
+@media (min-width: 960px) { .tq-tools { grid-template-columns: repeat(3, minmax(0, 1fr)); } } /* 6 outils: 2 rangées pleines */
 .tq-tool {
   --tool: rgb(var(--c-accent));
   position: relative; display: flex; flex-direction: column; overflow: hidden;

@@ -69,6 +69,21 @@
         "Avance tour par tour (◀ ▶ ou les flèches du clavier) et rejoue chaque déplacement.",
         "Lance Petite Course quand le badge « +2 PM » apparaît, et pose les Œufs indiqués."
       ]
+    },
+    {
+      "title": "Les Souffles du Reflet",
+      "quest": "En ce jardin qui nous unit",
+      "summary": "20 Souffles noirs et blancs à mettre de la même couleur. L'outil calcule les Vibrations et Réciprocités à lancer, en gardant le plus de PV.",
+      "href": "souffles.html",
+      "guide": "en-ce-jardin-qui-nous-unit",
+      "color": "#f1efe6",
+      "icon": "yin",
+      "setup": [
+        "Au début du combat, compare la carte de la page avec ton écran.",
+        "Corrige les Souffles qui diffèrent (noir, blanc, ta position) en cliquant sur les cases.",
+        "« Trouver les coups », puis joue-les dans l'ordre, coup par coup.",
+        "Si une couleur ne suit pas le plan, coche « Seul le premier Souffle… » et relance le calcul."
+      ]
     }
   ],
   "fights": [
@@ -125,17 +140,6 @@
         "Fais reculer les boules plutôt que de les laisser passer sur un mauvais glyphe."
       ],
       "guide": "dans-la-gueule-du-dragon"
-    },
-    {
-      "title": "Les Souffles du Reflet",
-      "quest": "En ce jardin qui nous unit (Dorigami)",
-      "goal": "Rendre les 20 Souffles de la même couleur (10 noirs et 10 blancs au départ). 50 PV, 10 PA, 1 PM, et 1 PV perdu à chaque début de tour.",
-      "mechanic": "Vibration Paradoxale (1 PV, en ligne, portée infinie): un Souffle noir est repoussé d'une case, un blanc est attiré, et il change de couleur ainsi que tous les Souffles alignés avec sa case d'arrivée. Réciprocité (3 PV, 2 à 5 PO, 1 fois par tour): même changement de couleur, mais tu échanges ta place avec lui.",
-      "tips": [
-        "Cible un Souffle de façon que sa case d'arrivée ne soit alignée qu'avec des Souffles de l'autre couleur à convertir.",
-        "Vise une couleur et tiens-t'y: choisir tout noir ou tout blanc selon la disposition évite les allers-retours."
-      ],
-      "guide": "en-ce-jardin-qui-nous-unit"
     },
     {
       "title": "Crocoburio contre son père",

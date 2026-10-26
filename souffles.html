@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les Souffles du Reflet - Tnul.Songes</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/ui/logo.svg" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/images/ui/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/souffles.css" />
+</head>
+<body class="flex min-h-screen flex-col text-[14px] text-ink">
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <header class="site-header border-b border-line">
+    <div class="mx-auto flex h-16 w-full max-w-[1120px] items-center justify-between gap-5 px-4">
+      <a href="./" class="flex items-center gap-3 text-ink no-underline outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent" aria-label="Tnul.Songes, accueil">
+        <span class="flex size-8 items-center justify-center rounded-md border border-line text-accent"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6" /><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5" /><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586" /><path d="m16 16 4 4" /><path d="m19 21 2-2" /><path d="m5 14 4 4" /><path d="m5 21-2-2" /><path d="M7.5 16.5 4 20" /></svg></span>
+        <span class="text-lg font-semibold">Tnul<span class="text-accent">.</span>Songes</span>
+      </a>
+      <nav class="site-nav" aria-label="Navigation"></nav>
+      <script src="assets/js/lib/nav.js"></script>
+    </div>
+  
+  </header>
+
+  <main class="mx-auto grid w-full max-w-[1120px] flex-1 content-start gap-5 px-4 pb-14 pt-8">
+    <header class="page-hero">
+      <div>
+        <p class="page-hero-trail"><a href="tactiques.html">Combats tactiques</a> <span class="sep">/</span> <span class="here">Quête « En ce jardin qui nous unit »</span></p>
+        <h1 class="page-hero-title">Dorigami <em>· les Souffles du Reflet</em></h1>
+        <p class="page-hero-lead">Rends les 20 Souffles de la même couleur. Place les Souffles comme sur ton écran : la page calcule les sorts à lancer, en dépensant le moins de PV possible.</p>
+      </div>
+      <dl class="page-hero-facts">
+        <div><dt>PV</dt><dd>50</dd></div>
+        <div><dt>PA</dt><dd>10</dd></div>
+        <div><dt>PM</dt><dd>1</dd></div>
+        <div><dt>Souffles</dt><dd>20</dd></div>
+      </dl>
+    </header>
+
+    <section class="rounded-lg border border-line bg-panel p-5">
+      <div class="sf-toolbar" id="sf-tools" role="group" aria-label="Outil de placement"></div>
+      <p class="sf-hint">Clic : applique l'outil choisi sur une case. Clic droit : vide la case. La carte de départ est celle du guide : corrige-la si ton combat est différent.</p>
+
+      <div class="sf-layout">
+        <div class="sf-board-wrap">
+          <div class="sf-step-bar">
+            <button type="button" id="sf-prev" class="sf-round" aria-label="Coup précédent" disabled>&#9664;</button>
+            <span id="sf-step-label" class="sf-step-label" aria-live="polite">Départ</span>
+            <button type="button" id="sf-next" class="sf-round" aria-label="Coup suivant" disabled>&#9654;</button>
+          </div>
+          <svg id="sf-board" class="sf-board" role="img" aria-label="Carte du Jardin paradoxal"></svg>
+          <p class="sf-count" id="sf-count"></p>
+        </div>
+
+        <aside class="sf-side">
+          <div class="sf-card">
+            <h2 class="sf-title">Calcul</h2>
+            <label class="sf-check"><input type="checkbox" id="sf-first" /> Seul le premier Souffle de chaque côté change de couleur</label>
+            <button type="button" id="sf-solve" class="sf-primary">Trouver les coups</button>
+            <button type="button" id="sf-reset" class="sf-secondary">Revenir à la carte du guide</button>
+            <p id="sf-message" class="sf-message" role="status"></p>
+          </div>
+          <div class="sf-card" id="sf-plan-card" hidden>
+            <h2 class="sf-title">Coups à jouer</h2>
+            <ol class="sf-plan" id="sf-plan"></ol>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="rounded-lg border border-line bg-panel p-5">
+      <h2 class="sf-title">Tes sorts</h2>
+      <ul class="sf-spells">
+        <li><strong class="spell-name"><img class="spell-ic" src="assets/images/spells/sort_12295.png" alt="" width="20" height="20" loading="lazy">Vibration Paradoxale</strong> (1 PA, 1 PV, 10 par tour) : un Souffle en ligne avec toi, avec ligne de vue. Un noir est repoussé d'une case, un blanc attiré ; il change de couleur, ainsi que tous les Souffles alignés avec sa case d'arrivée.</li>
+        <li><strong class="spell-name"><img class="spell-ic" src="assets/images/spells/sort_12476.png" alt="" width="20" height="20" loading="lazy">Réciprocité</strong> (2 PA, 3 PV, relance 2 tours) : un Souffle à 2-5 cases, sans ligne de vue. Tu échanges ta place avec lui, même changement de couleur.</li>
+      </ul>
+      <p class="sf-note">Tu perds aussi 1 PV au début de chaque tour. Le guide ne précise pas si tous les Souffles de la ligne changent de couleur, ou seulement le premier de chaque côté : si les couleurs ne suivent pas le plan, coche la case du calcul.</p>
+    </section>
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="mx-auto flex w-full max-w-[1120px] flex-col justify-between gap-3 px-4 py-6 text-[11px] text-muted sm:flex-row">
+      <p class="m-0"><span class="font-medium text-ink">Tnul.Songes</span><span class="mx-3">·</span>Va falloir s'améliorer..</p>
+      <p class="m-0">Règles d'après <a class="text-accent underline underline-offset-2" href="https://www.dofuspourlesnoobs.com/en-ce-jardin-qui-nous-unit.html" target="_blank" rel="noopener noreferrer">Dofus pour les Noobs</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/lib/background.js" defer></script>
+  <script src="assets/js/lib/setup.js" defer></script>
+  <script src="assets/js/souffles/solver.js" defer></script>
+  <script src="assets/js/souffles/souffles.js" defer></script>
+</body>
+</html>
