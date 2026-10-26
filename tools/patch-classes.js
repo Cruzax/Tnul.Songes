@@ -12,6 +12,8 @@ const FONTS = '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@4
 const THEME = '<link rel="stylesheet" href="../assets/css/fiches.css">';
 // Dans la page Classes, la fiche est affichée dans un cadre: on le signale tout de suite à fiches.css
 const EMBED = '<script>if (window.top !== window.self) document.documentElement.classList.add("embedded");</script>';
+// Bulle des sorts: un clic sur le nom d'un sort ouvre sa carte du grimoire (assets/js/fiches.js)
+const POPUP = '<script src="../assets/js/fiches.js" defer></script>';
 
 function copyFrom(source) {
   const out = path.join(source, "out");
@@ -30,7 +32,9 @@ function patch(html) {
     .replace(/<style id="tnul-scroll">[\s\S]*?<\/style>/, "")
     .replace(/(<\/style>)(\s*<\/head>)/, (match, style, end) => `${style}\n${THEME}${end}`)
     .replace(`${THEME}\n${EMBED}`, THEME)
-    .replace(THEME, `${THEME}\n${EMBED}`);
+    .replace(THEME, `${THEME}\n${EMBED}`)
+    .replace(`${EMBED}\n${POPUP}`, EMBED)
+    .replace(EMBED, `${EMBED}\n${POPUP}`);
 }
 
 const fromIndex = process.argv.indexOf("--from");
@@ -47,6 +51,6 @@ fs.readdirSync(DEST)
     if (after !== before) {
       fs.writeFileSync(file, after);
     }
-    const ok = after.includes(EMBED) && after.includes("← Classes") && after.includes("family=Inter");
+    const ok = after.includes(EMBED) && after.includes(POPUP) && after.includes("← Classes") && after.includes("family=Inter");
     console.log(`${ok ? "ok  " : "??? "} ${name}`);
   });
