@@ -1,10 +1,23 @@
 /* Page « Fiches de classes »: pastilles de choix, puis la fiche dans une card en pleine hauteur */
-.cl-grid { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 0.45rem; min-width: 0; }
-.cl-button { padding: 0.4rem 0.85rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(var(--c-panel)); color: inherit; font: inherit; font-size: 0.85rem; cursor: pointer; transition: border-color 0.15s, background-color 0.15s; }
-.cl-button:hover { border-color: rgb(var(--c-accent) / 0.7); }
-.cl-button[aria-pressed="true"] { background: rgb(var(--c-accent) / 0.18); border-color: rgb(var(--c-accent) / 0.9); }
+.cl-grid { display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); min-width: 0; }
+.cl-grid[hidden] { display: none; }
+@media (min-width: 1100px) { .cl-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } } /* 19 classes + le simulateur: 4 rangées pleines */
+.cl-button {
+  display: grid; align-content: start; gap: 0.2rem; padding: 0.85rem 1rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem;
+  background: rgb(var(--c-panel)); color: inherit; font: inherit; text-align: left; cursor: pointer;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+.cl-button:hover { border-color: rgb(var(--c-accent) / 0.55); background: rgb(var(--c-panel2)); }
+.cl-button[aria-pressed="true"] { background: rgb(var(--c-accent) / 0.12); border-color: rgb(var(--c-accent) / 0.8); }
 .cl-button.extra { border-style: dashed; }
-.cl-button:focus-visible { outline: 2px solid rgb(var(--c-accent)); }
+.cl-button:focus-visible { outline: 2px solid rgb(var(--c-accent)); outline-offset: 1px; }
+.cl-name { font-size: 0.95rem; font-weight: 600; }
+.cl-role { font-size: 0.75rem; color: rgb(var(--c-muted)); }
+.cl-button.extra .cl-role { color: rgb(var(--c-accent)); }
+@media (max-width: 480px) {
+  .cl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; }
+  .cl-button { padding: 0.7rem 0.8rem; }
+}
 
 /* Pas d'overflow: hidden ici, sinon la barre ne colle plus en haut de l'écran */
 .cl-viewer { min-width: 0; border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem; background: rgb(var(--c-panel)); }
@@ -22,7 +35,9 @@
 .cl-toc button.is-active { background: rgb(var(--c-accent) / 0.15); color: rgb(var(--c-ink)); }
 .cl-open { flex: none; font-size: 0.78rem; color: rgb(var(--c-accent)); text-decoration: none; white-space: nowrap; }
 .cl-open:hover { text-decoration: underline; }
-.cl-open[hidden], .cl-frame[hidden], .cl-empty[hidden] { display: none; }
+.cl-open[hidden], .cl-frame[hidden], .cl-empty[hidden], .cl-viewer[hidden] { display: none; }
+.cl-back { flex: none; padding: 0.35rem 0.6rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: none; color: rgb(var(--c-muted)); font: inherit; font-size: 0.78rem; cursor: pointer; transition: color 0.15s, border-color 0.15s; }
+.cl-back:hover { color: rgb(var(--c-ink)); border-color: rgb(var(--c-accent) / 0.6); }
 .cl-empty { margin: 0; padding: 2.5rem 1rem; text-align: center; color: rgb(var(--c-muted)); font-size: 0.85rem; }
 .cl-frame { display: block; width: 100%; height: 600px; border: 0; border-radius: 0 0 0.5rem 0.5rem; background: #090a0c; }
 

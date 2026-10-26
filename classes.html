@@ -32,7 +32,7 @@
       <div>
         <p class="page-hero-trail">Outils <span class="sep">/</span> <span class="here">Fiches mémo</span></p>
         <h1 class="page-hero-title">Les classes de Dofus 3</h1>
-        <p class="page-hero-lead">Une fiche par classe: mécaniques, sorts, glyphes et conseils, générées depuis l'API DofusDB.</p>
+        <p class="page-hero-lead">Une fiche par classe: mécaniques, sorts, glyphes et conseils, générées depuis l'API DofusDB. Choisis une classe pour ouvrir sa fiche.</p>
       </div>
       <dl class="page-hero-facts">
         <div><dt>Classes</dt><dd>19</dd></div>
@@ -41,14 +41,15 @@
 
     <nav class="cl-grid" id="cl-grid" aria-label="Choisir une classe"></nav>
 
-    <section class="cl-viewer" id="cl-viewer">
+    <section class="cl-viewer" id="cl-viewer" hidden>
       <div class="cl-bar" id="cl-bar">
+        <button type="button" id="cl-back" class="cl-back">← Toutes</button>
         <label for="cl-select" class="sr-only">Classe affichée</label>
         <select id="cl-select" class="cl-select"></select>
         <nav id="cl-toc" class="cl-toc" aria-label="Sommaire de la fiche"></nav>
         <a id="cl-open" class="cl-open" href="#" target="_blank" rel="noopener" hidden>Ouvrir seule ↗</a>
       </div>
-      <p id="cl-empty" class="cl-empty">Clique sur une classe pour afficher sa fiche.</p>
+      <p id="cl-empty" class="cl-empty">Chargement de la fiche…</p>
       <iframe id="cl-frame" class="cl-frame" title="Fiche de classe" scrolling="no" hidden></iframe>
     </section>
   </main>

@@ -2,13 +2,20 @@
 // Le cadre prend toute la hauteur de la fiche, donc seule la page défile; la barre collante de la card
 // reprend le sommaire de la fiche et permet de changer de classe.
 (function () {
+  // [fichier, nom, accroche (le « kicker » en tête de la fiche)]
   const CLASSES = [
-    ["feca", "Féca"], ["osamodas", "Osamodas"], ["enutrof", "Enutrof"], ["sram", "Sram"], ["xelor", "Xélor"],
-    ["ecaflip", "Ecaflip"], ["eniripsa", "Eniripsa"], ["iop", "Iop"], ["cra", "Crâ"], ["sadida", "Sadida"],
-    ["sacrieur", "Sacrieur"], ["pandawa", "Pandawa"], ["roublard", "Roublard"], ["zobal", "Zobal"], ["steamer", "Steamer"],
-    ["eliotrope", "Éliotrope"], ["huppermage", "Huppermage"], ["ouginak", "Ouginak"], ["forgelance", "Forgelance"],
+    ["feca", "Féca", "Gardien des glyphes"], ["osamodas", "Osamodas", "Dresseur d'invocations"],
+    ["enutrof", "Enutrof", "Chercheur de trésors"], ["sram", "Sram", "Maître des pièges"],
+    ["xelor", "Xélor", "Maître du temps"], ["ecaflip", "Ecaflip", "Joueur de poker"],
+    ["eniripsa", "Eniripsa", "Soigneuse des mots"], ["iop", "Iop", "Guerrier qui monte en puissance"],
+    ["cra", "Crâ", "Archer à distance"], ["sadida", "Sadida", "Maître des poupées"],
+    ["sacrieur", "Sacrieur", "Berserker de la souffrance"], ["pandawa", "Pandawa", "Brasseur sobre ou saoul"],
+    ["roublard", "Roublard", "Artificier"], ["zobal", "Zobal", "Porteur de masques"],
+    ["steamer", "Steamer", "Ingénieur des tourelles"], ["eliotrope", "Éliotrope", "Maître des portails"],
+    ["huppermage", "Huppermage", "Mage élémentaliste"], ["ouginak", "Ouginak", "Chasseur enragé"],
+    ["forgelance", "Forgelance", "Lancier"],
   ];
-  const EXTRAS = [["simu-eliotrope-portails", "Simulateur de portails Éliotrope"]];
+  const EXTRAS = [["simu-eliotrope-portails", "Portails Éliotrope", "Simulateur"]];
   const all = [...CLASSES, ...EXTRAS];
 
   const grid = document.getElementById("cl-grid");
@@ -19,6 +26,7 @@
   const open = document.getElementById("cl-open");
   const empty = document.getElementById("cl-empty");
   const frame = document.getElementById("cl-frame");
+  const back = document.getElementById("cl-back");
   const buttons = new Map();
   let sections = [];
   let shown = "";
@@ -85,9 +93,10 @@
     mark(slug);
     if (shown === slug) return;
     shown = slug;
+    grid.hidden = true;
+    viewer.hidden = false;
     toc.textContent = "";
     sections = [];
-    empty.textContent = "Chargement de la fiche…";
     empty.hidden = false;
     frame.hidden = true;
     frame.src = `classes/${slug}.html`;
@@ -135,12 +144,21 @@
   placeholder.selected = true;
   select.appendChild(placeholder);
 
-  all.forEach(([slug, label], index) => {
+  all.forEach(([slug, label, role], index) => {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "cl-button" + (index >= CLASSES.length ? " extra" : "");
-    button.textContent = label;
-    button.addEventListener("click", () => show(slug));
+    const name = document.createElement("span");
+    name.className = "cl-name";
+    name.textContent = label;
+    const tagline = document.createElement("span");
+    tagline.className = "cl-role";
+    tagline.textContent = role;
+    button.append(name, tagline);
+    button.addEventListener("click", () => {
+      scrollToCard = true;
+      show(slug);
+    });
     grid.appendChild(button);
     buttons.set(slug, button);
 
@@ -155,6 +173,21 @@
     scrollToCard = true;
     show(select.value);
   });
+
+  // « ← Toutes »: on revient à la grille des classes (la fiche reste chargée si on y retourne)
+  function showGrid() {
+    grid.hidden = false;
+    viewer.hidden = true;
+    shown = "";
+    buttons.forEach((button) => button.setAttribute("aria-pressed", "false"));
+    try {
+      history.replaceState(null, "", location.pathname);
+    } catch (error) {
+      // sans importance
+    }
+    window.scrollTo({ top: 0 });
+  }
+  back.addEventListener("click", showGrid);
 
   let ticking = false;
   window.addEventListener("scroll", () => {
