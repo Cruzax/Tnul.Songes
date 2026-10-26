@@ -47,7 +47,7 @@
   };
 
   const game = MachineSolver.makeGame(guide);
-  const state = { tool: "m", plan: null, frames: [], step: 0 };
+  const state = { tool: "m", plan: null, frames: [], step: 0, anchor: null };
   const key = (a, b) => `${a},${b}`;
   const screen = (a, b) => ({ x: (a - b) * STEP_X, y: (a + b) * STEP_Y });
   const svg = (tag, attrs, parent) => {
@@ -88,6 +88,7 @@
       const cell = svg("polygon", { class: classes, points: diamond(x, y) }, floor);
       cell.dataset.a = a;
       cell.dataset.b = b;
+      if (state.anchor && state.anchor[0] === a && state.anchor[1] === b) cell.classList.add("mc-anchor");
     });
 
     // Frappe affichée: case où se placer, trajet de la machine
@@ -124,6 +125,11 @@
       svg("text", { class: "mc-id", x, y: y - 6, "text-anchor": "middle" }, group).textContent = piece.id;
       svg("title", {}, group).textContent = `Machine ${piece.id}`;
     });
+
+    if (state.anchor) {
+      const { x, y } = screen(...state.anchor);
+      svg("circle", { class: "sf-anchor-ring", cx: x, cy: y, r: 26 }, top);
+    }
 
     label.textContent = state.step ? `Frappe ${state.step} / ${state.plan.plan.length}` : "Départ";
     prev.disabled = state.step === 0;
@@ -218,6 +224,36 @@
       toolbar.querySelectorAll(".sf-tool:not(.sf-import)").forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
     });
     toolbar.appendChild(button);
+  });
+
+  // Lecture d'une capture: 3 repères (la grosse machine et 2 trous), puis ta position; voir assets/js/lib/capture-grid.js
+  CaptureGrid.listen({
+    button: document.getElementById("mc-import"),
+    drop: board,
+    onImage: (image) => CaptureGrid.open({
+      image,
+      anchors: [
+        { cell: guide.center, label: "Clique sur la grosse machine, au centre." },
+        { cell: [-7, 1], label: "Clique sur le trou cerclé en bleu sur la mini-carte (à gauche de la grosse machine)." },
+        { cell: [5, 3], label: "Clique sur le trou cerclé en bleu sur la mini-carte (en bas à droite)." },
+      ],
+      extra: [{ label: "Clique sur ta case (ton personnage)." }],
+      highlight: (cell) => {
+        state.anchor = cell || null;
+        draw();
+      },
+      preview: () => board.cloneNode(true),
+      done: (sample, [player]) => {
+        const cells = MachineCapture.read(sample, guide, game.glyphs.length, player);
+        layout = { player: game.floor.has(key(...player)) ? player : layout.player, machines: cells.map((cell, i) => ({ id: i + 2, cell })) };
+        save();
+        clearPlan();
+        draw();
+        const missing = game.glyphs.length - cells.length;
+        message.textContent = `${cells.length} machine${cells.length > 1 ? "s" : ""} lue${cells.length > 1 ? "s" : ""}.`
+          + (missing > 0 ? ` Il en manque ${missing} : ${missing > 1 ? "place-les" : "place-la"} à la main avec « Petite machine », puis vérifie la carte.` : " Vérifie la carte avant de calculer.");
+      },
+    }),
   });
 
   document.getElementById("mc-solve").addEventListener("click", () => {

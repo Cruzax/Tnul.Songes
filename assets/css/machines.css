@@ -23,3 +23,4 @@
 .mc-legend i.glyph { background: #3fd48a; }
 .mc-legend i.spot { background: #6ebaed; }
 .mc-legend i.hole { background: #101208; border: 1px solid rgb(var(--c-line)); }
+.mc-anchor { fill: #6ebaed !important; }
