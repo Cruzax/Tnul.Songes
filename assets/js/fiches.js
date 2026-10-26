@@ -1,7 +1,7 @@
 // Fiches de classes (classes/*.html): un clic sur le nom d'un sort ouvre sa carte du grimoire dans une bulle,
 // à l'endroit du clic (pas besoin de descendre jusqu'au grimoire). Ajouté par tools/patch-classes.js.
 // Sur petit écran, les tableaux passent en cartes empilées (fiches.css): chaque cellule reçoit le nom de sa
-// colonne, affiché devant la valeur.
+// colonne, affiché devant la valeur. Une section « Combos » est aussi ajoutée depuis data/combos.json.
 document.querySelectorAll(".tableau table").forEach((table) => {
   const heads = [...table.querySelectorAll("thead th")].map((th) => th.textContent.trim());
   table.querySelectorAll("tbody tr").forEach((row) => {
@@ -25,6 +25,7 @@ document.querySelectorAll(".tableau table").forEach((table) => {
   // L'étiquette .sp ne contient que l'icône et le premier mot (« Flèche » de « Flèche d'Expiation »):
   // on lit la suite du texte et on garde le nom de sort le plus long qui correspond
   function spellOf(tag) {
+    if (tag.dataset.nom) return cards.find((card) => card.dataset.nom === tag.dataset.nom);
     let text = tag.textContent;
     for (let node = tag.nextSibling; node && text.length < 80; node = node.nextSibling) {
       text += node.textContent;
@@ -113,4 +114,61 @@ document.querySelectorAll(".tableau table").forEach((table) => {
   document.querySelectorAll(".sp").forEach((tag) => {
     if (!tag.closest(".spc-jumeau") && spellOf(tag)) tag.classList.add("sp-link");
   });
+
+  // Combos (data/combos.json): quelques enchaînements pour un tour, ajoutés après la première section.
+  // Chaque sort est cliquable (même bulle) et le coût total est recalculé depuis les cartes du grimoire.
+  const slug = location.pathname.split("/").pop().replace(/\.html$/, "");
+  const cardOf = (name) => cards.find((card) => card.dataset.nom === name);
+  const costOf = (card) => parseInt(card.querySelector(".chip-k.pa")?.textContent, 10) || 0;
+
+  function el(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text) node.textContent = text;
+    return node;
+  }
+
+  function comboCard(combo) {
+    const steps = combo.steps.filter(([name]) => cardOf(name));
+    const article = el("article", "cb");
+    const head = el("header", "cb-head");
+    head.append(el("span", "cb-tag", combo.tag), el("h3", "", combo.name));
+    head.append(el("span", "chip-k pa cb-pa", `${steps.reduce((sum, [name]) => sum + costOf(cardOf(name)), 0)} PA`));
+    const list = el("ol", "cb-steps");
+    steps.forEach(([name, note]) => {
+      const card = cardOf(name);
+      const item = el("li");
+      const tag = el("span", "sp sp-link cb-sp");
+      tag.dataset.nom = name;
+      const icon = card.querySelector(".spc-ic");
+      if (icon) tag.append(Object.assign(el("img", "sp-ic"), { src: icon.src, alt: "" }));
+      tag.append(name, el("span", "cb-cost", `${costOf(card)}`));
+      item.append(tag);
+      if (note) item.append(el("small", "", note));
+      list.append(item);
+    });
+    article.append(head, el("p", "cb-idea", combo.idea), list);
+    return article;
+  }
+
+  fetch("../data/combos.json")
+    .then((response) => (response.ok ? response.json() : {}))
+    .then((all) => {
+      const combos = all[slug];
+      const first = document.querySelector("main .section");
+      if (!combos || !combos.length || !first) return;
+      const section = el("section", "section section-combos");
+      section.id = "combos";
+      const head = el("div", "section-head");
+      head.append(el("h2", "", "Combos"), el("span", "sub", "Idées d'enchaînements pour un tour, à adapter au combat"));
+      const grid = el("div", "cb-grid");
+      combos.forEach((combo) => grid.append(comboCard(combo)));
+      section.append(head, grid);
+      first.after(section);
+      const link = Object.assign(el("a", "", "Combos"), { href: "#combos" });
+      document.querySelector(`.nav-toc a[href="#${first.id}"]`)?.after(link);
+      // Page Classes: le sommaire de la page parente est reconstruit
+      document.dispatchEvent(new Event("fiche:toc"));
+    })
+    .catch(() => {});
 })();

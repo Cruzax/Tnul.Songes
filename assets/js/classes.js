@@ -124,6 +124,7 @@
     new win.ResizeObserver(fit).observe(doc.body);
     fit();
     buildToc(doc);
+    doc.addEventListener("fiche:toc", () => buildToc(doc));
 
     // Si la fiche a changé toute seule (lien vers une autre classe), on remet le choix à jour
     const slug = win.location.pathname.split("/").pop().replace(/\.html$/, "");
