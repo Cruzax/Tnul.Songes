@@ -84,6 +84,20 @@
         "« Trouver les coups », puis joue-les dans l'ordre, coup par coup.",
         "Si une couleur ne suit pas le plan, coche « Seul le premier Souffle… » et relance le calcul."
       ]
+    },
+    {
+      "title": "Les petites machines",
+      "quest": "La fin... ou le commencement",
+      "summary": "4 petites machines à caser sur les glyphes de la grosse. L'outil te dit où te placer et dans quel sens frapper, machine par machine.",
+      "href": "machines.html",
+      "guide": "la-fin-ou-le-commencement",
+      "color": "#c9a06b",
+      "icon": "gear",
+      "setup": [
+        "Viens avec 6 PM, des sorts de déplacement et un sort de frappe qui se lance en ligne.",
+        "Indique la portée max de ce sort, et corrige la carte si les machines ne sont pas aux mêmes places.",
+        "« Trouver où frapper », puis pour chaque frappe va sur la case bleue et frappe dans le sens indiqué."
+      ]
     }
   ],
   "fights": [
@@ -109,14 +123,6 @@
         "C'est un test d'observation: aucune aide possible hors d'un enregistrement vidéo.",
         "Un mauvais coup coûte environ 500 de dégâts, et le Trésor se soigne au 2e."
       ],
-      "guide": "la-fin-ou-le-commencement"
-    },
-    {
-      "title": "Les petites machines",
-      "quest": "La fin... ou le commencement (2e combat)",
-      "goal": "Placer chaque petite machine sur l'un des 4 glyphes de la grosse machine du centre.",
-      "mechanic": "Frapper une petite machine en étant en ligne avec elle l'attire à ton corps à corps. Il faut donc de la mobilité: sorts de déplacement et 6 PM.",
-      "tips": [],
       "guide": "la-fin-ou-le-commencement"
     },
     {
