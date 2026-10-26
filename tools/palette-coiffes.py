@@ -56,8 +56,8 @@ def coverage(head, hat, dirn='1'):
     box=(min(xs),min(ys),max(xs),max(ys))
     a=raster(skull,box); b=raster(ht,box)
     inter=ImageChops.logical_and(a,b)
-    na=a.histogram()[255]
-    ni=inter.histogram()[255]
+    na=sum(a.histogram()[1:])
+    ni=sum(inter.histogram()[1:])
     return ni/na if na else None
 
 KEEP = re.compile(r"^(Couronne|Diadème|Tiare|Cornes?|Oreilles|Noreilles|Halo|Auréole|Boucle|Lunettes|Binocle|Cache-œil|Bandeau)", re.I)
