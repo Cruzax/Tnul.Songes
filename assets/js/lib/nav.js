@@ -17,8 +17,8 @@
       all: { href: "tactiques.html", label: "Tous les combats", hint: "Vue d'ensemble et fiches de mécanique" },
       links: [
         { href: "ambre.html", label: "Ocre d'ambre", hint: "Memory des Malters", gem: "#e0a24a" },
-        { href: "minogolem.html", label: "Dofus Pourpre", hint: "Labyrinthe du Minogolem", gem: "#b05ad6" },
-        { href: "bolgrot.html", label: "Dofus Turquoise", hint: "Esprit de Bolgrot", gem: "#2fc4b2" },
+        { href: "minogolem.html", label: "Dofus Pourpre", hint: "Labyrinthe du Minogolem", gem: "#d1384f" },
+        { href: "bolgrot.html", label: "Dofus Turquoise", hint: "Esprit de Bolgrot", gem: "#3cc8e6" },
         { href: "rainikrone.html", label: "Dofus Ivoire", hint: "Glyphes de la Rainikrone", gem: "#e9e2cf" },
         { href: "arakne.html", label: "Arakne de Leng", hint: "Les 2 combats en petite arakne", icon: "spider" },
       ],

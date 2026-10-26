@@ -14,7 +14,7 @@
       "summary": "Un labyrinthe à traverser en 1 PM par tour, pendant que les 4 Minogolems posent des murs devant toi. L'outil calcule 4 tours d'avance.",
       "href": "minogolem.html",
       "guide": "une-acircme-en-peine",
-      "color": "#b05ad6"
+      "color": "#d1384f"
     },
     {
       "title": "Dofus Turquoise",
@@ -22,7 +22,7 @@
       "summary": "Tuer 36 feux en sautant dessus, sans que leurs collisions te tuent. L'outil lit ta capture d'écran et calcule le plan.",
       "href": "bolgrot.html",
       "guide": "extinction-des-feux",
-      "color": "#2fc4b2"
+      "color": "#3cc8e6"
     },
     {
       "title": "Dofus Ivoire",
