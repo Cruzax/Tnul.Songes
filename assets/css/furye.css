@@ -1,0 +1,31 @@
+/* Page « Furye »: grille de défense façon Plantes contre Zombies (reprend souffles.css pour les boutons et cartes) */
+@import url("souffles.css");
+.fy-layout { display: grid; gap: 1.2rem; margin-top: 1rem; }
+@media (min-width: 900px) { .fy-layout { grid-template-columns: minmax(0, 1fr) 330px; align-items: start; } }
+.fy-board-wrap { min-width: 0; overflow-x: auto; }
+.fy-grid { display: grid; grid-template-columns: repeat(var(--cols), minmax(2.4rem, 1fr)) 1.2rem; gap: 3px; min-width: 30rem; padding: 0.6rem; border-radius: 0.6rem; background: linear-gradient(90deg, #3b3526, #4a4230 60%, #5a3030); }
+.fy-cell { display: grid; place-items: center; aspect-ratio: 1; border: 1px solid rgba(0, 0, 0, 0.3); border-radius: 0.3rem; background: rgba(214, 196, 150, 0.18); cursor: pointer; transition: background-color 0.12s; }
+.fy-cell:nth-child(22n + 1), .fy-cell:nth-child(22n + 2) { background: rgba(214, 196, 150, 0.1); }
+.fy-cell:hover { background: rgba(255, 255, 255, 0.22); }
+.fy-cell:focus-visible { outline: 2px solid rgb(var(--c-accent)); }
+.fy-enemy-side { display: grid; place-items: center; color: #e57373; font-size: 0.8rem; }
+.fy-unit { display: grid; place-items: center; width: 78%; aspect-ratio: 1; border-radius: 0.35rem; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5); overflow: hidden; }
+.fy-unit img { width: 100%; height: 100%; }
+.fy-unit.up { box-shadow: 0 0 0 2px #f2c94c; }
+.fy-unit.unit-globe { border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d6f6ff, #4fb3d9 60%, #1f5f7a); }
+.fy-tool .fy-unit { width: 1.2rem; }
+.fy-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.7rem; }
+.fy-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.4rem; margin: 0; }
+.fy-stats dt { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.04em; color: rgb(var(--c-muted)); }
+.fy-stats dd { margin: 0.1rem 0 0; font-size: 1.15rem; font-weight: 600; }
+.fy-lanes { display: grid; gap: 0.25rem; margin: 0; padding: 0; list-style: none; font-size: 0.78rem; }
+.fy-lanes li { padding: 0.3rem 0.5rem; border-left: 3px solid; border-radius: 0.25rem; background: rgb(255 255 255 / 0.03); }
+.fy-lanes .good { border-color: #3fd48a; }
+.fy-lanes .weak { border-color: #f2c94c; }
+.fy-lanes .none { border-color: #e57373; }
+.fy-advice { margin: 0; font-size: 0.8rem; line-height: 1.45; color: rgb(var(--c-warm)); }
+.fy-two { display: grid; gap: 1.25rem; }
+@media (min-width: 900px) { .fy-two { grid-template-columns: 1fr 1fr; } }
+.fy-timeline { display: grid; gap: 0.55rem; margin: 0.7rem 0 0; padding: 0; list-style: none; font-size: 0.85rem; line-height: 1.5; }
+.fy-turn { display: inline-block; min-width: 5.5rem; margin-right: 0.4rem; font-weight: 700; color: rgb(var(--c-accent)); }
+.fy-spells { display: grid; gap: 0.4rem; margin: 0.7rem 0 0; padding-left: 1.1rem; font-size: 0.84rem; line-height: 1.5; }

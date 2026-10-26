@@ -112,6 +112,20 @@
         "Corrige ce qui diffère (choisis la couleur, puis « Petite boule », « Glyphe » ou « Grosse boule »).",
         "« Trouver les coups » : chaque tour, va sur le glyphe blanc indiqué, puis frappe les grosses boules dans l'ordre."
       ]
+    },
+    {
+      "title": "Furye",
+      "quest": "Une âme en colère",
+      "summary": "Façon Plantes contre Zombies : tenir 35 tours en protégeant 5 globes. L'outil t'aide à monter ta défense (PA, dégâts par ligne) avec le plan du guide.",
+      "href": "furye.html",
+      "guide": "une-acircme-en-colegravere",
+      "color": "#3cc8e6",
+      "icon": "wave",
+      "setup": [
+        "Tours 1 à 5 : pose des Kelpe le plus loin possible des monstres, il en faut toujours au moins 3.",
+        "Puis un Cyanog dans chaque ligne, et monte 2 lignes de Verak devant les globes avant le tour 31.",
+        "Charge le plan du guide sur la grille pour voir la défense finale, et lance Larme du Destin au tour 35."
+      ]
     }
   ],
   "fights": [

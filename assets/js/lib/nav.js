@@ -24,6 +24,7 @@
         { href: "souffles.html", label: "Souffles du Reflet", hint: "Tout en noir ou tout en blanc", icon: "yin" },
         { href: "machines.html", label: "Petites machines", hint: "Où se placer pour frapper", icon: "gear" },
         { href: "boules.html", label: "Boules élémentaires", hint: "Chaque boule sur son glyphe", icon: "orbs" },
+        { href: "furye.html", label: "Furye", hint: "Défense façon Plantes contre Zombies", gem: "#3cc8e6" },
       ],
     },
     {

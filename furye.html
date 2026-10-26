@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Furye - Tnul.Songes</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/ui/logo.svg" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/images/ui/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/furye.css" />
+</head>
+<body class="flex min-h-screen flex-col text-[14px] text-ink">
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <header class="site-header border-b border-line">
+    <div class="mx-auto flex h-16 w-full max-w-[1120px] items-center justify-between gap-5 px-4">
+      <a href="./" class="flex items-center gap-3 text-ink no-underline outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent" aria-label="Tnul.Songes, accueil">
+        <span class="flex size-8 items-center justify-center rounded-md border border-line text-accent"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6" /><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5" /><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586" /><path d="m16 16 4 4" /><path d="m19 21 2-2" /><path d="m5 14 4 4" /><path d="m5 21-2-2" /><path d="M7.5 16.5 4 20" /></svg></span>
+        <span class="text-lg font-semibold">Tnul<span class="text-accent">.</span>Songes</span>
+      </a>
+      <nav class="site-nav" aria-label="Navigation"></nav>
+      <script src="assets/js/lib/nav.js"></script>
+    </div>
+  
+  </header>
+
+  <main class="mx-auto grid w-full max-w-[1120px] flex-1 content-start gap-5 px-4 pb-14 pt-8">
+    <header class="page-hero">
+      <div>
+        <p class="page-hero-trail"><a href="tactiques.html">Combats tactiques</a> <span class="sep">/</span> <span class="here">Quête « Une âme en colère »</span></p>
+        <h1 class="page-hero-title">Dofus Turquoise <em>· Furye</em></h1>
+        <p class="page-hero-lead">Un combat façon Plantes contre Zombies : tiens 35 tours en protégeant tes 5 globes, puis achève Furye. Prépare ta défense sur la grille : la page compte tes PA et les dégâts de chaque ligne.</p>
+      </div>
+      <dl class="page-hero-facts">
+        <div><dt>Tours</dt><dd>35</dd></div>
+        <div><dt>PA</dt><dd>4<small>+Kelpe</small></dd></div>
+        <div><dt>Globes</dt><dd>5</dd></div>
+      </dl>
+    </header>
+
+    <section class="rounded-lg border border-line bg-panel p-5">
+      <div class="sf-toolbar" id="fy-tools" role="group" aria-label="Invocation à placer"></div>
+      <p class="sf-hint">Clic : pose l'invocation choisie. Clic sur une invocation déjà posée : l'améliore (Source de Puissance). Clic droit : retire. Furye et ses monstres arrivent par la droite.</p>
+      <div class="fy-layout">
+        <div class="fy-board-wrap">
+          <div class="fy-grid" id="fy-grid" role="grid" aria-label="Grille du combat"></div>
+          <div class="fy-actions">
+            <button type="button" id="fy-preset" class="sf-secondary">Charger le plan du guide</button>
+            <button type="button" id="fy-clear" class="sf-secondary">Tout effacer</button>
+          </div>
+        </div>
+        <aside class="sf-side">
+          <div class="sf-card">
+            <h2 class="sf-title">Ta défense</h2>
+            <dl class="fy-stats" id="fy-stats"></dl>
+            <ul class="fy-lanes" id="fy-lanes"></ul>
+            <p class="fy-advice" id="fy-advice"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="fy-two">
+      <section class="rounded-lg border border-line bg-panel p-5">
+        <h2 class="sf-title">Déroulé du combat</h2>
+        <ol class="fy-timeline" id="fy-timeline"></ol>
+      </section>
+      <section class="rounded-lg border border-line bg-panel p-5">
+        <h2 class="sf-title">Tes sorts</h2>
+        <ul class="fy-spells" id="fy-spells"></ul>
+        <p class="sf-note" id="fy-enemies"></p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="mx-auto flex w-full max-w-[1120px] flex-col justify-between gap-3 px-4 py-6 text-[11px] text-muted sm:flex-row">
+      <p class="m-0"><span class="font-medium text-ink">Tnul.Songes</span><span class="mx-3">·</span>Va falloir s'améliorer..</p>
+      <p class="m-0">Stratégie d'après <a class="text-accent underline underline-offset-2" href="https://www.dofuspourlesnoobs.com/une-acircme-en-colegravere.html" target="_blank" rel="noopener noreferrer">Dofus pour les Noobs</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/lib/background.js" defer></script>
+  <script src="assets/js/lib/setup.js" defer></script>
+  <script src="assets/js/furye.js" defer></script>
+</body>
+</html>

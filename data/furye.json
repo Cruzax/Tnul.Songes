@@ -1,0 +1,138 @@
+{
+  "note": "Combat contre Furye (quête « Une âme en colère », Dofus Turquoise). Valeurs d'après les guides Dofus pour les Noobs et Dofus Portals. Grille: 5 lignes (couloirs) x 10 colonnes, colonne 0 la plus loin de Furye.",
+  "lanes": 5,
+  "columns": 10,
+  "pa": 4,
+  "units": [
+    {
+      "id": "kelpe",
+      "name": "Kelpe",
+      "icon": 126,
+      "hp": 30,
+      "hpUp": 50,
+      "pa": 1,
+      "role": "Ne frappe pas : +1 PA par tour. À placer le plus loin possible des monstres."
+    },
+    {
+      "id": "cyanog",
+      "name": "Cyanog",
+      "icon": 11892,
+      "hp": 50,
+      "hpUp": 100,
+      "damage": 8,
+      "damageUp": 20,
+      "role": "Frappe 6 à 10 (20 amélioré) les ennemis de sa ligne."
+    },
+    {
+      "id": "goemus",
+      "name": "Goémus",
+      "icon": 12201,
+      "hp": 50,
+      "hpUp": 100,
+      "damage": 2,
+      "damageUp": 2,
+      "slow": true,
+      "role": "Frappe 2 et retire 1 PM pour 1 tour aux ennemis de sa ligne."
+    },
+    {
+      "id": "norie",
+      "name": "Norie",
+      "icon": 12482,
+      "hp": 1,
+      "hpUp": 1,
+      "role": "Explose à sa mort : 10 (30 amélioré) aux monstres à 2 cases. À coller aux monstres."
+    },
+    {
+      "id": "verak",
+      "name": "Verak",
+      "icon": 11948,
+      "hp": 100,
+      "hpUp": 300,
+      "role": "Ne frappe pas : bloque les ennemis."
+    },
+    {
+      "id": "globe",
+      "name": "Globe",
+      "hp": 100,
+      "role": "À protéger : si les 5 meurent, le combat est perdu."
+    }
+  ],
+  "enemies": [
+    {
+      "name": "Ventrue",
+      "hp": 20
+    },
+    {
+      "name": "Dévorante",
+      "hp": 40
+    },
+    {
+      "name": "Piquante",
+      "hp": 80
+    },
+    {
+      "name": "Osseuse",
+      "hp": 200
+    }
+  ],
+  "spells": [
+    {
+      "name": "Compression Temporelle",
+      "icon": 411,
+      "text": "Remet à zéro la relance de tous tes sorts."
+    },
+    {
+      "name": "Rappel de l'Esprit",
+      "icon": 424,
+      "text": "Tue une de tes invocations et rend 4 PA : pour replacer une invocation mal placée."
+    },
+    {
+      "name": "Source de Puissance",
+      "icon": 12780,
+      "text": "Rend une invocation améliorée (plus de PV, frappe plus fort)."
+    },
+    {
+      "name": "Affaiblir",
+      "icon": 369,
+      "text": "Frappe 3 à 20 sans ligne de vue, -100 puissance à la cible pour 1 tour."
+    },
+    {
+      "name": "Larme du Destin",
+      "icon": 12704,
+      "text": "Seulement au tour 35 : tue Furye."
+    }
+  ],
+  "timeline": [
+    {
+      "turn": "1 à 5",
+      "text": "Kelpe d'abord, le plus loin possible des monstres (contre un bord) : il en faut toujours au moins 3."
+    },
+    {
+      "turn": "5 à 15",
+      "text": "Un Cyanog dans chaque ligne dès que possible, en commençant par celles où arrivent les monstres."
+    },
+    {
+      "turn": "15 à 30",
+      "text": "Complète les 2 lignes de Kelpe (jusqu'à 14 PA), puis monte 2 lignes de Verak devant les globes. Améliore les Verak avec Source de Puissance."
+    },
+    {
+      "turn": "31",
+      "text": "Furye saute et tue environ 2 invocations par tour : 4 lignes d'invocations (Kelpe et Verak) la bloquent."
+    },
+    {
+      "turn": "35",
+      "text": "Lance Larme du Destin : Furye meurt, c'est gagné."
+    }
+  ],
+  "preset": {
+    "name": "Plan du guide (fin de combat)",
+    "columns": {
+      "0": "kelpe",
+      "1": "kelpe",
+      "2": "globe",
+      "3": "cyanog",
+      "4": "verak",
+      "5": "verak"
+    }
+  }
+}
