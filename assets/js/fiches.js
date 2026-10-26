@@ -1,5 +1,21 @@
 // Fiches de classes (classes/*.html): un clic sur le nom d'un sort ouvre sa carte du grimoire dans une bulle,
 // à l'endroit du clic (pas besoin de descendre jusqu'au grimoire). Ajouté par tools/patch-classes.js.
+// Sur petit écran, les tableaux passent en cartes empilées (fiches.css): chaque cellule reçoit le nom de sa
+// colonne, affiché devant la valeur.
+document.querySelectorAll(".tableau table").forEach((table) => {
+  const heads = [...table.querySelectorAll("thead th")].map((th) => th.textContent.trim());
+  table.querySelectorAll("tbody tr").forEach((row) => {
+    [...row.children].forEach((cell, i) => {
+      if (cell.tagName === "TD" && heads[i]) cell.dataset.label = heads[i];
+    });
+  });
+  // Couleur d'élément de la colonne, reprise sur l'étiquette
+  table.querySelectorAll("thead th").forEach((th, i) => {
+    const el = ["eau", "terre", "air", "feu"].find((c) => th.classList.contains(c));
+    if (el) table.querySelectorAll(`tbody tr > :nth-child(${i + 1})`).forEach((cell) => cell.classList.add(`lbl-${el}`));
+  });
+});
+
 (function () {
   const cards = [...document.querySelectorAll(".spc[data-nom]")];
   if (!cards.length) return;

@@ -88,6 +88,35 @@ h1 { color: var(--text); font-size: 48px; font-weight: 700; letter-spacing: -0.0
   h1 { font-size: 36px; }
 }
 
+/* Petit écran: les tableaux deviennent des cartes empilées (une ligne = un bloc), au lieu de déborder.
+   Le nom de la colonne est ajouté devant chaque valeur par assets/js/fiches.js (data-label). */
+@media (max-width: 640px) {
+  .tableau { margin: 0; }
+  .tableau { overflow: visible; }
+  .tableau table { min-width: 0; }
+  .tableau table, .tableau tbody, .tableau tr, .tableau th, .tableau td { display: block; width: auto !important; }
+  .tableau thead { display: none; }
+  .tableau tbody tr { padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--card); }
+  .tableau tbody tr + tr { margin-top: 8px; }
+  .tableau tbody tr + tr td, .tableau tbody tr + tr th { border-top: 0; }
+  .tableau tbody th, .tableau tbody td, .tableau-libre tbody th, .tableau-libre tbody td { padding: 0; }
+  .tableau tbody th { margin-bottom: 6px; }
+  .tableau tbody td { padding: 6px 0 0; font-size: 14px; }
+  .tableau tbody td + td { margin-top: 6px; border-top: 1px dashed var(--border) !important; }
+  .tableau tbody td[data-label]::before {
+    content: attr(data-label); display: block; margin-bottom: 2px; font-size: 10.5px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  }
+  .tableau td.lbl-eau::before { color: var(--eau-txt); }
+  .tableau td.lbl-terre::before { color: var(--terre-txt); }
+  .tableau td.lbl-air::before { color: var(--air-txt); }
+  .tableau td.lbl-feu::before { color: var(--feu-txt); }
+  .cartes { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+  .carte { min-width: 0; }
+  .carte-effet { font-size: 17px; }
+  .title { font-size: 34px; }
+}
+
 /* Fiche affichée dans la page Classes (classes.js ajoute la classe « embedded »): la page parente
    a déjà sa barre de sommaire collante, et le cadre prend toute la hauteur de la fiche. */
 html.embedded, html.embedded body { overflow-y: hidden; }
