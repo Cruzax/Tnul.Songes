@@ -231,3 +231,7 @@ html { scroll-padding-top: 4.5rem; }
   content: counter(step); position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 1.35rem; height: 1.35rem;
   border: 1px solid var(--tool); border-radius: 50%; color: var(--tool); font-size: 0.7rem; font-weight: 700;
 }
+
+/* Nom de sort avec son icône (rappels de sorts des combats tactiques) */
+.spell-name { display: inline-flex; align-items: center; gap: 0.35rem; vertical-align: -0.3em; white-space: nowrap; }
+.spell-ic { width: 1.35em; height: 1.35em; flex: none; border-radius: 4px; box-shadow: 0 0 0 1px rgb(var(--c-line)); }

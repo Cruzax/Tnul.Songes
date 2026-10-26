@@ -247,11 +247,19 @@
       head.textContent = `Tour ${index + 1}`;
       const move = document.createElement("span");
       move.className = "ak-turn-move";
-      const parts = [];
-      if (turn.course) parts.push("Petite Course");
-      if (turn.egg) parts.push("Œuf");
-      if (turn.bite) parts.push("Morsure");
-      move.textContent = [turn.moves ? arrows(turn.path) : "reste sur place", ...parts].join(" · ");
+      // Sorts du tour, avec leur icône (assets/images/spells)
+      const spells = [[turn.course, "Petite Course", 15520], [turn.egg, "Œuf", 12451], [turn.bite, "Morsure", 15556]];
+      move.append(turn.moves ? arrows(turn.path) : "reste sur place");
+      spells.filter(([used]) => used).forEach(([, name, icon]) => {
+        const spell = document.createElement("span");
+        spell.className = "spell-name";
+        const img = document.createElement("img");
+        img.className = "spell-ic";
+        img.src = `assets/images/spells/sort_${icon}.png`;
+        img.alt = "";
+        spell.append(img, name);
+        move.append(" · ", spell);
+      });
       button.append(head, move);
       if (turn.note) {
         const note = document.createElement("span");
