@@ -181,13 +181,13 @@ html { scroll-padding-top: 4.5rem; }
   Fil d'Ariane, titre, texte d'intro, et à droite les chiffres clés du combat ou de la page.
 */
 .page-hero {
-  display: grid; gap: 1.5rem; padding: 0.5rem 0 1.75rem;
+  display: grid; gap: 1rem; padding: 0 0 1.1rem;
   border-bottom: 1px solid rgb(var(--c-line));
 }
 @media (min-width: 900px) {
-  .page-hero { grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 3rem; }
+  .page-hero { grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 2.5rem; }
 }
-.page-hero-trail { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0 0 0.9rem; font-size: 0.75rem; color: rgb(var(--c-muted)); }
+.page-hero-trail { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0 0 0.55rem; font-size: 0.75rem; color: rgb(var(--c-muted)); }
 .page-hero-trail::before {
   content: ""; width: 0.55rem; height: 0.55rem; flex: none; transform: rotate(45deg);
   border: 1.5px solid rgb(var(--c-accent)); border-radius: 1px;
@@ -196,9 +196,9 @@ html { scroll-padding-top: 4.5rem; }
 .page-hero-trail a:hover { color: rgb(var(--c-ink)); }
 .page-hero-trail .sep { color: rgb(var(--c-line)); }
 .page-hero-trail .here { color: rgb(var(--c-ink)); }
-.page-hero-title { margin: 0; font-size: clamp(1.75rem, 4.2vw, 2.6rem); font-weight: 650; line-height: 1.1; letter-spacing: -0.025em; text-wrap: balance; }
+.page-hero-title { margin: 0; font-size: clamp(1.55rem, 3.4vw, 2.15rem); font-weight: 650; line-height: 1.1; letter-spacing: -0.025em; text-wrap: balance; }
 .page-hero-title em { font-style: normal; color: rgb(var(--c-muted)); font-weight: 500; }
-.page-hero-lead { max-width: 62ch; margin: 0.9rem 0 0; font-size: 0.9rem; line-height: 1.6; color: rgb(var(--c-muted)); text-wrap: pretty; }
+.page-hero-lead { max-width: 70ch; margin: 0.55rem 0 0; font-size: 0.86rem; line-height: 1.6; color: rgb(var(--c-muted)); text-wrap: pretty; }
 .page-hero-lead strong { color: rgb(var(--c-ink)); font-weight: 500; }
 .page-hero-note { margin: 0.5rem 0 0; font-size: 0.75rem; color: rgb(var(--c-muted) / 0.75); }
 
@@ -207,7 +207,7 @@ html { scroll-padding-top: 4.5rem; }
 .page-hero-facts > div { min-width: 4.5rem; padding: 0.1rem 1.1rem; border-left: 1px solid rgb(var(--c-line)); }
 .page-hero-facts > div:first-child { padding-left: 0; border-left: 0; }
 .page-hero-facts dt { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: rgb(var(--c-muted)); }
-.page-hero-facts dd { margin: 0.2rem 0 0; font-size: 1.5rem; font-weight: 600; line-height: 1.1; font-variant-numeric: tabular-nums; color: rgb(var(--c-ink)); }
+.page-hero-facts dd { margin: 0.15rem 0 0; font-size: 1.3rem; font-weight: 600; line-height: 1.1; font-variant-numeric: tabular-nums; color: rgb(var(--c-ink)); }
 .page-hero-facts dd small { margin-left: 0.15rem; font-size: 0.72rem; font-weight: 500; color: rgb(var(--c-muted)); }
 @media (min-width: 900px) {
   .page-hero-facts > div:first-child { padding-left: 1.1rem; border-left: 1px solid rgb(var(--c-line)); }
@@ -215,4 +215,19 @@ html { scroll-padding-top: 4.5rem; }
 @media (max-width: 480px) {
   .page-hero-facts > div { min-width: 0; padding: 0.1rem 0.8rem; }
   .page-hero-facts dd { font-size: 1.25rem; }
+}
+
+/* Bandeau « Mise en place » des pages de combat tactique (assets/js/lib/setup.js) */
+.setup-strip {
+  --tool: rgb(var(--c-accent));
+  display: grid; gap: 0.6rem; padding: 0.85rem 1rem; border: 1px solid rgb(var(--c-line)); border-left: 3px solid var(--tool);
+  border-radius: 0.5rem; background: rgb(var(--c-panel));
+}
+.setup-title { margin: 0; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tool); }
+.setup-steps { display: grid; gap: 0.5rem 1.25rem; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+@media (min-width: 760px) { .setup-steps { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); } }
+.setup-steps li { position: relative; padding-left: 1.85rem; font-size: 0.82rem; line-height: 1.45; counter-increment: step; }
+.setup-steps li::before {
+  content: counter(step); position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 1.35rem; height: 1.35rem;
+  border: 1px solid var(--tool); border-radius: 50%; color: var(--tool); font-size: 0.7rem; font-weight: 700;
 }

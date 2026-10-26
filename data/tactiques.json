@@ -6,7 +6,13 @@
       "summary": "Un Memory: 32 Malters cachés sur 4 îlots, 16 paires à former avant le tour 31, avec un Malter rouge qui change d'îlot tous les 2 tours.",
       "href": "ambre.html",
       "guide": "le-serment-de-l-ambre",
-      "color": "#e0a24a"
+      "color": "#e0a24a",
+      "setup": [
+        "Au tour 1, lance la Prescience : place un « Malter détecté » sur chaque case où un glyphe apparaît.",
+        "Lance l'Intuition fossile (gratuite, 1 par tour) et note le type des Malters touchés.",
+        "Révèle ensemble, avec la Perception ambrée, les paires que la page affiche.",
+        "Avance le compteur de tours : la page suit l'îlot du Malter démoniaque."
+      ]
     },
     {
       "title": "Dofus Pourpre",
@@ -14,7 +20,13 @@
       "summary": "Un labyrinthe à traverser en 1 PM par tour, pendant que les 4 Minogolems posent des murs devant toi. L'outil calcule 4 tours d'avance.",
       "href": "minogolem.html",
       "guide": "une-acircme-en-peine",
-      "color": "#d1384f"
+      "color": "#d1384f",
+      "setup": [
+        "Passe ton premier tour sans bouger : le boss affiche ses annonces dans ses états.",
+        "Note les annonces (Sang, Sel ou Or) des 2 premiers tours des 2 prochains blocs.",
+        "Clique « Calculer » et joue les 4 tours indiqués, dans l'ordre.",
+        "« C'est joué », puis entre les annonces suivantes, jusqu'à la case verte."
+      ]
     },
     {
       "title": "Dofus Turquoise",
@@ -22,7 +34,13 @@
       "summary": "Tuer 36 feux en sautant dessus, sans que leurs collisions te tuent. L'outil lit ta capture d'écran et calcule le plan.",
       "href": "bolgrot.html",
       "guide": "extinction-des-feux",
-      "color": "#3cc8e6"
+      "color": "#3cc8e6",
+      "setup": [
+        "Passe tes 6 premiers tours sans bouger, jusqu'à l'apparition des cases violettes.",
+        "Fais une capture d'écran du combat et colle-la sur la carte (Ctrl+V).",
+        "Vérifie le tour, tes PV et PA, et corrige les feux mal lus.",
+        "« Trouver un plan », puis joue les sauts étape par étape."
+      ]
     },
     {
       "title": "Dofus Ivoire",
@@ -30,7 +48,13 @@
       "summary": "Une grille de glyphes de 4 couleurs: atteindre les 4 coins roses en sautant d'une case. L'outil lit ta capture d'écran et trouve les bonds.",
       "href": "rainikrone.html",
       "guide": "le-bonheur-est-dans-le-spray",
-      "color": "#e9e2cf"
+      "color": "#e9e2cf",
+      "setup": [
+        "Lance le combat et fais une capture d'écran où les 4 coins roses sont visibles.",
+        "Colle-la sur la grille (Ctrl+V) et vérifie les couleurs lues.",
+        "« Trouver les bonds », puis joue-les dans l'ordre (↗ Nord, ↘ Est, ↙ Sud, ↖ Ouest).",
+        "Si l'écran diverge, corrige la grille et « Repartir de l'étape affichée »."
+      ]
     },
     {
       "title": "L'arakne de Leng",
@@ -39,7 +63,12 @@
       "href": "arakne.html",
       "guide": "larakne-de-leng",
       "color": "#5fd38d",
-      "icon": "spider"
+      "icon": "spider",
+      "setup": [
+        "Choisis le combat et la méthode en haut de la carte.",
+        "Avance tour par tour (◀ ▶ ou les flèches du clavier) et rejoue chaque déplacement.",
+        "Lance Petite Course quand le badge « +2 PM » apparaît, et pose les Œufs indiqués."
+      ]
     }
   ],
   "fights": [
