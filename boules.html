@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les boules élémentaires - Tnul.Songes</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/ui/logo.svg" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/images/ui/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/boules.css" />
+</head>
+<body class="flex min-h-screen flex-col text-[14px] text-ink">
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <header class="site-header border-b border-line">
+    <div class="mx-auto flex h-16 w-full max-w-[1120px] items-center justify-between gap-5 px-4">
+      <a href="./" class="flex items-center gap-3 text-ink no-underline outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent" aria-label="Tnul.Songes, accueil">
+        <span class="flex size-8 items-center justify-center rounded-md border border-line text-accent"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6" /><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5" /><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586" /><path d="m16 16 4 4" /><path d="m19 21 2-2" /><path d="m5 14 4 4" /><path d="m5 21-2-2" /><path d="M7.5 16.5 4 20" /></svg></span>
+        <span class="text-lg font-semibold">Tnul<span class="text-accent">.</span>Songes</span>
+      </a>
+      <nav class="site-nav" aria-label="Navigation"></nav>
+      <script src="assets/js/lib/nav.js"></script>
+    </div>
+  
+  </header>
+
+  <main class="mx-auto grid w-full max-w-[1120px] flex-1 content-start gap-5 px-4 pb-14 pt-8">
+    <header class="page-hero">
+      <div>
+        <p class="page-hero-trail"><a href="tactiques.html">Combats tactiques</a> <span class="sep">/</span> <span class="here">Quête « Dans la gueule du dragon »</span></p>
+        <h1 class="page-hero-title">Les boules élémentaires</h1>
+        <p class="page-hero-lead">Amène chaque petite boule sur le glyphe de sa couleur. Place les boules comme sur ton écran : la page te donne la direction à choisir et la grosse boule à frapper, coup par coup.</p>
+      </div>
+      <dl class="page-hero-facts">
+        <div><dt>Boules</dt><dd>6</dd></div>
+        <div><dt>Glyphes</dt><dd>6</dd></div>
+      </dl>
+    </header>
+
+    <section class="rounded-lg border border-line bg-panel p-5">
+      <p class="bl-warning">Carte d'exemple : les positions viennent d'une capture du guide où une partie de l'écran est cachée. Vérifie-les avant de jouer.</p>
+      <div class="sf-toolbar" id="bl-tools" role="group" aria-label="Boule à placer"></div>
+      <p class="sf-hint">Choisis une couleur, puis clique : sur une case vide pour y mettre la petite boule, avec « Glyphe » pour déplacer le glyphe de cette couleur. Clic droit : mur ou sol.</p>
+
+      <div class="sf-layout">
+        <div class="sf-board-wrap">
+          <div class="sf-step-bar">
+            <button type="button" id="bl-prev" class="sf-round" aria-label="Coup précédent" disabled>&#9664;</button>
+            <span id="bl-step-label" class="sf-step-label" aria-live="polite">Départ</span>
+            <button type="button" id="bl-next" class="sf-round" aria-label="Coup suivant" disabled>&#9654;</button>
+          </div>
+          <svg id="bl-board" class="sf-board" role="img" aria-label="Carte du combat"></svg>
+        </div>
+
+        <aside class="sf-side">
+          <div class="sf-card">
+            <h2 class="sf-title">Calcul</h2>
+            <button type="button" id="bl-solve" class="sf-primary">Trouver les coups</button>
+            <button type="button" id="bl-reset" class="sf-secondary">Revenir à l'exemple</button>
+            <p id="bl-message" class="sf-message" role="status"></p>
+          </div>
+          <div class="sf-card" id="bl-plan-card" hidden>
+            <h2 class="sf-title">Coups à jouer</h2>
+            <ol class="sf-plan" id="bl-plan"></ol>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="rounded-lg border border-line bg-panel p-5">
+      <h2 class="sf-title">Comment ça marche</h2>
+      <p class="sf-note">Va sur un des 4 glyphes blancs autour de toi pour choisir la direction (ça prend tous tes PM : une direction par tour). Chaque coup sur une grosse boule fait avancer toutes les petites d'une case, et celle de la boule frappée de deux. Une petite boule sur son glyphe ne bouge plus. Si elle passe sur le glyphe d'une autre couleur, elle meurt et le combat est perdu : le calcul l'évite. Pour refaire la même direction le tour suivant, reviens d'abord au centre.</p>
+    </section>
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="mx-auto flex w-full max-w-[1120px] flex-col justify-between gap-3 px-4 py-6 text-[11px] text-muted sm:flex-row">
+      <p class="m-0"><span class="font-medium text-ink">Tnul.Songes</span><span class="mx-3">·</span>Va falloir s'améliorer..</p>
+      <p class="m-0">Règles d'après <a class="text-accent underline underline-offset-2" href="https://www.dofuspourlesnoobs.com/dans-la-gueule-du-dragon.html" target="_blank" rel="noopener noreferrer">Dofus pour les Noobs</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/lib/background.js" defer></script>
+  <script src="assets/js/lib/setup.js" defer></script>
+  <script src="assets/js/boules/solver.js" defer></script>
+  <script src="assets/js/boules/boules.js" defer></script>
+</body>
+</html>

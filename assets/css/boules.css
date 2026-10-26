@@ -1,0 +1,17 @@
+/* Page « Les boules élémentaires »: reprend la mise en page des Souffles (souffles.css), sur un sol de pierre */
+@import url("souffles.css");
+.bl-warning { margin: 0 0 0.8rem; padding: 0.55rem 0.75rem; border: 1px solid rgb(var(--c-warm) / 0.5); border-radius: 0.4rem; background: rgb(var(--c-warm) / 0.1); font-size: 0.8rem; color: rgb(var(--c-warm)); }
+.bl-mode { color: rgb(var(--c-muted)); }
+.bl-cell { fill: #c9c1a8; stroke: rgba(0, 0, 0, 0.15); stroke-width: 0.5; cursor: pointer; }
+.bl-cell.alt { fill: #bfb69c; }
+.bl-cell:hover { stroke: #fff; stroke-width: 1.4; }
+.bl-hole { fill: #141414; stroke: rgba(0, 0, 0, 0.6); stroke-width: 0.5; cursor: pointer; }
+.bl-white { fill: rgba(255, 255, 255, 0.35); stroke: #fff; stroke-width: 0.8; pointer-events: none; }
+.bl-white.chosen { fill: rgba(110, 186, 237, 0.7); stroke: #6ebaed; stroke-width: 1.6; }
+.bl-rock-top { fill: #a3a7ab; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; pointer-events: none; }
+.bl-rock-l { fill: #7d8186; pointer-events: none; }
+.bl-rock-r { fill: #63666b; pointer-events: none; }
+.bl-ball { stroke: rgba(0, 0, 0, 0.45); stroke-width: 0.8; }
+.bl-ball.big { stroke: rgba(255, 255, 255, 0.6); stroke-width: 1; opacity: 0.85; }
+.bl-ball.struck { stroke: #6ebaed; stroke-width: 2.2; opacity: 1; }
+.bl-dot { display: inline-block; width: 0.7rem; height: 0.7rem; margin-right: 0.45rem; border-radius: 50%; vertical-align: -0.05em; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4); }

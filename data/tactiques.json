@@ -98,6 +98,20 @@
         "Indique la portée max de ce sort, et corrige la carte si les machines ne sont pas aux mêmes places.",
         "« Trouver où frapper », puis pour chaque frappe va sur la case bleue et frappe dans le sens indiqué."
       ]
+    },
+    {
+      "title": "Les boules élémentaires",
+      "quest": "Dans la gueule du dragon",
+      "summary": "6 petites boules à pousser chacune sur son glyphe. L'outil donne la direction de chaque tour et la grosse boule à frapper.",
+      "href": "boules.html",
+      "guide": "dans-la-gueule-du-dragon",
+      "color": "#f08a3c",
+      "icon": "orbs",
+      "setup": [
+        "Au début du combat, compare la carte d'exemple avec ton écran : murs, glyphes, petites et grosses boules.",
+        "Corrige ce qui diffère (choisis la couleur, puis « Petite boule », « Glyphe » ou « Grosse boule »).",
+        "« Trouver les coups » : chaque tour, va sur le glyphe blanc indiqué, puis frappe les grosses boules dans l'ordre."
+      ]
     }
   ],
   "fights": [
@@ -134,18 +148,6 @@
         "Tu peux déplacer une petite machine en la frappant, pour dégager un glyphe gênant."
       ],
       "guide": "la-fin-ou-le-commencement"
-    },
-    {
-      "title": "Les boules élémentaires",
-      "quest": "Dans la gueule du dragon",
-      "goal": "Amener chacune des 6 petites boules sur l'une des 4 cases du glyphe de sa couleur.",
-      "mechanic": "Tu choisis la direction en allant sur l'un des 4 glyphes blancs autour de toi (cela te retire tous tes PM pour le tour: une seule direction par tour). Chaque coup sur une grosse boule fait avancer toutes les petites d'une case dans cette direction, et celle de la boule frappée de deux.",
-      "tips": [
-        "Une petite boule arrivée sur son glyphe ne bouge plus.",
-        "Passer sur le glyphe d'une autre couleur la tue: la grosse boule la ré-invoque, mais le combat est alors perdu.",
-        "Fais reculer les boules plutôt que de les laisser passer sur un mauvais glyphe."
-      ],
-      "guide": "dans-la-gueule-du-dragon"
     },
     {
       "title": "Crocoburio contre son père",

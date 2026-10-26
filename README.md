@@ -25,6 +25,7 @@ rainikrone.html     Dofus Ivoire : « Le bonheur est dans le spray »
 arakne.html         L'arakne de Leng : les 2 combats en petite arakne, tour par tour
 souffles.html       Dorigami : solveur des Souffles du Reflet
 machines.html       « Ce qui est » : où se placer pour attirer les petites machines
+boules.html         « Dans la gueule du dragon » : solveur des boules élémentaires (carte d'exemple)
 classes.html        fiches des 19 classes : la fiche s'affiche dans une card pleine hauteur (classes.html#cra)
 palette/            build de Skinoskope (PaletteDofus)
 ```
@@ -37,7 +38,7 @@ assets/
     theme.css                  thème commun (menu, en-tête)
     fiches.css                 thème du site appliqué aux fiches de classes (classes/*.html)
     simulator.css              simulateur
-    ambre, minogolem, bolgrot, rainikrone, arakne, souffles, machines, tactiques, classes .css
+    ambre, minogolem, bolgrot, rainikrone, arakne, souffles, machines, boules, tactiques, classes .css
   images/
     monsters/                  {Id}_{Nom}.png
     spells/                    icônes de sorts (sort_{id}.png)
@@ -59,6 +60,7 @@ assets/
     rainikrone/                moteur, recherche, import de capture, worker
     souffles/                  solveur + worker des Souffles du Reflet
     machines/                  solveur des petites machines
+    boules/                    solveur des boules élémentaires
 classes/                       fiches de classes autonomes (copiées de dofusclasse/out)
 palette/                       build Vite de PaletteDofus
 data/
@@ -68,7 +70,7 @@ data/
   maps.json                    salles de boss
   domireversi.json             classement Domi Reversi (généré)
   tactiques.json               liste des combats tactiques
-  ambre, minogolem, bolgrot, rainikrone, arakne, souffles, machines .json   cartes et règles des combats tactiques
+  ambre, minogolem, bolgrot, rainikrone, arakne, souffles, machines, boules .json   cartes et règles des combats tactiques
 tools/                         scripts : spells.json, domireversi.json, fiches de classes, coiffes de la palette
 tests/                         tests de la grille et des moteurs de combats tactiques
 ```

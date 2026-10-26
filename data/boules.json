@@ -1,0 +1,33 @@
+{
+  "note": "EXEMPLE approché d'après la capture du guide Dofus pour les Noobs (perspective et bas de l'écran cachés): corrige les positions avant de jouer. Carte: une ligne par valeur de b, un caractère par valeur de a ('.' sol, '#' mur).",
+  "map": {"amin": -7, "bmin": -18, "rows": [
+    "####.............",
+    "####.............",
+    "####.............",
+    ".................",
+    ".................",
+    ".................",
+    ".................",
+    ".................",
+    "####.............",
+    "####.............",
+    "####.............",
+    ".................",
+    ".................",
+    ".................",
+    ".................",
+    ".................",
+    ".................",
+    ".................",
+    "................."
+  ]},
+  "player": [0, 0],
+  "balls": [
+    {"color": "jaune", "hex": "#f2d14a", "cross": [1, -16], "small": [-4, -2], "big": [-4, -1]},
+    {"color": "vert", "hex": "#8fd14f", "cross": [-2, -12], "small": [-3, -3], "big": [-3, -2]},
+    {"color": "blanc", "hex": "#eeeeee", "cross": [6, -9], "small": [-2, -4], "big": [-2, -3]},
+    {"color": "orange", "hex": "#f08a3c", "cross": [1, -9], "small": [0, -5], "big": [-1, -4]},
+    {"color": "marron", "hex": "#9c6a3e", "cross": [6, -16], "small": [1, -4], "big": [1, -3]},
+    {"color": "cyan", "hex": "#56d6e6", "cross": [8, -12], "small": [2, -3], "big": [2, -2]}
+  ]
+}

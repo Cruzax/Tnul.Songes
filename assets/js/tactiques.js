@@ -34,6 +34,7 @@
   const ICONS = {
     gem: '<path d="M12 2.5 20 9l-8 12.5L4 9z" fill="currentColor" stroke="rgb(0 0 0 / 0.35)" stroke-width="0.8"/><path d="M4 9h16M12 2.5 9 9l3 12.5L15 9z" fill="none" stroke="rgb(255 255 255 / 0.5)" stroke-width="0.7"/><path d="M8.5 5.5 6.5 8.2" stroke="rgb(255 255 255 / 0.8)" stroke-width="0.9" stroke-linecap="round"/>',
     gear: '<g fill="currentColor" stroke="rgb(0 0 0 / 0.35)" stroke-width="0.6"><path d="M10.6 2h2.8l.5 2.6 2.1.9 2.2-1.5 2 2-1.5 2.2.9 2.1 2.6.5v2.8l-2.6.5-.9 2.1 1.5 2.2-2 2-2.2-1.5-2.1.9-.5 2.6h-2.8l-.5-2.6-2.1-.9-2.2 1.5-2-2 1.5-2.2-.9-2.1L2 13.4v-2.8l2.6-.5.9-2.1L4 5.8l2-2 2.2 1.5 2.1-.9z"/></g><circle cx="12" cy="12" r="3.2" fill="#15161a"/>',
+    orbs: '<circle cx="8" cy="9" r="4.5" fill="#f2d14a"/><circle cx="16.5" cy="8" r="3.5" fill="#56d6e6"/><circle cx="12" cy="16" r="5" fill="currentColor"/>',
     yin: '<circle cx="12" cy="12" r="9" fill="currentColor" stroke="rgb(0 0 0 / 0.4)" stroke-width="0.8"/><path d="M12 3a4.5 4.5 0 0 1 0 9 4.5 4.5 0 0 0 0 9 9 9 0 0 1 0-18z" fill="#15161a"/><circle cx="12" cy="7.5" r="1.4" fill="#15161a"/><circle cx="12" cy="16.5" r="1.4" fill="currentColor"/>',
     spider: '<g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="13" r="3.2" fill="currentColor"/><circle cx="12" cy="8" r="1.8" fill="currentColor"/><path d="M9 11 4 7M9 13H3M9.5 15.5 5 20M15 11l5-4M15 13h6M14.5 15.5 19 20"/></g>',
   };
