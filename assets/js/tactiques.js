@@ -29,14 +29,33 @@
     return a;
   }
 
+  // Bandeau des cartes d'outil: gemme du Dofus (ou icône) sur un halo de sa couleur
+  const NS = "http://www.w3.org/2000/svg";
+  const ICONS = {
+    gem: '<path d="M12 2.5 20 9l-8 12.5L4 9z" fill="currentColor" stroke="rgb(0 0 0 / 0.35)" stroke-width="0.8"/><path d="M4 9h16M12 2.5 9 9l3 12.5L15 9z" fill="none" stroke="rgb(255 255 255 / 0.5)" stroke-width="0.7"/><path d="M8.5 5.5 6.5 8.2" stroke="rgb(255 255 255 / 0.8)" stroke-width="0.9" stroke-linecap="round"/>',
+    spider: '<g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="13" r="3.2" fill="currentColor"/><circle cx="12" cy="8" r="1.8" fill="currentColor"/><path d="M9 11 4 7M9 13H3M9.5 15.5 5 20M15 11l5-4M15 13h6M14.5 15.5 19 20"/></g>',
+  };
+  function banner(tool, index) {
+    const head = el("div", "tq-tool-banner");
+    const badge = document.createElementNS(NS, "svg");
+    badge.setAttribute("viewBox", "0 0 24 24");
+    badge.setAttribute("class", "tq-tool-gem");
+    badge.setAttribute("aria-hidden", "true");
+    badge.innerHTML = ICONS[tool.icon || "gem"];
+    head.append(badge, el("span", "tq-tool-index", String(index + 1).padStart(2, "0")));
+    return head;
+  }
+
   data.tools.forEach((tool, index) => {
     const card = el("article", "tq-tool");
-    card.appendChild(el("span", "tq-tool-index", String(index + 1).padStart(2, "0")));
+    if (tool.color) card.style.setProperty("--tool", tool.color);
     const title = el("h3", "tq-tool-title");
     const open = el("a", "", tool.title);
     open.href = tool.href;
     title.appendChild(open);
-    card.append(title, el("p", "tq-tool-quest", `Quête « ${tool.quest} »`), el("p", "tq-tool-text", tool.summary));
+    const body = el("div", "tq-tool-body");
+    body.append(title, el("p", "tq-tool-quest", `Quête « ${tool.quest} »`), el("p", "tq-tool-text", tool.summary));
+    card.append(banner(tool, index), body);
     const foot = el("div", "tq-tool-foot");
     foot.append(el("span", "tq-tool-open", "Ouvrir l'outil"), guideLink(tool.guide, "Guide ↗"));
     card.appendChild(foot);

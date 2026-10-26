@@ -5,35 +5,41 @@
       "quest": "Le serment de l'ambre",
       "summary": "Un Memory: 32 Malters cachés sur 4 îlots, 16 paires à former avant le tour 31, avec un Malter rouge qui change d'îlot tous les 2 tours.",
       "href": "ambre.html",
-      "guide": "le-serment-de-l-ambre"
+      "guide": "le-serment-de-l-ambre",
+      "color": "#e0a24a"
     },
     {
       "title": "Dofus Pourpre",
       "quest": "Une âme en peine",
       "summary": "Un labyrinthe à traverser en 1 PM par tour, pendant que les 4 Minogolems posent des murs devant toi. L'outil calcule 4 tours d'avance.",
       "href": "minogolem.html",
-      "guide": "une-acircme-en-peine"
+      "guide": "une-acircme-en-peine",
+      "color": "#b05ad6"
     },
     {
       "title": "Dofus Turquoise",
       "quest": "Extinction des feux",
       "summary": "Tuer 36 feux en sautant dessus, sans que leurs collisions te tuent. L'outil lit ta capture d'écran et calcule le plan.",
       "href": "bolgrot.html",
-      "guide": "extinction-des-feux"
+      "guide": "extinction-des-feux",
+      "color": "#2fc4b2"
     },
     {
       "title": "Dofus Ivoire",
       "quest": "Le bonheur est dans le spray",
       "summary": "Une grille de glyphes de 4 couleurs: atteindre les 4 coins roses en sautant d'une case. L'outil lit ta capture d'écran et trouve les bonds.",
       "href": "rainikrone.html",
-      "guide": "le-bonheur-est-dans-le-spray"
+      "guide": "le-bonheur-est-dans-le-spray",
+      "color": "#e9e2cf"
     },
     {
       "title": "L'arakne de Leng",
       "quest": "L'arakne de Leng et Le plateau de Leng",
       "summary": "Les 2 combats en petite arakne (13 PV, 2 PM) : les monstres jouent toujours pareil, la page montre les déplacements tour par tour.",
       "href": "arakne.html",
-      "guide": "larakne-de-leng"
+      "guide": "larakne-de-leng",
+      "color": "#5fd38d",
+      "icon": "spider"
     }
   ],
   "fights": [

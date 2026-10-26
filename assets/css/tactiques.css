@@ -3,25 +3,54 @@
 .tq-heading { margin: 0; font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; }
 .tq-section-hint { margin: 0; font-size: 0.8rem; color: rgb(var(--c-muted)); }
 
-/* Outils: 4 cartes de même taille, la carte entière ouvre l'outil */
+/* Outils: cartes de même taille, la carte entière ouvre l'outil. --tool = couleur du Dofus (data/tactiques.json) */
 .tq-tools { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); }
 .tq-tool {
-  position: relative; display: flex; flex-direction: column; gap: 0.45rem; padding: 1.1rem 1.1rem 1rem;
-  border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem; background: rgb(var(--c-panel));
-  transition: border-color 0.15s, background-color 0.15s;
+  --tool: rgb(var(--c-accent));
+  position: relative; display: flex; flex-direction: column; overflow: hidden;
+  border: 1px solid rgb(var(--c-line)); border-radius: 0.6rem; background: rgb(var(--c-panel));
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
-.tq-tool:hover { border-color: rgb(var(--c-accent) / 0.55); background: rgb(var(--c-panel2)); }
-.tq-tool:focus-within { border-color: rgb(var(--c-accent) / 0.8); }
-.tq-tool-index { font-size: 0.72rem; font-variant-numeric: tabular-nums; color: rgb(var(--c-muted)); }
+.tq-tool:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--tool) 55%, transparent); box-shadow: 0 14px 30px -12px color-mix(in srgb, var(--tool) 45%, transparent); }
+.tq-tool:focus-within { border-color: color-mix(in srgb, var(--tool) 75%, transparent); }
+
+/* Bandeau: halo de la couleur, cases isométriques en fond, gros gemme */
+.tq-tool-banner {
+  position: relative; display: flex; align-items: center; justify-content: space-between; height: 5.25rem; padding: 0 1rem;
+  border-bottom: 1px solid rgb(var(--c-line));
+  background:
+    radial-gradient(120% 140% at 18% 110%, color-mix(in srgb, var(--tool) 38%, transparent), transparent 62%),
+    linear-gradient(180deg, rgb(var(--c-panel2)), rgb(var(--c-panel)));
+}
+.tq-tool-banner::before {
+  content: ""; position: absolute; inset: 0; opacity: 0.35; pointer-events: none;
+  background:
+    linear-gradient(26.57deg, transparent calc(50% - 0.5px), color-mix(in srgb, var(--tool) 45%, transparent) 50%, transparent calc(50% + 0.5px)),
+    linear-gradient(-26.57deg, transparent calc(50% - 0.5px), color-mix(in srgb, var(--tool) 45%, transparent) 50%, transparent calc(50% + 0.5px));
+  background-size: 36px 18px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 15%, #000 70%);
+  mask-image: linear-gradient(90deg, transparent 15%, #000 70%);
+}
+.tq-tool-gem {
+  position: relative; width: 2.6rem; height: 2.6rem; color: var(--tool);
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--tool) 65%, transparent));
+  transition: transform 0.25s;
+}
+.tq-tool:hover .tq-tool-gem { transform: translateY(-2px) rotate(-6deg) scale(1.06); }
+.tq-tool-index { position: relative; font-size: 0.72rem; font-weight: 600; font-variant-numeric: tabular-nums; color: rgb(var(--c-muted)); }
+
+.tq-tool-body { display: flex; flex: 1; flex-direction: column; gap: 0.4rem; padding: 0.95rem 1rem 0; }
 .tq-tool-title { margin: 0; font-size: 1.05rem; font-weight: 600; }
 .tq-tool-title a { color: inherit; text-decoration: none; outline: none; }
 .tq-tool-title a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; } /* toute la carte est cliquable */
-.tq-tool-quest { margin: 0; font-size: 0.75rem; color: rgb(var(--c-accent)); }
+.tq-tool-quest { margin: 0; font-size: 0.75rem; color: color-mix(in srgb, var(--tool) 75%, rgb(var(--c-ink))); }
 .tq-tool-text { margin: 0.2rem 0 0; font-size: 0.82rem; line-height: 1.55; color: rgb(var(--c-ink) / 0.8); }
-.tq-tool-foot { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: auto; padding-top: 0.8rem; border-top: 1px solid rgb(var(--c-line)); font-size: 0.78rem; }
+.tq-tool-foot { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin: auto 1rem 0; padding: 0.8rem 0 0.9rem; border-top: 1px solid rgb(var(--c-line)); font-size: 0.78rem; }
+.tq-tool-body + .tq-tool-foot { margin-top: 0.9rem; }
 .tq-tool-open { font-weight: 600; color: rgb(var(--c-ink)); }
-.tq-tool-open::after { content: " →"; color: rgb(var(--c-accent)); transition: margin 0.15s; }
-.tq-tool:hover .tq-tool-open::after { margin-left: 0.2rem; }
+.tq-tool-open::after { content: " →"; color: var(--tool); transition: margin 0.15s; }
+.tq-tool:hover .tq-tool-open::after { margin-left: 0.25rem; }
+@media (prefers-reduced-motion: reduce) { .tq-tool, .tq-tool-gem { transition: none; } .tq-tool:hover { transform: none; } }
 .tq-guide { position: relative; z-index: 1; color: rgb(var(--c-muted)); text-decoration: none; }
 .tq-guide:hover { color: rgb(var(--c-ink)); text-decoration: underline; text-underline-offset: 2px; }
 
