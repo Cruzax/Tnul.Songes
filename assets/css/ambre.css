@@ -27,6 +27,10 @@
 .am-rock-top { fill: #9aa6c2; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; pointer-events: none; }
 .am-rock-l { fill: #6d7899; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; pointer-events: none; }
 .am-rock-r { fill: #4e587a; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; pointer-events: none; }
+.am-nosight { fill: rgb(255 140 40 / 0.45); stroke: #ffa94d; stroke-width: 2; stroke-linejoin: round; pointer-events: none; }
+.am-board.hide-nosight .am-nosight-layer { display: none; }
+.am-nosight-toggle { display: inline-flex; align-items: center; gap: 0.4rem; margin: 0.5rem 0 0; font-size: 0.78rem; color: rgb(var(--c-muted)); cursor: pointer; }
+.am-nosight-toggle i { display: inline-block; width: 0.9rem; height: 0.55rem; border: 1.5px solid #ffa94d; background: rgb(255 140 40 / 0.45); transform: rotate(45deg) scaleY(0.6); }
 .am-badge { fill: #fff; font-size: 11px; font-weight: 700; pointer-events: none; paint-order: stroke; stroke: rgba(0, 0, 0, 0.55); stroke-width: 2.5px; }
 .am-badge.on-light { fill: #222; stroke: none; }
 

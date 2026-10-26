@@ -123,6 +123,19 @@
       const badge = svg("text", { class: "am-badge", x, y: y + 4, "text-anchor": "middle" }, badgeLayer);
       nodes.set(cell.key, { top, badge });
     });
+    // Cases jamais en ligne de vue (carte DPLN): la Prescience n'y voit rien, il faut l'Intuition ou la Perception
+    // Sous les rochers, pour que ceux-ci passent devant
+    const sightLayer = svg("g", { class: "am-nosight-layer" });
+    board.insertBefore(sightLayer, rockLayer);
+    (map.noSight || []).forEach(([i, j]) => {
+      const cell = byKey.get(keyOf(i, j));
+      if (!cell) return;
+      const inset = 0.9;
+      svg("polygon", {
+        class: "am-nosight",
+        points: points([[cell.x, cell.y - STEP_Y * inset], [cell.x + STEP_X * inset, cell.y], [cell.x, cell.y + STEP_Y * inset], [cell.x - STEP_X * inset, cell.y]]),
+      }, sightLayer);
+    });
     drawn.filter((cell) => cell.rock).forEach((cell) => {
       const { x, y } = cell;
       const up = y - ROCK_HEIGHT;
@@ -131,6 +144,11 @@
       svg("polygon", { class: "am-rock-r", points: points([[x + STEP_X, up], [x, up + STEP_Y], [x, y + STEP_Y], [x + STEP_X, y]]) }, group);
       svg("polygon", { class: "am-rock-top", points: points([[x - STEP_X, up], [x, up - STEP_Y], [x + STEP_X, up], [x, up + STEP_Y]]) }, group);
     });
+  }
+
+  const sightToggle = document.getElementById("am-nosight");
+  if (sightToggle) {
+    sightToggle.addEventListener("change", () => board.classList.toggle("hide-nosight", !sightToggle.checked));
   }
 
   // ---- Barre d'outils ----

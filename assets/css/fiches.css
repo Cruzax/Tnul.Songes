@@ -1,0 +1,95 @@
+/*
+  Thème Tnul.Songes des fiches de classes (classes/*.html, générées par dofusclasse).
+  Chargé après le style de la fiche (tools/patch-classes.js ajoute le lien): il remplace ses couleurs,
+  sa police et ses tailles de titres par celles du site (voir theme.css). Les couleurs d'éléments restent.
+*/
+:root {
+  --bg: #090a0c;
+  --card: #111315;
+  --border: #282a2e;
+  --text: #e6e8eb;
+  --muted: #7e838c;
+  --accent: #6ebaed;
+  --panel2: #15171a;
+  --warm: #caae63;
+
+  --eau-txt: #70b6e7;
+  --terre-txt: #cd995c;
+  --air-txt: #78c192;
+  --feu-txt: #f37e61;
+
+  --font-title: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-text: "Inter", "Segoe UI", system-ui, sans-serif;
+
+  --page-w: 1500px;
+  --radius: 8px;
+}
+
+body { font-size: 15px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
+
+/* Titres: Inter, plus petits et sans capitales (la police d'origine était étroite) */
+.header { border-bottom-width: 1px; padding-bottom: 18px; }
+.kicker { font-family: var(--font-text); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; color: var(--accent); }
+.title { font-size: 56px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; color: var(--text); }
+h2 { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; text-transform: none; line-height: 1.2; }
+.section.demi h2 { font-size: 19px; }
+h3 { font-size: 16px; font-weight: 600; line-height: 1.25; }
+.section-head .sub { font-size: 13px; }
+.carte-effet { font-size: 21px; font-weight: 600; line-height: 1.2; }
+.tableau thead th { font-family: var(--font-text); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; }
+.tableau tbody th h3 { font-size: 16px; }
+.tableau tbody td { font-size: 15px; }
+.tableau-libre thead th { font-size: 12px; }
+.tableau-libre tbody th h3 { font-size: 15px; }
+.tableau-libre tbody td { font-size: 14px; }
+.cellule .el { font-family: var(--font-text); font-size: 11px; letter-spacing: 0.08em; }
+.cellule .val { font-size: 15px; }
+.rotation-head .code { font-family: var(--font-text); font-size: 13px; font-weight: 600; letter-spacing: 0.12em; }
+.chip { font-size: 13px; padding: 2px 10px; }
+.liste b { font-family: var(--font-text); font-size: 15px; font-weight: 600; }
+.flux-step b { font-family: var(--font-text); font-size: 15px; font-weight: 600; }
+.flux-step small { font-size: 13px; }
+.glo-item h3 { font-size: 15px; }
+.glo-item p { font-size: 14px; }
+.glo-type, .spc-tag, .gf-label { font-family: var(--font-text); font-size: 11px; letter-spacing: 0.08em; }
+.spc h3 { font-size: 16px; }
+.spc-desc, .spc-fx { font-size: 14px; }
+.g-cat { font-family: var(--font-text); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+.g-n { font-size: 12px; vertical-align: 1px; }
+
+/* Fonds qui étaient codés en dur dans la fiche */
+.flux-step, .chip-k, .gf-search, .gf-chip, .gf-toggle { background: var(--panel2); }
+.flux-step.hot { background: rgb(110 186 237 / 0.08); border-color: var(--accent); }
+.topnav { background: rgb(9 10 12 / 0.88); backdrop-filter: blur(10px); }
+.topnav a { font-size: 13px; }
+.nav-menu { font: 600 13px var(--font-text) !important; letter-spacing: 0; border-radius: 6px; }
+.gfilters { background: rgb(17 19 21 / 0.97); }
+.gf-chip[aria-pressed="true"] { color: var(--bg); }
+.ic-puissance, .ic-rune, .ic-etat { color: var(--warm); }
+
+/* Simulateur de portails Éliotrope */
+.cell { fill: var(--panel2); }
+.cell:hover { fill: #1c1f23; }
+h1 { color: var(--text); font-size: 48px; font-weight: 700; letter-spacing: -0.02em; }
+
+/* Barres de défilement fines et sombres, comme le reste du site (sous Chrome, scrollbar-width
+   désactiverait les règles ::-webkit-scrollbar et ferait réapparaître les flèches) */
+@supports not selector(::-webkit-scrollbar) { * { scrollbar-width: thin; scrollbar-color: #3a3d42 transparent; } }
+@supports selector(::-webkit-scrollbar) { .nav-toc { scrollbar-width: auto; } }
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: #3a3d42; border-radius: 999px; }
+*::-webkit-scrollbar-thumb:hover { background: #55595f; }
+*::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+
+@media (max-width: 900px) {
+  .title { font-size: 40px; }
+  h2 { font-size: 20px; }
+  h1 { font-size: 36px; }
+}
+
+/* Fiche affichée dans la page Classes (classes.js ajoute la classe « embedded »): la page parente
+   a déjà sa barre de sommaire collante, et le cadre prend toute la hauteur de la fiche. */
+html.embedded, html.embedded body { overflow-y: hidden; }
+html.embedded .topnav, html.embedded .back-menu { display: none; }
+html.embedded .page { padding-top: 28px; }
