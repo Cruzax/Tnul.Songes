@@ -53,3 +53,12 @@
 .am-rules { margin: 0.8rem 0 0; padding-left: 1.1rem; display: grid; gap: 0.4rem; font-size: 0.85rem; line-height: 1.5; }
 .level-input { -moz-appearance: textfield; appearance: textfield; }
 .level-input::-webkit-outer-spin-button, .level-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* Monstres du combat: image, nom avec la couleur utilisée sur la carte */
+.am-mobs { display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); margin: 0.8rem 0 0; padding: 0; list-style: none; }
+.am-mob { display: grid; justify-items: center; gap: 0.3rem; padding: 0.7rem 0.6rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem; background: rgb(var(--c-panel2)); text-align: center; }
+.am-mob img { width: 96px; height: 96px; margin: -0.6rem 0 -0.4rem; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5)); }
+.am-mob-name { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.86rem; font-weight: 600; }
+.am-mob-name i { width: 0.7rem; height: 0.7rem; border-radius: 3px; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4); }
+.am-mob small { font-size: 0.72rem; line-height: 1.35; color: rgb(var(--c-muted)); }
+
