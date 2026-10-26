@@ -14,6 +14,8 @@ const THEME = '<link rel="stylesheet" href="../assets/css/fiches.css">';
 const EMBED = '<script>if (window.top !== window.self) document.documentElement.classList.add("embedded");</script>';
 // Bulle des sorts: un clic sur le nom d'un sort ouvre sa carte du grimoire (assets/js/fiches.js)
 const POPUP = '<script src="../assets/js/fiches.js" defer></script>';
+// Icône d'onglet: le logo du site
+const ICON = '<link rel="icon" type="image/svg+xml" href="../assets/images/ui/logo.svg">';
 
 function copyFrom(source) {
   const out = path.join(source, "out");
@@ -34,7 +36,9 @@ function patch(html) {
     .replace(`${THEME}\n${EMBED}`, THEME)
     .replace(THEME, `${THEME}\n${EMBED}`)
     .replace(`${EMBED}\n${POPUP}`, EMBED)
-    .replace(EMBED, `${EMBED}\n${POPUP}`);
+    .replace(EMBED, `${EMBED}\n${POPUP}`)
+    .replace(`${ICON}\n${THEME}`, THEME)
+    .replace(THEME, `${ICON}\n${THEME}`);
 }
 
 const fromIndex = process.argv.indexOf("--from");
@@ -51,6 +55,6 @@ fs.readdirSync(DEST)
     if (after !== before) {
       fs.writeFileSync(file, after);
     }
-    const ok = after.includes(EMBED) && after.includes(POPUP) && after.includes("← Classes") && after.includes("family=Inter");
+    const ok = after.includes(EMBED) && after.includes(POPUP) && after.includes(ICON) && after.includes("← Classes") && after.includes("family=Inter");
     console.log(`${ok ? "ok  " : "??? "} ${name}`);
   });

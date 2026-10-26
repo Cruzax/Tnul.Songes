@@ -37,7 +37,7 @@
   transition: transform 0.25s;
 }
 .tq-tool:hover .tq-tool-gem { transform: translateY(-2px) rotate(-6deg) scale(1.06); }
-.tq-tool-index { position: relative; font-size: 0.72rem; font-weight: 600; font-variant-numeric: tabular-nums; color: rgb(var(--c-muted)); }
+.tq-tool-banner .tq-guide { font-size: 0.74rem; }
 
 .tq-tool-body { display: flex; flex: 1; flex-direction: column; gap: 0.4rem; padding: 0.95rem 1rem 0; }
 .tq-tool-title { margin: 0; font-size: 1.05rem; font-weight: 600; }
@@ -45,11 +45,20 @@
 .tq-tool-title a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; } /* toute la carte est cliquable */
 .tq-tool-quest { margin: 0; font-size: 0.75rem; color: color-mix(in srgb, var(--tool) 75%, rgb(var(--c-ink))); }
 .tq-tool-text { margin: 0.2rem 0 0; font-size: 0.82rem; line-height: 1.55; color: rgb(var(--c-ink) / 0.8); }
-.tq-tool-foot { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin: auto 1rem 0; padding: 0.8rem 0 0.9rem; border-top: 1px solid rgb(var(--c-line)); font-size: 0.78rem; }
-.tq-tool-body + .tq-tool-foot { margin-top: 0.9rem; }
-.tq-tool-open { font-weight: 600; color: rgb(var(--c-ink)); }
-.tq-tool-open::after { content: " →"; color: var(--tool); transition: margin 0.15s; }
-.tq-tool:hover .tq-tool-open::after { margin-left: 0.25rem; }
+.tq-tool-foot { margin-top: auto; padding: 0.9rem 1rem 1rem; }
+.tq-tool-open {
+  display: flex; align-items: center; justify-content: center; position: relative; padding: 0.55rem 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--tool) 35%, transparent); border-radius: 0.45rem;
+  background: color-mix(in srgb, var(--tool) 12%, transparent); color: rgb(var(--c-ink)); font-size: 0.8rem; font-weight: 600; pointer-events: none;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+/* Petite flèche discrète, poussée à droite */
+.tq-tool-open::after {
+  content: ""; position: absolute; right: 0.8rem; width: 0.4rem; height: 0.4rem; border-top: 1.5px solid var(--tool); border-right: 1.5px solid var(--tool);
+  opacity: 0.6; transform: rotate(45deg); transition: right 0.2s, opacity 0.2s;
+}
+.tq-tool:hover .tq-tool-open { background: color-mix(in srgb, var(--tool) 22%, transparent); border-color: color-mix(in srgb, var(--tool) 60%, transparent); }
+.tq-tool:hover .tq-tool-open::after { right: 0.6rem; opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .tq-tool, .tq-tool-gem { transition: none; } .tq-tool:hover { transform: none; } }
 .tq-guide { position: relative; z-index: 1; color: rgb(var(--c-muted)); text-decoration: none; }
 .tq-guide:hover { color: rgb(var(--c-ink)); text-decoration: underline; text-underline-offset: 2px; }

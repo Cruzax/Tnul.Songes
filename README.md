@@ -40,7 +40,7 @@ assets/
     monsters/                  {Id}_{Nom}.png
     spells/                    icônes de sorts (sort_{id}.png)
     allies/                    pions alliés
-    ui/                        icône du site, fond
+    ui/                        logo du site (logo.svg, aussi icône d'onglet), fond
   js/
     tailwind-config.js         config Tailwind partagée par toutes les pages
     main.js                    point d'entrée de la page d'accueil
