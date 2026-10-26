@@ -28,13 +28,16 @@
   </header>
 
   <main class="mx-auto grid w-full max-w-[1500px] flex-1 content-start gap-5 px-4 pb-14 pt-8">
-    <div class="mx-auto max-w-[620px] py-2 text-center">
-      <p class="card-label mb-3">Fiches mémo</p>
-      <h2 class="m-0 text-3xl font-semibold">Les classes de Dofus 3</h2>
-      <p class="mt-3 text-[13px] leading-relaxed text-muted">
-        Une fiche par classe: mécaniques, sorts, glyphes et conseils. Générées depuis l'API DofusDB.
-      </p>
-    </div>
+    <header class="page-hero">
+      <div>
+        <p class="page-hero-trail">Outils <span class="sep">/</span> <span class="here">Fiches mémo</span></p>
+        <h1 class="page-hero-title">Les classes de Dofus 3</h1>
+        <p class="page-hero-lead">Une fiche par classe: mécaniques, sorts, glyphes et conseils, générées depuis l'API DofusDB.</p>
+      </div>
+      <dl class="page-hero-facts">
+        <div><dt>Classes</dt><dd>19</dd></div>
+      </dl>
+    </header>
 
     <nav class="cl-grid" id="cl-grid" aria-label="Choisir une classe"></nav>
 
