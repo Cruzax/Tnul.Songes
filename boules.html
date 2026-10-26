@@ -42,9 +42,10 @@
     </header>
 
     <section class="rounded-lg border border-line bg-panel p-5">
-      <p class="bl-warning">Carte d'exemple : les positions viennent d'une capture du guide où une partie de l'écran est cachée. Vérifie-les avant de jouer.</p>
+      <p class="bl-warning">Carte d'exemple, d'après une capture du guide où une partie de l'écran est cachée : colle ta capture pour la remplacer par la tienne.</p>
+      <div class="bl-import-bar"><button type="button" id="bl-import" class="sf-tool sf-import">Lire une capture (ou Ctrl+V)</button><span>Colle une capture du début du combat : la page place les glyphes et les boules.</span></div>
       <div class="sf-toolbar" id="bl-tools" role="group" aria-label="Boule à placer"></div>
-      <p class="sf-hint">Choisis une couleur, puis clique : sur une case vide pour y mettre la petite boule, avec « Glyphe » pour déplacer le glyphe de cette couleur. Clic droit : mur ou sol.</p>
+      <p class="sf-hint">Pour corriger à la main : choisis une couleur, puis « Petite boule », « Glyphe » ou « Grosse boule », et clique une case. Clic droit : mur ou sol.</p>
 
       <div class="sf-layout">
         <div class="sf-board-wrap">
@@ -86,7 +87,9 @@
 
   <script src="assets/js/lib/background.js" defer></script>
   <script src="assets/js/lib/setup.js" defer></script>
+  <script src="assets/js/lib/capture-grid.js" defer></script>
   <script src="assets/js/boules/solver.js" defer></script>
+  <script src="assets/js/boules/capture.js" defer></script>
   <script src="assets/js/boules/boules.js" defer></script>
 </body>
 </html>

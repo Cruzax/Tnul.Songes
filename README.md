@@ -53,6 +53,7 @@ assets/
     components/                carrousel, recherche, fiche détail
     lib/nav.js                 menu de toutes les pages (liste GROUPS : ajouter une page ici)
     lib/setup.js               bandeau « Mise en place » des combats tactiques (étapes dans data/tactiques.json)
+    lib/capture-grid.js        lecture de capture des Souffles, machines et boules: calage par cases repères
     lib/                       autres utilitaires (fond, icônes, texte, images, stats en songe)
     simulator/                 grille isométrique + simulateur
     salles.js, tactiques.js, classes.js, ambre.js, arakne.js, furye.js

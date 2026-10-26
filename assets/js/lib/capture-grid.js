@@ -24,6 +24,34 @@
     return { toImage, toGrid, cell };
   }
 
+  // Même transformation, ajustée au mieux sur plus de 3 points (moindres carrés): corrige les petites erreurs de clic
+  function fit(grid, image) {
+    if (grid.length === 3) return affine(grid, image);
+    const sums = (pick) => {
+      // Système normal 3x3 pour v = p*a + q*b + r
+      const M = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+      const V = [0, 0, 0];
+      grid.forEach(([a, b], i) => {
+        const row = [a, b, 1];
+        for (let r = 0; r < 3; r++) {
+          for (let c = 0; c < 3; c++) M[r][c] += row[r] * row[c];
+          V[r] += row[r] * pick(image[i]);
+        }
+      });
+      return [M, V];
+    };
+    const solve3 = ([M, V]) => {
+      const det = (m) => m[0][0] * (m[1][1] * m[2][2] - m[1][2] * m[2][1]) - m[0][1] * (m[1][0] * m[2][2] - m[1][2] * m[2][0]) + m[0][2] * (m[1][0] * m[2][1] - m[1][1] * m[2][0]);
+      const d = det(M);
+      return [0, 1, 2].map((k) => det(M.map((row, r) => row.map((v, c) => (c === k ? V[r] : v)))) / d);
+    };
+    const [px, qx, rx] = solve3(sums((p) => p[0]));
+    const [py, qy, ry] = solve3(sums((p) => p[1]));
+    // Trois points images calculés, pour réutiliser affine() et ses fonctions de conversion
+    const at = (a, b) => [px * a + qx * b + rx, py * a + qy * b + ry];
+    return affine([[0, 0], [1, 0], [0, 1]], [at(0, 0), at(1, 0), at(0, 1)]);
+  }
+
   function hsl(r8, g8, b8) {
     const r = r8 / 255;
     const g = g8 / 255;
@@ -130,7 +158,28 @@
         return;
       }
       close();
-      done(makeSampler(pixels, canvas.width, canvas.height, map), clicks.slice(anchors.length).map(([x, y]) => map.toGrid(x, y).map(Math.round)));
+      const extraClicks = clicks.slice(anchors.length);
+      // refit(cells): recale avec les repères ET les clics suivants, une fois leurs cases connues
+      const refit = (cells) => makeSampler(pixels, canvas.width, canvas.height,
+        fit([...anchors.map((a) => a.cell), ...cells], [...clicks.slice(0, anchors.length), ...extraClicks.slice(0, cells.length)]));
+      // locate(): cases des clics suivants, du plus proche au plus loin des repères, en recalant à chaque fois
+      // (un calage sur des cases voisines se trompe vite loin d'elles, à cause de la perspective)
+      const locate = () => {
+        const cells = extraClicks.map(() => null);
+        const grid = anchors.map((a) => a.cell);
+        const image = clicks.slice(0, anchors.length);
+        const [cx, cy] = [image.reduce((s, p) => s + p[0], 0) / image.length, image.reduce((s, p) => s + p[1], 0) / image.length];
+        const order = extraClicks.map((p, i) => i).sort((i, j) => Math.hypot(extraClicks[i][0] - cx, extraClicks[i][1] - cy) - Math.hypot(extraClicks[j][0] - cx, extraClicks[j][1] - cy));
+        let current = map;
+        order.forEach((i) => {
+          cells[i] = current.toGrid(...extraClicks[i]).map(Math.round);
+          grid.push(cells[i]);
+          image.push(extraClicks[i]);
+          current = fit(grid, image) || current;
+        });
+        return { cells, sample: makeSampler(pixels, canvas.width, canvas.height, current) };
+      };
+      done(makeSampler(pixels, canvas.width, canvas.height, map), extraClicks.map(([x, y]) => map.toGrid(x, y).map(Math.round)), refit, locate);
     });
     dialog.querySelector(".cg-undo").addEventListener("click", () => {
       clicks.pop();
@@ -176,5 +225,5 @@
   // Petites statistiques sur une liste de pixels
   const share = (list, test) => (list.length ? list.filter(test).length / list.length : 0);
 
-  root.CaptureGrid = { affine, open, listen, share, hsl };
+  root.CaptureGrid = { affine, fit, open, listen, share, hsl };
 })(typeof self !== "undefined" ? self : this);

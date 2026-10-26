@@ -42,7 +42,7 @@
     }
   };
 
-  const state = { color: 0, mode: "small", plan: null, frames: [], step: 0 };
+  const state = { color: 0, mode: "small", plan: null, frames: [], step: 0, anchor: null };
   const key = (a, b) => `${a},${b}`;
   const screen = (a, b) => ({ x: (a - b) * STEP_X, y: (a + b) * STEP_Y });
   const svg = (tag, attrs, parent) => {
@@ -81,6 +81,7 @@
       if (glyph !== undefined) cell.setAttribute("style", `fill:${def.balls[glyph].hex};fill-opacity:0.45`);
       cell.dataset.a = a;
       cell.dataset.b = b;
+      if (state.anchor && state.anchor[0] === a && state.anchor[1] === b) cell.classList.add("mc-anchor");
       if (wall) {
         const t = y - ROCK;
         svg("polygon", { class: "bl-rock-l", points: points([[x - STEP_X, t], [x, t + STEP_Y], [x, y + STEP_Y], [x - STEP_X, y]]) }, top);
@@ -116,6 +117,11 @@
       svg("circle", { class: "bl-ball" + (big ? " big" : "") + (struck ? " struck" : ""), cx: x, cy: y - (big ? 9 : 6), r: big ? 7.5 : 4.5, style: `fill:${ball.hex}` }, group);
       svg("title", {}, group).textContent = `${big ? "Grosse" : "Petite"} boule ${ball.color}`;
     });
+
+    if (state.anchor) {
+      const { x, y } = screen(...state.anchor);
+      svg("circle", { class: "sf-anchor-ring", cx: x, cy: y, r: 26 }, top);
+    }
 
     label.textContent = state.step ? `Coup ${state.step} / ${state.plan.path.length}` : "Départ";
     prev.disabled = state.step === 0;
@@ -233,6 +239,46 @@
     if (!cell) return;
     event.preventDefault();
     edit(Number(cell.dataset.a), Number(cell.dataset.b), true);
+  });
+
+  // Lecture d'une capture: ta case et 2 glyphes blancs à côté de toi, puis le trou de chaque glyphe de couleur
+  // (leur position exacte est lue sur la capture); voir assets/js/lib/capture-grid.js
+  CaptureGrid.listen({
+    button: document.getElementById("bl-import"),
+    drop: board,
+    onImage: (image) => {
+      const [pa, pb] = def.player;
+      CaptureGrid.open({
+        image,
+        anchors: [
+          { cell: [pa, pb], label: "Clique sur ta case (ton personnage)." },
+          { cell: [pa + 1, pb], label: "Clique sur le glyphe blanc en bas à droite de toi (↘)." },
+          { cell: [pa, pb - 1], label: "Clique sur le glyphe blanc en haut à droite de toi (↗)." },
+        ],
+        extra: def.balls.map((ball) => ({ label: `Clique sur le trou au centre du glyphe ${ball.color}.` })),
+        highlight: (cell) => {
+          state.anchor = cell || null;
+          draw();
+        },
+        preview: () => board.cloneNode(true),
+        done: (first, cells, refit, locate) => {
+          const { cells: holes, sample } = locate();
+          def.balls.forEach((ball, i) => { ball.cross = holes[i]; });
+          const read = BallCapture.read(sample, def, 5);
+          let found = 0;
+          read.forEach((r, i) => {
+            if (!r) return;
+            def.balls[i].big = r.big;
+            def.balls[i].small = r.small;
+            found += 1;
+          });
+          save();
+          clearPlan();
+          draw();
+          message.textContent = `Glyphes placés, ${found} couleur${found > 1 ? "s" : ""} de boules lue${found > 1 ? "s" : ""} sur ${def.balls.length}. Vérifie la carte (et les murs) avant de calculer.`;
+        },
+      });
+    },
   });
 
   let worker = null;

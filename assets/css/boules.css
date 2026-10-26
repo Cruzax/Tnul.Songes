@@ -15,3 +15,7 @@
 .bl-ball.big { stroke: rgba(255, 255, 255, 0.6); stroke-width: 1; opacity: 0.85; }
 .bl-ball.struck { stroke: #6ebaed; stroke-width: 2.2; opacity: 1; }
 .bl-dot { display: inline-block; width: 0.7rem; height: 0.7rem; margin-right: 0.45rem; border-radius: 50%; vertical-align: -0.05em; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4); }
+.bl-import-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; font-size: 0.8rem; color: rgb(var(--c-muted)); }
+.bl-import-bar .sf-import { margin-left: 0; order: 0; }
+.mc-anchor { fill: #6ebaed !important; }
+
