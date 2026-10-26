@@ -13,8 +13,9 @@ test("toutes les petites boules avancent d'une case, celle de la boule frappée 
 });
 
 test("une boule qui passe sur le glyphe d'une autre couleur meurt", () => {
-  const d = tiny([{ color: "a", cross: [6, 1], small: [4, 0], big: [0, 0] }, { color: "b", cross: [1, 1], small: [8, 1], big: [3, 1] }]);
-  assert.strictEqual(S.strike(S.makeGame(d), [[4, 0], [8, 1]], [false, false], [1, 0], 1), null);
+  // la boule b part de (4,1) et avance de 2: elle passe par (5,1), une case du glyphe de a (centre 6,1)
+  const d = tiny([{ color: "a", cross: [6, 1], small: [1, 0], big: [0, 0] }, { color: "b", cross: [9, 0], small: [4, 1], big: [3, 0] }]);
+  assert.strictEqual(S.strike(S.makeGame(d), [[1, 0], [4, 1]], [false, false], [1, 0], 1), null);
 });
 
 test("l'exemple se résout", () => {
