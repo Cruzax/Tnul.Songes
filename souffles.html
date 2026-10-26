@@ -44,8 +44,8 @@
     </header>
 
     <section class="rounded-lg border border-line bg-panel p-5">
-      <div class="sf-toolbar" id="sf-tools" role="group" aria-label="Outil de placement"></div>
-      <p class="sf-hint">Clic : applique l'outil choisi sur une case. Clic droit : vide la case. La carte de départ est celle du guide : corrige-la si ton combat est différent.</p>
+      <div class="sf-toolbar" id="sf-tools" role="group" aria-label="Outil de placement"><button type="button" id="sf-import" class="sf-tool sf-import">Lire une capture (ou Ctrl+V)</button></div>
+      <p class="sf-hint">Colle une capture de ton écran (Ctrl+V) ou glisse-la sur la carte, puis clique les 3 repères demandés : les Souffles sont lus tout seuls. Sinon, clic : applique l'outil choisi ; clic droit : vide la case.</p>
 
       <div class="sf-layout">
         <div class="sf-board-wrap">
@@ -93,7 +93,9 @@
 
   <script src="assets/js/lib/background.js" defer></script>
   <script src="assets/js/lib/setup.js" defer></script>
+  <script src="assets/js/lib/capture-grid.js" defer></script>
   <script src="assets/js/souffles/solver.js" defer></script>
+  <script src="assets/js/souffles/capture.js" defer></script>
   <script src="assets/js/souffles/souffles.js" defer></script>
 </body>
 </html>

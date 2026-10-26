@@ -51,7 +51,7 @@
   };
 
   const def = () => ({ ...guide, player: layout.player, souffles: layout.souffles });
-  const state = { tool: "n", plan: null, frames: [], step: 0 };
+  const state = { tool: "n", plan: null, frames: [], step: 0, anchor: null, unsure: new Set() };
   const game = SouffleSolver.makeGame(guide);
   const key = (a, b) => `${a},${b}`;
   const screen = (a, b) => ({ x: (a - b) * STEP_X, y: (a + b) * STEP_Y });
@@ -91,6 +91,8 @@
       const cell = svg("polygon", { class: "sf-cell" + ((a + b) % 2 ? " alt" : ""), points: diamond(x, y) }, floor);
       cell.dataset.a = a;
       cell.dataset.b = b;
+      if (state.anchor && state.anchor[0] === a && state.anchor[1] === b) cell.classList.add("sf-anchor");
+      if (state.unsure.has(key(a, b))) cell.classList.add("sf-unsure");
       if (wall) {
         const t = y - ROCK_HEIGHT;
         svg("polygon", { class: "sf-grass-l", points: points([[x - STEP_X, t], [x, t + STEP_Y], [x, y + STEP_Y], [x - STEP_X, y]]) }, top);
@@ -122,6 +124,11 @@
       svg("text", { class: "sf-id", x, y: y - 6, "text-anchor": "middle" }, group).textContent = piece.id;
       svg("title", {}, group).textContent = `Souffle ${piece.id} (${piece.color === "n" ? "noir" : "blanc"})`;
     });
+
+    if (state.anchor) {
+      const { x, y } = screen(...state.anchor);
+      svg("circle", { class: "sf-anchor-ring", cx: x, cy: y, r: 26 }, top);
+    }
 
     const black = view.souffles.filter((s) => s.color === "n").length;
     document.getElementById("sf-count").textContent = `${black} noirs · ${view.souffles.length - black} blancs`;
@@ -208,6 +215,7 @@
   // Placement: clic = outil choisi, clic droit = vider la case
   function place(a, b, tool) {
     if (!game.floor.has(key(a, b))) return;
+    state.unsure.delete(key(a, b));
     const index = layout.souffles.findIndex((s) => s.cell[0] === a && s.cell[1] === b);
     const isPlayer = layout.player[0] === a && layout.player[1] === b;
     if (tool === "p") {
@@ -244,9 +252,45 @@
     button.setAttribute("aria-pressed", String(tool.id === state.tool));
     button.addEventListener("click", () => {
       state.tool = tool.id;
-      toolbar.querySelectorAll(".sf-tool").forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+      toolbar.querySelectorAll(".sf-tool:not(.sf-import)").forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
     });
     toolbar.appendChild(button);
+  });
+
+  // Lecture d'une capture: 3 repères (coins des blocs d'herbe), puis ta position; voir assets/js/lib/capture-grid.js
+  const ANCHORS = [
+    { cell: [-3, 3], label: "Clique sur la case juste sous le coin bas du bloc d'herbe de gauche (cerclée en bleu sur la mini-carte)." },
+    { cell: [3, 3], label: "Clique sur la case juste sous le coin bas du bloc d'herbe du milieu (cerclée en bleu sur la mini-carte)." },
+    { cell: [6, -7], label: "Clique sur la case juste au-dessus du bloc d'herbe de droite (cerclée en bleu sur la mini-carte)." },
+  ];
+  CaptureGrid.listen({
+    button: document.getElementById("sf-import"),
+    drop: board,
+    onImage: (image) => CaptureGrid.open({
+      image,
+      anchors: ANCHORS,
+      extra: [{ label: "Clique sur ta case (ton personnage)." }],
+      highlight: (cell) => {
+        state.anchor = cell || null;
+        draw();
+      },
+      preview: () => board.cloneNode(true),
+      done: (sample, [player]) => {
+        const read = SouffleCapture.read(sample, guide);
+        const unsure = new Set(read.unsure.map((c) => key(...c)));
+        // Aux cases douteuses du bord, on garde ce qui était déjà placé
+        const kept = layout.souffles.filter((s) => unsure.has(key(...s.cell)));
+        const souffles = [...read.souffles.filter((s) => !unsure.has(key(...s.cell))), ...kept].map((s, i) => ({ id: i + 1, cell: s.cell, color: s.color }));
+        layout = { player: game.floor.has(key(...player)) ? player : layout.player, souffles };
+        state.unsure = unsure;
+        save();
+        clearPlan();
+        draw();
+        const black = souffles.filter((s) => s.color === "n").length;
+        message.textContent = `${souffles.length} Souffles lus (${black} noirs, ${souffles.length - black} blancs). Vérifie la carte avant de calculer`
+          + (unsure.size ? ` : les cases hachurées du bord sont difficiles à lire, ce qui y était placé est gardé.` : ".");
+      },
+    }),
   });
 
   let worker = null;

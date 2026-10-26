@@ -215,7 +215,7 @@
     button.setAttribute("aria-pressed", String(tool.id === state.tool));
     button.addEventListener("click", () => {
       state.tool = tool.id;
-      toolbar.querySelectorAll(".sf-tool").forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+      toolbar.querySelectorAll(".sf-tool:not(.sf-import)").forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
     });
     toolbar.appendChild(button);
   });
