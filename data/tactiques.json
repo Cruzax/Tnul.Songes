@@ -23,7 +23,7 @@
       "color": "#d1384f",
       "setup": [
         "Passe ton premier tour sans bouger : le boss affiche ses annonces dans ses états.",
-        "Note les annonces (Sang, Sel ou Or) des 2 premiers tours des 2 prochains blocs.",
+        "Note les annonces (Sang, Sel ou Or) des 2 premiers tours des 2 prochains blocs : les tours 3 et 4 se déduisent seuls.",
         "Clique « Calculer » et joue les 4 tours indiqués, dans l'ordre.",
         "« C'est joué », puis entre les annonces suivantes, jusqu'à la case verte."
       ]

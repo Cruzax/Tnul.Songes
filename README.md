@@ -40,7 +40,7 @@ assets/
     monsters/                  {Id}_{Nom}.png
     spells/                    icônes de sorts (sort_{id}.png)
     allies/                    pions alliés
-    ui/                        logo du site (logo.svg, aussi icône d'onglet), fond
+    ui/                        logo du site (logo.svg, aussi icône d'onglet)
   js/
     tailwind-config.js         config Tailwind partagée par toutes les pages
     main.js                    point d'entrée de la page d'accueil
@@ -65,7 +65,7 @@ data/
   domireversi.json             classement Domi Reversi (généré)
   tactiques.json               liste des combats tactiques
   ambre, minogolem, bolgrot, rainikrone, arakne .json   cartes et règles des combats tactiques
-tools/                         scripts qui génèrent spells.json et domireversi.json, et préparent les fiches de classes
+tools/                         scripts : spells.json, domireversi.json, fiches de classes, coiffes de la palette
 tests/                         tests de la grille et des moteurs de combats tactiques
 ```
 
@@ -98,4 +98,7 @@ node tools/build-domireversi.js   # régénère data/domireversi.json
 
 - `classes/` : `node tools/patch-classes.js --from ../../dofusclasse` recopie les fiches HTML de dofusclasse (jamais les PDF ni les PNG), puis les adapte au site : lien « ← Classes », police Inter, thème `assets/css/fiches.css` et bulle des sorts `assets/js/fiches.js` (un clic sur le nom d'un sort ouvre sa carte du grimoire). Sans `--from`, le script repasse juste sur les fiches déjà copiées ; on peut le lancer autant de fois qu'on veut.
 - `palette/` : construire PaletteDofus avec `vite build --base ./` en gardant `public/d3` (les fichiers 3D, environ 700 Mo) : l'aperçu 3D doit marcher sur le site. Vérifier en local que la 3D s'affiche avant de pousser.
-- Retouches faites directement dans le build de `palette/` (à refaire après un nouveau build, ou à reporter dans les sources de PaletteDofus) : fonds et bordures en gris neutres du site (`#090a0c`, `#111315`, `#16181b`, `#282a2e` au lieu des bruns), halo de l'aperçu 3D neutre, logo remplacé par l'icône du site + « Skino.skope » en Inter, retour au site intégré au logo (« [icône] Tnul.Songes / Skino.skope », icône seule sur mobile) à la place du bouton flottant « ← Tnul.Songes ». Les coiffes qui couvrent le crâne cachent les cheveux (`const HairHats` dans le build, liste recalculée par `python3 tools/palette-coiffes.py`) : la règle est ajoutée dans la fonction de rendu `Ku`, à reporter dans les sources. Même endroit : une cape cache le sac du corps (Enutrof, carquois du Crâ), sauf si un équipement fournit le sien.
+- Retouches faites directement dans le build de `palette/` (à refaire après un nouveau build, ou à reporter dans les sources de PaletteDofus) :
+  - fonds et bordures en gris neutres du site (`#090a0c`, `#111315`, `#16181b`, `#282a2e` au lieu des bruns), halo de l'aperçu neutre ;
+  - logo : icône du site + « Skino.skope » en Inter, précédés du retour au site (« [icône] Tnul.Songes / Skino.skope », icône seule sur mobile) ; `favicon.svg` = logo du site ;
+  - rendu (fonction `Ku`) : les coiffes qui couvrent le crâne cachent les cheveux (`const HairHats`, liste recalculée par `python3 tools/palette-coiffes.py`), et une cape cache le sac du corps (Enutrof, carquois du Crâ) sauf si un équipement fournit le sien.
