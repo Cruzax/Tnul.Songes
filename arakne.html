@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L'arakne de Leng - Tnul.Songes</title>
+  <link rel="icon" type="image/png" href="assets/images/ui/avoir.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/arakne.css" />
+</head>
+<body class="flex min-h-screen flex-col text-[14px] text-ink">
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <header class="site-header border-b border-line">
+    <div class="mx-auto flex h-16 w-full max-w-[1120px] items-center justify-between gap-5 px-4">
+      <a href="./" class="flex items-center gap-3 text-ink no-underline outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent" aria-label="Tnul.Songes, accueil">
+        <span class="flex size-8 items-center justify-center rounded-md border border-line text-accent"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6" /><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5" /><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586" /><path d="m16 16 4 4" /><path d="m19 21 2-2" /><path d="m5 14 4 4" /><path d="m5 21-2-2" /><path d="M7.5 16.5 4 20" /></svg></span>
+        <span class="text-lg font-semibold">Tnul<span class="text-accent">.</span>Songes</span>
+      </a>
+      <nav class="site-nav" aria-label="Navigation"></nav>
+      <script src="assets/js/lib/nav.js"></script>
+    </div>
+  
+  </header>
+
+  <main class="mx-auto grid w-full max-w-[1120px] flex-1 content-start gap-6 px-4 pb-14 pt-10">
+    <header class="page-hero">
+      <div>
+        <p class="page-hero-trail"><a href="tactiques.html">Combats tactiques</a> <span class="sep">/</span> <span class="here">Chaîne du Dofus Turquoise</span></p>
+        <h1 class="page-hero-title">L'arakne de Leng <em>· la petite arakne</em></h1>
+        <p class="page-hero-lead">Les monstres partent toujours des mêmes cases et jouent toujours pareil : il suffit de rejouer les mêmes déplacements. Suis la carte tour par tour, sans réfléchir.</p>
+      </div>
+      <dl class="page-hero-facts">
+        <div><dt>PV</dt><dd>13</dd></div>
+        <div><dt>PA</dt><dd>3</dd></div>
+        <div><dt>PM</dt><dd>2</dd></div>
+        <div><dt>Combats</dt><dd>2</dd></div>
+      </dl>
+    </header>
+
+    <section class="rounded-lg border border-line bg-panel p-5">
+      <div class="ak-tabs" id="ak-tabs" role="tablist" aria-label="Combat et méthode"></div>
+
+      <div class="ak-layout">
+        <div class="ak-board-wrap">
+          <div class="ak-step-bar">
+            <button type="button" id="ak-prev" class="ak-round" aria-label="Tour précédent">&#9664;</button>
+            <span id="ak-step-label" class="ak-step-label" aria-live="polite">Départ</span>
+            <button type="button" id="ak-next" class="ak-round" aria-label="Tour suivant">&#9654;</button>
+          </div>
+          <svg id="ak-board" class="ak-board" role="img" aria-label="Carte du combat"></svg>
+          <ul class="ak-legend" id="ak-legend"></ul>
+          <p class="ak-hint">Flèches du clavier ← → pour passer d'un tour à l'autre. Les monstres sont dessinés à leur place de départ.</p>
+        </div>
+
+        <aside class="ak-side">
+          <div class="ak-card">
+            <h2 class="ak-title" id="ak-fight-title">Combat</h2>
+            <p class="ak-goal" id="ak-goal"></p>
+            <p class="ak-risk" id="ak-risk"></p>
+            <ul class="ak-rules" id="ak-rules"></ul>
+          </div>
+          <div class="ak-card">
+            <h2 class="ak-title">Tour par tour</h2>
+            <ol class="ak-turns" id="ak-turns"></ol>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="rounded-lg border border-line bg-panel p-5">
+      <h2 class="ak-title">Tes sorts en arakne</h2>
+      <ul class="ak-spells">
+        <li><strong>Morsure</strong> : au corps à corps, peu de dégâts. Sur un de tes Œufs, tu le manges et tu te soignes.</li>
+        <li><strong>Invocation d'Œuf</strong> : pose un Œuf d'Arakne, à manger plus tard avec Morsure.</li>
+        <li><strong>Petite Course</strong> : +2 PM et intaclable, relance 4 tours.</li>
+      </ul>
+      <p class="ak-note">Cartes reconstituées à partir des captures du guide : dis-moi s'il manque une case ou un obstacle. Si tu perds, il faut refaire un Élixir d'Arakne (pas de perte d'énergie).</p>
+    </section>
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="mx-auto flex w-full max-w-[1120px] flex-col justify-between gap-3 px-4 py-6 text-[11px] text-muted sm:flex-row">
+      <p class="m-0"><span class="font-medium text-ink">Tnul.Songes</span><span class="mx-3">·</span>Va falloir s'améliorer..</p>
+      <p class="m-0">Méthodes d'après <a class="text-accent underline underline-offset-2" href="https://www.dofuspourlesnoobs.com/larakne-de-leng.html" target="_blank" rel="noopener noreferrer">Dofus pour les Noobs</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/lib/background.js" defer></script>
+  <script src="assets/js/arakne.js" defer></script>
+</body>
+</html>

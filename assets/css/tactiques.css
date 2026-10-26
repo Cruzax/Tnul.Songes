@@ -4,7 +4,7 @@
 .tq-section-hint { margin: 0; font-size: 0.8rem; color: rgb(var(--c-muted)); }
 
 /* Outils: 4 cartes de même taille, la carte entière ouvre l'outil */
-.tq-tools { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.tq-tools { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); }
 .tq-tool {
   position: relative; display: flex; flex-direction: column; gap: 0.45rem; padding: 1.1rem 1.1rem 1rem;
   border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem; background: rgb(var(--c-panel));

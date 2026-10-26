@@ -1,0 +1,260 @@
+{
+  "legend": {
+    "F": "sol",
+    "X": "bloc",
+    "O": "trou",
+    "G": "case bleue (arrivée)",
+    "S": "départ",
+    "B": "case marron (invulnérable)"
+  },
+  "fights": [
+    {
+      "id": "c1",
+      "title": "Combat 1 : la horde",
+      "quest": "L'arakne de Leng",
+      "goal": "Traverser la horde de petites araknes jusqu'à la case bleue, en haut à gauche.",
+      "map": {
+        "amin": -1,
+        "bmin": -4,
+        "rows": [
+          "  XFFFFFFXX",
+          " XFFFFFFFXX X",
+          "XFFFFFFFFFFXX",
+          " FFFXXXOFFFX",
+          " GFFXXXXXFFX",
+          "XXFFFFOFFFFF",
+          " XXFFFFFFFFF",
+          " XFFFFFFFFFFF",
+          "XXXFFFFFFFFFF",
+          " XXFFFFFFFFFF",
+          "  XXFFXXXFFFF",
+          "   XFXXXXXFFS"
+        ]
+      },
+      "monsters": [
+        {
+          "cell": [1, -1],
+          "name": "Arapex"
+        },
+        {
+          "cell": [2, -3],
+          "name": "Arapex"
+        },
+        {
+          "cell": [1, 3],
+          "name": "Bébé Dardalaine"
+        },
+        {
+          "cell": [2, 1],
+          "name": "Bébé Dardalaine"
+        },
+        {
+          "cell": [2, 5],
+          "name": "Gargantûl"
+        },
+        {
+          "cell": [3, 7],
+          "name": "Gargantûl"
+        }
+      ],
+      "methods": [
+        {
+          "id": "m1",
+          "name": "Méthode 1",
+          "risk": "La plus sûre : on ne touche à aucun monstre.",
+          "turns": [
+            {
+              "to": [11, 5],
+              "egg": [10, 5],
+              "note": "Pose un Œuf d'Arakne devant toi."
+            },
+            {
+              "to": [10, 2],
+              "course": true,
+              "note": "Petite Course, puis longe le bord droit de la carte."
+            },
+            {
+              "to": [9, 1]
+            },
+            {
+              "to": [9, -1]
+            },
+            {
+              "to": [9, -2],
+              "note": "Une seule case : un monstre se décroche."
+            },
+            {
+              "to": [6, -3],
+              "course": true,
+              "note": "Petite Course."
+            },
+            {
+              "to": [4, -3],
+              "egg": [7, -3],
+              "note": "Pose l'Œuf derrière toi avant de bouger."
+            },
+            {
+              "to": [3, -2]
+            },
+            {
+              "to": [2, -1]
+            },
+            {
+              "to": [0, 0],
+              "course": true,
+              "note": "Petite Course, et termine sur la case bleue."
+            }
+          ]
+        },
+        {
+          "id": "m2",
+          "name": "Méthode 2",
+          "risk": "Plus longue : il faut tuer l'Arapex. Rate parfois si un Gargantûl se colle à l'Arapex au tour 7.",
+          "turns": [
+            {
+              "to": [11, 3],
+              "course": true,
+              "note": "Petite Course dès le premier tour."
+            },
+            {
+              "to": [10, 2],
+              "egg": [9, 2],
+              "note": "Pose un Œuf au-dessus de toi."
+            },
+            {
+              "to": [9, 1]
+            },
+            {
+              "to": [9, -1],
+              "note": "L'Arapex vient vers toi."
+            },
+            {
+              "to": [6, -2],
+              "course": true,
+              "note": "Petite Course, jusque dans le coin."
+            },
+            {
+              "to": [6, -2],
+              "bite": [7, -2],
+              "note": "Ne bouge pas : Morsure sur l'Arapex."
+            },
+            {
+              "to": [5, -3],
+              "bite": [7, -2],
+              "note": "Morsure jusqu'à ce que l'Arapex meure, puis 2 cases."
+            },
+            {
+              "to": [3, -3],
+              "egg": [3, -4],
+              "note": "Pose un Œuf à côté de toi."
+            },
+            {
+              "to": [2, -3],
+              "bite": [3, -4],
+              "note": "Morsure sur l'Œuf pour le manger (soin), puis 1 case au plus : un monstre à gauche te tacle."
+            },
+            {
+              "to": [0, -1],
+              "course": true,
+              "note": "Petite Course : 4 cases, juste devant la case bleue."
+            },
+            {
+              "to": [0, 0],
+              "note": "Dernière case : la case bleue."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Combat 2 : les Leng",
+      "quest": "Le plateau de Leng",
+      "goal": "Passer les Leng et atteindre l'une des 2 cases bleues, tout en haut.",
+      "map": {
+        "amin": -6,
+        "bmin": -16,
+        "rows": [
+          "  XXXXXXX",
+          "  XXGGXXXX",
+          " XXFFFFFFX",
+          "XXFFFFFFFXX",
+          "XXFFFXXFFFX",
+          "XXFFOOFFFF",
+          "XXFFBOFFFF",
+          " XFFFFFFFFX",
+          " XFFFFFFFFX",
+          "XXFFFFFFFFX",
+          " XXFFFFFXXX",
+          " XXFXFFFXX",
+          " XXFBFFFX",
+          "   XFFFFFX",
+          "    FFFFFX",
+          "    FFFXXX",
+          "     FS"
+        ]
+      },
+      "monsters": [
+        {
+          "cell": [-1, -9],
+          "name": "Leng"
+        },
+        {
+          "cell": [0, -11],
+          "name": "Leng"
+        },
+        {
+          "cell": [2, -13],
+          "name": "Leng"
+        }
+      ],
+      "rules": [
+        "Les Leng posent des glyphes violets autour d'eux : y passer ou y commencer ton tour te tue, sauf sous Petite Course.",
+        "Leurs potions laissent des glyphes blancs qui font peu de dégâts.",
+        "Les cases marron rendent invulnérable."
+      ],
+      "methods": [
+        {
+          "id": "m1",
+          "name": "Méthode",
+          "risk": "Les Leng ne peuvent plus te rattraper une fois dans le couloir.",
+          "turns": [
+            {
+              "to": [0, -2],
+              "egg": [0, -3],
+              "note": "Pose un Œuf devant toi."
+            },
+            {
+              "to": [-1, -3]
+            },
+            {
+              "to": [-2, -4],
+              "note": "Tu finis sur la case marron : invulnérable. Si une potion est apparue à ta droite, casse-la (Morsure)."
+            },
+            {
+              "to": [-3, -5],
+              "note": "Casse la potion de droite si elle est encore là, puis 2 cases."
+            },
+            {
+              "to": [-3, -9],
+              "course": true,
+              "note": "Petite Course : 4 cases tout droit. Elle protège aussi des glyphes violets."
+            },
+            {
+              "to": [-3, -11],
+              "note": "Remonte le couloir."
+            },
+            {
+              "to": [-3, -13]
+            },
+            {
+              "to": [-2, -15],
+              "course": true,
+              "note": "Petite Course de nouveau prête : termine sur la case bleue."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

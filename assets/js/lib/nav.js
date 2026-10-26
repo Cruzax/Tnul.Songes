@@ -19,6 +19,7 @@
         { href: "minogolem.html", label: "Dofus Pourpre", hint: "Labyrinthe du Minogolem" },
         { href: "bolgrot.html", label: "Dofus Turquoise", hint: "Esprit de Bolgrot" },
         { href: "rainikrone.html", label: "Dofus Ivoire", hint: "Glyphes de la Rainikrone" },
+        { href: "arakne.html", label: "Arakne de Leng", hint: "Les 2 combats en petite arakne" },
       ],
     },
     {

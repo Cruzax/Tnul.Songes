@@ -1,0 +1,75 @@
+/* Page « L'arakne de Leng »: mêmes couleurs de carte que les autres combats tactiques */
+.ak-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+.ak-tab { padding: 0.45rem 0.85rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.375rem; background: rgb(var(--c-panel2)); color: rgb(var(--c-muted)); font: inherit; font-size: 0.82rem; cursor: pointer; transition: color 0.15s, border-color 0.15s, background-color 0.15s; }
+.ak-tab:hover { color: rgb(var(--c-ink)); }
+.ak-tab[aria-selected="true"] { border-color: rgb(var(--c-accent) / 0.8); background: rgb(var(--c-accent) / 0.15); color: rgb(var(--c-ink)); }
+
+.ak-layout { display: grid; gap: 1.2rem; }
+@media (min-width: 900px) { .ak-layout { grid-template-columns: minmax(0, 1fr) 340px; align-items: start; } }
+.ak-board-wrap { min-width: 0; }
+.ak-board { display: block; width: 100%; max-width: 760px; margin: 0 auto; height: auto; user-select: none; filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.45)); }
+.ak-hint { margin: 0.6rem 0 0; font-size: 0.78rem; color: rgb(var(--c-muted)); text-align: center; }
+
+.ak-step-bar { display: flex; align-items: center; justify-content: center; gap: 0.8rem; margin-bottom: 0.6rem; }
+.ak-step-label { min-width: 8rem; text-align: center; font-size: 0.9rem; font-weight: 600; }
+.ak-round { width: 2.2rem; height: 2.2rem; border: 1px solid rgb(var(--c-line)); border-radius: 999px; background: rgb(255 255 255 / 0.05); color: inherit; font-size: 0.7rem; cursor: pointer; }
+.ak-round:hover:not(:disabled) { border-color: rgb(var(--c-accent) / 0.7); }
+.ak-round:disabled { opacity: 0.35; cursor: default; }
+
+/* Carte */
+.ak-side-l { fill: #3c4666; stroke: rgba(0, 0, 0, 0.35); stroke-width: 0.5; stroke-linejoin: round; }
+.ak-side-r { fill: #2a3350; stroke: rgba(0, 0, 0, 0.35); stroke-width: 0.5; stroke-linejoin: round; }
+.ak-cell { fill: #76829f; stroke: rgba(255, 255, 255, 0.08); stroke-width: 0.6; }
+.ak-cell.alt { fill: #5a6683; }
+.ak-cell.goal { fill: #3aa7d6; }
+.ak-cell.brown { fill: #a0703f; }
+.ak-cell.start { fill: #76829f; stroke: #6ebaed; stroke-width: 1.6; }
+.ak-hole { fill: #0e1016; stroke: rgba(0, 0, 0, 0.6); stroke-width: 0.6; }
+.ak-rock-top { fill: #9aa6c2; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; }
+.ak-rock-l { fill: #6d7899; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; }
+.ak-rock-r { fill: #4e587a; stroke: rgba(0, 0, 0, 0.3); stroke-width: 0.5; stroke-linejoin: round; }
+.ak-trail { pointer-events: none; }
+.ak-end { stroke: #fff; stroke-width: 1.4; pointer-events: none; }
+.ak-path { fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.ak-player circle { fill: #6ebaed; stroke: #fff; stroke-width: 1.5; }
+.ak-monster circle { fill: #e05d5d; stroke: rgba(255, 255, 255, 0.7); stroke-width: 1; }
+.ak-shadow { fill: rgba(0, 0, 0, 0.35); stroke: none; }
+.ak-egg { fill: #f3e3b0; stroke: rgba(0, 0, 0, 0.45); stroke-width: 0.8; opacity: 0.55; }
+.ak-egg.now { opacity: 1; stroke: #fff; stroke-width: 1.4; }
+.ak-bite { stroke: #fff; stroke-width: 2.4; stroke-linecap: round; }
+.ak-tag rect { fill: rgb(var(--c-panel2)); stroke: rgb(var(--c-accent)); stroke-width: 1; }
+.ak-tag text { fill: rgb(var(--c-ink)); font-size: 8.5px; font-weight: 700; }
+
+.ak-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 1rem; margin: 0.7rem 0 0; padding: 0; list-style: none; font-size: 0.75rem; color: rgb(var(--c-muted)); }
+.ak-legend li { display: flex; align-items: center; gap: 0.35rem; }
+.ak-legend i { width: 0.8rem; height: 0.8rem; flex: none; border-radius: 2px; }
+.ak-legend i.start { border: 1.6px solid #6ebaed; background: #76829f; }
+.ak-legend i.goal { background: #3aa7d6; }
+.ak-legend i.brown { background: #a0703f; }
+.ak-legend i.egg { width: 0.6rem; border-radius: 50%; background: #f3e3b0; }
+.ak-legend i.monster { border-radius: 50%; background: #e05d5d; }
+
+/* Panneau */
+.ak-side { display: grid; gap: 0.8rem; }
+.ak-card { padding: 0.9rem 1rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem; background: rgb(var(--c-panel2)); }
+.ak-title { margin: 0 0 0.6rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgb(var(--c-accent)); }
+.ak-goal { margin: 0; font-size: 0.86rem; line-height: 1.5; }
+.ak-risk { margin: 0.5rem 0 0; font-size: 0.78rem; line-height: 1.5; color: rgb(var(--c-warm)); }
+.ak-risk:empty { display: none; }
+.ak-rules { display: grid; gap: 0.3rem; margin: 0.6rem 0 0; padding-left: 1.1rem; font-size: 0.78rem; line-height: 1.5; color: rgb(var(--c-muted)); }
+.ak-rules:empty { display: none; }
+
+.ak-turns { display: grid; gap: 0.3rem; margin: 0; padding: 0; list-style: none; }
+.ak-turns button {
+  display: grid; gap: 0.15rem; width: 100%; padding: 0.5rem 0.65rem 0.5rem 0.8rem; border: 1px solid transparent; border-left: 3px solid var(--turn);
+  border-radius: 0.375rem; background: rgb(255 255 255 / 0.03); color: inherit; font: inherit; text-align: left; cursor: pointer; transition: background-color 0.15s, border-color 0.15s;
+}
+.ak-turns button:hover { background: rgb(255 255 255 / 0.07); }
+.ak-turns li.is-current button { border-color: rgb(var(--c-line)); border-left-color: var(--turn); background: rgb(var(--c-accent) / 0.1); }
+.ak-turns li.is-done button { opacity: 0.55; }
+.ak-turn-head { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: rgb(var(--c-muted)); }
+.ak-turn-move { font-size: 0.9rem; font-weight: 600; }
+.ak-turn-note { font-size: 0.78rem; line-height: 1.45; color: rgb(var(--c-muted)); }
+
+.ak-spells { display: grid; gap: 0.35rem; margin: 0; padding-left: 1.1rem; font-size: 0.86rem; line-height: 1.5; }
+.ak-note { margin: 0.8rem 0 0; font-size: 0.75rem; color: rgb(var(--c-muted)); }

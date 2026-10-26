@@ -27,6 +27,13 @@
       "summary": "Une grille de glyphes de 4 couleurs: atteindre les 4 coins roses en sautant d'une case. L'outil lit ta capture d'écran et trouve les bonds.",
       "href": "rainikrone.html",
       "guide": "le-bonheur-est-dans-le-spray"
+    },
+    {
+      "title": "L'arakne de Leng",
+      "quest": "L'arakne de Leng et Le plateau de Leng",
+      "summary": "Les 2 combats en petite arakne (13 PV, 2 PM) : les monstres jouent toujours pareil, la page montre les déplacements tour par tour.",
+      "href": "arakne.html",
+      "guide": "larakne-de-leng"
     }
   ],
   "fights": [
@@ -106,16 +113,6 @@
         "Si le curseur d'un sort atteint le glyphe noir, il faut le recharger avec un glyphe blanc sur un pilier avant de pouvoir le relancer."
       ],
       "guide": "un-nouvel-heritier"
-    },
-    {
-      "title": "La petite arakne",
-      "quest": "L'arakne de Leng et Le plateau de Leng (Dofus Turquoise)",
-      "goal": "Transformé en petite arakne (13 PV, 3 PA, 2 PM), franchir la horde de monstres jusqu'à la case bleue.",
-      "mechanic": "Tes 3 sorts: Morsure (mêlée, sert aussi à manger un œuf pour te soigner), Invocation d'Œuf, Petite Course (+2 PM, intacclable). Dans le 2e combat, un glyphe violet autour de chaque monstre te tue sauf si tu as lancé Petite Course, et le glyphe marron te rend invulnérable.",
-      "tips": [
-        "Les placements des monstres sont fixes: le guide donne des méthodes pas à pas, tour par tour, qui marchent à chaque fois."
-      ],
-      "guide": "larakne-de-leng"
     },
     {
       "title": "Le roi Beldarion",
