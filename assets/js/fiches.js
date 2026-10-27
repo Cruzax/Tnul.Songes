@@ -125,9 +125,30 @@ document.querySelectorAll(".tableau table").forEach((table) => {
     if (event.key === "Escape") close();
   });
 
+  // Ramène dans l'étiquette la fin du nom restée dans le texte qui suit (« d'Expiation »),
+  // pour que le surlignage et le clic couvrent tout le nom du sort
+  function absorbName(tag, card) {
+    const node = tag.nextSibling;
+    if (!node || node.nodeType !== Node.TEXT_NODE) return;
+    const missing = norm(card.dataset.nom).length - norm(tag.textContent).length;
+    if (missing <= 0) return;
+    const text = node.textContent;
+    for (let end = 1; end <= text.length; end += 1) {
+      if (norm(tag.textContent + text.slice(0, end)).length === norm(card.dataset.nom).length && !/[A-Za-zÀ-ÿ0-9]/.test(text.charAt(end))) {
+        tag.append(text.slice(0, end));
+        node.textContent = text.slice(end);
+        return;
+      }
+    }
+  }
+
   // Les noms de sorts cliquables le montrent
   document.querySelectorAll(".sp").forEach((tag) => {
-    if (!tag.closest(".spc-jumeau") && spellOf(tag)) tag.classList.add("sp-link");
+    if (tag.closest(".spc-jumeau")) return;
+    const card = spellOf(tag);
+    if (!card) return;
+    absorbName(tag, card);
+    tag.classList.add("sp-link");
   });
 
   // Combos (data/combos.json): quelques enchaînements pour un tour, ajoutés après la première section.
