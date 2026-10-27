@@ -6,7 +6,7 @@
 const ICONS = {
   dommages: ["s", '<path d="M14.5 17.5 3 6V3h3l11.5 11.5M13 19l6-6M16 16l4 4M19 21l2-2"/>'],
   po: ["s", '<path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>'],
-  pm: ["f", '<path d="M5.5 2h8l-.3 9.4 5.9 2a3.3 3.3 0 0 1 2.2 3.1V20h-7.6l-1.4-1.8H9.6L8.4 20H5.2z"/>'],
+  pm: ["f", '<path d="M5.5 2h8l-.3 9.4 5.9 2a3.3 3.3 0 0 1 2.2 3.1V20H5.2z"/>'],
 };
 Object.entries(ICONS).forEach(([name, [style, svg]]) => {
   document.querySelectorAll(`.ic-${name}`).forEach((icon) => {
