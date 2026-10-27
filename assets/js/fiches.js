@@ -142,7 +142,7 @@ document.querySelectorAll(".tableau table").forEach((table) => {
       tag.dataset.nom = name;
       const icon = card.querySelector(".spc-ic");
       if (icon) tag.append(Object.assign(el("img", "sp-ic"), { src: icon.src, alt: "" }));
-      tag.append(name, el("span", "cb-cost", `${costOf(card)}`));
+      tag.append(name, el("span", "cb-cost", `${costOf(card)} PA`));
       item.append(tag);
       if (note) item.append(el("small", "", note));
       list.append(item);
