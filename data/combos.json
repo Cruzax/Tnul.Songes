@@ -24,8 +24,8 @@
       "steps": [["Portail", "entrée"], ["Portail", "sortie"], ["Résilience", "projeté : soins reçus x115%"], ["Rayon de Wakfu", "soin de zone + dommages Feu"]] }
   ],
   "eniripsa": [
-    { "name": "Tour de soutien", "tag": "Soutien", "idea": "On donne PA et PM au meilleur frappeur, puis on soigne et on tape en zone.",
-      "steps": [["Mot Stimulant", "+2 PA à l'allié"], ["Mot Vivifiant", "+2 PM et Fuite à l'allié"], ["Mot Tapageur", "soin + dommages Feu en zone"], ["Mot Tapageur", "deuxième lancer"]] },
+    { "name": "Tour de soutien", "tag": "Soutien", "idea": "Un seul Encouragement par allié (un nouveau remplace l'ancien) : PA au meilleur frappeur, puis soin et dommages en zone.",
+      "steps": [["Mot Stimulant", "+2 PA à l'allié"], ["Mot Tapageur", "soin + dommages Feu en zone"], ["Mot Tapageur", "deuxième lancer"], ["Mot de Frayeur", "repousse l'ennemi collé à l'allié"]] },
     { "name": "Fuite Air", "tag": "Contrôle", "idea": "On cloue la cible sur place et on se décale d'une case.",
       "steps": [["Mot Accablant", "-3 PM et -Esquive PM"], ["Mot Espiègle", "-2 PM"], ["Mot Espiègle", "-2 PM"], ["Mot de Frayeur", "repousse d'une case"]] },
     { "name": "Peinture et poussée", "tag": "Dégâts", "idea": "Peinture de Guerre baisse les Résistances Poussée : les poussées suivantes font mal.",
