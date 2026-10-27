@@ -1,39 +1,39 @@
 {
   "cra": [
     { "name": "Érosion puis Punitive", "tag": "Burst", "idea": "On se booste, on érode et on fait monter les dommages subis avant les gros coups Terre.",
-      "steps": [["Tirs Puissants", "+250 Puissance pour le tour"], ["Tir Perçant", "érode et x115% sur la prochaine attaque"], ["Flèche Punitive", "le gros coup, érode encore"], ["Œil pour Œil", "vol de vie en zone pour finir"]] },
+      "steps": [["Tirs Puissants", "+250 Puissance pour le tour"], ["Tir Perçant", "érode et x115% sur la prochaine attaque"], ["Flèche Punitive", "le gros coup, érode encore"], ["Œil pour Œil", "vol de vie en zone pour finir"], ["Flèche Vagabonde", "frappe Terre et recule de 3"]] },
     { "name": "Mur de glace", "tag": "Contrôle", "idea": "Une cible au corps à corps qui ne doit plus rien faire : on lui vide ses PA et ses PM.",
-      "steps": [["Flèche Glacée", "-2 PA"], ["Flèche Glacée", "-2 PA, plus fort au 2e lancer"], ["Flèche d'Immobilisation", "vole 1 PM"], ["Flèche d'Immobilisation", "vole 1 PM"]] },
+      "steps": [["Flèche Glacée", "-2 PA"], ["Flèche Glacée", "-2 PA, plus fort au 2e lancer"], ["Flèche d'Immobilisation", "vole 1 PM"], ["Flèche d'Immobilisation", "vole 1 PM"], ["Flèche d'Immobilisation", "vole 1 PM, la plus forte"]] },
     { "name": "Kite Air", "tag": "Distance", "idea": "On retire les PM, on repousse, puis on recule pour rester hors de portée.",
-      "steps": [["Flèche Cinglante", "-2 PM"], ["Flèche Cinglante", "-2 PM"], ["Flèche de Recul", "repousse de 2"], ["Tir de Repli", "le Crâ recule de 2"]] }
+      "steps": [["Flèche Cinglante", "-2 PM"], ["Flèche Cinglante", "-2 PM"], ["Flèche de Recul", "repousse de 2"], ["Flèche de Recul", "repousse encore de 2"], ["Tir de Repli", "le Crâ recule de 2"], ["Tir de Repli", "recule encore de 2"]] }
   ],
   "ecaflip": [
     { "name": "Main pleine, Bluff", "tag": "Burst", "idea": "On remplit la main en tapant, puis Bluff joue toutes les cartes d'un coup.",
-      "steps": [["Belote", "pioche une Dame de Carreau"], ["Jass", "pioche une Dame de Pique"], ["Bonne Pioche", "une carte de plus, PA remboursé"], ["Bluff", "dommages selon la main, puis la joue"]] },
+      "steps": [["Yams", "+Critique, pioche un Valet"], ["Belote", "pioche une Dame de Carreau"], ["Jass", "pioche une Dame de Pique"], ["Bonne Pioche", "une carte de plus, PA remboursé"], ["Bluff", "dommages selon la main, puis la joue"]] },
     { "name": "Critique Eau", "tag": "Dégâts", "idea": "Yams monte les chances de Critique, Griffe Joueuse baisse les résistances Critiques en face.",
       "steps": [["Yams", "+Critique pour 3 tours"], ["Yams", "on cumule"], ["Griffe Joueuse", "-Résistances Critiques en zone"], ["Baraka", "frappe Eau, pioche une Dame de Trèfle"]] },
     { "name": "Château de soin", "tag": "Soutien", "idea": "On pioche d'abord : Château de Cartes donne un bouclier par carte dans la main.",
-      "steps": [["Bonne Pioche", "une carte"], ["Bonne Pioche", "une carte"], ["Neuf Vies", "soin sur la durée, pioche aussi"], ["Château de Cartes", "bouclier selon la main"]] }
+      "steps": [["Bonne Pioche", "une carte"], ["Bonne Pioche", "une carte"], ["Langue Râpeuse", "soin de zone, pioche un Roi"], ["Neuf Vies", "soin sur la durée, pioche aussi"], ["Château de Cartes", "bouclier selon la main"]] }
   ],
   "eliotrope": [
     { "name": "Raillerie projetée", "tag": "Contrôle", "idea": "Deux portails : Raillerie projetée dedans retire 3 PM à chaque fois.",
-      "steps": [["Portail", "premier portail"], ["Portail", "sortie près de la cible"], ["Raillerie", "projeté : -3 PM"], ["Raillerie", "projeté : encore -3 PM"]] },
+      "steps": [["Portail", "premier portail"], ["Portail", "sortie près de la cible"], ["Raillerie", "projeté : -3 PM"], ["Raillerie", "projeté : encore -3 PM"], ["Conjuration", "projeté : soins reçus x70% en face"]] },
     { "name": "Vol de Portée", "tag": "Distance", "idea": "Les bonus de projection volent la Portée en face et la donnent à l'Eliotrope.",
-      "steps": [["Portail", "entrée"], ["Portail", "sortie"], ["Persiflage", "projeté : vole 3 Portée"], ["Outrage", "projeté : +1 Portée au lanceur"]] },
+      "steps": [["Portail", "entrée"], ["Portail", "sortie"], ["Persiflage", "projeté : vole 3 Portée"], ["Outrage", "projeté : +1 Portée au lanceur"], ["Sarcasme", "projeté : -3 PA"]] },
     { "name": "Soin par les portails", "tag": "Soutien", "idea": "Résilience projetée augmente les soins reçus juste avant le soin de zone.",
-      "steps": [["Portail", "entrée"], ["Portail", "sortie"], ["Résilience", "projeté : soins reçus x115%"], ["Rayon de Wakfu", "soin de zone + dommages Feu"]] }
+      "steps": [["Portail", "entrée"], ["Portail", "sortie"], ["Résilience", "projeté : soins reçus x115%"], ["Rayon de Wakfu", "soin de zone + dommages Feu"], ["Rayon de Wakfu", "deuxième lancer"]] }
   ],
   "eniripsa": [
     { "name": "Tour de soutien", "tag": "Soutien", "idea": "Un seul Encouragement par allié (un nouveau remplace l'ancien) : PA au meilleur frappeur, puis soin et dommages en zone.",
-      "steps": [["Mot Stimulant", "+2 PA à l'allié"], ["Mot Tapageur", "soin + dommages Feu en zone"], ["Mot Tapageur", "deuxième lancer"], ["Mot de Frayeur", "repousse l'ennemi collé à l'allié"]] },
+      "steps": [["Mot Stimulant", "+2 PA à l'allié"], ["Mot Vampirique", "transfère de la vie à l'allié"], ["Mot Tapageur", "soin + dommages Feu en zone"], ["Mot Tapageur", "deuxième lancer"], ["Mot de Frayeur", "repousse l'ennemi collé à l'allié"]] },
     { "name": "Fuite Air", "tag": "Contrôle", "idea": "On cloue la cible sur place et on se décale d'une case.",
-      "steps": [["Mot Accablant", "-3 PM et -Esquive PM"], ["Mot Espiègle", "-2 PM"], ["Mot Espiègle", "-2 PM"], ["Mot de Frayeur", "repousse d'une case"]] },
+      "steps": [["Mot Accablant", "-3 PM et -Esquive PM"], ["Mot Espiègle", "-2 PM"], ["Mot Espiègle", "-2 PM"], ["Mot Espiègle", "-2 PM"], ["Mot de Frayeur", "repousse d'une case"]] },
     { "name": "Peinture et poussée", "tag": "Dégâts", "idea": "Peinture de Guerre baisse les Résistances Poussée : les poussées suivantes font mal.",
-      "steps": [["Peinture de Guerre", "-60 Résistances Poussée"], ["Juron", "repousse de 2"], ["Cri de Guerre", "repousse de 4 en zone"]] }
+      "steps": [["Peinture de Guerre", "-60 Résistances Poussée"], ["Juron", "repousse de 2"], ["Juron", "repousse encore de 2"], ["Cri de Guerre", "repousse de 4 en zone"]] }
   ],
   "enutrof": [
     { "name": "Monnaie et retrait PA", "tag": "Dégâts", "idea": "Monnaie Sonnante frappe à chaque tentative de retrait de PA : on enchaîne les retraits.",
-      "steps": [["Monnaie Sonnante", "pose l'état sur la cible"], ["Abattement", "-2 PA : déclenche la Monnaie"], ["Abattement", "-2 PA : redéclenche"]] },
+      "steps": [["Monnaie Sonnante", "pose l'état sur la cible"], ["Abattement", "-2 PA : déclenche la Monnaie"], ["Abattement", "-2 PA : redéclenche"], ["Décadence", "-2 PA : 3e déclenchement"]] },
     { "name": "Orpaillage et retrait PM", "tag": "Dégâts", "idea": "Même logique avec les PM : chaque retrait déclenche Orpaillage (4 fois max).",
       "steps": [["Orpaillage", "pose l'état"], ["Maladresse", "-2 PM : 1er déclenchement"], ["Maladresse", "2e"], ["Maladresse", "3e"], ["Pelle Aurifère", "-3 PM : 4e et gros dommages Eau"]] },
     { "name": "Éboulement et Portée", "tag": "Dégâts", "idea": "Éboulement réagit aux retraits de Portée : Remblai en zone, Lancer de Pelle en solo.",
@@ -41,9 +41,9 @@
   ],
   "feca": [
     { "name": "Regroupement sur glyphe", "tag": "Zone", "idea": "On rassemble les ennemis, puis on pose un glyphe et on retire des PA sur le paquet.",
-      "steps": [["Regroupement", "attire au centre"], ["Terre Battue", "glyphe de début de tour sous le groupe"], ["Somnolence", "-2 PA en zone"]] },
+      "steps": [["Regroupement", "attire au centre"], ["Terre Battue", "glyphe de début de tour sous le groupe"], ["Somnolence", "-2 PA en zone"], ["Bulle", "-3 Portée sur le groupe"]] },
     { "name": "Protection d'équipe", "tag": "Soutien", "idea": "Réductions sur l'allié exposé et sur la zone, puis Bulle pour réduire la Portée en face.",
-      "steps": [["Bouclier Féca", "dommages subis x70% sur l'allié"], ["Rempart", "réduction de zone"], ["Bulle", "-3 Portée"], ["Bulle", "on cumule"], ["Bulle", "on cumule"]] },
+      "steps": [["Bouclier Féca", "dommages subis x70% sur l'allié"], ["Rempart", "réduction de zone"], ["Ataraxie", "réduit la première attaque sur l'allié"], ["Bulle", "-3 Portée"], ["Bulle", "on cumule"], ["Bulle", "on cumule"]] },
     { "name": "Ancre Feu", "tag": "Contrôle", "idea": "On ramène la cible et on lui vide ses PM.",
       "steps": [["Houlette", "attire de 3"], ["Léthargie", "-2 PM"], ["Léthargie", "-2 PM"], ["Léthargie", "-2 PM"]] }
   ],
@@ -51,21 +51,21 @@
     { "name": "Ligne de la Lance", "tag": "Zone", "idea": "On pose la Lance, Jormun frappe tout jusqu'à elle, puis Talon d'Argile la rappelle.",
       "steps": [["Lance du Lac", "invoque la Lance"], ["Jormun", "dommages jusqu'à la Lance"], ["Trident de la Mer", "attire vers la case"], ["Talon d'Argile", "rappelle la Lance, rapproche"]] },
     { "name": "Fer Rouge, Muspel", "tag": "Zone", "idea": "Fer Rouge augmente les dommages subis en zone, Muspel gagne des dégâts par ennemi.",
-      "steps": [["Fer Rouge", "+dommages subis en zone"], ["Muspel", "+dégâts par ennemi touché"], ["Lance à Incendie", "zone Feu pour finir"]] },
+      "steps": [["Fer Rouge", "+dommages subis en zone"], ["Muspel", "+dégâts par ennemi touché"], ["Lance à Incendie", "zone Feu pour finir"], ["Talon d'Argile", "rappelle la Lance, rapproche"]] },
     { "name": "Bannière", "tag": "Soutien", "idea": "Bouclier d'équipe, soin et PM, puis on dégage les ennemis collés aux alliés.",
-      "steps": [["Oriflamme", "bouclier sur les alliés"], ["Chevalerie", "soin + 2 PM en zone"], ["Estoc Brûlant", "repousse les ennemis de 3"]] }
+      "steps": [["Oriflamme", "bouclier sur les alliés"], ["Chevalerie", "soin + 2 PM en zone"], ["Estoc Brûlant", "repousse les ennemis de 3"], ["Estoc Brûlant", "deuxième lancer"]] }
   ],
   "huppermage": [
     { "name": "Runes puis Surcharge", "tag": "Burst", "idea": "On pose des runes avec les sorts élémentaires, puis Surcharge Runique les déclenche toutes.",
-      "steps": [["Stalagmite", "rune Eau"], ["Lance-flamme", "rune Feu, -PA"], ["Polarité", "consomme l'état élémentaire"], ["Surcharge Runique", "déclenche toutes les runes"]] },
+      "steps": [["Stalagmite", "rune Eau"], ["Lance-flamme", "rune Feu, -PA"], ["Volcan", "rune Feu, +dommages subis"], ["Polarité", "consomme l'état élémentaire"], ["Surcharge Runique", "déclenche toutes les runes"]] },
     { "name": "Retrait mixte", "tag": "Contrôle", "idea": "Une cible qui ne bouge plus et ne joue plus : PM, puis PA.",
-      "steps": [["Onde Sismique", "-PM"], ["Ouragan", "-PA"], ["Ouragan", "-PA"], ["Lance-flamme", "-PA"]] },
+      "steps": [["Onde Sismique", "-PM"], ["Ouragan", "-PA"], ["Ouragan", "-PA"], ["Ouragan", "-PA"], ["Lance-flamme", "-PA"]] },
     { "name": "Paquet propagé", "tag": "Zone", "idea": "Glacier rassemble, Propagation étend les états élémentaires au groupe.",
-      "steps": [["Glacier", "attire au centre, vole de vie"], ["Propagation", "propage les états en zone"], ["Surcharge Runique", "déclenche les runes posées"]] }
+      "steps": [["Glacier", "attire au centre, vole de vie"], ["Stalagmite", "rune Eau sur le paquet"], ["Propagation", "propage les états en zone"], ["Surcharge Runique", "déclenche les runes posées"]] }
   ],
   "iop": [
     { "name": "Bond puissant", "tag": "Burst", "idea": "Puissance, puis Bond augmente les dommages subis en zone avant de frapper.",
-      "steps": [["Puissance", "+300 Puissance sur soi"], ["Bond", "téléporte, ennemis x115%"], ["Fureur", "frappe Terre"]] },
+      "steps": [["Puissance", "+300 Puissance sur soi"], ["Bond", "téléporte, ennemis x115%"], ["Fureur", "frappe Terre"], ["Concentration", "finit le tour"]] },
     { "name": "Colère", "tag": "Burst", "idea": "Le tour où Colère de Iop est prête : Bond d'abord pour le bonus de dommages subis.",
       "steps": [["Bond", "x115% sur les ennemis autour"], ["Colère de Iop", "le gros coup"]] },
     { "name": "Rassemblement Feu", "tag": "Zone", "idea": "On regroupe les ennemis : Tumulte gagne des dégâts pour chaque ennemi dans sa zone.",
@@ -73,41 +73,41 @@
   ],
   "osamodas": [
     { "name": "Invocation boostée", "tag": "Invocations", "idea": "On sort une invocation et on lui donne de quoi jouer tout de suite.",
-      "steps": [["Bouftou", "invocation"], ["Piqûre Motivante", "PA et PM, plus fort sur une invocation"], ["Fouet", "+PM à l'invocation alliée"], ["Cri de l'Ours", "soin de zone + Puissance"]] },
+      "steps": [["Bouftou", "invocation"], ["Piqûre Motivante", "PA et PM, plus fort sur une invocation"], ["Fouet", "+PM à l'invocation alliée"], ["Fouet", "encore +PM à l'invocation"], ["Cri de l'Ours", "soin de zone + Puissance"]] },
     { "name": "Plumes et poussée", "tag": "Dégâts", "idea": "Déplumage baisse les Résistances Poussée, puis on repousse.",
-      "steps": [["Déplumage", "-60 Résistances Poussée en zone"], ["Aéropique", "rapproche et repousse"], ["Fouet", "repousse"]] },
+      "steps": [["Déplumage", "-60 Résistances Poussée en zone"], ["Aéropique", "rapproche et repousse"], ["Aéropique", "deuxième lancer"], ["Fouet", "repousse"]] },
     { "name": "Soin en tapant", "tag": "Soutien", "idea": "Des sorts qui volent de la vie aux ennemis et soignent les alliés en même temps.",
-      "steps": [["Dents du Piranya", "soin + vol Eau en zone"], ["Dents du Piranya", "deuxième lancer"], ["Cri du Corbac", "vol Air, +PM"], ["Cri du Corbac", "deuxième lancer"]] }
+      "steps": [["Dents du Piranya", "soin + vol Eau en zone"], ["Dents du Piranya", "deuxième lancer"], ["Cri du Corbac", "vol Air, +PM"], ["Cri du Corbac", "deuxième lancer"], ["Cri du Corbac", "troisième lancer"]] }
   ],
   "ouginak": [
     { "name": "Proie Eau", "tag": "Dégâts", "idea": "Proie d'abord : Os à Moelle monte à chaque lancer et Cubitus rend des PM.",
-      "steps": [["Proie", "état Proie sur la cible"], ["Os à Moelle", "dommages qui montent"], ["Os à Moelle", "plus fort"], ["Cubitus", "+1 PM sur la Proie"]] },
+      "steps": [["Proie", "état Proie sur la cible"], ["Os à Moelle", "dommages qui montent"], ["Os à Moelle", "plus fort"], ["Os à Moelle", "encore plus fort"], ["Cubitus", "+1 PM sur la Proie"]] },
     { "name": "Rage Terre/Air", "tag": "Burst", "idea": "On gagne de la Rage en tapant, puis Arcanin la consomme pour de la Puissance.",
-      "steps": [["Proie", "état Proie"], ["Charogne", "érode, +Rage"], ["Molosse", "réduit les dommages subis, +Rage"], ["Arcanin", "+100 Puissance"], ["Dogue", "-Fuite sur la Proie"]] },
+      "steps": [["Proie", "état Proie"], ["Charogne", "érode, +Rage"], ["Molosse", "réduit les dommages subis, +Rage"], ["Arcanin", "+100 Puissance"], ["Dogue", "-Fuite sur la Proie"], ["Dogue", "deuxième lancer"]] },
     { "name": "Chasse Feu", "tag": "Mobilité", "idea": "Sur la Proie, Traque et Chasse rapprochent l'Ouginak : on la poursuit sans PM.",
       "steps": [["Proie", "état Proie"], ["Traque", "avance de 5"], ["Rabattage", "vole 2 PM"], ["Chasse", "avance puis repousse"]] }
   ],
   "pandawa": [
     { "name": "Saoul Terre", "tag": "Burst", "idea": "Bistouille rend Saoul : Pandatak frappe plus fort à portée réduite.",
-      "steps": [["Bistouille", "vole de vie, devient Saoul"], ["Pandatak", "bonus Saoul"], ["Ribote", "Saoul : -Fuite"]] },
+      "steps": [["Bistouille", "vole de vie, devient Saoul"], ["Pandatak", "bonus Saoul"], ["Ribote", "Saoul : -Fuite"], ["Ribote", "deuxième lancer"]] },
     { "name": "Porter et jeter", "tag": "Placement", "idea": "On porte un allié ou un ennemi, on le jette où il faut, puis on frappe.",
-      "steps": [["Karcham", "porte la cible"], ["Karcham", "jette-la"], ["Eau-de-vie", "jette, soigne les alliés"], ["Vague à Lame", "repousse en zone"]] },
+      "steps": [["Karcham", "porte la cible"], ["Karcham", "jette-la"], ["Eau-de-vie", "jette, soigne les alliés"], ["Vague à Lame", "repousse en zone"], ["Vague à Lame", "deuxième lancer"]] },
     { "name": "Sobre Air", "tag": "Contrôle", "idea": "Sobre, Schnaps retire du Retrait PA/PM en zone et Nausée éloigne le Pandawa.",
-      "steps": [["Schnaps", "Sobre : -Retrait PA et PM"], ["Épouvante", "repousse"], ["Nausée", "Sobre : le Pandawa recule"], ["Ethylo", "Sobre : +Portée"]] }
+      "steps": [["Schnaps", "Sobre : -Retrait PA et PM"], ["Épouvante", "repousse"], ["Nausée", "Sobre : le Pandawa recule"], ["Nausée", "Sobre : recule encore"], ["Ethylo", "Sobre : +Portée"]] }
   ],
   "roublard": [
     { "name": "Mur de bombes", "tag": "Zone", "idea": "Deux bombes, on monte leur Combo, puis Détonateur fait sauter.",
-      "steps": [["Explobombe", "bombe Feu"], ["Sismobombe", "bombe Terre"], ["Mousquet", "+1 Combo aux bombes en zone"], ["Aimantation", "rapproche et +1 Combo"], ["Détonateur", "+1 Combo, explose, rend 1 PA"]] },
+      "steps": [["Explobombe", "bombe Feu"], ["Sismobombe", "bombe Terre"], ["Tornabombe", "bombe Air"], ["Mousquet", "+1 Combo aux bombes en zone"], ["Aimantation", "rapproche et +1 Combo"], ["Détonateur", "+1 Combo, explose, rend 1 PA"], ["Détonateur", "fait sauter la bombe suivante"]] },
     { "name": "Contrôle Air", "tag": "Contrôle", "idea": "Sans bombes : on retire les PM, on ramène, puis on repousse.",
       "steps": [["Mitraille", "-3 PM"], ["Recel", "attire de 2"], ["Mitraille", "-3 PM"]] },
-    { "name": "Explosion rentable", "tag": "Burst", "idea": "Étoupille rend 3 PA avant l'explosion : on les réinvestit dans une autre bombe.",
+    { "name": "Explosion rentable", "tag": "Burst", "idea": "Étoupille rend 3 PA avant l'explosion : on les réinvestit dans une autre bombe (le combo laisse 5 PA libres sur 12).",
       "steps": [["Tornabombe", "bombe Air"], ["Bombe à Eau", "bombe Eau"], ["Kaboom", "+1 Combo aux bombes"], ["Étoupille", "explose, rend 3 PA"], ["Bombe à Eau", "on repose avec les PA rendus"]] }
   ],
   "sacrieur": [
     { "name": "Mutilation", "tag": "Burst", "idea": "+150 Puissance pour le prix de 10% de vie, puis les gros sacrifices Terre.",
-      "steps": [["Mutilation", "+150 Puissance"], ["Entaille", "gros coup Terre"], ["Entaille", "deuxième lancer"]] },
+      "steps": [["Mutilation", "+150 Puissance"], ["Attirance", "ramène la cible au contact"], ["Entaille", "gros coup Terre"], ["Entaille", "deuxième lancer"]] },
     { "name": "Attire et vole", "tag": "Corps à corps", "idea": "On ramène la cible au contact et on se soigne sur elle.",
-      "steps": [["Attirance", "attire jusqu'à 9 cases"], ["Bain de Sang", "+Tacle, vol Terre"], ["Bain de Sang", "deuxième lancer"]] },
+      "steps": [["Mutilation", "+150 Puissance"], ["Attirance", "attire jusqu'à 9 cases"], ["Bain de Sang", "+Tacle, vol Terre"], ["Bain de Sang", "deuxième lancer"]] },
     { "name": "Soin Feu", "tag": "Survie", "idea": "Quand la vie baisse : vol de vie en zone et Puissance retirée en face.",
       "steps": [["Hécatombe", "vol Feu, soins reçus réduits en face"], ["Hécatombe", "deuxième lancer"], ["Absorption", "vol Feu, -150 Puissance"]] }
   ],
@@ -115,33 +115,33 @@
     { "name": "Infection", "tag": "Zone", "idea": "On infecte une cible : Contagion touche alors tous les Infectés et propage l'Infection.",
       "steps": [["Vent Empoisonné", "infecte + poison Air"], ["Contagion", "frappe tous les Infectés, propage"], ["Inoculation", "+dégâts par ennemi Infecté"]] },
     { "name": "Ronces infectées", "tag": "Contrôle", "idea": "Sève Paralysante infecte, puis Ronces Agressives vole des PM à tous les Infectés.",
-      "steps": [["Sève Paralysante", "infecte, -Esquive PM"], ["Ronces Agressives", "vole des PM aux Infectés"], ["Ronce", "dommages Terre, réinfecte"]] },
+      "steps": [["Sève Paralysante", "infecte, -Esquive PM"], ["Ronces Agressives", "vole des PM aux Infectés"], ["Ronce", "dommages Terre, réinfecte"], ["Vent Empoisonné", "réinfecte + poison Air"]] },
     { "name": "Arbre et soin", "tag": "Soutien", "idea": "Un Arbre planté sert de relais : Larme de Sadida soigne autour de lui.",
-      "steps": [["Arbre", "planté près des alliés"], ["Larme de Sadida", "sur l'Arbre : soin de zone"], ["Ronce Apaisante", "soigne les alliés"]] }
+      "steps": [["Arbre", "planté près des alliés"], ["Arbre", "deuxième Arbre"], ["Larme de Sadida", "sur l'Arbre : soin de zone"], ["Larme de Sadida", "sur l'autre Arbre"], ["Ronce Apaisante", "soigne les alliés"]] }
   ],
   "sram": [
     { "name": "Pièges puis Chausse-trappe", "tag": "Burst", "idea": "On pose des pièges et on les déclenche : Chausse-trappe gagne des dégâts par piège.",
       "steps": [["Piège Sournois", "attire au centre"], ["Piège Mortel", "dommages Terre"], ["Peur", "pousse la cible sur les pièges"], ["Chausse-trappe", "+dégâts par piège déclenché"]] },
     { "name": "Poison Air", "tag": "Dégâts", "idea": "Poisons qui tournent sur plusieurs tours, puis le vol de vie.",
-      "steps": [["Toxines", "poison de fin de tour"], ["Épidémie", "poison qui se propage"], ["Arnaque", "vole Agilité et vie"]] },
+      "steps": [["Toxines", "poison de fin de tour"], ["Épidémie", "poison qui se propage"], ["Arnaque", "vole Agilité et vie"], ["Peur", "éloigne la cible empoisonnée"]] },
     { "name": "Assassinat", "tag": "Burst", "idea": "Invisible, on s'approche et on frappe une cible déjà entamée.",
-      "steps": [["Invisibilité", "invisible, +PM"], ["Coupe-gorge", "+dommages subis"], ["Attaque Mortelle", "plus fort sous 50% de vie"]] }
+      "steps": [["Invisibilité", "invisible, +PM"], ["Marque Mortuaire", "+dommages subis, érode"], ["Coupe-gorge", "+dommages subis"], ["Attaque Mortelle", "plus fort sous 50% de vie"]] }
   ],
   "steamer": [
     { "name": "Tourelle offensive", "tag": "Invocations", "idea": "On pose une Harponneuse, on la fait évoluer, puis Sonar active son sort spécial.",
-      "steps": [["Harponneuse", "tourelle offensive"], ["Évolution", "évolue et soigne la tourelle"], ["Sonar", "active la tourelle sur l'ennemi"], ["Courant", "dommages Eau, déplace selon la Marée"]] },
-    { "name": "Remboursement Terre", "tag": "Dégâts", "idea": "Amarrage et Ressac lancés sur une Tourelle rendent des PA : on rejoue plus.",
-      "steps": [["Ancrage", "-PM en zone"], ["Amarrage", "sur une Tourelle : +1 PA"], ["Ressac", "sur une Tourelle : +2 PA"]] },
+      "steps": [["Harponneuse", "tourelle offensive"], ["Évolution", "évolue et soigne la tourelle"], ["Sonar", "active la tourelle sur l'ennemi"], ["Courant", "dommages Eau, déplace selon la Marée"], ["Courant", "deuxième lancer"]] },
+    { "name": "Remboursement Terre", "tag": "Dégâts", "idea": "Amarrage et Ressac lancés sur une Tourelle rendent des PA : sur 12 PA, il en reste environ 5 après le combo.",
+      "steps": [["Ancrage", "-PM en zone"], ["Amarrage", "sur une Tourelle : +1 PA"], ["Ressac", "sur une Tourelle : +2 PA"], ["Ressac", "sur la Tourelle : +2 PA"]] },
     { "name": "Soin par tourelle", "tag": "Soutien", "idea": "Gardienne soigne, Secourisme active les tourelles défensives sur l'allié.",
-      "steps": [["Gardienne", "tourelle de soin"], ["Évolution", "évolue la tourelle"], ["Secourisme", "active les tourelles sur l'allié"], ["Scaphandre", "bouclier lanceur et tourelles"]] }
+      "steps": [["Gardienne", "tourelle de soin"], ["Évolution", "évolue la tourelle"], ["Secourisme", "active les tourelles sur l'allié"], ["Secourisme", "deuxième lancer"], ["Scaphandre", "bouclier lanceur et tourelles"]] }
   ],
   "xelor": [
     { "name": "Retrait de PA", "tag": "Contrôle", "idea": "Le classique : on vide la cible de ses PA.",
-      "steps": [["Horloge", "-2 PA, dégâts qui montent"], ["Ralentissement", "-1 PA"], ["Ralentissement", "-1 PA"], ["Ralentissement", "-1 PA"]] },
+      "steps": [["Horloge", "-2 PA, dégâts qui montent"], ["Ralentissement", "-1 PA"], ["Ralentissement", "-1 PA"], ["Ralentissement", "-1 PA"], ["Ralentissement", "-1 PA"]] },
     { "name": "Téléfrag Air", "tag": "Dégâts", "idea": "Souvenir peut générer un Téléfrag : Flétrissement frappe alors de plus en plus fort.",
-      "steps": [["Souvenir", "téléporte à la position précédente"], ["Souvenir", "peut créer un Téléfrag"], ["Flétrissement", "plus fort sur Téléfrag"], ["Flétrissement", "encore plus"]] },
+      "steps": [["Souvenir", "téléporte à la position précédente"], ["Souvenir", "peut créer un Téléfrag"], ["Souvenir", "troisième lancer"], ["Flétrissement", "plus fort sur Téléfrag"], ["Flétrissement", "encore plus"]] },
     { "name": "Rayon sur Téléfrags", "tag": "Zone", "idea": "On crée et on propage des Téléfrags, puis Rayon Obscur les consomme.",
-      "steps": [["Frappe de Xélor", "téléportation symétrique : Téléfrag"], ["Réfraction", "propage le Téléfrag en zone"], ["Rayon Obscur", "+dégâts par entité Téléfrag"]] }
+      "steps": [["Frappe de Xélor", "téléportation symétrique : Téléfrag"], ["Frappe de Xélor", "deuxième Téléfrag"], ["Réfraction", "propage le Téléfrag en zone"], ["Rayon Obscur", "+dégâts par entité Téléfrag"]] }
   ],
   "zobal": [
     { "name": "Psychopathe Terre", "tag": "Dégâts", "idea": "Le masque monte les dommages en mêlée de l'équipe, puis Furia monte les Dommages du Zobal.",
@@ -149,6 +149,6 @@
     { "name": "Mur de boucliers", "tag": "Soutien", "idea": "Plastron sur le groupe, puis Tortoruga sur les plus exposés.",
       "steps": [["Masque de l'Intrépide", "+PA aux alliés en croix"], ["Plastron", "bouclier de zone"], ["Tortoruga", "bouclier ciblé"], ["Tortoruga", "deuxième allié"]] },
     { "name": "Pleutre Feu", "tag": "Distance", "idea": "Le masque donne PM et Fuite à l'équipe ; on retire la Portée en face et on frappe.",
-      "steps": [["Masque du Pleutre", "+PM et Fuite en zone"], ["Brincadeira", "-4 Portée"], ["Inferno", "gros coup Feu, +Puissance"], ["Ponteira", "-50 Dommages"]] }
+      "steps": [["Masque du Pleutre", "+PM et Fuite en zone"], ["Brincadeira", "-4 Portée"], ["Brincadeira", "-4 Portée encore"], ["Inferno", "gros coup Feu, +Puissance"], ["Ponteira", "-50 Dommages"]] }
   ]
 }

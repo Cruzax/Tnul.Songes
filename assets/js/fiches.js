@@ -2,6 +2,11 @@
 // à l'endroit du clic (pas besoin de descendre jusqu'au grimoire). Ajouté par tools/patch-classes.js.
 // Sur petit écran, les tableaux passent en cartes empilées (fiches.css): chaque cellule reçoit le nom de sa
 // colonne, affiché devant la valeur. Une section « Combos » est aussi ajoutée depuis data/combos.json.
+// L'icône « dommages » des fiches ressemble à une flèche: on la remplace par une épée (trait, comme l'original)
+document.querySelectorAll(".ic-dommages svg path").forEach((path) => {
+  path.setAttribute("d", "M14.5 17.5 3 6V3h3l11.5 11.5M13 19l6-6M16 16l4 4M19 21l2-2");
+});
+
 document.querySelectorAll(".tableau table").forEach((table) => {
   const heads = [...table.querySelectorAll("thead th")].map((th) => th.textContent.trim());
   table.querySelectorAll("tbody tr").forEach((row) => {
