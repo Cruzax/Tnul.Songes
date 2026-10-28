@@ -8,13 +8,13 @@
       title: "Songes infinis",
       links: [
         { href: "./", label: "Boss", hint: "Fiches, stats et simulateur", icon: "skull" },
-        { href: "salles.html", label: "Salles", hint: "Positions de départ", icon: "grid" },
+        { href: "salles.html", label: "Placements", hint: "Cases de départ de chaque salle", icon: "grid" },
       ],
     },
     {
       title: "Combats tactiques",
       dropdown: true,
-      all: { href: "tactiques.html", label: "Tous les combats", hint: "Vue d'ensemble et fiches de mécanique" },
+      all: { href: "tactiques.html", label: "Carnet tactique", hint: "Tous les combats et leurs fiches de mécanique" },
       links: [
         { href: "ambre.html", label: "Ocre d'ambre", hint: "Memory des Malters", gem: "#e0a24a" },
         { href: "minogolem.html", label: "Dofus Pourpre", hint: "Labyrinthe du Minogolem", gem: "#d1384f" },
@@ -28,10 +28,10 @@
       ],
     },
     {
-      title: "Outils",
+      title: "Atelier",
       links: [
-        { href: "classes.html", label: "Classes", hint: "Fiches mémo des 19 classes", icon: "book" },
-        { href: "palette/", label: "Palette", hint: "Couleurs de skins (Skinoskope)", icon: "palette" },
+        { href: "classes.html", label: "Grimoire", hint: "Sorts, combos et mémo des 19 classes", icon: "book" },
+        { href: "palette/", label: "Skinoskope", hint: "Couleurs et apparences de skins", icon: "palette" },
       ],
     },
   ];
