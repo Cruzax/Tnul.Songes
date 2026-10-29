@@ -1,0 +1,136 @@
+/* Page « Bonta contre Brâkmar »: Bonta en bleu, Brâkmar en rouge, toujours Bonta à gauche */
+:root { --bonta: 92 168 236; --brakmar: 220 72 80; }
+.t-bonta { color: rgb(var(--bonta)); }
+.t-brakmar { color: rgb(var(--brakmar)); }
+
+.al-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; margin-bottom: 1rem; }
+.al-heading { margin: 0; font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; }
+.al-hint { margin: 0; font-size: 0.8rem; color: rgb(var(--c-muted)); }
+.al-note { margin: 0.9rem 0 0; font-size: 0.85rem; color: rgb(var(--c-muted)); }
+section[id] { scroll-margin-top: 5rem; }
+
+/* Sommaire de la page */
+.al-jump { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: -1.25rem; }
+.al-jump a {
+  padding: 0.35rem 0.75rem; border: 1px solid rgb(var(--c-line)); border-radius: 999px; background: rgb(var(--c-panel));
+  color: rgb(var(--c-ink)); font-size: 0.8rem; text-decoration: none; transition: border-color 0.15s;
+}
+.al-jump a:hover { border-color: rgb(var(--c-accent) / 0.6); }
+
+/* Barres comparées: Bonta pousse vers la gauche, Brâkmar vers la droite, l'intitulé au milieu */
+.al-sides { display: grid; grid-template-columns: 1fr minmax(9rem, 14rem) 1fr; margin-bottom: 0.4rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.al-side.bonta { color: rgb(var(--bonta)); text-align: right; }
+.al-side.brakmar { grid-column: 3; color: rgb(var(--brakmar)); }
+.al-stats, .al-jobs { display: grid; gap: 0.3rem; }
+.al-bar { display: grid; grid-template-columns: 1fr minmax(9rem, 14rem) 1fr; align-items: center; gap: 0.75rem; }
+.al-bar-label { text-align: center; font-size: 0.85rem; line-height: 1.25; }
+.al-bar-label small { display: block; color: rgb(var(--c-muted)); font-size: 0.7rem; }
+.al-bar-side { position: relative; display: flex; align-items: center; gap: 0.5rem; height: 1.6rem; }
+.al-bar-side.bonta { flex-direction: row-reverse; }
+.al-bar-fill { height: 0.6rem; border-radius: 999px; min-width: 2px; transition: width 0.4s; }
+.al-bar-side.bonta .al-bar-fill { background: rgb(var(--bonta) / 0.45); }
+.al-bar-side.brakmar .al-bar-fill { background: rgb(var(--brakmar) / 0.45); }
+.al-bar-side.is-more.bonta .al-bar-fill { background: rgb(var(--bonta)); }
+.al-bar-side.is-more.brakmar .al-bar-fill { background: rgb(var(--brakmar)); }
+.al-bar-value { min-width: 2ch; font-size: 0.85rem; font-variant-numeric: tabular-nums; color: rgb(var(--c-muted)); }
+.al-bar-side.is-more .al-bar-value { color: rgb(var(--c-ink)); }
+.al-jobs { margin-bottom: 1.5rem; }
+
+/* Aide d'autres joueurs */
+.al-help h3 { margin: 0 0 0.25rem; font-size: 0.95rem; font-weight: 600; }
+.al-help-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.8rem; }
+.al-help-list { display: grid; align-content: start; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+.al-help-list li { padding: 0.6rem 0.8rem; border: 1px solid rgb(var(--c-line)); border-left-width: 3px; border-radius: 0.5rem; background: rgb(var(--c-panel)); }
+.al-help-list.bonta li { border-left-color: rgb(var(--bonta)); }
+.al-help-list.brakmar li { border-left-color: rgb(var(--brakmar)); }
+.al-help-list b { font-weight: 600; }
+.al-help-lvl { margin-left: 0.5rem; font-size: 0.75rem; color: rgb(var(--c-muted)); }
+.al-help-list p { margin: 0.2rem 0 0; font-size: 0.8rem; color: rgb(var(--c-muted)); }
+
+/* Histoire: un arc par tranche de 10 rangs, les deux camps face à face */
+.al-intro { display: grid; gap: 0.6rem; max-width: 72ch; margin-bottom: 1.2rem; color: rgb(var(--c-ink) / 0.9); line-height: 1.6; }
+.al-intro p { margin: 0; }
+.al-arcs { display: grid; gap: 0.6rem; margin: 0; padding: 0; list-style: none; }
+.al-arc { display: grid; grid-template-columns: 6.5rem 1fr 1fr; gap: 0.6rem; }
+.al-arc-rank { display: flex; flex-direction: column; justify-content: center; padding: 0.5rem; border-radius: 0.5rem; background: rgb(var(--c-panel2)); text-align: center; }
+.al-arc-rank b { font-size: 0.85rem; font-weight: 600; }
+.al-arc-rank span { font-size: 0.72rem; color: rgb(var(--c-muted)); }
+.al-arc-side { padding: 0.75rem 0.9rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem; background: rgb(var(--c-panel)); }
+.al-arc-side.bonta { background: linear-gradient(135deg, rgb(var(--bonta) / 0.08), transparent 55%), rgb(var(--c-panel)); }
+.al-arc-side.brakmar { background: linear-gradient(135deg, rgb(var(--brakmar) / 0.08), transparent 55%), rgb(var(--c-panel)); }
+.al-arc-side h3 { margin: 0 0 0.3rem; font-size: 0.9rem; font-weight: 600; }
+.al-arc-side.bonta h3 { color: rgb(var(--bonta)); }
+.al-arc-side.brakmar h3 { color: rgb(var(--brakmar)); }
+.al-arc-side p { margin: 0; font-size: 0.82rem; line-height: 1.5; color: rgb(var(--c-ink) / 0.85); }
+
+/* Ordres */
+.al-orders { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.al-order-col { display: grid; gap: 0.6rem; }
+.al-order { padding: 0.8rem 0.9rem; border: 1px solid rgb(var(--c-line)); border-top-width: 3px; border-radius: 0.5rem; background: rgb(var(--c-panel)); }
+.al-order-col.bonta .al-order { border-top-color: rgb(var(--bonta)); }
+.al-order-col.brakmar .al-order { border-top-color: rgb(var(--brakmar)); }
+.al-order h3 { margin: 0; font-size: 0.95rem; font-weight: 600; }
+.al-order h3 small { display: block; margin-top: 0.1rem; font-size: 0.72rem; font-weight: 500; color: rgb(var(--c-muted)); }
+.al-order > p { margin: 0.35rem 0 0.5rem; font-size: 0.8rem; color: rgb(var(--c-muted)); }
+.al-order ol { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0; padding: 0; list-style: none; counter-reset: grade; }
+.al-order li { counter-increment: grade; padding: 0.15rem 0.5rem; border-radius: 999px; background: rgb(var(--c-panel2)); font-size: 0.75rem; }
+.al-order li::before { content: counter(grade) " · "; color: rgb(var(--c-muted)); }
+
+/* Filtres du tableau */
+.al-filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
+.al-filters button {
+  padding: 0.35rem 0.75rem; border: 1px solid rgb(var(--c-line)); border-radius: 999px; background: rgb(var(--c-panel));
+  color: rgb(var(--c-ink)); font: inherit; font-size: 0.8rem; cursor: pointer;
+}
+.al-filters button[aria-pressed="true"] { border-color: rgb(var(--c-accent)); background: rgb(var(--c-accent) / 0.14); }
+
+/* Tableau des 100 rangs */
+.al-table { border: 1px solid rgb(var(--c-line)); border-radius: 0.6rem; overflow: hidden; background: rgb(var(--c-panel)); }
+.al-row {
+  display: grid; grid-template-columns: 3rem 1fr 1fr; width: 100%; padding: 0; border: 0; border-top: 1px solid rgb(var(--c-line));
+  background: none; color: inherit; font: inherit; text-align: left; cursor: pointer;
+}
+.al-row:hover, .al-row[aria-expanded="true"] { background: rgb(var(--c-panel2)); }
+.al-row-head { position: sticky; top: 0; border-top: 0; cursor: default; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(var(--c-muted)); }
+.al-row-head > span { padding: 0.55rem 0.75rem; }
+.al-row-head:hover { background: none; }
+.al-rank { display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-variant-numeric: tabular-nums; color: rgb(var(--c-muted)); }
+.al-cell { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.5rem; padding: 0.55rem 0.75rem; border-left: 1px solid rgb(var(--c-line)); }
+.al-cell.bonta { box-shadow: inset 2px 0 rgb(var(--bonta) / 0.6); }
+.al-cell.brakmar { box-shadow: inset 2px 0 rgb(var(--brakmar) / 0.6); }
+.al-name { font-weight: 500; }
+.al-lvl { font-size: 0.72rem; color: rgb(var(--c-muted)); }
+.al-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; width: 100%; }
+.al-tags:empty { display: none; }
+.al-tag { padding: 0.05rem 0.45rem; border-radius: 999px; font-size: 0.68rem; font-weight: 600; }
+.al-tag.job { background: rgb(var(--c-warm) / 0.14); color: rgb(var(--c-warm)); }
+.al-tag.fight { background: rgb(var(--c-danger) / 0.14); color: rgb(var(--c-danger)); }
+.al-tag.dungeon { background: rgb(var(--c-power) / 0.16); color: rgb(var(--c-power)); }
+.al-tag.help { background: rgb(var(--c-accent) / 0.14); color: rgb(var(--c-accent)); }
+
+.al-detail { display: grid; grid-template-columns: 3rem 1fr 1fr; background: rgb(var(--c-bg) / 0.5); }
+.al-detail[hidden] { display: none; }
+.al-detail::before { content: ""; }
+.al-detail-side { padding: 0.6rem 0.75rem 0.8rem; border-left: 1px solid rgb(var(--c-line)); font-size: 0.8rem; }
+.al-detail-side h4 { margin: 0 0 0.3rem; font-size: 0.85rem; font-weight: 600; }
+.al-detail-side.bonta h4 { color: rgb(var(--bonta)); }
+.al-detail-side.brakmar h4 { color: rgb(var(--brakmar)); }
+.al-steps { margin: 0 0 0.5rem; padding-left: 1.1rem; color: rgb(var(--c-ink) / 0.85); }
+.al-needs { display: grid; gap: 0.15rem; margin: 0 0 0.4rem; padding: 0; list-style: none; }
+.al-needs li { display: flex; flex-wrap: wrap; gap: 0 0.5rem; }
+.al-needs b { font-weight: 500; }
+.al-needs span, .al-fights { color: rgb(var(--c-muted)); }
+.al-fights { margin: 0.2rem 0 0; }
+
+@media (max-width: 760px) {
+  .al-sides, .al-bar { grid-template-columns: 1fr minmax(6.5rem, 8rem) 1fr; gap: 0.4rem; }
+  .al-bar-label { font-size: 0.75rem; }
+  .al-help-cols, .al-orders { grid-template-columns: minmax(0, 1fr); }
+  .al-arc { grid-template-columns: minmax(0, 1fr); }
+  .al-arc-rank { flex-direction: row; gap: 0.5rem; justify-content: flex-start; text-align: left; }
+  .al-row, .al-detail { grid-template-columns: 2.2rem minmax(0, 1fr) minmax(0, 1fr); }
+  .al-cell, .al-detail-side { padding: 0.5rem; }
+  .al-row-head > span { padding: 0.5rem; }
+  .al-row-head > span:first-child { padding: 0.5rem 0.2rem; text-align: center; }
+  .al-name { font-size: 0.8rem; }
+}

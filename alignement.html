@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bonta contre Brâkmar - Tnul.Songes</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/ui/logo.svg" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/images/ui/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/alignement.css" />
+</head>
+<body class="flex min-h-screen flex-col text-[14px] text-ink">
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <header class="site-header border-b border-line">
+    <div class="mx-auto flex h-16 w-full max-w-[1120px] items-center justify-between gap-5 px-4">
+      <a href="./" class="flex items-center gap-3 text-ink no-underline outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent" aria-label="Tnul.Songes, accueil">
+        <span class="flex size-8 items-center justify-center rounded-md border border-line text-accent"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6" /><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5" /><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586" /><path d="m16 16 4 4" /><path d="m19 21 2-2" /><path d="m5 14 4 4" /><path d="m5 21-2-2" /><path d="M7.5 16.5 4 20" /></svg></span>
+        <span class="text-lg font-semibold">Tnul<span class="text-accent">.</span>Songes</span>
+      </a>
+      <nav class="site-nav" aria-label="Navigation"></nav>
+      <script src="assets/js/lib/nav.js"></script>
+    </div>
+  </header>
+
+  <main class="mx-auto grid w-full max-w-[1120px] flex-1 content-start gap-10 px-4 pb-14 pt-8">
+    <header class="page-hero">
+      <div>
+        <p class="page-hero-trail">Quêtes <span class="sep">/</span> <span class="here">Alignement</span></p>
+        <h1 class="page-hero-title">Bonta contre Brâkmar</h1>
+        <p class="page-hero-lead">Les quêtes d'alignement des deux cités, côte à côte : ce qu'elles demandent (métiers, combats, donjons, aide d'autres joueurs) et l'histoire qu'elles racontent.</p>
+      </div>
+      <dl class="page-hero-facts">
+        <div><dt>Bonta</dt><dd id="al-count-bonta">115</dd></div>
+        <div><dt>Brâkmar</dt><dd id="al-count-brakmar">120</dd></div>
+        <div><dt>Niveaux</dt><dd>30–200</dd></div>
+      </dl>
+    </header>
+
+    <nav class="al-jump" aria-label="Sections">
+      <a href="#chiffres">En chiffres</a><a href="#metiers">Métiers</a><a href="#histoire">L'histoire</a><a href="#ordres">Les Ordres</a><a href="#quetes">Les 100 quêtes</a>
+    </nav>
+
+    <section id="chiffres" aria-labelledby="al-stats-title">
+      <div class="al-head">
+        <h2 id="al-stats-title" class="al-heading">En chiffres</h2>
+        <p class="al-hint">Chaque barre compare les deux camps sur l'ensemble de leurs quêtes.</p>
+      </div>
+      <div class="al-sides" aria-hidden="true"><span class="al-side bonta">Bonta</span><span class="al-side brakmar">Brâkmar</span></div>
+      <div class="al-stats" id="al-stats"></div>
+      <p class="al-note" id="al-verdict"></p>
+    </section>
+
+    <section id="metiers" aria-labelledby="al-jobs-title">
+      <div class="al-head">
+        <h2 id="al-jobs-title" class="al-heading">Métiers et aide</h2>
+        <p class="al-hint">Nombre de quêtes où un objet à apporter se fabrique ou se récolte avec ce métier. Tout s'achète aussi en hôtel de vente.</p>
+      </div>
+      <div class="al-jobs" id="al-jobs"></div>
+      <div class="al-help">
+        <h3>Quand il faut d'autres joueurs</h3>
+        <p class="al-hint">Les quêtes ne demandent jamais une classe précise pour ton personnage. Certaines étapes demandent par contre de venir à plusieurs, avec un Sram, un bricoleur ou des artisans.</p>
+        <div class="al-help-cols" id="al-help"></div>
+      </div>
+    </section>
+
+    <section id="histoire" aria-labelledby="al-story-title">
+      <div class="al-head">
+        <h2 id="al-story-title" class="al-heading">L'histoire</h2>
+        <p class="al-hint">Résumé d'après les textes des quêtes, rang par rang.</p>
+      </div>
+      <div class="al-intro">
+        <p><b class="t-bonta">Bonta</b>, la cité blanche, est du côté des anges ; <b class="t-brakmar">Brâkmar</b>, la cité sombre, du côté des démons. Les deux villes se font la guerre depuis toujours, et chacune recrute des aventuriers dans sa milice.</p>
+        <p>À Bonta, tu sers le capitaine <b>Amayiro</b> : une milice honnête mais rongée par les traîtres et les intrigues du conseil. À Brâkmar, tu sers <b>Oto Mustam</b>, un chef cruel et fauché qui te fait faire ses basses besognes. Les deux histoires se répondent souvent mot pour mot (mêmes rangs, mêmes lieux, camps opposés) et finissent par se rejoindre : au rang 90, les deux cités font face à la même menace, l'archevêque Erazal.</p>
+      </div>
+      <ol class="al-arcs">
+        <li class="al-arc">
+          <div class="al-arc-rank"><b>Rangs 0–9</b><span>niv. 30–40</span></div>
+          <div class="al-arc-side bonta"><h3>Bleu dans la milice</h3><p>Entraînement contre les miliciens Tarche et Torche, corvées pour Amayiro (pain, dentier en dents de Chafer), chasse aux miliciens qui boivent au lieu de garder la ville. Première reconnaissance discrète de la grande porte de Brâkmar.</p></div>
+          <div class="al-arc-side brakmar"><h3>Le larbin d'Oto</h3><p>Il faut désosser Mak Gahan le Chafer (qui reviendra se venger), trouver qui a tué le patron de la taverne du Chabrulé, livrer des caisses d'armes blanches et dénoncer les gardes qui ne prennent jamais de pause. Petite provocation : aller voler une bière à Bonta.</p></div>
+        </li>
+        <li class="al-arc">
+          <div class="al-arc-rank"><b>Rangs 10–19</b><span>niv. 50–60</span></div>
+          <div class="al-arc-side bonta"><h3>Espions et égouts</h3><p>Récupérer une dette, contacter l'agent double Bishom Pot à Brâkmar, colmater une brèche au sud et trouver ce qui empoisonne les égouts. Enquête sur la foire du Trool, soupçonnée d'abriter des Brâkmariens, puis contact avec le fantôme du capitaine Tsog. Au rang 20, tu choisis ton Ordre.</p></div>
+          <div class="al-arc-side brakmar"><h3>Les petites affaires</h3><p>Ramener une larve dorée, réclamer le rapport de l'espion Finche Aticus à Bonta, trouver un faiseur de poisons magiques et fabriquer des capes brâkmariennes. Puis Oto t'envoie chercher son testament dans la tombe de son père, au cimetière des Torturés. Au rang 20, tu choisis ton Ordre.</p></div>
+        </li>
+        <li class="al-arc">
+          <div class="al-arc-rank"><b>Rangs 20–29</b><span>niv. 70–80</span></div>
+          <div class="al-arc-side bonta"><h3>L'invocation inconnue</h3><p>Brâkmar utilise une créature inconnue, le Holbaïd. Il faut aussi sauver le colonel Lyeno, disparu dans la forêt des Abraknydes, et passer au service de l'intendant Danathor. Le meurtre de Rimaraf, un ami d'Amayiro, ouvre une enquête, puis vient le défi de Dike Tarak, son neveu.</p></div>
+          <div class="al-arc-side brakmar"><h3>Oto est fauché</h3><p>Corruption, nouvelle taxe à extorquer aux taverniers, vol du Poumon des plaines chez une bijoutière : tout est bon pour renflouer Oto. On traque un espion évadé et ses documents secrets, et pour finir il faut affronter Puja, le fils d'Oto, en étant censé perdre.</p></div>
+        </li>
+        <li class="al-arc">
+          <div class="al-arc-rank"><b>Rangs 30–39</b><span>niv. 90–100</span></div>
+          <div class="al-arc-side bonta"><h3>Coups de main à Brâkmar</h3><p>Combats clandestins au port, reconnaissance du cimetière des Torturés pour trouver une faille, raid contre des guerriers brâkmariens avant qu'ils embarquent. Tu libères Dapyus des geôles de Brâkmar et tu remontes un trafic de stupéfiants.</p></div>
+          <div class="al-arc-side brakmar"><h3>Faire régner la peur</h3><p>Oto veut faire cesser « la joie » dans la cité et museler l'opposition. Il faut repousser une attaque bontarienne, chasser les fantômes de la tour, frapper un commando au port de Bonta et libérer un guerrier capturé. Pour finir : la mulanthropie, pour rendre les troupes d'élite plus féroces.</p></div>
+        </li>
+        <li class="al-arc">
+          <div class="al-arc-rank"><b>Rangs 40–49</b><span>niv. 110–120</span></div>
+          <div class="al-arc-side bonta"><h3>Le traître de la tour</h3><p>Des bandits Ecaflips attaquent les convois depuis un repaire dans les plaines de Cania. Le conseil te retire l'enquête, un rapport t'accuse, et tu dois le voler pour te disculper. La piste mène à Xarthan, un notable qui rencontre un Brâkmarien en secret dans la tour de Bonta. Tu le prends sur le fait.</p></div>
+          <div class="al-arc-side brakmar"><h3>Corrompre Xephirès</h3><p>L'autre face de la même affaire : il faut trouver un Bontarien corruptible, « X ». Après un Sram capturé par des gobelins, l'enlèvement de Sabine contre une rançon et une lettre remise de force par Pandalida, Xephirès accepte de trahir Bonta. Puis on asservit trois âmes au Puits des Âmes Souillées.</p></div>
+        </li>
+        <li class="al-arc">
+          <div class="al-arc-rank"><b>Rangs 50–59</b><span>niv. 130–140</span></div>
+          <div class="al-arc-side bonta"><h3>Réarmer la milice</h3><p>Escarmouche dans la baie de Cania, puis découverte que le forgeron de la milice a eu son contrat par copinage. Tu trouves Nara, un forgeron ermite, que tu installes dans la mine des Porcos, et un tacticien. Danathor t'envoie chercher le grimoire du bwork mage qui a envoûté la Grafioze. La milice teste son nouvel équipement et devance une attaque brâkmarienne.</p></div>
+          <div class="al-arc-side brakmar"><h3>Saboter Bonta</h3><p>Même escarmouche, côté rouge. Tu infiltres la milice de Bonta, tu sabotes son forgeron et tu dois éliminer son tacticien : le tuer, le laisser fuir ou l'acheter, à toi de choisir. Ensuite : un « supermilicien » mystérieux, le forgeron de la mine des Porcos à rallier, un convoi d'armes à intercepter et le navire La Descemer à piller.</p></div>
+        </li>
+        <li class="al-arc">
+          <div class="al-arc-rank"><b>Rangs 60–69</b><span>niv. 150–160</span></div>
+          <div class="al-arc-side bonta"><h3>La Corne Edfrit (douceur)</h3><p>Une corne magique est gardée par la tortue Turorte, sur l'île de Moon. Pour qu'elle apparaisse, il faut porter une Fourbacoiffe et avoir bu du Gloutoburg. Tu l'amadoues avec son bandana, tu rattrapes un espion blessé et tu glisses de faux documents aux Brâkmariens. Mais les pouvoirs de la corne seront mis en scène : ils sont faux.</p></div>
+          <div class="al-arc-side brakmar"><h3>La Corne Edfrit (manière forte)</h3><p>Même corne, même tortue, mais à la brâkmarienne : on la met sur le dos, puis on lui fabrique un grattoir à dos pour négocier. Sur la route, un espion blessé : suivre les ordres et le laisser mourir, ou le sauver ? Oto craint une attaque et fait éliminer une Sram qui lui doit de l'argent.</p></div>
+        </li>
+        <li class="al-arc">
+          <div class="al-arc-rank"><b>Rangs 70–79</b><span>niv. 170–180</span></div>
+          <div class="al-arc-side bonta"><h3>Le procès de Trev</h3><p>Trev Pelsantery est accusé de trahison, mais Amayiro le croit innocent. Tu enquêtes, tu obtiens un délai du juge et tu fais parler un faux témoin, puis tu témoignes au procès en choisissant ton camp. Danathor t'envoie ensuite réunir les morceaux de l'Éclat de l'Aube : souvenirs de dragon, Pensée Perdue, Larmes de Sacrieur.</p></div>
+          <div class="al-arc-side brakmar"><h3>L'épée maudite</h3><p>Oto veut une lame maudite : il faut du fer maudit, l'aide des Huppermages, le Marteau des Chus, de l'eau putride et un forgemage. Pendant ce temps, Domen te fait chanter et t'oblige à comploter dans le dos d'Oto, jusqu'à l'affaire du roi Estitch.</p></div>
+        </li>
+        <li class="al-arc">
+          <div class="al-arc-rank"><b>Rangs 80–89</b><span>niv. 180–190</span></div>
+          <div class="al-arc-side bonta"><h3>Le pacte des dieux et des démons</h3><p>Des troupes brâkmariennes en Amakna, des notables à rallier, puis la course au pacte de non-agression entre dieux et démons : les quatre Pierres Sacrées d'Araknas, le plateau de Leng et le temple de Qu'Tan. Le pacte récupéré est un faux, et l'enquête mène à la tour de Gisgoul.</p></div>
+          <div class="al-arc-side brakmar"><h3>Au service d'Uk'Not'Allag</h3><p>Lassé de toi, Oto te confie au démon Uk'Not'Allag, qui veut changer la tour de Gisgoul en batterie d'énergie. Même course aux Pierres d'Araknas et au faux pacte, mais le but est de libérer le démon de ses entraves, avec Djaul et Grassimore.</p></div>
+        </li>
+        <li class="al-arc">
+          <div class="al-arc-rank"><b>Rangs 90–99</b><span>niv. 190–200</span></div>
+          <div class="al-arc-side bonta"><h3>L'archevêque Erazal</h3><p>Un cambriolage au palais, une puanteur dans la cité, une épidémie partie du Roc des Salbatroces, une patrouille disparue chez les morts-vivants : tout remonte à l'archevêque Erazal. Tu le traques de la cathédrale de Triste Âme à Frigost puis à Srambad, et tu l'affrontes.</p></div>
+          <div class="al-arc-side brakmar"><h3>La danse macabre</h3><p>Le même arc, mot pour mot ou presque : cambriolage dans les sous-sols, épidémie, morts-vivants au cimetière des Torturés, le document codé de Triste Âme et la traque d'Erazal jusqu'à Srambad. Une fois Erazal vaincu, ton Ordre t'accorde son dernier grade.</p></div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ordres" aria-labelledby="al-orders-title">
+      <div class="al-head">
+        <h2 id="al-orders-title" class="al-heading">Les Ordres</h2>
+        <p class="al-hint">Chaque camp a trois Ordres. Une quête d'Ordre se débloque aux rangs 20, 40, 60, 80 et 100, et donne le grade suivant.</p>
+      </div>
+      <div class="al-orders">
+        <div class="al-order-col bonta">
+          <article class="al-order"><h3>Cœur Vaillant <small>Ménalt · Jerhyn Gholein</small></h3><p>Le combat et l'honneur.</p><ol><li>Disciple de Ménalt</li><li>Écuyer</li><li>Chevalier de l'Espoir</li><li>Champion Merveilleux</li><li>Héros Légendaire</li></ol></article>
+          <article class="al-order"><h3>Esprit Salvateur <small>Jiva · Elviana Tirips</small></h3><p>Le savoir et la magie.</p><ol><li>Disciple de Jiva</li><li>Apprenti Éclairé</li><li>Adepte des Écrits</li><li>Maître des Parchemins</li><li>Gardien du Savoir</li></ol></article>
+          <article class="al-order"><h3>Œil Attentif <small>Silvosse · Ebru of El</small></h3><p>L'espionnage et la traque.</p><ol><li>Disciple de Silvosse</li><li>Espion Silencieux</li><li>Chasseur de Renégats</li><li>Assassin Suprême</li><li>Maître des Illusions</li></ol></article>
+        </div>
+        <div class="al-order-col brakmar">
+          <article class="al-order"><h3>Cœur Saignant <small>Djaul · Kaffra Kyper</small></h3><p>La force brute.</p><ol><li>Disciple de Djaul</li><li>Surineur</li><li>Chevalier du Désespoir</li><li>Champion du Chaos</li><li>Héros de l'Apocalypse</li></ol></article>
+          <article class="al-order"><h3>Esprit Malsain <small>Hécate · Divad Dleifrepok</small></h3><p>La magie noire.</p><ol><li>Disciple d'Hécate</li><li>Apprenti Sombre</li><li>Adepte des Douleurs</li><li>Maître des Sévices</li><li>Gardien des Tortures</li></ol></article>
+          <article class="al-order"><h3>Œil Putride <small>Brumaire · Ledrob Terceséc</small></h3><p>L'ombre et l'assassinat.</p><ol><li>Disciple de Brumaire</li><li>Espion Sombre</li><li>Chasseur d'Âmes</li><li>Psychopathe</li><li>Maître des Ombres</li></ol></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="quetes" aria-labelledby="al-list-title">
+      <div class="al-head">
+        <h2 id="al-list-title" class="al-heading">Les 100 quêtes</h2>
+        <p class="al-hint">Une ligne par rang d'alignement. Clique une ligne pour voir les étapes et ce qu'il faut apporter.</p>
+      </div>
+      <div class="al-filters" id="al-filters" role="group" aria-label="Filtrer">
+        <button type="button" data-f="" aria-pressed="true">Toutes</button>
+        <button type="button" data-f="job" aria-pressed="false">Métier</button>
+        <button type="button" data-f="fight" aria-pressed="false">Combat</button>
+        <button type="button" data-f="dungeon" aria-pressed="false">Donjon</button>
+        <button type="button" data-f="help" aria-pressed="false">Aide d'autres joueurs</button>
+      </div>
+      <div class="al-table" id="al-table">
+        <div class="al-row al-row-head" aria-hidden="true"><span>Rang</span><span class="t-bonta">Bonta</span><span class="t-brakmar">Brâkmar</span></div>
+      </div>
+      <p class="al-note" id="al-extra"></p>
+    </section>
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="mx-auto flex w-full max-w-[1120px] flex-col justify-between gap-3 px-4 py-6 text-[11px] text-muted sm:flex-row">
+      <p class="m-0"><span class="font-medium text-ink">Tnul.Songes</span><span class="mx-3">·</span>Va falloir s'améliorer..</p>
+      <p class="m-0">Données des quêtes : <a class="text-accent underline underline-offset-2" href="https://dofusdb.fr/" target="_blank" rel="noopener noreferrer">DofusDB</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/lib/background.js" defer></script>
+  <script src="assets/js/alignement.js" defer></script>
+</body>
+</html>

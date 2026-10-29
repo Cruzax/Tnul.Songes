@@ -32,6 +32,7 @@
       links: [
         { href: "classes.html", label: "Grimoire", hint: "Sorts, combos et mémo des 19 classes", icon: "book" },
         { href: "palette/", label: "Skinoskope", hint: "Couleurs et apparences de skins", icon: "palette" },
+        { href: "alignement.html", label: "Alignements", hint: "Bonta contre Brâkmar, les 100 quêtes", icon: "scales" },
       ],
     },
   ];
@@ -46,6 +47,7 @@
     yin: svg('<circle cx="12" cy="12" r="9"/><path d="M12 3a4.5 4.5 0 0 1 0 9 4.5 4.5 0 0 0 0 9" fill="currentColor"/>'),
     gear: svg('<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/>'),
     orbs: svg('<circle cx="8" cy="9" r="4"/><circle cx="16.5" cy="8.5" r="3"/><circle cx="12" cy="16" r="4.5"/>'),
+    scales: svg('<path d="M12 3v18M7 21h10M4 7h16"/><path d="m6 7-3 7a3 3 0 0 0 6 0zM18 7l-3 7a3 3 0 0 0 6 0z"/>'),
     list: svg('<path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6h.01M4 12h.01M4 18h.01"/>'),
   };
   const gem = (color) => `<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2.5 20 9l-8 12.5L4 9z" fill="${color}" stroke="rgb(0 0 0 / 0.35)" stroke-width="1"/><path d="M4 9h16M12 2.5 9 9l3 12.5L15 9z" fill="none" stroke="rgb(255 255 255 / 0.45)" stroke-width="0.9"/></svg>`;
