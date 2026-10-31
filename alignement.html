@@ -42,8 +42,19 @@
     </header>
 
     <nav class="al-jump" aria-label="Sections">
-      <a href="#chiffres">En chiffres</a><a href="#metiers">Métiers</a><a href="#histoire">L'histoire</a><a href="#ordres">Les Ordres</a><a href="#quetes">Les 100 quêtes</a>
+      <a href="#dalles">Dalles</a><a href="#chiffres">En chiffres</a><a href="#metiers">Objets et métiers</a><a href="#histoire">L'histoire</a><a href="#ordres">Les Ordres</a><a href="#quetes">Les 100 quêtes</a>
     </nav>
+
+    <section id="dalles" aria-labelledby="al-dalles-title">
+      <div class="al-head">
+        <h2 id="al-dalles-title" class="al-heading">Les quêtes à dalles</h2>
+        <p class="al-hint">Les étapes à faire à plusieurs (dalles, leviers, rituels) et les classes, métiers ou Ordres qu'il faut amener. Ton personnage n'a jamais besoin d'une classe précise.</p>
+      </div>
+      <div class="al-dalle-sum" id="al-dalle-sum"></div>
+      <div class="al-dalle-legend" aria-hidden="true"><span class="al-need classe">Classe</span><span class="al-need metier">Métier (niveau)</span><span class="al-need ordre">Ordre / alignement</span><span class="al-need autre">Autre</span></div>
+      <div class="al-dalle-cols" id="al-dalles"></div>
+      <p class="al-note" id="al-dalle-src"></p>
+    </section>
 
     <section id="chiffres" aria-labelledby="al-stats-title">
       <div class="al-head">
@@ -57,15 +68,10 @@
 
     <section id="metiers" aria-labelledby="al-jobs-title">
       <div class="al-head">
-        <h2 id="al-jobs-title" class="al-heading">Métiers et aide</h2>
+        <h2 id="al-jobs-title" class="al-heading">Objets et métiers</h2>
         <p class="al-hint">Nombre de quêtes où un objet à apporter se fabrique ou se récolte avec ce métier. Tout s'achète aussi en hôtel de vente.</p>
       </div>
       <div class="al-jobs" id="al-jobs"></div>
-      <div class="al-help">
-        <h3>Quand il faut d'autres joueurs</h3>
-        <p class="al-hint">Les quêtes ne demandent jamais une classe précise pour ton personnage. Certaines étapes demandent par contre de venir à plusieurs, avec un Sram, un bricoleur ou des artisans.</p>
-        <div class="al-help-cols" id="al-help"></div>
-      </div>
     </section>
 
     <section id="histoire" aria-labelledby="al-story-title">
@@ -160,7 +166,7 @@
         <button type="button" data-f="job" aria-pressed="false">Métier</button>
         <button type="button" data-f="fight" aria-pressed="false">Combat</button>
         <button type="button" data-f="dungeon" aria-pressed="false">Donjon</button>
-        <button type="button" data-f="help" aria-pressed="false">Aide d'autres joueurs</button>
+        <button type="button" data-f="dalle" aria-pressed="false">Dalles / à plusieurs</button>
       </div>
       <div class="al-table" id="al-table">
         <div class="al-row al-row-head" aria-hidden="true"><span>Rang</span><span class="t-bonta">Bonta</span><span class="t-brakmar">Brâkmar</span></div>
@@ -172,7 +178,7 @@
   <footer class="border-t border-line">
     <div class="mx-auto flex w-full max-w-[1120px] flex-col justify-between gap-3 px-4 py-6 text-[11px] text-muted sm:flex-row">
       <p class="m-0"><span class="font-medium text-ink">Tnul.Songes</span><span class="mx-3">·</span>Va falloir s'améliorer..</p>
-      <p class="m-0">Données des quêtes : <a class="text-accent underline underline-offset-2" href="https://dofusdb.fr/" target="_blank" rel="noopener noreferrer">DofusDB</a></p>
+      <p class="m-0">Données des quêtes : <a class="text-accent underline underline-offset-2" href="https://dofusdb.fr/" target="_blank" rel="noopener noreferrer">DofusDB</a> · dalles : <a class="text-accent underline underline-offset-2" href="https://dofus.jeuxonline.info/article/7836/quetes-alignement-bonta-1-60" target="_blank" rel="noopener noreferrer">JeuxOnline</a></p>
     </div>
   </footer>
 

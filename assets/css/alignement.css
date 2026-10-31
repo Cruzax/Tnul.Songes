@@ -36,16 +36,7 @@ section[id] { scroll-margin-top: 5rem; }
 .al-bar-side.is-more .al-bar-value { color: rgb(var(--c-ink)); }
 .al-jobs { margin-bottom: 1.5rem; }
 
-/* Aide d'autres joueurs */
-.al-help h3 { margin: 0 0 0.25rem; font-size: 0.95rem; font-weight: 600; }
-.al-help-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.8rem; }
-.al-help-list { display: grid; align-content: start; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
-.al-help-list li { padding: 0.6rem 0.8rem; border: 1px solid rgb(var(--c-line)); border-left-width: 3px; border-radius: 0.5rem; background: rgb(var(--c-panel)); }
-.al-help-list.bonta li { border-left-color: rgb(var(--bonta)); }
-.al-help-list.brakmar li { border-left-color: rgb(var(--brakmar)); }
-.al-help-list b { font-weight: 600; }
-.al-help-lvl { margin-left: 0.5rem; font-size: 0.75rem; color: rgb(var(--c-muted)); }
-.al-help-list p { margin: 0.2rem 0 0; font-size: 0.8rem; color: rgb(var(--c-muted)); }
+.al-help-lvl { font-size: 0.75rem; color: rgb(var(--c-muted)); }
 
 /* Histoire: un arc par tranche de 10 rangs, les deux camps face à face */
 .al-intro { display: grid; gap: 0.6rem; max-width: 72ch; margin-bottom: 1.2rem; color: rgb(var(--c-ink) / 0.9); line-height: 1.6; }
@@ -125,7 +116,7 @@ section[id] { scroll-margin-top: 5rem; }
 @media (max-width: 760px) {
   .al-sides, .al-bar { grid-template-columns: 1fr minmax(6.5rem, 8rem) 1fr; gap: 0.4rem; }
   .al-bar-label { font-size: 0.75rem; }
-  .al-help-cols, .al-orders { grid-template-columns: minmax(0, 1fr); }
+  .al-orders { grid-template-columns: minmax(0, 1fr); }
   .al-arc { grid-template-columns: minmax(0, 1fr); }
   .al-arc-rank { flex-direction: row; gap: 0.5rem; justify-content: flex-start; text-align: left; }
   .al-row, .al-detail { grid-template-columns: 2.2rem minmax(0, 1fr) minmax(0, 1fr); }
@@ -133,4 +124,34 @@ section[id] { scroll-margin-top: 5rem; }
   .al-row-head > span { padding: 0.5rem; }
   .al-row-head > span:first-child { padding: 0.5rem 0.2rem; text-align: center; }
   .al-name { font-size: 0.8rem; }
+}
+
+/* Quêtes à dalles: un total par camp, puis une carte par quête */
+.al-dalle-sum { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+.al-dalle-total { display: grid; gap: 0.15rem; padding: 0.7rem 0.9rem; border: 1px solid rgb(var(--c-line)); border-radius: 0.5rem; background: rgb(var(--c-panel)); }
+.al-dalle-total.bonta { background: linear-gradient(135deg, rgb(var(--bonta) / 0.12), transparent 60%), rgb(var(--c-panel)); }
+.al-dalle-total.brakmar { background: linear-gradient(135deg, rgb(var(--brakmar) / 0.12), transparent 60%), rgb(var(--c-panel)); }
+.al-dalle-total.bonta b { color: rgb(var(--bonta)); }
+.al-dalle-total.brakmar b { color: rgb(var(--brakmar)); }
+.al-dalle-total span { font-size: 0.8rem; color: rgb(var(--c-muted)); }
+.al-dalle-legend { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.75rem; }
+.al-dalle-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; align-items: start; }
+.al-dalle-list { display: grid; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+.al-dalle { display: grid; gap: 0.4rem; padding: 0.7rem 0.85rem; border: 1px solid rgb(var(--c-line)); border-left-width: 3px; border-radius: 0.5rem; background: rgb(var(--c-panel)); }
+.al-dalle-list.bonta .al-dalle { border-left-color: rgb(var(--bonta)); }
+.al-dalle-list.brakmar .al-dalle { border-left-color: rgb(var(--brakmar)); }
+.al-dalle-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 0.5rem; }
+.al-dalle-head b { font-weight: 600; }
+.al-dalle-head .al-help-lvl { margin-left: 0; }
+.al-players { margin-left: auto; padding: 0.05rem 0.5rem; border-radius: 999px; background: rgb(var(--c-panel2)); font-size: 0.72rem; font-weight: 600; white-space: nowrap; }
+.al-dalle p { margin: 0; font-size: 0.8rem; line-height: 1.45; color: rgb(var(--c-ink) / 0.8); }
+.al-needs-chips { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.al-need { padding: 0.1rem 0.5rem; border-radius: 0.35rem; font-size: 0.72rem; font-weight: 600; }
+.al-need.classe { background: rgb(var(--c-accent) / 0.15); color: rgb(var(--c-accent)); }
+.al-need.metier { background: rgb(var(--c-warm) / 0.15); color: rgb(var(--c-warm)); }
+.al-need.ordre { background: rgb(var(--c-power) / 0.16); color: rgb(var(--c-power)); }
+.al-need.autre { background: rgb(var(--c-muted) / 0.16); color: rgb(var(--c-ink) / 0.8); }
+.al-detail-side .al-needs-chips { margin: 0.3rem 0 0.2rem; }
+@media (max-width: 760px) {
+  .al-dalle-sum, .al-dalle-cols { grid-template-columns: minmax(0, 1fr); }
 }

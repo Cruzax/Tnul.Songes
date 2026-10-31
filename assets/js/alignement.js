@@ -1,5 +1,6 @@
 // Page « Bonta contre Brâkmar »: chiffres, métiers et tableau des quêtes d'alignement (data/alignement.json,
-// écrit par tools/build-alignement.js depuis DofusDB). L'histoire et les Ordres sont écrits dans la page.
+// écrit par tools/build-alignement.js depuis DofusDB) et quêtes à dalles (data/alignement-dalles.json, relevé à la main).
+// L'histoire et les Ordres sont écrits dans la page.
 (function () {
   const SIDES = ["bonta", "brakmar"];
   const NAMES = { bonta: "Bonta", brakmar: "Brâkmar" };
@@ -14,12 +15,17 @@
   const sum = (list, fn) => list.reduce((total, item) => total + fn(item), 0);
   const jobsOf = (quest) => [...new Set(quest.needs.filter((need) => need.job).map((need) => need.job))];
 
-  function render(quests) {
+  function render(quests, dalles) {
     const bySide = Object.fromEntries(SIDES.map((side) => [side, quests.filter((quest) => quest.side === side)]));
+    // Chaque relevé de dalles est rattaché à la quête principale de son rang
+    SIDES.forEach((side) => (dalles[side] || []).forEach((dalle) => {
+      const quest = bySide[side].find((q) => q.kind === "principale" && q.rank === dalle.rank);
+      if (quest) quest.dalle = dalle;
+    }));
     SIDES.forEach((side) => { document.getElementById(`al-count-${side}`).textContent = bySide[side].length; });
     renderStats(bySide);
     renderJobs(bySide);
-    renderHelp(bySide);
+    renderDalles(bySide, dalles);
     renderTable(bySide);
   }
 
@@ -37,7 +43,7 @@
       ["Cartes à découvrir", (list) => sum(list, (q) => q.count.cartes)],
       ["Combats imposés", (list) => sum(list, (q) => q.count.combats)],
       ["Quêtes avec un donjon", (list) => list.filter((q) => q.dungeon).length],
-      ["Quêtes où il faut de l'aide", (list) => list.filter((q) => q.help).length],
+      ["Quêtes à dalles ou à plusieurs", (list) => list.filter((q) => q.dalle).length],
       ["Quêtes qui sollicitent un métier", (list) => list.filter((q) => jobsOf(q).length).length],
     ];
     const box = document.getElementById("al-stats");
@@ -93,17 +99,43 @@
       });
   }
 
-  function renderHelp(bySide) {
-    const box = document.getElementById("al-help");
+  // Quêtes à dalles: résumé par camp, puis une carte par quête (joueurs, besoins, placement)
+  function needChip(need) {
+    return el("span", `al-need ${need.kind}`, need.level ? `${need.label} ${need.level}` : need.label);
+  }
+
+  function renderDalles(bySide, dalles) {
+    const sumBox = document.getElementById("al-dalle-sum");
+    const cols = document.getElementById("al-dalles");
     SIDES.forEach((side) => {
-      const col = el("ul", `al-help-list ${side}`);
-      bySide[side].filter((q) => q.help).forEach((quest) => {
-        const item = el("li");
-        item.append(el("b", "", quest.name), el("span", "al-help-lvl", `rang ${quest.rank} · niv. ${quest.level}`), el("p", "", quest.help));
+      const quests = bySide[side].filter((q) => q.dalle);
+      const jobs = new Set(quests.flatMap((q) => q.dalle.needs.filter((n) => n.kind === "metier").map((n) => n.label)));
+      // Les libellés peuvent nommer plusieurs classes (« Sram ou Espion », « 2 Sadidas »): on compte les classes citées
+      const classes = new Set(quests.flatMap((q) => q.dalle.needs.filter((n) => n.kind === "classe")
+        .flatMap((n) => n.label.match(/Iop|Crâ|Eniripsa|Enutrof|Féca|Sram|Xélor|Ecaflip|Sacrieur|Sadida|Osamodas|Pandawa|Roublard|Zobal|Steamer|Eliotrope|Huppermage|Ouginak|Forgelance/g) || [])));
+      const card = el("div", `al-dalle-total ${side}`);
+      card.append(el("b", "", `${NAMES[side]} : ${quests.length} quêtes`));
+      card.append(el("span", "", `jusqu'à ${Math.max(...quests.map((q) => q.dalle.players))} joueurs · ${jobs.size} métiers · ${classes.size} classes demandées`));
+      sumBox.append(card);
+
+      const col = el("ol", `al-dalle-list ${side}`);
+      quests.forEach((quest) => {
+        const item = el("li", "al-dalle");
+        const head = el("div", "al-dalle-head");
+        head.append(el("b", "", quest.name), el("span", "al-help-lvl", `rang ${quest.rank} · niv. ${quest.level}`));
+        head.append(el("span", "al-players", quest.dalle.players > 1 ? `${quest.dalle.players} joueurs` : "solo"));
+        item.append(head);
+        if (quest.dalle.needs.length) {
+          const needs = el("div", "al-needs-chips");
+          quest.dalle.needs.forEach((need) => needs.append(needChip(need)));
+          item.append(needs);
+        }
+        item.append(el("p", "", quest.dalle.how));
         col.append(item);
       });
-      box.append(col);
+      cols.append(col);
     });
+    document.getElementById("al-dalle-src").textContent = `${dalles.note} Source : ${dalles.source}.`;
   }
 
   // Tableau: une ligne par rang, la quête de chaque camp avec des pastilles (métier, combat, donjon, aide)
@@ -156,7 +188,7 @@
     if (jobsOf(quest).length) list.push("job");
     if (quest.count.combats) list.push("fight");
     if (quest.dungeon) list.push("dungeon");
-    if (quest.help) list.push("help");
+    if (quest.dalle) list.push("dalle");
     return list;
   }
 
@@ -168,7 +200,7 @@
     jobsOf(quest).forEach((job) => tags.append(el("span", "al-tag job", job)));
     if (quest.count.combats) tags.append(el("span", "al-tag fight", `${quest.count.combats} combat${quest.count.combats > 1 ? "s" : ""}`));
     if (quest.dungeon) tags.append(el("span", "al-tag dungeon", "Donjon"));
-    if (quest.help) tags.append(el("span", "al-tag help", "Aide"));
+    if (quest.dalle) tags.append(el("span", "al-tag help", quest.dalle.players > 1 ? `Dalles · ${quest.dalle.players} joueurs` : "Métier imposé"));
     cell.append(el("span", "al-lvl", `niv. ${quest.level}`), tags);
     return cell;
   }
@@ -192,13 +224,16 @@
       box.append(list);
     }
     if (quest.fights.length) box.append(el("p", "al-fights", `Combats : ${quest.fights.map((f) => (f.qty > 1 ? `${f.qty} × ${f.name}` : f.name)).join(", ")}`));
-    if (quest.help) box.append(el("p", "al-fights", `Aide : ${quest.help}`));
+    if (quest.dalle) {
+      const needs = el("div", "al-needs-chips");
+      quest.dalle.needs.forEach((need) => needs.append(needChip(need)));
+      box.append(needs, el("p", "al-fights", quest.dalle.how));
+    }
     return box;
   }
 
-  fetch("data/alignement.json")
-    .then((response) => response.json())
-    .then((data) => render(data.quests))
+  Promise.all(["data/alignement.json", "data/alignement-dalles.json"].map((url) => fetch(url).then((response) => response.json())))
+    .then(([data, dalles]) => render(data.quests, dalles))
     .catch(() => {
       document.getElementById("al-stats").textContent = "Les quêtes n'ont pas pu être chargées.";
     });

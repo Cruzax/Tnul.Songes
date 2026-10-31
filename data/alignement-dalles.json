@@ -1,0 +1,33 @@
+{
+  "source": "JeuxOnline, guides des quêtes d'alignement (Bonta 1-60 et 61-100, Brâkmar 1-60 et 61-100)",
+  "note": "Ces étapes se règlent à plusieurs (dalles, leviers, rituels). Les données des quêtes ne les décrivent pas : relevé fait à la main, à revérifier en jeu après une mise à jour.",
+  "bonta": [
+    { "rank": 45, "players": 2, "needs": [], "how": "Un ami se place devant le garde de la Tour des Ordres et lui dit « miaou » pendant que tu voles le rapport." },
+    { "rank": 46, "players": 2, "needs": [{ "kind": "classe", "label": "Sram ou Espion" }], "how": "Le Sram (ou l'Espion) se met sur la dalle en bas à droite ; tu cliques la chaîne à gauche pour ouvrir, puis le tonneau du fond." },
+    { "rank": 47, "players": 2, "needs": [{ "kind": "metier", "label": "Bricoleur", "level": 200 }], "how": "Le bricoleur se place devant la porte de la maison de Xarthan [-26,-50], puis tu entres. Ça peut être toi." },
+    { "rank": 53, "players": 5, "needs": [], "how": "Tout le groupe entre dans la grotte. Tu actionnes le levier, puis 2 joueurs (pas toi) tiennent les dalles dans chacune des deux salles suivantes ; levier final dans la dernière salle." },
+    { "rank": 55, "players": 4, "needs": [], "how": "Après le combat d'entrée (8 monstres), 2 joueurs en salle A, 1 en salle N, 1 en salle R, chacun sur la dalle qui correspond à la pièce mécanique récupérée." },
+    { "rank": 56, "players": 4, "needs": [{ "kind": "autre", "label": "Attitude Fleurs" }, { "kind": "metier", "label": "Bûcheron", "level": 120 }, { "kind": "metier", "label": "Alchimiste" }, { "kind": "classe", "label": "Sadida", "level": 56 }], "how": "Rituel aux lacs Koalaks : chacun se place à son poste autour du rituel." },
+    { "rank": 58, "players": 3, "needs": [{ "kind": "classe", "label": "2 Sadidas (un mâle, une femelle)" }], "how": "Salle 1 : les deux Sadidas sur leurs dalles, toi au milieu. Salle 2 : carapaces devant leurs totems. Salle 3 : Ambre, Patte d'Arakne Majeure et Poudre de Perlinpinpin sur leurs dalles (c'est écrit dessus)." },
+    { "rank": 68, "players": 3, "needs": [{ "kind": "classe", "label": "Eniripsa" }], "how": "Sous l'atelier des alchimistes d'Astrub : se placer devant le mur pour ouvrir le passage, puis l'Eniripsa face au chaudron et les deux aides à leur place pour le rituel." },
+    { "rank": 74, "players": 4, "needs": [], "how": "En [9,15], cliquer la torche en hauteur pour ouvrir le passage, puis occuper les 4 dalles." },
+    { "rank": 75, "players": 4, "needs": [], "how": "Déposer une ressource sur chaque dalle marquée d'une lettre ([-17,7], [28,-46], [-42,-17]), levier en [-14,-31]. Au combat, 4 personnages autour du bon coffre." },
+    { "rank": 78, "players": 2, "needs": [{ "kind": "classe", "label": "Pandawa" }, { "kind": "metier", "label": "Forgeron", "level": 179 }], "how": "En [25,-22], le Pandawa clique la tête de panda ; tu passes par l'accès ouvert et te places sur la dalle. Le forgeron fabrique la Pelle Hectrochoc." },
+    { "rank": 79, "players": 1, "needs": [{ "kind": "metier", "label": "Tailleur", "level": 180 }], "how": "Le Masque de Zag se fabrique en tailleur. Derrière Pu Shan, suivre le chemin de cases dans l'ordre indiqué jusqu'à la dalle finale." },
+    { "rank": 95, "players": 5, "needs": [], "how": "5 pour entrer en [-6,5] (combat à 4 maximum). Se placer, boire le jus de l'inventaire et cliquer le totem." }
+  ],
+  "brakmar": [
+    { "rank": 42, "players": 3, "needs": [{ "kind": "autre", "label": "Une corde d'escalade chacun" }], "how": "Les trois sur les dalles de la carte de gauche, puis parler au Sram." },
+    { "rank": 45, "players": 4, "needs": [{ "kind": "metier", "label": "Alchimiste", "level": 200 }, { "kind": "metier", "label": "Joaillomage", "level": 200 }, { "kind": "metier", "label": "Mineur", "level": 200 }], "how": "Trois artisans différents. Tu te mets sur la dalle de gauche ; ils actionnent leurs leviers dans l'ordre alchimiste, joaillomage, mineur." },
+    { "rank": 48, "players": 4, "needs": [{ "kind": "classe", "label": "Sram" }, { "kind": "classe", "label": "Pandawa" }, { "kind": "classe", "label": "Osamodas" }], "how": "Le Sram sur la 1re dalle, le Pandawa sur la 2e, toi sur la 3e ; l'Osamodas ouvre la porte." },
+    { "rank": 49, "players": 5, "needs": [{ "kind": "ordre", "label": "4 Brâkmariens alignement 20+" }], "how": "Les cinq sur les dalles pour ouvrir la grotte en [14,18]." },
+    { "rank": 56, "players": 4, "needs": [], "how": "2 joueurs en salle A, 1 en salle N, 1 en salle R, chacun sur la dalle de la pièce mécanique récupérée." },
+    { "rank": 64, "players": 3, "needs": [{ "kind": "metier", "label": "Forgeron", "level": 155 }, { "kind": "metier", "label": "Sculpteur", "level": 155 }, { "kind": "metier", "label": "Bricoleur", "level": 155 }], "how": "À l'atelier des forgerons, levier vers la salle secrète où se fait la fabrication du grattoir." },
+    { "rank": 67, "players": 6, "needs": [{ "kind": "metier", "label": "Paysan", "level": 159 }, { "kind": "metier", "label": "Alchimiste", "level": 159 }, { "kind": "metier", "label": "Bûcheron", "level": 159 }, { "kind": "metier", "label": "Pêcheur", "level": 159 }, { "kind": "metier", "label": "Chasseur", "level": 159 }], "how": "En [-14,-9], les six sur les dalles numérotées 1 à 6 dans l'ordre, puis chaque artisan sur la case de son métier ; cliquer le chaudron violet." },
+    { "rank": 71, "players": 3, "needs": [{ "kind": "metier", "label": "Sculpteur", "level": 172 }, { "kind": "metier", "label": "Forgeron", "level": 172 }, { "kind": "metier", "label": "Bricoleur", "level": 172 }], "how": "Les trois artisans dans la salle secrète de l'atelier des forgerons." },
+    { "rank": 73, "players": 2, "needs": [{ "kind": "ordre", "label": "Esprit Malsain, alignement 60+" }, { "kind": "ordre", "label": "Œil Putride, alignement 60+" }], "how": "Salle d'exorcisme sous la tour de Brâkmar, les deux sur les dalles noires, puis combat à deux contre l'Esprit de Lumière." },
+    { "rank": 74, "players": 2, "needs": [], "how": "Deux personnes sur les dalles de la pièce secrète de l'atelier des alchimistes d'Astrub." },
+    { "rank": 75, "players": 1, "needs": [{ "kind": "metier", "label": "Forgemage", "level": 200 }], "how": "Le forgemage se place sur la dalle de l'atelier caché en [-23,33]. Il faut d'abord acheter la clé (2 000 kamas)." },
+    { "rank": 95, "players": 5, "needs": [], "how": "5 pour entrer en [-6,5] (combat à 4 maximum), placement indiqué sur place." }
+  ]
+}

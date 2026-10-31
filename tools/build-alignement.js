@@ -12,21 +12,7 @@ const SIDES = { 9: "bonta", 10: "brakmar" }; // catégories « Alignement Bonta 
 // Ressources récoltées (pas de recette): métier de récolte d'après le type d'objet
 const HARVEST = { Bois: "Bûcheron", Minerai: "Mineur", "Céréale": "Paysan", Fleur: "Alchimiste", Plante: "Alchimiste", Bourgeon: "Alchimiste", Poisson: "Pêcheur" };
 
-// Étapes qui demandent l'aide d'autres joueurs: ce n'est écrit que dans le texte de l'étape, pas dans les données
-const HELP = {
-  259: "Descendre dans le repaire des bandits à plusieurs (« N'y allez pas seul ! »)",
-  261: "Inspecter le repaire à plusieurs, avec une corde d'escalade",
-  262: "Un complice pour détourner l'attention du garde",
-  263: "Un Sram ou un espion qualifié pour entrer dans les réserves de poison",
-  264: "Un bricoleur compétent pour fouiller la maison de Xarthan",
-  286: "Plusieurs aventuriers pour le rituel des lacs Koalaks",
-  333: "Des personnes de confiance pour la mise en scène de la Corne",
-  248: "Un bricoleur pour descendre",
-  252: "Un milicien qualifié, puis des artisans expérimentés pour le passage secret",
-  256: "De l'aide pour désamorcer les pièges du repaire",
-  445: "Des Brâkmariens qui ont déjà choisi un Ordre, pour capturer les trois âmes",
-  278: "Des renforts pour intercepter le convoi d'armes",
-};
+// Les étapes à faire à plusieurs (dalles, leviers) ne sont pas dans ces données: voir data/alignement-dalles.json.
 
 // Issues au choix d'une quête (Brâkmar): le tacticien (tué, épargné ou acheté) et l'espion blessé
 const CHOICES = new Set([272, 273, 274, 311, 312]);
@@ -137,7 +123,6 @@ async function main() {
       needs,
       fights,
       dungeon,
-      ...(HELP[quest.id] ? { help: HELP[quest.id] } : {}),
     };
   }).sort((a, b) => a.level - b.level || a.id - b.id);
 
